@@ -37,7 +37,13 @@ void MyClass::Loop()
    for (Long64_t jentry=0; jentry<nentries;jentry++) {
       Long64_t ientry = LoadTree(jentry);
       if (ientry < 0) break;
-      nb = fChain->GetEntry(jentry);   nbytes += nb;
+      nb = fChain->GetEntry(jentry);
+      nbytes += nb;
       // if (Cut(ientry) < 0) continue;
+      if (jentry % 1000 == 0)
+      {
+         std::cout << "Event " << jentry << std::endl;
+      }
+      std::cout << "nLowPtElectron = " << nLowPtElectron << std::endl;
    }
 }
