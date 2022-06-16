@@ -13,9 +13,20 @@ ROOT.TH1.AddDirectory(False)
 
 def plot(hist, sample_name, plot_dir, plot_name):
     c = ROOT.TCanvas("c", "c", 800, 800)
+    c.SetLeftMargin(0.15)
+
+    # setup
+    title = plot_name
+    x_title = "p_{T} [GeV]"
+    y_title = "Entries"
+    y_min = 0
+    y_max = 3000
+    color = "black"
+    lineWidth = 1
+    tools.setupHist(hist, title, x_title, y_title, y_min, y_max, color, lineWidth)
     
     # draw
-    hist.Draw()
+    hist.Draw("hist error same")
 
     # save plot
     output_name = "{0}/{1}".format(plot_dir, plot_name)
