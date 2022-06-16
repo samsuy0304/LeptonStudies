@@ -11,10 +11,22 @@ ROOT.gROOT.SetBatch(ROOT.kTRUE)
 # Tell ROOT not to be in charge of memory, fix issue of histograms being deleted when ROOT file is closed:
 ROOT.TH1.AddDirectory(False)
 
-def plot(plot_dir, output_name, tree):
-    print("Plotting")
-    n_events = tree.GetEntries()
-    print("n_events = {0}".format(n_events))
+def plot(hist, sample_name, plot_dir, plot_name):
+    c = ROOT.TCanvas("c", "c", 800, 800)
+    
+    # draw
+    hist.Draw()
+
+    # save plot
+    output_name = "{0}/{1}".format(plot_dir, plot_name)
+    c.Update()
+    c.SaveAs(output_name + ".pdf")
+
+def run(plot_dir, sample_name, tree):
+    verbose     = False
+    n_events    = tree.GetEntries()
+    # histograms
+    h_LowPtElectron_pt = ROOT.TH1F("h_LowPtElectron_pt", "h_LowPtElectron_pt", 20, 0.0, 20.0)
     for i in range(n_events):
         if i % 1000 == 0:
             print("Event {0}".format(i))
@@ -24,14 +36,17 @@ def plot(plot_dir, output_name, tree):
         LowPtElectron_eta   = tree.LowPtElectron_eta
         LowPtElectron_phi   = tree.LowPtElectron_phi
         LowPtElectron_mass  = tree.LowPtElectron_mass
+        # loop over LowPtElectron
         for j in range(nLowPtElectron):
-            #print("LowPtElectron_pt[{0}]: {1:.3f}".format(j, LowPtElectron_pt[j]))
-            print("LowPtElectron {0}: pt = {1:.3f}, eta = {2:.3f}, phi = {3:.3f}, mass = {4:.3f}".format(j, LowPtElectron_pt[j], LowPtElectron_eta[j], LowPtElectron_phi[j], LowPtElectron_mass[j]))
+            if verbose:
+                print("LowPtElectron {0}: pt = {1:.3f}, eta = {2:.3f}, phi = {3:.3f}, mass = {4:.3f}".format(j, LowPtElectron_pt[j], LowPtElectron_eta[j], LowPtElectron_phi[j], LowPtElectron_mass[j]))
+            h_LowPtElectron_pt.Fill(LowPtElectron_pt[j])
+    plot(h_LowPtElectron_pt, sample_name, plot_dir, "h_LowPtElectron_pt")
 
 def makePlots():
     input_file  = "/uscms/home/caleb/nobackup/KU_Compressed_SUSY/samples/SMS-T2-4bd_genMET-80_mStop-500_mLSP-490_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/4153AE9C-1215-A847-8E0A-DEBE98140664.root"
     plot_dir    = "plots"
-    output_name = "SMS-T2-4bd_genMET-80_mStop-500_mLSP-490"
+    sample_name = "SMS-T2-4bd_genMET-80_mStop-500_mLSP-490"
     
     # WARNING: Make sure to open file here, not within getTree() so that TFile stays open. 
     #          If TFile closes, then TTree object is destroyed.
@@ -40,7 +55,7 @@ def makePlots():
     tree        = tools.getTree(open_file, tree_name)
 
     tools.makeDir(plot_dir)
-    plot(plot_dir, output_name, tree)
+    run(plot_dir, sample_name, tree)
 
 def main():
     makePlots()
