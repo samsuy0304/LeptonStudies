@@ -45,5 +45,12 @@ void MyClass::Loop()
          std::cout << "Event " << jentry << std::endl;
       }
       std::cout << "nLowPtElectron = " << nLowPtElectron << std::endl;
+      if (nLowPtElectron > 0)
+      {
+          //std::cout << "LowPtElectron_genPartIdx[0]=" << LowPtElectron_genPartIdx[0] << ", LowPtElectron_genPartFlav[0]=" << LowPtElectron_genPartFlav[0] << "," << std::endl;
+          printf("LowPtElectron_genPartIdx[0]=%d, LowPtElectron_genPartFlav[0]=%hhu\n", LowPtElectron_genPartIdx[0], LowPtElectron_genPartFlav[0]);
+          int genPartFlav = int(LowPtElectron_genPartFlav[0]);
+          printf("genPartFlav=%d\n", genPartFlav);
+      }
    }
 }
