@@ -20,6 +20,11 @@ def getLabel(key):
         "eta"           : "#eta",
         "phi"           : "#phi",
         "mass"          : "m [GeV]",
+        "genPartIdx"    : "genPartIdx",
+        "genPartFlav"   : "genPartFlav",
+        "dxy"           : "dxy",
+        "dxyErr"        : "dxyErr",
+        "dxySig"        : "dxySig",
     }
     return labels[key]
 
@@ -56,6 +61,13 @@ def run(plot_dir, sample_name, tree):
     h_LowPtElectron_eta     = ROOT.TH1F("h_LowPtElectron_eta",  "h_LowPtElectron_eta",  20,   -3.0,   3.0)
     h_LowPtElectron_phi     = ROOT.TH1F("h_LowPtElectron_phi",  "h_LowPtElectron_phi",  20, -np.pi, np.pi)
     h_LowPtElectron_mass    = ROOT.TH1F("h_LowPtElectron_mass", "h_LowPtElectron_mass", 20,  -0.01,  0.01)
+    h_LowPtElectron_genPartIdx  = ROOT.TH1F("h_LowPtElectron_genPartIdx", "h_LowPtElectron_genPartIdx", 20, 0, 100)
+    h_LowPtElectron_genPartFlav = ROOT.TH1F("h_LowPtElectron_genPartFlav", "h_LowPtElectron_genPartFlav", 30, 0, 30)
+    h_LowPtElectron_dxy         = ROOT.TH1F("h_LowPtElectron_dxy", "h_LowPtElectron_dxy", 40,  -0.02,  0.02)
+    h_LowPtElectron_dxyErr      = ROOT.TH1F("h_LowPtElectron_dxyErr", "h_LowPtElectron_dxyErr", 40,  0,  0.1)
+    h_LowPtElectron_dxySig      = ROOT.TH1F("h_LowPtElectron_dxySig", "h_LowPtElectron_dxySig", 50,  0,  5.0)
+    h_LowPtElectron_dxySig0     = ROOT.TH1F("h_LowPtElectron_dxySig0", "h_LowPtElectron_dxySig0", 50,  0,  5.0)
+    h_LowPtElectron_dxySig5     = ROOT.TH1F("h_LowPtElectron_dxySig5", "h_LowPtElectron_dxySig5", 50,  0,  5.0)
     
     # loop over events
     for i in range(n_events):
@@ -72,19 +84,66 @@ def run(plot_dir, sample_name, tree):
         LowPtElectron_eta   = tree.LowPtElectron_eta
         LowPtElectron_phi   = tree.LowPtElectron_phi
         LowPtElectron_mass  = tree.LowPtElectron_mass
+        LowPtElectron_genPartIdx    = tree.LowPtElectron_genPartIdx
+        LowPtElectron_genPartFlav   = tree.LowPtElectron_genPartFlav
+        LowPtElectron_dxy           = tree.LowPtElectron_dxy
+        LowPtElectron_dxyErr        = tree.LowPtElectron_dxyErr
             
         # fill histograms (per event)
         h_nLowPtElectron.Fill(nLowPtElectron)
+
+        #LowPtElectron_genPartIdx[5];   //[nLowPtElectron]
+        #LowPtElectron_genPartFlav[5];   //[nLowPtElectron]
+
+        #print("LowPtElectron_genPartFlav object:")
+        #print(LowPtElectron_genPartFlav)
         
         # loop over LowPtElectron
         for j in range(nLowPtElectron):
+            dxySig = abs(LowPtElectron_dxy[j] / LowPtElectron_dxyErr[j])
             if verbose:
                 print("LowPtElectron {0}: pt = {1:.3f}, eta = {2:.3f}, phi = {3:.3f}, mass = {4:.3f}".format(j, LowPtElectron_pt[j], LowPtElectron_eta[j], LowPtElectron_phi[j], LowPtElectron_mass[j]))
+            
+            #if LowPtElectron_genPartFlav[j] == "":
+            #    print("BLANK STRING")
+            #else:
+            #    print("NOT BLANK STRING")
+            #
+            #if LowPtElectron_genPartFlav[j] == " ":
+            #    print("SPACE STRING")
+            #else:
+            #    print("NOT SPACE STRING")
+            #
+            #if LowPtElectron_genPartFlav[j] == "0":
+            #    print("ZERO STRING")
+            #else:
+            #    print("NOT ZERO STRING")
+            
+            #if LowPtElectron_genPartFlav[j] == "\0":
+            #    print("NULL STRING")
+            #else:
+            #    print("NOT NULL STRING")
+            
+            #print("LowPtElectron_genPartFlav Type: {0}".format(type(LowPtElectron_genPartFlav[j])))
+            #if LowPtElectron_genPartFlav[j]: 
+            #    print("LowPtElectron {0}: LowPtElectron_genPartFlav = {1}".format(j, LowPtElectron_genPartFlav[j]))
+            #    #print("LowPtElectron {0}: LowPtElectron_genPartFlav = {1}".format(j, int(LowPtElectron_genPartFlav[j])))
             # fill histograms (per LowPtElectron)
             h_LowPtElectron_pt.Fill(LowPtElectron_pt[j])
             h_LowPtElectron_eta.Fill(LowPtElectron_eta[j])
             h_LowPtElectron_phi.Fill(LowPtElectron_phi[j])
             h_LowPtElectron_mass.Fill(LowPtElectron_mass[j])
+            h_LowPtElectron_genPartIdx.Fill(LowPtElectron_genPartIdx[j])
+            #if LowPtElectron_genPartFlav[j]: 
+            #    h_LowPtElectron_genPartFlav.Fill(int(LowPtElectron_genPartFlav[j]))
+            h_LowPtElectron_dxy.Fill(LowPtElectron_dxy[j])
+            h_LowPtElectron_dxyErr.Fill(LowPtElectron_dxyErr[j])
+            h_LowPtElectron_dxySig.Fill(dxySig)
+            if LowPtElectron_genPartFlav[j]: 
+                if LowPtElectron_genPartFlav[j] == '0':
+                    h_LowPtElectron_dxySig0.Fill(dxySig)
+                if LowPtElectron_genPartFlav[j] == '5':
+                    h_LowPtElectron_dxySig5.Fill(dxySig)
     
     # plot histograms
     plotHist(h_nLowPtElectron,      sample_name, plot_dir, "nLowPtElectron",        "nElectrons",   0.0,  10000.0)
@@ -92,12 +151,21 @@ def run(plot_dir, sample_name, tree):
     plotHist(h_LowPtElectron_eta,   sample_name, plot_dir, "LowPtElectron_eta",     "eta",          0.0,   1000.0)
     plotHist(h_LowPtElectron_phi,   sample_name, plot_dir, "LowPtElectron_phi",     "phi",          0.0,   1000.0)
     plotHist(h_LowPtElectron_mass,  sample_name, plot_dir, "LowPtElectron_mass",    "mass",         0.0,   3000.0)
+    plotHist(h_LowPtElectron_genPartIdx,    sample_name, plot_dir, "LowPtElectron_genPartIdx",  "genPartIdx",   0.0,   10000.0)
+    plotHist(h_LowPtElectron_genPartFlav,   sample_name, plot_dir, "LowPtElectron_genPartFlav", "genPartFlav",  0.0,   10000.0)
+    plotHist(h_LowPtElectron_dxy,           sample_name, plot_dir, "LowPtElectron_dxy",         "dxy",          0.0,   2000.0)
+    plotHist(h_LowPtElectron_dxyErr,        sample_name, plot_dir, "LowPtElectron_dxyErr",      "dxyErr",       0.0,   10000.0)
+    plotHist(h_LowPtElectron_dxySig,        sample_name, plot_dir, "LowPtElectron_dxySig",      "dxySig",       0.0,   2000.0)
+    plotHist(h_LowPtElectron_dxySig0,       sample_name, plot_dir, "LowPtElectron_dxySig0",     "dxySig",       0.0,   500.0)
+    plotHist(h_LowPtElectron_dxySig5,       sample_name, plot_dir, "LowPtElectron_dxySig5",     "dxySig",       0.0,   500.0)
 
 # run over input file
 def makePlots():
     input_file  = "/uscms/home/caleb/nobackup/KU_Compressed_SUSY/samples/SMS-T2-4bd_genMET-80_mStop-500_mLSP-490_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/4153AE9C-1215-A847-8E0A-DEBE98140664.root"
+    #input_file  = "/uscms/home/caleb/nobackup/KU_Compressed_SUSY/samples/TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/5457F199-A129-2A40-8127-733D51A9A3E6.root"
     plot_dir    = "plots"
     sample_name = "SMS-T2-4bd_genMET-80_mStop-500_mLSP-490"
+    #sample_name = "TTJets_DiLept"
     
     # WARNING: Make sure to open file here, not within getTree() so that TFile stays open. 
     #          If TFile closes, then TTree object is destroyed.
