@@ -20,11 +20,11 @@ def getLabel(key):
         "eta"           : "#eta",
         "phi"           : "#phi",
         "mass"          : "m [GeV]",
-        "genPartIdx"    : "genPartIdx",
-        "genPartFlav"   : "genPartFlav",
-        "dxy"           : "dxy",
-        "dxyErr"        : "dxyErr",
-        "dxySig"        : "dxySig",
+        "genPartIdx"    : "Gen Part Idx",
+        "genPartFlav"   : "Gen Part Flav",
+        "dxy"           : "d_{xy}",
+        "dxyErr"        : "d_{xy} err",
+        "dxySig"        : "d_{xy} sig",
     }
     return labels[key]
 
@@ -46,7 +46,7 @@ def plotHist(hist, sample_name, plot_dir, plot_name, variable, y_min, y_max):
     hist.Draw("hist error same")
 
     # save plot
-    output_name = "{0}/{1}".format(plot_dir, plot_name)
+    output_name = "{0}/{1}_{2}".format(plot_dir, sample_name, plot_name)
     c.Update()
     c.SaveAs(output_name + ".pdf")
 
@@ -56,18 +56,18 @@ def run(plot_dir, sample_name, tree):
     n_events    = tree.GetEntries()
     
     # histograms
-    h_nLowPtElectron        = ROOT.TH1F("h_nLowPtElectron",     "h_nLowPtElectron",      6,    0.0,   6.0)
-    h_LowPtElectron_pt      = ROOT.TH1F("h_LowPtElectron_pt",   "h_LowPtElectron_pt",   20,    0.0,  20.0)
-    h_LowPtElectron_eta     = ROOT.TH1F("h_LowPtElectron_eta",  "h_LowPtElectron_eta",  20,   -3.0,   3.0)
-    h_LowPtElectron_phi     = ROOT.TH1F("h_LowPtElectron_phi",  "h_LowPtElectron_phi",  20, -np.pi, np.pi)
-    h_LowPtElectron_mass    = ROOT.TH1F("h_LowPtElectron_mass", "h_LowPtElectron_mass", 20,  -0.01,  0.01)
-    h_LowPtElectron_genPartIdx  = ROOT.TH1F("h_LowPtElectron_genPartIdx", "h_LowPtElectron_genPartIdx", 20, 0, 100)
-    h_LowPtElectron_genPartFlav = ROOT.TH1F("h_LowPtElectron_genPartFlav", "h_LowPtElectron_genPartFlav", 30, 0, 30)
-    h_LowPtElectron_dxy         = ROOT.TH1F("h_LowPtElectron_dxy", "h_LowPtElectron_dxy", 40,  -0.02,  0.02)
-    h_LowPtElectron_dxyErr      = ROOT.TH1F("h_LowPtElectron_dxyErr", "h_LowPtElectron_dxyErr", 40,  0,  0.1)
-    h_LowPtElectron_dxySig      = ROOT.TH1F("h_LowPtElectron_dxySig", "h_LowPtElectron_dxySig", 50,  0,  5.0)
-    h_LowPtElectron_dxySig0     = ROOT.TH1F("h_LowPtElectron_dxySig0", "h_LowPtElectron_dxySig0", 50,  0,  5.0)
-    h_LowPtElectron_dxySig5     = ROOT.TH1F("h_LowPtElectron_dxySig5", "h_LowPtElectron_dxySig5", 50,  0,  5.0)
+    h_nLowPtElectron            = ROOT.TH1F("h_nLowPtElectron",             "h_nLowPtElectron",              6,    0.0,  6.0)
+    h_LowPtElectron_pt          = ROOT.TH1F("h_LowPtElectron_pt",           "h_LowPtElectron_pt",           20,    0.0,  20.0)
+    h_LowPtElectron_eta         = ROOT.TH1F("h_LowPtElectron_eta",          "h_LowPtElectron_eta",          20,   -3.0,  3.0)
+    h_LowPtElectron_phi         = ROOT.TH1F("h_LowPtElectron_phi",          "h_LowPtElectron_phi",          20, -np.pi,  np.pi)
+    h_LowPtElectron_mass        = ROOT.TH1F("h_LowPtElectron_mass",         "h_LowPtElectron_mass",         20,  -0.01,  0.01)
+    h_LowPtElectron_genPartIdx  = ROOT.TH1F("h_LowPtElectron_genPartIdx",   "h_LowPtElectron_genPartIdx",   20,      0,  100)
+    h_LowPtElectron_genPartFlav = ROOT.TH1F("h_LowPtElectron_genPartFlav",  "h_LowPtElectron_genPartFlav",  30,      0,  30)
+    h_LowPtElectron_dxy         = ROOT.TH1F("h_LowPtElectron_dxy",          "h_LowPtElectron_dxy",          40,  -0.02,  0.02)
+    h_LowPtElectron_dxyErr      = ROOT.TH1F("h_LowPtElectron_dxyErr",       "h_LowPtElectron_dxyErr",       40,      0,  0.1)
+    h_LowPtElectron_dxySig      = ROOT.TH1F("h_LowPtElectron_dxySig",       "h_LowPtElectron_dxySig",       50,      0,  5.0)
+    h_LowPtElectron_dxySig0     = ROOT.TH1F("h_LowPtElectron_dxySig0",      "h_LowPtElectron_dxySig0",      50,      0,  5.0)
+    h_LowPtElectron_dxySig5     = ROOT.TH1F("h_LowPtElectron_dxySig5",      "h_LowPtElectron_dxySig5",      50,      0,  5.0)
     
     # loop over events
     for i in range(n_events):
@@ -146,11 +146,11 @@ def run(plot_dir, sample_name, tree):
                     h_LowPtElectron_dxySig5.Fill(dxySig)
     
     # plot histograms
-    plotHist(h_nLowPtElectron,      sample_name, plot_dir, "nLowPtElectron",        "nElectrons",   0.0,  10000.0)
-    plotHist(h_LowPtElectron_pt,    sample_name, plot_dir, "LowPtElectron_pt",      "pt",           0.0,   3000.0)
-    plotHist(h_LowPtElectron_eta,   sample_name, plot_dir, "LowPtElectron_eta",     "eta",          0.0,   1000.0)
-    plotHist(h_LowPtElectron_phi,   sample_name, plot_dir, "LowPtElectron_phi",     "phi",          0.0,   1000.0)
-    plotHist(h_LowPtElectron_mass,  sample_name, plot_dir, "LowPtElectron_mass",    "mass",         0.0,   3000.0)
+    plotHist(h_nLowPtElectron,              sample_name, plot_dir, "nLowPtElectron",            "nElectrons",   0.0,   10000.0)
+    plotHist(h_LowPtElectron_pt,            sample_name, plot_dir, "LowPtElectron_pt",          "pt",           0.0,   3000.0)
+    plotHist(h_LowPtElectron_eta,           sample_name, plot_dir, "LowPtElectron_eta",         "eta",          0.0,   1000.0)
+    plotHist(h_LowPtElectron_phi,           sample_name, plot_dir, "LowPtElectron_phi",         "phi",          0.0,   1000.0)
+    plotHist(h_LowPtElectron_mass,          sample_name, plot_dir, "LowPtElectron_mass",        "mass",         0.0,   3000.0)
     plotHist(h_LowPtElectron_genPartIdx,    sample_name, plot_dir, "LowPtElectron_genPartIdx",  "genPartIdx",   0.0,   10000.0)
     plotHist(h_LowPtElectron_genPartFlav,   sample_name, plot_dir, "LowPtElectron_genPartFlav", "genPartFlav",  0.0,   10000.0)
     plotHist(h_LowPtElectron_dxy,           sample_name, plot_dir, "LowPtElectron_dxy",         "dxy",          0.0,   2000.0)
@@ -161,20 +161,30 @@ def run(plot_dir, sample_name, tree):
 
 # run over input file
 def makePlots():
-    input_file  = "/uscms/home/caleb/nobackup/KU_Compressed_SUSY/samples/SMS-T2-4bd_genMET-80_mStop-500_mLSP-490_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/4153AE9C-1215-A847-8E0A-DEBE98140664.root"
-    #input_file  = "/uscms/home/caleb/nobackup/KU_Compressed_SUSY/samples/TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/5457F199-A129-2A40-8127-733D51A9A3E6.root"
-    plot_dir    = "plots"
-    sample_name = "SMS-T2-4bd_genMET-80_mStop-500_mLSP-490"
-    #sample_name = "TTJets_DiLept"
     
-    # WARNING: Make sure to open file here, not within getTree() so that TFile stays open. 
-    #          If TFile closes, then TTree object is destroyed.
-    tree_name   = "Events"
-    open_file   = ROOT.TFile.Open(input_file)
-    tree        = tools.getTree(open_file, tree_name)
+    plot_dir    = "plots"
+    
+    # map sample names to input files
+    samples = {}
+    samples["SMS-T2-4bd_genMET-80_mStop-500_mLSP-490"]  = "/uscms/home/caleb/nobackup/KU_Compressed_SUSY/samples/SMS-T2-4bd_genMET-80_mStop-500_mLSP-490_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/4153AE9C-1215-A847-8E0A-DEBE98140664.root"
+    samples["TTJets_DiLept"]                            = "/uscms/home/caleb/nobackup/KU_Compressed_SUSY/samples/TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/5457F199-A129-2A40-8127-733D51A9A3E6.root"
+    
+    #sample_name = "SMS-T2-4bd_genMET-80_mStop-500_mLSP-490"
+    #sample_name = "TTJets_DiLept"
+    #input_file  = "/uscms/home/caleb/nobackup/KU_Compressed_SUSY/samples/SMS-T2-4bd_genMET-80_mStop-500_mLSP-490_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/4153AE9C-1215-A847-8E0A-DEBE98140664.root"
+    #input_file  = "/uscms/home/caleb/nobackup/KU_Compressed_SUSY/samples/TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/5457F199-A129-2A40-8127-733D51A9A3E6.root"
 
-    tools.makeDir(plot_dir)
-    run(plot_dir, sample_name, tree)
+    for sample in samples:
+        input_file = samples[sample]
+    
+        # WARNING: Make sure to open file here, not within getTree() so that TFile stays open. 
+        #          If TFile closes, then TTree object is destroyed.
+        tree_name   = "Events"
+        open_file   = ROOT.TFile.Open(input_file)
+        tree        = tools.getTree(open_file, tree_name)
+
+        tools.makeDir(plot_dir)
+        run(plot_dir, sample, tree)
 
 def main():
     makePlots()
