@@ -29,7 +29,12 @@ def getLabel(key):
     return labels[key]
 
 # plot a histogram
-def plotHist(hist, sample_name, plot_dir, plot_name, variable, y_min, y_max):
+def plotHist(hist, sample_name, plot_dir, plot_name, variable):
+    # get y limits
+    y_min = 0.0
+    y_max = 1.5 * hist.GetMaximum()
+    #print("{0}: GetMaximum = {1}, y_max = {2}".format(variable, hist.GetMaximum(), y_max))
+    
     # canvas
     c = ROOT.TCanvas("c", "c", 800, 800)
     c.SetLeftMargin(0.15)
@@ -79,11 +84,11 @@ def run(plot_dir, sample_name, tree):
         tree.GetEntry(i)
         
         # get branches
-        nLowPtElectron      = tree.nLowPtElectron
-        LowPtElectron_pt    = tree.LowPtElectron_pt
-        LowPtElectron_eta   = tree.LowPtElectron_eta
-        LowPtElectron_phi   = tree.LowPtElectron_phi
-        LowPtElectron_mass  = tree.LowPtElectron_mass
+        nLowPtElectron              = tree.nLowPtElectron
+        LowPtElectron_pt            = tree.LowPtElectron_pt
+        LowPtElectron_eta           = tree.LowPtElectron_eta
+        LowPtElectron_phi           = tree.LowPtElectron_phi
+        LowPtElectron_mass          = tree.LowPtElectron_mass
         LowPtElectron_genPartIdx    = tree.LowPtElectron_genPartIdx
         LowPtElectron_genPartFlav   = tree.LowPtElectron_genPartFlav
         LowPtElectron_dxy           = tree.LowPtElectron_dxy
@@ -146,18 +151,18 @@ def run(plot_dir, sample_name, tree):
                     h_LowPtElectron_dxySig5.Fill(dxySig)
     
     # plot histograms
-    plotHist(h_nLowPtElectron,              sample_name, plot_dir, "nLowPtElectron",            "nElectrons",   0.0,   10000.0)
-    plotHist(h_LowPtElectron_pt,            sample_name, plot_dir, "LowPtElectron_pt",          "pt",           0.0,   3000.0)
-    plotHist(h_LowPtElectron_eta,           sample_name, plot_dir, "LowPtElectron_eta",         "eta",          0.0,   1000.0)
-    plotHist(h_LowPtElectron_phi,           sample_name, plot_dir, "LowPtElectron_phi",         "phi",          0.0,   1000.0)
-    plotHist(h_LowPtElectron_mass,          sample_name, plot_dir, "LowPtElectron_mass",        "mass",         0.0,   3000.0)
-    plotHist(h_LowPtElectron_genPartIdx,    sample_name, plot_dir, "LowPtElectron_genPartIdx",  "genPartIdx",   0.0,   10000.0)
-    plotHist(h_LowPtElectron_genPartFlav,   sample_name, plot_dir, "LowPtElectron_genPartFlav", "genPartFlav",  0.0,   10000.0)
-    plotHist(h_LowPtElectron_dxy,           sample_name, plot_dir, "LowPtElectron_dxy",         "dxy",          0.0,   2000.0)
-    plotHist(h_LowPtElectron_dxyErr,        sample_name, plot_dir, "LowPtElectron_dxyErr",      "dxyErr",       0.0,   10000.0)
-    plotHist(h_LowPtElectron_dxySig,        sample_name, plot_dir, "LowPtElectron_dxySig",      "dxySig",       0.0,   2000.0)
-    plotHist(h_LowPtElectron_dxySig0,       sample_name, plot_dir, "LowPtElectron_dxySig0",     "dxySig",       0.0,   500.0)
-    plotHist(h_LowPtElectron_dxySig5,       sample_name, plot_dir, "LowPtElectron_dxySig5",     "dxySig",       0.0,   500.0)
+    plotHist(h_nLowPtElectron,              sample_name, plot_dir, "nLowPtElectron",            "nElectrons")
+    plotHist(h_LowPtElectron_pt,            sample_name, plot_dir, "LowPtElectron_pt",          "pt")
+    plotHist(h_LowPtElectron_eta,           sample_name, plot_dir, "LowPtElectron_eta",         "eta")
+    plotHist(h_LowPtElectron_phi,           sample_name, plot_dir, "LowPtElectron_phi",         "phi")
+    plotHist(h_LowPtElectron_mass,          sample_name, plot_dir, "LowPtElectron_mass",        "mass")
+    plotHist(h_LowPtElectron_genPartIdx,    sample_name, plot_dir, "LowPtElectron_genPartIdx",  "genPartIdx")
+    plotHist(h_LowPtElectron_genPartFlav,   sample_name, plot_dir, "LowPtElectron_genPartFlav", "genPartFlav")
+    plotHist(h_LowPtElectron_dxy,           sample_name, plot_dir, "LowPtElectron_dxy",         "dxy")
+    plotHist(h_LowPtElectron_dxyErr,        sample_name, plot_dir, "LowPtElectron_dxyErr",      "dxyErr")
+    plotHist(h_LowPtElectron_dxySig,        sample_name, plot_dir, "LowPtElectron_dxySig",      "dxySig")
+    plotHist(h_LowPtElectron_dxySig0,       sample_name, plot_dir, "LowPtElectron_dxySig0",     "dxySig")
+    plotHist(h_LowPtElectron_dxySig5,       sample_name, plot_dir, "LowPtElectron_dxySig5",     "dxySig")
 
 # run over input file
 def makePlots():
@@ -167,14 +172,11 @@ def makePlots():
     # map sample names to input files
     samples = {}
     samples["SMS-T2-4bd_genMET-80_mStop-500_mLSP-490"]  = "/uscms/home/caleb/nobackup/KU_Compressed_SUSY/samples/SMS-T2-4bd_genMET-80_mStop-500_mLSP-490_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/4153AE9C-1215-A847-8E0A-DEBE98140664.root"
-    samples["TTJets_DiLept"]                            = "/uscms/home/caleb/nobackup/KU_Compressed_SUSY/samples/TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/5457F199-A129-2A40-8127-733D51A9A3E6.root"
-    
-    #sample_name = "SMS-T2-4bd_genMET-80_mStop-500_mLSP-490"
-    #sample_name = "TTJets_DiLept"
-    #input_file  = "/uscms/home/caleb/nobackup/KU_Compressed_SUSY/samples/SMS-T2-4bd_genMET-80_mStop-500_mLSP-490_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/4153AE9C-1215-A847-8E0A-DEBE98140664.root"
-    #input_file  = "/uscms/home/caleb/nobackup/KU_Compressed_SUSY/samples/TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/5457F199-A129-2A40-8127-733D51A9A3E6.root"
+    #samples["TTJets_DiLept"]                            = "/uscms/home/caleb/nobackup/KU_Compressed_SUSY/samples/TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/5457F199-A129-2A40-8127-733D51A9A3E6.root"
 
     for sample in samples:
+        print("Running over {0}".format(sample))
+        
         input_file = samples[sample]
     
         # WARNING: Make sure to open file here, not within getTree() so that TFile stays open. 
