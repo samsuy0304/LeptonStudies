@@ -6,51 +6,49 @@
 
 void MyClass::Loop()
 {
-//   In a ROOT session, you can do:
-//      root> .L MyClass.C
-//      root> MyClass t
-//      root> t.GetEntry(12); // Fill t data members with entry number 12
-//      root> t.Show();       // Show values of entry 12
-//      root> t.Show(16);     // Read and show values of entry 16
-//      root> t.Loop();       // Loop on all entries
-//
+    // In a ROOT session, you can do:
+    //      root> .L MyClass.C
+    //      root> MyClass t
+    //      root> t.GetEntry(12); // Fill t data members with entry number 12
+    //      root> t.Show();       // Show values of entry 12
+    //      root> t.Show(16);     // Read and show values of entry 16
+    //      root> t.Loop();       // Loop on all entries
+    //
+    // This is the loop skeleton where:
+    //    jentry is the global entry number in the chain
+    //    ientry is the entry number in the current Tree
+    // Note that the argument to GetEntry must be:
+    //    jentry for TChain::GetEntry
+    //    ientry for TTree::GetEntry and TBranch::GetEntry
+    //
+    // To read only selected branches, Insert statements like:
+    // METHOD1:
+    //    fChain->SetBranchStatus("*",0);  // disable all branches
+    //    fChain->SetBranchStatus("branchname",1);  // activate branchname
+    // METHOD2: replace line
+    //    fChain->GetEntry(jentry);       //read all branches
+    // by  b_branchname->GetEntry(ientry); //read only this branch
+    if (fChain == 0) return;
 
-//     This is the loop skeleton where:
-//    jentry is the global entry number in the chain
-//    ientry is the entry number in the current Tree
-//  Note that the argument to GetEntry must be:
-//    jentry for TChain::GetEntry
-//    ientry for TTree::GetEntry and TBranch::GetEntry
-//
-//       To read only selected branches, Insert statements like:
-// METHOD1:
-//    fChain->SetBranchStatus("*",0);  // disable all branches
-//    fChain->SetBranchStatus("branchname",1);  // activate branchname
-// METHOD2: replace line
-//    fChain->GetEntry(jentry);       //read all branches
-//by  b_branchname->GetEntry(ientry); //read only this branch
-   if (fChain == 0) return;
+    Long64_t nentries = fChain->GetEntriesFast();
 
-   Long64_t nentries = fChain->GetEntriesFast();
-
-   Long64_t nbytes = 0, nb = 0;
-   for (Long64_t jentry=0; jentry<nentries;jentry++) {
-      Long64_t ientry = LoadTree(jentry);
-      if (ientry < 0) break;
-      nb = fChain->GetEntry(jentry);
-      nbytes += nb;
-      // if (Cut(ientry) < 0) continue;
-      if (jentry % 1000 == 0)
-      {
-         std::cout << "Event " << jentry << std::endl;
-      }
-      std::cout << "nLowPtElectron = " << nLowPtElectron << std::endl;
-      if (nLowPtElectron > 0)
-      {
-          //std::cout << "LowPtElectron_genPartIdx[0]=" << LowPtElectron_genPartIdx[0] << ", LowPtElectron_genPartFlav[0]=" << LowPtElectron_genPartFlav[0] << "," << std::endl;
-          printf("LowPtElectron_genPartIdx[0]=%d, LowPtElectron_genPartFlav[0]=%hhu\n", LowPtElectron_genPartIdx[0], LowPtElectron_genPartFlav[0]);
-          int genPartFlav = int(LowPtElectron_genPartFlav[0]);
-          printf("genPartFlav=%d\n", genPartFlav);
-      }
-   }
+    Long64_t nbytes = 0, nb = 0;
+    for (Long64_t jentry=0; jentry<nentries;jentry++) {
+        Long64_t ientry = LoadTree(jentry);
+        if (ientry < 0) break;
+        nb = fChain->GetEntry(jentry);
+        nbytes += nb;
+        // if (Cut(ientry) < 0) continue;
+        if (jentry % 1000 == 0)
+        {
+            std::cout << "Event " << jentry << std::endl;
+        }
+        std::cout << "nLowPtElectron = " << nLowPtElectron << std::endl;
+        for (int k = 0; k < nLowPtElectron; ++k)
+        {
+            printf("LowPtElectron %d: LowPtElectron_genPartIdx=%d, LowPtElectron_genPartFlav=%hhu\n", k, LowPtElectron_genPartIdx[k], LowPtElectron_genPartFlav[k]);
+            int genPartFlav = int(LowPtElectron_genPartFlav[k]);
+            printf("genPartFlav=%d\n", genPartFlav);
+        }
+    }
 }
