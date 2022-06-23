@@ -72,6 +72,9 @@ void NanoClass::Loop()
     // histograms
     TH1F h_nLowPtElectron            = TH1F("h_nLowPtElectron",             "h_nLowPtElectron",              6,    0.0,  6.0);
     TH1F h_LowPtElectron_genPartFlav = TH1F("h_LowPtElectron_genPartFlav",  "h_LowPtElectron_genPartFlav",  30,      0,  30);
+    TH1F h_LowPtElectron_dxy         = TH1F("h_LowPtElectron_dxy",          "h_LowPtElectron_dxy",          40,  -0.02,  0.02);
+    TH1F h_LowPtElectron_dxyErr      = TH1F("h_LowPtElectron_dxyErr",       "h_LowPtElectron_dxyErr",       40,      0,  0.1);
+    TH1F h_LowPtElectron_dxySig      = TH1F("h_LowPtElectron_dxySig",       "h_LowPtElectron_dxySig",       50,      0,  5.0);
     
     for (Long64_t jentry=0; jentry<nentries;jentry++) {
         Long64_t ientry = LoadTree(jentry);
@@ -88,10 +91,23 @@ void NanoClass::Loop()
         // loop over electrons
         for (int k = 0; k < nLowPtElectron; ++k)
         {
+            float dxySig = -999;
+            // avoid dividing by 0
+            if (LowPtElectron_dxyErr[k] != 0)
+            {
+                dxySig = abs(LowPtElectron_dxy[k] / LowPtElectron_dxyErr[k]);
+            }
             // fill histograms
             h_LowPtElectron_genPartFlav.Fill(LowPtElectron_genPartFlav[k]);
+            h_LowPtElectron_dxy.Fill(LowPtElectron_dxy[k]);
+            h_LowPtElectron_dxyErr.Fill(LowPtElectron_dxyErr[k]);
+            h_LowPtElectron_dxySig.Fill(dxySig);
         }
     }
+    // plot histograms
     PlotHist(h_nLowPtElectron,              sample, plot_dir, "h_nLowPtElectron",               "nElectrons");
     PlotHist(h_LowPtElectron_genPartFlav,   sample, plot_dir, "h_LowPtElectron_genPartFlav",    "genPartFlav");
+    PlotHist(h_LowPtElectron_dxy,           sample, plot_dir, "h_LowPtElectron_dxy",            "dxy");
+    PlotHist(h_LowPtElectron_dxyErr,        sample, plot_dir, "h_LowPtElectron_dxyErr",         "dxyErr");
+    PlotHist(h_LowPtElectron_dxySig,        sample, plot_dir, "h_LowPtElectron_dxySig",         "dxySig");
 }
