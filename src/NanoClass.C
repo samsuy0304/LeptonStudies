@@ -7,13 +7,31 @@
 #include <string>
 #include <cmath>
 
-void NanoClass::PlotHist(TH1F hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable)
+void NanoClass::SetupHist(TH1F &hist, std::string title, std::string x_title, std::string y_title)
+{
+    hist.SetStats(kFALSE);
+    
+    TAxis* x_axis = hist.GetXaxis();
+    TAxis* y_axis = hist.GetYaxis();
+    
+    hist.SetTitle(title.c_str());
+    x_axis->SetTitle(x_title.c_str());
+    y_axis->SetTitle(y_title.c_str());
+}
+
+void NanoClass::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable)
 {
     printf("Plotting %s\n", plot_name.c_str());
 
     // canvas
     TCanvas c = TCanvas("c", "c", 800, 800);
     c.SetLeftMargin(0.15);
+
+    // setup histogram
+    std::string title   = plot_name;
+    std::string x_title = variable;
+    std::string y_title = "Entries";
+    SetupHist(hist, title, x_title, y_title);
 
     // draw
     hist.Draw("hist error same");

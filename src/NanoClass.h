@@ -3288,7 +3288,8 @@ public :
    virtual Long64_t LoadTree(Long64_t entry);
    virtual void     Init(TTree *tree);
    virtual void     Loop();
-   virtual void     PlotHist(TH1F hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable);
+   virtual void     PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable);
+   virtual void     SetupHist(TH1F &hist, std::string title, std::string x_title, std::string y_title);
    virtual Bool_t   Notify();
    virtual void     Show(Long64_t entry = -1);
 };

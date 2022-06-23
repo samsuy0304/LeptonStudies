@@ -40,11 +40,11 @@ def plotHist(hist, sample_name, plot_dir, plot_name, variable):
     c.SetLeftMargin(0.15)
 
     # setup histogram
-    title = plot_name
-    x_title = getLabel(variable) 
-    y_title = "Entries"
-    color = "black"
-    lineWidth = 1
+    title       = plot_name
+    x_title     = getLabel(variable) 
+    y_title     = "Entries"
+    color       = "black"
+    lineWidth   = 1
     tools.setupHist(hist, title, x_title, y_title, y_min, y_max, color, lineWidth)
     
     # draw
