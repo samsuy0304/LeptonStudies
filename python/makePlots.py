@@ -105,7 +105,10 @@ def run(plot_dir, sample_name, tree):
         
         # loop over LowPtElectron
         for j in range(nLowPtElectron):
-            dxySig = abs(LowPtElectron_dxy[j] / LowPtElectron_dxyErr[j])
+            dxySig = -999
+            # avoid dividing by 0
+            if LowPtElectron_dxyErr[j] != 0:
+                dxySig = abs(LowPtElectron_dxy[j] / LowPtElectron_dxyErr[j])
             if verbose:
                 print("LowPtElectron {0}: pt = {1:.3f}, eta = {2:.3f}, phi = {3:.3f}, mass = {4:.3f}".format(j, LowPtElectron_pt[j], LowPtElectron_eta[j], LowPtElectron_phi[j], LowPtElectron_mass[j]))
             
@@ -172,7 +175,7 @@ def makePlots():
     # map sample names to input files
     samples = {}
     samples["SMS-T2-4bd_genMET-80_mStop-500_mLSP-490"]  = "/uscms/home/caleb/nobackup/KU_Compressed_SUSY/samples/SMS-T2-4bd_genMET-80_mStop-500_mLSP-490_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/4153AE9C-1215-A847-8E0A-DEBE98140664.root"
-    samples["TTJets_DiLept"]                            = "/uscms/home/caleb/nobackup/KU_Compressed_SUSY/samples/TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/5457F199-A129-2A40-8127-733D51A9A3E6.root"
+    #samples["TTJets_DiLept"]                            = "/uscms/home/caleb/nobackup/KU_Compressed_SUSY/samples/TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/5457F199-A129-2A40-8127-733D51A9A3E6.root"
 
     for sample in samples:
         print("Running over {0}".format(sample))
