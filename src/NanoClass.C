@@ -65,9 +65,13 @@ void NanoClass::Loop()
 
     Long64_t nentries = fChain->GetEntriesFast();
     Long64_t nbytes = 0, nb = 0;
+
+    // Int_t           LowPtElectron_genPartIdx[5];   //[nLowPtElectron]
+    // UChar_t         LowPtElectron_genPartFlav[5];   //[nLowPtElectron]
     
     // histograms
     TH1F h_nLowPtElectron            = TH1F("h_nLowPtElectron",             "h_nLowPtElectron",              6,    0.0,  6.0);
+    TH1F h_LowPtElectron_genPartFlav = TH1F("h_LowPtElectron_genPartFlav",  "h_LowPtElectron_genPartFlav",  30,      0,  30);
     
     for (Long64_t jentry=0; jentry<nentries;jentry++) {
         Long64_t ientry = LoadTree(jentry);
@@ -81,6 +85,13 @@ void NanoClass::Loop()
         }
         // fill histograms
         h_nLowPtElectron.Fill(nLowPtElectron);
+        // loop over electrons
+        for (int k = 0; k < nLowPtElectron; ++k)
+        {
+            // fill histograms
+            h_LowPtElectron_genPartFlav.Fill(LowPtElectron_genPartFlav[k]);
+        }
     }
-    PlotHist(h_nLowPtElectron, sample, plot_dir, "h_nLowPtElectron", "nElectrons");
+    PlotHist(h_nLowPtElectron,              sample, plot_dir, "h_nLowPtElectron",               "nElectrons");
+    PlotHist(h_LowPtElectron_genPartFlav,   sample, plot_dir, "h_LowPtElectron_genPartFlav",    "genPartFlav");
 }

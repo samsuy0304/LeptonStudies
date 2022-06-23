@@ -44,6 +44,7 @@ void MyClass::Loop()
             std::cout << "Event " << jentry << std::endl;
         }
         std::cout << "nLowPtElectron = " << nLowPtElectron << std::endl;
+        // loop over electrons
         for (int k = 0; k < nLowPtElectron; ++k)
         {
             printf("LowPtElectron %d: LowPtElectron_genPartIdx=%d, LowPtElectron_genPartFlav=%hhu\n", k, LowPtElectron_genPartIdx[k], LowPtElectron_genPartFlav[k]);
