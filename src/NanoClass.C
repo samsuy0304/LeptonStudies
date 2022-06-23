@@ -7,7 +7,7 @@
 #include <string>
 #include <cmath>
 
-void NanoClass::SetupHist(TH1F &hist, std::string title, std::string x_title, std::string y_title)
+void NanoClass::SetupHist(TH1F &hist, std::string title, std::string x_title, std::string y_title, int color, int line_width)
 {
     hist.SetStats(kFALSE);
     
@@ -17,6 +17,8 @@ void NanoClass::SetupHist(TH1F &hist, std::string title, std::string x_title, st
     hist.SetTitle(title.c_str());
     x_axis->SetTitle(x_title.c_str());
     y_axis->SetTitle(y_title.c_str());
+    hist.SetLineColor(color);
+    hist.SetLineWidth(line_width);
 }
 
 void NanoClass::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable)
@@ -31,7 +33,9 @@ void NanoClass::PlotHist(TH1F &hist, std::string sample_name, std::string plot_d
     std::string title   = plot_name;
     std::string x_title = variable;
     std::string y_title = "Entries";
-    SetupHist(hist, title, x_title, y_title);
+    int color           = kBlack;
+    int line_width      = 1;
+    SetupHist(hist, title, x_title, y_title, color, line_width);
 
     // draw
     hist.Draw("hist error same");
