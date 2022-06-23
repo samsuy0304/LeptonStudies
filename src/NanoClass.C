@@ -5,7 +5,7 @@
 #include <TStyle.h>
 #include <TCanvas.h>
 #include <string>
-
+#include <cmath>
 
 void NanoClass::PlotHist(TH1F hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable)
 {
@@ -23,7 +23,6 @@ void NanoClass::PlotHist(TH1F hist, std::string sample_name, std::string plot_di
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());
-
 }
 
 void NanoClass::Loop()
@@ -71,9 +70,13 @@ void NanoClass::Loop()
     
     // histograms
     TH1F h_nLowPtElectron            = TH1F("h_nLowPtElectron",             "h_nLowPtElectron",              6,    0.0,  6.0);
+    TH1F h_LowPtElectron_pt          = TH1F("h_LowPtElectron_pt",           "h_LowPtElectron_pt",           20,    0.0,  20.0);
+    TH1F h_LowPtElectron_eta         = TH1F("h_LowPtElectron_eta",          "h_LowPtElectron_eta",          20,   -3.0,  3.0);
+    TH1F h_LowPtElectron_phi         = TH1F("h_LowPtElectron_phi",          "h_LowPtElectron_phi",          20,  -M_PI,  M_PI);
+    TH1F h_LowPtElectron_mass        = TH1F("h_LowPtElectron_mass",         "h_LowPtElectron_mass",         20,  -0.01,  0.01);
     TH1F h_LowPtElectron_genPartFlav = TH1F("h_LowPtElectron_genPartFlav",  "h_LowPtElectron_genPartFlav",  30,      0,  30);
-    TH1F h_LowPtElectron_dxy         = TH1F("h_LowPtElectron_dxy",          "h_LowPtElectron_dxy",          40,  -0.02,  0.02);
-    TH1F h_LowPtElectron_dxyErr      = TH1F("h_LowPtElectron_dxyErr",       "h_LowPtElectron_dxyErr",       40,      0,  0.1);
+    TH1F h_LowPtElectron_dxy         = TH1F("h_LowPtElectron_dxy",          "h_LowPtElectron_dxy",          50,  -0.02,  0.02);
+    TH1F h_LowPtElectron_dxyErr      = TH1F("h_LowPtElectron_dxyErr",       "h_LowPtElectron_dxyErr",       50,      0,  0.1);
     TH1F h_LowPtElectron_dxySig      = TH1F("h_LowPtElectron_dxySig",       "h_LowPtElectron_dxySig",       50,      0,  5.0);
     
     for (Long64_t jentry=0; jentry<nentries;jentry++) {
@@ -98,13 +101,22 @@ void NanoClass::Loop()
                 dxySig = abs(LowPtElectron_dxy[k] / LowPtElectron_dxyErr[k]);
             }
             // fill histograms
+            h_LowPtElectron_pt.Fill(LowPtElectron_pt[k]);
+            h_LowPtElectron_eta.Fill(LowPtElectron_eta[k]);
+            h_LowPtElectron_phi.Fill(LowPtElectron_phi[k]);
+            h_LowPtElectron_mass.Fill(LowPtElectron_mass[k]);
             h_LowPtElectron_genPartFlav.Fill(LowPtElectron_genPartFlav[k]);
             h_LowPtElectron_dxy.Fill(LowPtElectron_dxy[k]);
             h_LowPtElectron_dxyErr.Fill(LowPtElectron_dxyErr[k]);
             h_LowPtElectron_dxySig.Fill(dxySig);
         }
     }
+    
     // plot histograms
+    PlotHist(h_LowPtElectron_pt,            sample, plot_dir, "h_LowPtElectron_pt",             "pt");
+    PlotHist(h_LowPtElectron_eta,           sample, plot_dir, "h_LowPtElectron_eta",            "eta");
+    PlotHist(h_LowPtElectron_phi,           sample, plot_dir, "h_LowPtElectron_phi",            "phi");
+    PlotHist(h_LowPtElectron_mass,          sample, plot_dir, "h_LowPtElectron_mass",           "mass");
     PlotHist(h_nLowPtElectron,              sample, plot_dir, "h_nLowPtElectron",               "nElectrons");
     PlotHist(h_LowPtElectron_genPartFlav,   sample, plot_dir, "h_LowPtElectron_genPartFlav",    "genPartFlav");
     PlotHist(h_LowPtElectron_dxy,           sample, plot_dir, "h_LowPtElectron_dxy",            "dxy");
