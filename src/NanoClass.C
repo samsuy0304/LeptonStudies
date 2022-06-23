@@ -1,13 +1,29 @@
 #define NanoClass_cxx
 #include "NanoClass.h"
+#include <TH1.h>
 #include <TH2.h>
 #include <TStyle.h>
 #include <TCanvas.h>
 #include <string>
 
+
 void NanoClass::PlotHist(TH1F hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable)
 {
     printf("Plotting %s\n", plot_name.c_str());
+
+    // canvas
+    TCanvas c = TCanvas("c", "c", 800, 800);
+    c.SetLeftMargin(0.15);
+
+    // draw
+    hist.Draw("hist error same");
+    
+    // save plot
+    std::string output_name = plot_dir + "/" + sample_name + "_" + plot_name; 
+    std::string output_name_pdf = output_name + ".pdf";
+    c.Update();
+    c.SaveAs(output_name_pdf.c_str());
+
 }
 
 void NanoClass::Loop()
@@ -35,6 +51,9 @@ void NanoClass::Loop()
     // METHOD2: replace line
     //    fChain->GetEntry(jentry);       //read all branches
     // by  b_branchname->GetEntry(ientry); //read only this branch
+    
+    gROOT->SetBatch(kTRUE);
+    
     if (fChain == 0)
     {
         return;
