@@ -29,8 +29,10 @@ def getLabel(key):
     label = ""
     # check if key exists in labels
     if key in labels:
+        # key exists
         label = labels[key]
     else:
+        # key does not exist
         print("ERROR: the key '{0}' does not exist in labels.".format(key))
     return label
 
