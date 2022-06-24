@@ -6,6 +6,38 @@
 #include <TCanvas.h>
 #include <string>
 #include <cmath>
+#include <map>
+
+
+std::string NanoClass::GetLabel(std::string variable)
+{
+    std::map<std::string, std::string> labels {
+        // variables
+        {"nElectrons",  "n_{e}"},
+        {"pt",          "p_{T} [GeV]"},
+        {"eta",         "#eta"},
+        {"phi",         "#phi"},
+        {"mass",        "m [GeV]"},
+        {"genPartIdx",  "Gen Part Idx"},
+        {"genPartFlav", "Gen Part Flav"},
+        {"dxy",         "d_{xy}"},
+        {"dxyErr",      "d_{xy} err"},
+        {"dxySig",      "d_{xy} sig"},
+    };
+    std::string label = "";
+    // check if variable exists in labels
+    if (labels.find(variable) == labels.end())
+    {
+        // variable does not exist
+        printf("ERROR: the variable '%s' does not exist in labels.\n", variable.c_str());
+    }
+    else
+    {
+        // variable exists
+        label = labels[variable];
+    }
+    return labels[variable];
+}
 
 void NanoClass::SetupHist(TH1F &hist, std::string title, std::string x_title, std::string y_title, int color, int line_width)
 {
@@ -31,7 +63,7 @@ void NanoClass::PlotHist(TH1F &hist, std::string sample_name, std::string plot_d
 
     // setup histogram
     std::string title   = plot_name;
-    std::string x_title = variable;
+    std::string x_title = GetLabel(variable);
     std::string y_title = "Entries";
     int color           = kBlack;
     int line_width      = 1;
@@ -91,6 +123,7 @@ void NanoClass::Loop()
     // UChar_t         LowPtElectron_genPartFlav[5];   //[nLowPtElectron]
     
     // histograms
+    // no selection
     TH1F h_nLowPtElectron            = TH1F("h_nLowPtElectron",             "h_nLowPtElectron",              6,    0.0,  6.0);
     TH1F h_LowPtElectron_pt          = TH1F("h_LowPtElectron_pt",           "h_LowPtElectron_pt",           20,    0.0,  20.0);
     TH1F h_LowPtElectron_eta         = TH1F("h_LowPtElectron_eta",          "h_LowPtElectron_eta",          20,   -3.0,  3.0);
@@ -100,6 +133,18 @@ void NanoClass::Loop()
     TH1F h_LowPtElectron_dxy         = TH1F("h_LowPtElectron_dxy",          "h_LowPtElectron_dxy",          50,  -0.02,  0.02);
     TH1F h_LowPtElectron_dxyErr      = TH1F("h_LowPtElectron_dxyErr",       "h_LowPtElectron_dxyErr",       50,      0,  0.1);
     TH1F h_LowPtElectron_dxySig      = TH1F("h_LowPtElectron_dxySig",       "h_LowPtElectron_dxySig",       50,      0,  5.0);
+    // LowPtElectron_genPartFlav == 0
+    TH1F h_LowPtElectron_dxy_genPartFlav0       = TH1F("h_LowPtElectron_dxy_genPartFlav0",      "h_LowPtElectron_dxy_genPartFlav0",     50,  -0.02,  0.02);
+    TH1F h_LowPtElectron_dxyErr_genPartFlav0    = TH1F("h_LowPtElectron_dxyErr_genPartFlav0",   "h_LowPtElectron_dxyErr_genPartFlav0",  50,      0,  0.1);
+    TH1F h_LowPtElectron_dxySig_genPartFlav0    = TH1F("h_LowPtElectron_dxySig_genPartFlav0",   "h_LowPtElectron_dxySig_genPartFlav0",  50,      0,  5.0);
+    // LowPtElectron_genPartFlav == 1
+    TH1F h_LowPtElectron_dxy_genPartFlav1       = TH1F("h_LowPtElectron_dxy_genPartFlav1",      "h_LowPtElectron_dxy_genPartFlav1",     50,  -0.02,  0.02);
+    TH1F h_LowPtElectron_dxyErr_genPartFlav1    = TH1F("h_LowPtElectron_dxyErr_genPartFlav1",   "h_LowPtElectron_dxyErr_genPartFlav1",  50,      0,  0.1);
+    TH1F h_LowPtElectron_dxySig_genPartFlav1    = TH1F("h_LowPtElectron_dxySig_genPartFlav1",   "h_LowPtElectron_dxySig_genPartFlav1",  50,      0,  5.0);
+    // LowPtElectron_genPartFlav == 5
+    TH1F h_LowPtElectron_dxy_genPartFlav5       = TH1F("h_LowPtElectron_dxy_genPartFlav5",      "h_LowPtElectron_dxy_genPartFlav5",     50,  -0.02,  0.02);
+    TH1F h_LowPtElectron_dxyErr_genPartFlav5    = TH1F("h_LowPtElectron_dxyErr_genPartFlav5",   "h_LowPtElectron_dxyErr_genPartFlav5",  50,      0,  0.1);
+    TH1F h_LowPtElectron_dxySig_genPartFlav5    = TH1F("h_LowPtElectron_dxySig_genPartFlav5",   "h_LowPtElectron_dxySig_genPartFlav5",  50,      0,  5.0);
     
     for (Long64_t jentry=0; jentry<nentries;jentry++) {
         Long64_t ientry = LoadTree(jentry);
@@ -131,9 +176,29 @@ void NanoClass::Loop()
             h_LowPtElectron_dxy.Fill(LowPtElectron_dxy[k]);
             h_LowPtElectron_dxyErr.Fill(LowPtElectron_dxyErr[k]);
             h_LowPtElectron_dxySig.Fill(dxySig);
+            // LowPtElectron_genPartFlav == 0
+            if (LowPtElectron_genPartFlav[k] == 0)
+            {
+                h_LowPtElectron_dxy_genPartFlav0.Fill(LowPtElectron_dxy[k]);
+                h_LowPtElectron_dxyErr_genPartFlav0.Fill(LowPtElectron_dxyErr[k]);
+                h_LowPtElectron_dxySig_genPartFlav0.Fill(dxySig);
+            }
+            // LowPtElectron_genPartFlav == 1
+            if (LowPtElectron_genPartFlav[k] == 1)
+            {
+                h_LowPtElectron_dxy_genPartFlav1.Fill(LowPtElectron_dxy[k]);
+                h_LowPtElectron_dxyErr_genPartFlav1.Fill(LowPtElectron_dxyErr[k]);
+                h_LowPtElectron_dxySig_genPartFlav1.Fill(dxySig);
+            }
+            // LowPtElectron_genPartFlav == 5
+            if (LowPtElectron_genPartFlav[k] == 5)
+            {
+                h_LowPtElectron_dxy_genPartFlav5.Fill(LowPtElectron_dxy[k]);
+                h_LowPtElectron_dxyErr_genPartFlav5.Fill(LowPtElectron_dxyErr[k]);
+                h_LowPtElectron_dxySig_genPartFlav5.Fill(dxySig);
+            }
         }
     }
-    
     // plot histograms
     PlotHist(h_LowPtElectron_pt,            sample, plot_dir, "h_LowPtElectron_pt",             "pt");
     PlotHist(h_LowPtElectron_eta,           sample, plot_dir, "h_LowPtElectron_eta",            "eta");
@@ -144,4 +209,16 @@ void NanoClass::Loop()
     PlotHist(h_LowPtElectron_dxy,           sample, plot_dir, "h_LowPtElectron_dxy",            "dxy");
     PlotHist(h_LowPtElectron_dxyErr,        sample, plot_dir, "h_LowPtElectron_dxyErr",         "dxyErr");
     PlotHist(h_LowPtElectron_dxySig,        sample, plot_dir, "h_LowPtElectron_dxySig",         "dxySig");
+    // LowPtElectron_genPartFlav == 0
+    PlotHist(h_LowPtElectron_dxy_genPartFlav0,      sample, plot_dir, "h_LowPtElectron_dxy_genPartFlav0",       "dxy");
+    PlotHist(h_LowPtElectron_dxyErr_genPartFlav0,   sample, plot_dir, "h_LowPtElectron_dxyErr_genPartFlav0",    "dxyErr");
+    PlotHist(h_LowPtElectron_dxySig_genPartFlav0,   sample, plot_dir, "h_LowPtElectron_dxySig_genPartFlav0",    "dxySig");
+    // LowPtElectron_genPartFlav == 1
+    PlotHist(h_LowPtElectron_dxy_genPartFlav1,      sample, plot_dir, "h_LowPtElectron_dxy_genPartFlav1",       "dxy");
+    PlotHist(h_LowPtElectron_dxyErr_genPartFlav1,   sample, plot_dir, "h_LowPtElectron_dxyErr_genPartFlav1",    "dxyErr");
+    PlotHist(h_LowPtElectron_dxySig_genPartFlav1,   sample, plot_dir, "h_LowPtElectron_dxySig_genPartFlav1",    "dxySig");
+    // LowPtElectron_genPartFlav == 5
+    PlotHist(h_LowPtElectron_dxy_genPartFlav5,      sample, plot_dir, "h_LowPtElectron_dxy_genPartFlav5",       "dxy");
+    PlotHist(h_LowPtElectron_dxyErr_genPartFlav5,   sample, plot_dir, "h_LowPtElectron_dxyErr_genPartFlav5",    "dxyErr");
+    PlotHist(h_LowPtElectron_dxySig_genPartFlav5,   sample, plot_dir, "h_LowPtElectron_dxySig_genPartFlav5",    "dxySig");
 }
