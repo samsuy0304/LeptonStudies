@@ -12,9 +12,17 @@
 std::string NanoClass::GetLabel(std::string variable)
 {
     std::map<std::string, std::string> labels {
-        {"var1", "label for var1"},
-        {"var2", "label for var2"},
-        {"var3", "label for var3"},
+        // variables
+        {"nElectrons",  "n_{e}"},
+        {"pt",          "p_{T} [GeV]"},
+        {"eta",         "#eta"},
+        {"phi",         "#phi"},
+        {"mass",        "m [GeV]"},
+        {"genPartIdx",  "Gen Part Idx"},
+        {"genPartFlav", "Gen Part Flav"},
+        {"dxy",         "d_{xy}"},
+        {"dxyErr",      "d_{xy} err"},
+        {"dxySig",      "d_{xy} sig"},
     };
     std::string label = "";
     // check if variable exists in labels
@@ -52,20 +60,10 @@ void NanoClass::PlotHist(TH1F &hist, std::string sample_name, std::string plot_d
     // canvas
     TCanvas c = TCanvas("c", "c", 800, 800);
     c.SetLeftMargin(0.15);
-    
-    // test
-    std::string var = "";
-    std::string label = "";
-    var = "var1";
-    label = GetLabel(var); 
-    printf("%s: %s\n", var.c_str(), label.c_str());
-    var = "oops";
-    label = GetLabel(var); 
-    printf("%s: %s\n", var.c_str(), label.c_str());
 
     // setup histogram
     std::string title   = plot_name;
-    std::string x_title = variable;
+    std::string x_title = GetLabel(variable);
     std::string y_title = "Entries";
     int color           = kBlack;
     int line_width      = 1;
