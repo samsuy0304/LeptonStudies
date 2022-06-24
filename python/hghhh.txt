@@ -1,0 +1,65 @@
+Conv 0 1
+
+50 0. 1
+
+dxy/dxyErr
+
+dz/dErr
+
+dz-2 50 2
+
+smae as dxye
+
+iso 0 50b 20
+
+0 20bg
+ 20
+
+gentpartflav
+
+embeded id for plot
+
+
+Iron
+eta<2.4
+no pt cut
+1.50<=EMm
+(Same)
+
+ISo <4
+absdxy<0.05
+absdz <0.1
+Ipsig <2
+
+
+Iron-Longlive
+eta<2.4
+no pt cut
+1.50<=EMm
+(Same)
+Iso<4
+Ipsig>=2
+
+Iron-fake
+eta<2.4
+no pt cut
+1.50<=EMm
+(Same)
+dxabs<0.05
+dzabs<0.1
+Ipsig <2
+Iso>=4
+
+
+Make cmacro
+3 on monday and Tuesday
+
+
+parent
+
+
+do it c macro
+
+
+4dd
+ttbar
