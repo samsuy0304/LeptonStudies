@@ -26,7 +26,13 @@ def getLabel(key):
         "dxyErr"        : "d_{xy} err",
         "dxySig"        : "d_{xy} sig",
     }
-    return labels[key]
+    label = ""
+    # check if key exists in labels
+    if key in labels:
+        label = labels[key]
+    else:
+        print("ERROR: the key '{0}' does not exist in labels.".format(key))
+    return label
 
 # plot a histogram
 def plotHist(hist, sample_name, plot_dir, plot_name, variable):
