@@ -1,5 +1,5 @@
-#define NanoClass_cxx
-#include "NanoClass.h"
+#define KUSU_cxx
+#include "KUSU.h"
 #include <TH1.h>
 #include <TH2.h>
 #include <TStyle.h>
@@ -9,7 +9,7 @@
 #include <map>
 
 
-std::string NanoClass::GetLabel(std::string variable)
+std::string KUSU::GetLabel(std::string variable)
 {
     std::map<std::string, std::string> labels {
         // variables
@@ -39,7 +39,7 @@ std::string NanoClass::GetLabel(std::string variable)
     return labels[variable];
 }
 
-void NanoClass::SetupHist(TH1F &hist, std::string title, std::string x_title, std::string y_title, int color, int line_width)
+void KUSU::SetupHist(TH1F &hist, std::string title, std::string x_title, std::string y_title, int color, int line_width)
 {
     hist.SetStats(kFALSE);
     
@@ -53,7 +53,7 @@ void NanoClass::SetupHist(TH1F &hist, std::string title, std::string x_title, st
     hist.SetLineWidth(line_width);
 }
 
-void NanoClass::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable)
+void KUSU::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable)
 {
     printf("Plotting %s\n", plot_name.c_str());
 
@@ -79,7 +79,7 @@ void NanoClass::PlotHist(TH1F &hist, std::string sample_name, std::string plot_d
     c.SaveAs(output_name_pdf.c_str());
 }
 
-void NanoClass::Loop()
+void KUSU::Loop()
 {
 
     // In a ROOT session, you can do:
