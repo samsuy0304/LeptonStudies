@@ -57,6 +57,7 @@ def run(plot_dir, sample_name, tree):
         LowPtElectron_convVeto   = tree.LowPtElectron_convVeto
         LowPtElectron_phi   = tree.LowPtElectron_phi
         LowPtElectron_mass  = tree.LowPtElectron_mass
+        LowPtElectron_genpartflav = tree.LowPtElectron_genPartFlav
         
         # loop over LowPtElectron
         for j in range(nLowPtElectron):
