@@ -41,7 +41,7 @@ def run(plot_dir, sample_name, tree):
         print(LowPtElectron_genpartflav)
         # loop over LowPtElectron
         for j in range(nLowPtElectron):
-            h_LowPtElectron_pt.Fill(LowPtElectron_pt[j])
+            h_LowPtElectron_pt.Fill(nLowPtElectron[j])
 
 
     plot(h_LowPtElectron_pt, sample_name, plot_dir, "h_LowPtElectron_pt")
