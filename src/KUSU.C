@@ -146,6 +146,20 @@ void KUSU::Loop()
     TH1F h_LowPtElectron_dxyErr_genPartFlav5    = TH1F("h_LowPtElectron_dxyErr_genPartFlav5",   "h_LowPtElectron_dxyErr_genPartFlav5",  50,      0,  0.1);
     TH1F h_LowPtElectron_dxySig_genPartFlav5    = TH1F("h_LowPtElectron_dxySig_genPartFlav5",   "h_LowPtElectron_dxySig_genPartFlav5",  50,      0,  5.0);
     
+    
+    // LowPtElectron_genPartFlav == 0
+    TH1F LIG0       = TH1F("Iron-Flav0","Iron-Flav0",     50,  -0.02,  0.02);
+    TH1F LILG0    = TH1F("IronLong-Flav0","IronLong-Flav0",  50,      0,  0.1);
+    TH1F LIFG0    = TH1F("IronFake-Flav0","IronFake-Flav0",  50,      0,  5.0);
+    // LowPtElectron_genPartFlav == 1
+    TH1F LIG1       = TH1F("Iron-Flav1","Iron-Flav1",     50,  -0.02,  0.02);
+    TH1F LILG1    = TH1F("IronLong-Flav1","IronLong-Flav1",  50,      0,  0.1);
+    TH1F LIFG1    = TH1F("IronFake-Flav1","IronFake-Flav1",  50,      0,  5.0);
+    // LowPtElectron_genPartFlav == 5
+    TH1F LIG5       = TH1F("Iron-Flav5","Iron-Flav5",     50,  -0.02,  0.02);
+    TH1F LILG5    = TH1F("IronLong-Flav5","IronLong-Flav5",  50,      0,  0.1);
+    TH1F LIFG5    = TH1F("IronFake-Flav5","IronFake-Flav5",  50,      0,  5.0);
+    
     for (Long64_t jentry=0; jentry<nentries;jentry++) {
         Long64_t ientry = LoadTree(jentry);
         if (ientry < 0) break;
@@ -167,6 +181,24 @@ void KUSU::Loop()
             {
                 dxySig = abs(LowPtElectron_dxy[k] / LowPtElectron_dxyErr[k]);
             }
+            
+            
+            float dzSig = -999;
+            
+            if (LowPtElectron_dxyErr[k] != 0)
+            {
+                dzSig = abs(LowPtElectron_dz[k] / LowPtElectron_dzErr[k]);
+            }
+                
+            
+            float IPsig =-999;
+            if (LowPtElectron_dxyErr[k] != 0)
+            {
+                IPsig = sqrt(dxySig*dxySig + dzsig*dzSig)
+        
+            }
+    
+               
             // fill histograms
             h_LowPtElectron_pt.Fill(LowPtElectron_pt[k]);
             h_LowPtElectron_eta.Fill(LowPtElectron_eta[k]);
@@ -197,6 +229,83 @@ void KUSU::Loop()
                 h_LowPtElectron_dxyErr_genPartFlav5.Fill(LowPtElectron_dxyErr[k]);
                 h_LowPtElectron_dxySig_genPartFlav5.Fill(dxySig);
             }
+            
+            
+            
+            if (LowPtElectron_eta[k] <2.4 && LowPtElectron_embeddedID[k]<=1.5)
+            {
+                if (LowPtElectron_miniPFRelIso_all[k] <4 && LowPtElectron_dxy[k]<0.05 && LowPtElectron_dz[k]<0.1 && IPsig<2)
+                {
+                    //////////////////////////////////////////////////
+                    //Iron
+                    
+                    if (LowPtElectron_genPartFlav[k] == 0)
+                    {
+                    }
+                    // LowPtElectron_genPartFlav == 1
+                    if (LowPtElectron_genPartFlav[k] == 1)
+                    {
+                 
+                    }
+                    // LowPtElectron_genPartFlav == 5
+                    if (LowPtElectron_genPartFlav[k] == 5)
+                    {
+                    
+                    }
+
+                }
+                
+                
+                
+                
+                
+                if (LowPtElectron_miniPFRelIso_all[k] <4 &&  IPsig>=2)
+                {
+                    //////////////////////////////////////////////////
+                    //Irom Long
+                    
+                    if (LowPtElectron_genPartFlav[k] == 0)
+                    {
+                    }
+                    // LowPtElectron_genPartFlav == 1
+                    if (LowPtElectron_genPartFlav[k] == 1)
+                    {
+                 
+                    }
+                    // LowPtElectron_genPartFlav == 5
+                    if (LowPtElectron_genPartFlav[k] == 5)
+                    {
+                    
+                    }
+
+                }
+                
+                
+                
+                
+                
+                if (LowPtElectron_miniPFRelIso_all[k] <4 && LowPtElectron_dxy[k]<0.05 && LowPtElectron_dz[k]<0.1 && IPsig<2)
+                {
+                    //////////////////////////////////////////////////
+               
+                    //Iron Fake
+                    if (LowPtElectron_genPartFlav[k] == 0)
+                    {
+                        
+                    }
+                    // LowPtElectron_genPartFlav == 1
+                    if (LowPtElectron_genPartFlav[k] == 1)
+                    {
+                 
+                    }
+                    // LowPtElectron_genPartFlav == 5
+                    if (LowPtElectron_genPartFlav[k] == 5)
+                    {
+                    
+                    }
+
+                }
+            }   
         }
     }
     // plot histograms
