@@ -23,6 +23,7 @@ std::string KUSU::GetLabel(std::string variable)
         {"dxy",         "d_{xy}"},
         {"dxyErr",      "d_{xy} err"},
         {"dxySig",      "d_{xy} sig"},
+        {"EMID",        "EmbeddedID"},
     };
     std::string label = "";
     // check if variable exists in labels
@@ -148,17 +149,17 @@ void KUSU::Loop()
     
     
     // LowPtElectron_genPartFlav == 0
-    TH1F LIG0       = TH1F("Iron-Flav0","Iron-Flav0",     50,  -0.02,  0.02);
-    TH1F LILG0    = TH1F("IronLong-Flav0","IronLong-Flav0",  50,      0,  0.1);
-    TH1F LIFG0    = TH1F("IronFake-Flav0","IronFake-Flav0",  50,      0,  5.0);
+    TH1F LIG0_EMID       = TH1F("Iron_Flav0_EMID","Iron_Flav0_EMID",     45,-1.0,8.0);
+    TH1F LILG0_EMID    = TH1F("IronLong_Flav0_EMID","IronLong_Flav0_EMID",  45,-1.0,8.0);
+    TH1F LIFG0_EMID    = TH1F("IronFake_Flav0_EMID","IronFake_Flav0_EMID",  45,-1.0,8.0);
     // LowPtElectron_genPartFlav == 1
-    TH1F LIG1       = TH1F("Iron-Flav1","Iron-Flav1",     50,  -0.02,  0.02);
-    TH1F LILG1    = TH1F("IronLong-Flav1","IronLong-Flav1",  50,      0,  0.1);
-    TH1F LIFG1    = TH1F("IronFake-Flav1","IronFake-Flav1",  50,      0,  5.0);
+    TH1F LIG1_EMID       = TH1F("Iron_Flav1_EMID","Iron_Flav1_EMID",     45,-1.0,8.0);
+    TH1F LILG1_EMID    = TH1F("IronLong_Flav1_EMID","IronLong_Flav1_EMID",  45,-1.0,8.0);
+    TH1F LIFG1_EMID    = TH1F("IronFake_Flav1_EMID","IronFake_Flav1_EMID",  45,-1.0,8.0);
     // LowPtElectron_genPartFlav == 5
-    TH1F LIG5       = TH1F("Iron-Flav5","Iron-Flav5",     50,  -0.02,  0.02);
-    TH1F LILG5    = TH1F("IronLong-Flav5","IronLong-Flav5",  50,      0,  0.1);
-    TH1F LIFG5    = TH1F("IronFake-Flav5","IronFake-Flav5",  50,      0,  5.0);
+    TH1F LIG5_EMID      = TH1F("Iron_Flav5_EMID","Iron_Flav5_EMID",     45,-1.0,8.0);
+    TH1F LILG5_EMID    = TH1F("IronLong_Flav5_EMID","IronLong_Flav5_EMID",  45,-1.0,8.0);
+    TH1F LIFG5_EMID    = TH1F("IronFake_Flav5_EMID","IronFake_Flav5_EMID",  45,-1.0,8.0);
     
     for (Long64_t jentry=0; jentry<nentries;jentry++) {
         Long64_t ientry = LoadTree(jentry);
@@ -241,17 +242,17 @@ void KUSU::Loop()
                     
                     if (LowPtElectron_genPartFlav[k] == 0)
                     {
-                        LIG0.Fill(LowPtElectron_ID[k]);
+                        LIG0_EMID.Fill(LowPtElectron_embeddedID[k]);
                     }
                     // LowPtElectron_genPartFlav == 1
                     if (LowPtElectron_genPartFlav[k] == 1)
                     {
-                        LILG0.Fill(LowPtElectron_ID[k]);
+                        LILG0_EMID.Fill(LowPtElectron_embeddedID[k]);
                     }
                     // LowPtElectron_genPartFlav == 5
                     if (LowPtElectron_genPartFlav[k] == 5)
                     {
-                        LIFG0.Fill(LowPtElectron_ID[k]);
+                        LIFG0_EMID.Fill(LowPtElectron_embeddedID[k]);
                     }
 
                 }
@@ -267,17 +268,17 @@ void KUSU::Loop()
                     
                     if (LowPtElectron_genPartFlav[k] == 0)
                     {
-                        LIG1.Fill(LowPtElectron_ID[k]);
+                        LIG1_EMID.Fill(LowPtElectron_embeddedID[k]);
                     }
                     // LowPtElectron_genPartFlav == 1
                     if (LowPtElectron_genPartFlav[k] == 1)
                     {
-                        LILG1.Fill(LowPtElectron_ID[k]);
+                        LILG1_EMID.Fill(LowPtElectron_embeddedID[k]);
                     }
                     // LowPtElectron_genPartFlav == 5
                     if (LowPtElectron_genPartFlav[k] == 5)
                     {
-                        LIFG1.Fill(LowPtElectron_ID[k]);
+                        LIFG1_EMID.Fill(LowPtElectron_embeddedID[k]);
                     }
 
                 }
@@ -293,17 +294,17 @@ void KUSU::Loop()
                     //Iron Fake
                     if (LowPtElectron_genPartFlav[k] == 0)
                     {
-                        LIG5.Fill(LowPtElectron_ID[k]);
+                        LIG5_EMID.Fill(LowPtElectron_embeddedID[k]);
                     }
                     // LowPtElectron_genPartFlav == 1
                     if (LowPtElectron_genPartFlav[k] == 1)
                     {
-                        LILG5.Fill(LowPtElectron_ID[k]);
+                        LILG5_EMID.Fill(LowPtElectron_embeddedID[k]);
                     }
                     // LowPtElectron_genPartFlav == 5
                     if (LowPtElectron_genPartFlav[k] == 5)
                     {
-                        LIFG5.Fill(LowPtElectron_ID[k]);
+                        LIFG5_EMID.Fill(LowPtElectron_embeddedID[k]);
                     }
 
                 }
@@ -334,17 +335,17 @@ void KUSU::Loop()
     PlotHist(h_LowPtElectron_dxySig_genPartFlav5,   sample, plot_dir, "h_LowPtElectron_dxySig_genPartFlav5",    "dxySig");
     
     
-    PlotHist(LIG0,      sample, plot_dir, "LIG0", "dxy");
-    PlotHist(LILG0,      sample, plot_dir, "LILG0", "dxy");
-    PlotHist(LIFG0,      sample, plot_dir, "LIFG0", "dxy");
+    PlotHist(LIG0_EMID,      sample, plot_dir, "Iron_Flav0", "EMID");
+    PlotHist(LILG0_EMID,      sample, plot_dir, "IronLong_Flav0","EMID");
+    PlotHist(LIFG0_EMID,      sample, plot_dir, "IronFake_Flav0", "EMID");
     
-    PlotHist(LIG1,      sample, plot_dir, "LIG1", "dxy");
-    PlotHist(LILG1,      sample, plot_dir, "LILG1", "dxy");
-    PlotHist(LIFG1,      sample, plot_dir, "LIFG1", "dxy");
+    PlotHist(LIG1_EMID,      sample, plot_dir, "Iron_Flav1", "EMID");
+    PlotHist(LILG1_EMID,      sample, plot_dir, "IronLong_Flav1", "EMID");
+    PlotHist(LIFG1_EMID,      sample, plot_dir, "IronFake_Flav1", "EMID");
     
-    PlotHist(LIG5,      sample, plot_dir, "LIG5", "dxy");
-    PlotHist(LILG5,      sample, plot_dir, "LILG5", "dxy");
-    PlotHist(LIFG5,      sample, plot_dir, "LIFG5", "dxy");
+    PlotHist(LIG5_EMID,      sample, plot_dir, "Iron_Flav5", "EMID");
+    PlotHist(LILG5_EMID,      sample, plot_dir, "IronLong_Flav5", "EMID");
+    PlotHist(LIFG5_EMID,      sample, plot_dir, "IronFake_Flav5", "EMID");
     
     
     
