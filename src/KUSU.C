@@ -232,7 +232,7 @@ void KUSU::Loop()
             
             
             
-            if (LowPtElectron_eta[k] <2.4 && LowPtElectron_embeddedID[k]<=1.5)
+            if (LowPtElectron_eta[k] <2.4 && LowPtElectron_embeddedID[k]>=1.5)
             {
                 if (LowPtElectron_miniPFRelIso_all[k] <4 && LowPtElectron_dxy[k]<0.05 && LowPtElectron_dz[k]<0.1 && IPsig<2)
                 {
