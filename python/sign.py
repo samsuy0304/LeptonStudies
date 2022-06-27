@@ -32,7 +32,7 @@ def run(plot_dir, sample_name, tree):
     ID_Lw =ROOT.TH1F("IDEMB", "IDEMB",45,-1,8)#, 20, 0.0, 20.0)
     pt_Lw =ROOT.TH1F("pt","pt",20,0.0,20.0)#, 20, 0.0, 20.0)
     eta_Lw =ROOT.TH1F("eta","eta", 30,-3,3)#, 20, 0.0, 20.0)
-    dxy_Lw =ROOT.TH1F("dxy","dxy", 50,-0.2,0.2)#, 50, -0.2, 0.2)
+    dxy_Lw =ROOT.TH1F("dxy","dxy", 50,-0.2,0.2)#, 50, -0.2, 0.2) FO rlong live to 0.4s for on dz and dxy
     dxyErr_Lw =ROOT.TH1F("dxyErr", "dxyErr",50,0,0.2)#, 20, 0.0, 0.1)
     dz_Lw =ROOT.TH1F("dz","dz",50,-0.2,0.2)#, 50,-0.2, 0.2)
     dzErr_Lw =ROOT.TH1F("dzErr","dzErr", 20,0,0.2)#, 20, 0.0, 0.1)
