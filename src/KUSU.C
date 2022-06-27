@@ -241,16 +241,17 @@ void KUSU::Loop()
                     
                     if (LowPtElectron_genPartFlav[k] == 0)
                     {
+                        LIG0.Fill(LowPtElectron_ID[k]);
                     }
                     // LowPtElectron_genPartFlav == 1
                     if (LowPtElectron_genPartFlav[k] == 1)
                     {
-                 
+                        LILG0.Fill(LowPtElectron_ID[k]);
                     }
                     // LowPtElectron_genPartFlav == 5
                     if (LowPtElectron_genPartFlav[k] == 5)
                     {
-                    
+                        LIFG0.Fill(LowPtElectron_ID[k]);
                     }
 
                 }
@@ -266,16 +267,17 @@ void KUSU::Loop()
                     
                     if (LowPtElectron_genPartFlav[k] == 0)
                     {
+                        LIG1.Fill(LowPtElectron_ID[k]);
                     }
                     // LowPtElectron_genPartFlav == 1
                     if (LowPtElectron_genPartFlav[k] == 1)
                     {
-                 
+                        LILG1.Fill(LowPtElectron_ID[k]);
                     }
                     // LowPtElectron_genPartFlav == 5
                     if (LowPtElectron_genPartFlav[k] == 5)
                     {
-                    
+                        LIFG1.Fill(LowPtElectron_ID[k]);
                     }
 
                 }
@@ -291,17 +293,17 @@ void KUSU::Loop()
                     //Iron Fake
                     if (LowPtElectron_genPartFlav[k] == 0)
                     {
-                        
+                        LIG5.Fill(LowPtElectron_ID[k]);
                     }
                     // LowPtElectron_genPartFlav == 1
                     if (LowPtElectron_genPartFlav[k] == 1)
                     {
-                 
+                        LILG5.Fill(LowPtElectron_ID[k]);
                     }
                     // LowPtElectron_genPartFlav == 5
                     if (LowPtElectron_genPartFlav[k] == 5)
                     {
-                    
+                        LIFG5.Fill(LowPtElectron_ID[k]);
                     }
 
                 }
@@ -330,4 +332,20 @@ void KUSU::Loop()
     PlotHist(h_LowPtElectron_dxy_genPartFlav5,      sample, plot_dir, "h_LowPtElectron_dxy_genPartFlav5",       "dxy");
     PlotHist(h_LowPtElectron_dxyErr_genPartFlav5,   sample, plot_dir, "h_LowPtElectron_dxyErr_genPartFlav5",    "dxyErr");
     PlotHist(h_LowPtElectron_dxySig_genPartFlav5,   sample, plot_dir, "h_LowPtElectron_dxySig_genPartFlav5",    "dxySig");
+    
+    
+    PlotHist(LIG0,      sample, plot_dir, "LIG0", "dxy");
+    PlotHist(LILG0,      sample, plot_dir, "LILG0", "dxy");
+    PlotHist(LIFG0,      sample, plot_dir, "LIFG0", "dxy");
+    
+    PlotHist(LIG1,      sample, plot_dir, "LIG1", "dxy");
+    PlotHist(LILG1,      sample, plot_dir, "LILG1", "dxy");
+    PlotHist(LIFG1,      sample, plot_dir, "LIFG1", "dxy");
+    
+    PlotHist(LIG5,      sample, plot_dir, "LIG5", "dxy");
+    PlotHist(LILG5,      sample, plot_dir, "LILG5", "dxy");
+    PlotHist(LIFG5,      sample, plot_dir, "LIFG5", "dxy");
+    
+    
+    
 }
