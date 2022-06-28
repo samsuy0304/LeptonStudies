@@ -133,17 +133,17 @@ void KUSU::Loop()
     
     
     // LowPtElectron_genPartFlav == 0
-    TH1F LIG0_EMID       = TH1F("Iron_Flav0_EMID","Iron_Flav0_EMID",     45,-1.0,8.0);
-    TH1F LILG0_EMID    = TH1F("IronLong_Flav0_EMID","IronLong_Flav0_EMID",  45,-1.0,8.0);
-    TH1F LIFG0_EMID    = TH1F("IronFake_Flav0_EMID","IronFake_Flav0_EMID",  45,-1.0,8.0);
+    TH1F LIG0_EMID       = TH1F("Iron_Flav0_EMID","Iron_Flav0_EMID",     50,0.0,10.0);
+    TH1F LILG0_EMID    = TH1F("IronLong_Flav0_EMID","IronLong_Flav0_EMID",  50,0.0,10.0);
+    TH1F LIFG0_EMID    = TH1F("IronFake_Flav0_EMID","IronFake_Flav0_EMID",  50,0.0,10.0);
     // LowPtElectron_genPartFlav == 1
-    TH1F LIG1_EMID       = TH1F("Iron_Flav1_EMID","Iron_Flav1_EMID",     45,-1.0,8.0);
-    TH1F LILG1_EMID    = TH1F("IronLong_Flav1_EMID","IronLong_Flav1_EMID",  45,-1.0,8.0);
-    TH1F LIFG1_EMID    = TH1F("IronFake_Flav1_EMID","IronFake_Flav1_EMID",  45,-1.0,8.0);
+    TH1F LIG1_EMID       = TH1F("Iron_Flav1_EMID","Iron_Flav1_EMID",     50,0.0,10.0);
+    TH1F LILG1_EMID    = TH1F("IronLong_Flav1_EMID","IronLong_Flav1_EMID",  50,0.0,10.0);
+    TH1F LIFG1_EMID    = TH1F("IronFake_Flav1_EMID","IronFake_Flav1_EMID",  50,0.0,10.0);
     // LowPtElectron_genPartFlav == 5
-    TH1F LIG5_EMID      = TH1F("Iron_Flav5_EMID","Iron_Flav5_EMID",     45,-1.0,8.0);
-    TH1F LILG5_EMID    = TH1F("IronLong_Flav5_EMID","IronLong_Flav5_EMID",  45,-1.0,8.0);
-    TH1F LIFG5_EMID    = TH1F("IronFake_Flav5_EMID","IronFake_Flav5_EMID",  45,-1.0,8.0);
+    TH1F LIG5_EMID      = TH1F("Iron_Flav5_EMID","Iron_Flav5_EMID",     50,0.0,10.0);
+    TH1F LILG5_EMID    = TH1F("IronLong_Flav5_EMID","IronLong_Flav5_EMID",  50,0.0,10.0);
+    TH1F LIFG5_EMID    = TH1F("IronFake_Flav5_EMID","IronFake_Flav5_EMID",  50,0.0,10.0);
     
     
     
