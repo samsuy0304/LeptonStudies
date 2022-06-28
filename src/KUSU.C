@@ -24,6 +24,14 @@ std::string KUSU::GetLabel(std::string variable)
         {"dxyErr",      "d_{xy} err"},
         {"dxySig",      "d_{xy} sig"},
         {"EMID",        "EmbeddedID"},
+        {"dz",         "d_{z}"},
+        {"dzErr",      "d_{z} err"},
+        {"dzSig",      "d_{z} sig"},
+        
+        {"ISO",         "ISO"},
+        {"CONV",      "Conveto"},
+        {"IpSig",      "d_{IP} sig"},
+        
     };
     std::string label = "";
     // check if variable exists in labels
@@ -74,7 +82,7 @@ void KUSU::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir, s
     hist.Draw("hist error same");
     
     // save plot
-    std::string output_name = plot_dir + "/" + sample_name + "_" + plot_name; 
+    std::string output_name = plot_dir + "/" + "_" + plot_name; 
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());
