@@ -342,7 +342,7 @@ void KUSU::Loop()
     TH1F LIFG1_IpSig    = TH1F("IronFake_Flav1_IpSig","IronFake_Flav1_IpSig",  50,0.0,5.0);
     // LowIpSigElectron_genPartFlav == 5
     TH1F LIG5_IpSig      = TH1F("Iron_Flav5_IpSig","Iron_Flav5_IpSig",     50,0.0,5.0);
-    TH1F LILG5_IpSigSF    = TH1F("IronLong_Flav5_IpSig","IronLong_Flav5_IpSig",  50,0.0,5.0);
+    TH1F LILG5_IpSig    = TH1F("IronLong_Flav5_IpSig","IronLong_Flav5_IpSig",  50,0.0,5.0);
     TH1F LIFG5_IpSig    = TH1F("IronFake_Flav5_IpSig","IronFake_Flav5_IpSig",  50,0.0,5.0);
     
     
@@ -359,8 +359,7 @@ void KUSU::Loop()
         {
             std::cout << "Event " << jentry << std::endl;
         }
-        // fill histograms
-        h_nLowPtElectron.Fill(nLowPtElectron);
+        
         // loop over electrons
         for (int k = 0; k < nLowPtElectron; ++k)
         {
