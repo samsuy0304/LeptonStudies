@@ -3358,6 +3358,7 @@ public :
    TBranch        *b_L1simulation_step;   //!
 
    TTJETS(TTree *tree=0);
+   virtual ~NanoClass();
    virtual Int_t        Cut(Long64_t entry);
    virtual Int_t        GetEntry(Long64_t entry);
    virtual Long64_t     LoadTree(Long64_t entry);
