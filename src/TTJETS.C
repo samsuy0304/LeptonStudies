@@ -5,7 +5,7 @@
 #include <TCanvas.h>
 
 
-std::string KUSU::GetLabel(std::string variable)
+std::string TTJETS::GetLabel(std::string variable)
 {
     std::map<std::string, std::string> labels {
         // variables
@@ -44,7 +44,7 @@ std::string KUSU::GetLabel(std::string variable)
     return labels[variable];
 }
 
-void KUSU::SetupHist(TH1F &hist, std::string title, std::string x_title, std::string y_title, int color, int line_width)
+void TTJETS::SetupHist(TH1F &hist, std::string title, std::string x_title, std::string y_title, int color, int line_width)
 {
     hist.SetStats(kFALSE);
     
@@ -58,7 +58,7 @@ void KUSU::SetupHist(TH1F &hist, std::string title, std::string x_title, std::st
     hist.SetLineWidth(line_width);
 }
 
-void KUSU::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable)
+void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable)
 {
     printf("Plotting %s\n", plot_name.c_str());
 
