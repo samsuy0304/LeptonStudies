@@ -383,7 +383,7 @@ void KUSU::Loop()
             float IPsig =-999;
             if (LowPtElectron_dxyErr[k] != 0)
             {
-                IPsig = sqrt(dxySig*dxySig + dzsig*dzSig)
+                IPsig = sqrt(dxySig*dxySig + dzSig*dzSig);
         
             }
     
