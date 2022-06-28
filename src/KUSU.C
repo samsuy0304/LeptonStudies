@@ -368,7 +368,7 @@ void KUSU::Loop()
             // avoid dividing by 0
             if (LowPtElectron_dxyErr[k] != 0)
             {
-                dxySig = abs(LowPtElectron_dxy[k] / LowPtElectron_dxyErr[k]);
+                dxySig = LowPtElectron_dxy[k] / LowPtElectron_dxyErr[k];
             }
             
             
@@ -376,16 +376,32 @@ void KUSU::Loop()
             
             if (LowPtElectron_dxyErr[k] != 0)
             {
-                dzSig = abs(LowPtElectron_dz[k] / LowPtElectron_dzErr[k]);
+                dzSig = LowPtElectron_dz[k] / LowPtElectron_dzErr[k];
             }
                 
             
-            float IPsig =-999;
+            float IPsig =-999; //
             if (LowPtElectron_dxyErr[k] != 0)
             {
                 IPsig = sqrt(dxySig*dxySig + dzSig*dzSig);
         
             }
+            
+            //[15:33] Smith, Caleb James
+
+//IPSig = abs(IP / IPErr)
+
+
+//With IP = DR = sqrt(dxy^2 + dz^2)
+
+//[15:35] Smith, Caleb James
+//and this for the error (though I want to try the full error propagation to check): 
+
+//IPErr = DRErr = sqrt(dxyErr^2 + dzErr^2)
+            
+            // IP alone IP Error and Sig two : IP/IP Err and IPSig diff 
+
+
     
                
            
@@ -517,7 +533,7 @@ void KUSU::Loop()
                 
                 
                 
-                if (LowPtElectron_miniPFRelIso_all[k] <4 && LowPtElectron_dxy[k]<0.05 && LowPtElectron_dz[k]<0.1 && IPsig<2)
+                if (LowPtElectron_miniPFRelIso_all[k] >=4 && LowPtElectron_dxy[k]<0.05 && LowPtElectron_dz[k]<0.1 && IPsig<2)
                 {
                     //////////////////////////////////////////////////
                
