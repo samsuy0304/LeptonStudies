@@ -77,9 +77,10 @@ void KUSU::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir, s
     int color           = kBlack;
     int line_width      = 1;
     SetupHist(hist, title, x_title, y_title, color, line_width);
-
+    gStyle->SetOptStat(111111);
     // draw
     hist.Draw("hist error same");
+    hist.SetStats(kTRUE);
     
     // save plot
     std::string output_name = plot_dir + "/" + sample_name + "_" + plot_name; 
