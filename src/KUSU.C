@@ -83,7 +83,7 @@ void KUSU::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir, s
     hist.SetStats(kTRUE);
     
     // save plot
-    std::string output_name = plot_dir + "/" + sample_name + "_" + plot_name; 
+    std::string output_name = plot_dir + "/" + "_" + plot_name; 
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());
