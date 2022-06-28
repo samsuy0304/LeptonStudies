@@ -3358,14 +3358,16 @@ public :
    TBranch        *b_L1simulation_step;   //!
 
    TTJETS(TTree *tree=0);
-   virtual ~TTJETS();
-   virtual Int_t    Cut(Long64_t entry);
-   virtual Int_t    GetEntry(Long64_t entry);
-   virtual Long64_t LoadTree(Long64_t entry);
-   virtual void     Init(TTree *tree);
-   virtual void     Loop();
-   virtual Bool_t   Notify();
-   virtual void     Show(Long64_t entry = -1);
+   virtual Int_t        Cut(Long64_t entry);
+   virtual Int_t        GetEntry(Long64_t entry);
+   virtual Long64_t     LoadTree(Long64_t entry);
+   virtual void         Init(TTree *tree);
+   virtual void         Loop();
+   virtual void         PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable);
+   virtual void         SetupHist(TH1F &hist, std::string title, std::string x_title, std::string y_title, int color, int line_width);
+   virtual std::string  GetLabel(std::string variable);
+   virtual Bool_t       Notify();
+   virtual void         Show(Long64_t entry = -1);
 };
 
 #endif
