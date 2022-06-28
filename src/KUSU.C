@@ -332,18 +332,18 @@ void KUSU::Loop()
     
     
 
- // LowIpSigSigElectron_genPartFlav == 0
-    TH1F LIG0_IpSigSig       = TH1F("Iron_Flav0_IpSigSig","Iron_Flav0_IpSigSig",     50,0.0,5.0);
-    TH1F LILG0_IpSigSig    = TH1F("IronLong_Flav0_IpSigSig","IronLong_Flav0_IpSigSig",  50,0.0,5.0);
-    TH1F LIFG0_IpSigSig    = TH1F("IronFake_Flav0_IpSigSig","IronFake_Flav0_IpSigSig",  50,0.0,5.0);
-    // LowIpSigSigElectron_genPartFlav == 1
-    TH1F LIG1_IpSigSig       = TH1F("Iron_Flav1_IpSigSig","Iron_Flav1_IpSigSig",     50,0.0,5.0);
-    TH1F LILG1_IpSigSig    = TH1F("IronLong_Flav1_IpSigSig","IronLong_Flav1_IpSigSig",  50,0.0,5.0);
-    TH1F LIFG1_IpSigSig    = TH1F("IronFake_Flav1_IpSigSig","IronFake_Flav1_IpSigSig",  50,0.0,5.0);
-    // LowIpSigSigElectron_genPartFlav == 5
-    TH1F LIG5_IpSigSig      = TH1F("Iron_Flav5_IpSigSig","Iron_Flav5_IpSigSig",     50,0.0,5.0);
-    TH1F LILG5_IpSigSig    = TH1F("IronLong_Flav5_IpSigSig","IronLong_Flav5_IpSigSig",  50,0.0,5.0);
-    TH1F LIFG5_IpSigSig    = TH1F("IronFake_Flav5_IpSigSig","IronFake_Flav5_IpSigSig",  50,0.0,5.0);
+ // LowIpSigElectron_genPartFlav == 0
+    TH1F LIG0_IpSig       = TH1F("Iron_Flav0_IpSig","Iron_Flav0_IpSig",     50,0.0,5.0);
+    TH1F LILG0_IpSig    = TH1F("IronLong_Flav0_IpSig","IronLong_Flav0_IpSig",  50,0.0,5.0);
+    TH1F LIFG0_IpSig    = TH1F("IronFake_Flav0_IpSig","IronFake_Flav0_IpSig",  50,0.0,5.0);
+    // LowIpSigElectron_genPartFlav == 1
+    TH1F LIG1_IpSig       = TH1F("Iron_Flav1_IpSig","Iron_Flav1_IpSig",     50,0.0,5.0);
+    TH1F LILG1_IpSig    = TH1F("IronLong_Flav1_IpSig","IronLong_Flav1_IpSig",  50,0.0,5.0);
+    TH1F LIFG1_IpSig    = TH1F("IronFake_Flav1_IpSig","IronFake_Flav1_IpSig",  50,0.0,5.0);
+    // LowIpSigElectron_genPartFlav == 5
+    TH1F LIG5_IpSig      = TH1F("Iron_Flav5_IpSig","Iron_Flav5_IpSig",     50,0.0,5.0);
+    TH1F LILG5_IpSigSF    = TH1F("IronLong_Flav5_IpSig","IronLong_Flav5_IpSig",  50,0.0,5.0);
+    TH1F LIFG5_IpSig    = TH1F("IronFake_Flav5_IpSig","IronFake_Flav5_IpSig",  50,0.0,5.0);
     
     
     
@@ -407,7 +407,7 @@ void KUSU::Loop()
                         LIG0_dz.Fill(LowPtElectron_dz[k]);
                         LIG0_dzErr.Fill(LowPtElectron_dzErr[k]);
                         LIG0_dxyErr.Fill(LowPtElectron_dxyErr[k]);
-                        LIG0_dxySig.Fill(LowPtElectron_dxySig[k]);
+                   
                         LIG0_dzSig.Fill(dzSig);
                         LIG0_dxySig.Fill(dxySig);
                         LIG0_IpSig.Fill(IPsig);
@@ -424,7 +424,7 @@ void KUSU::Loop()
                         LIG1_dz.Fill(LowPtElectron_dz[k]);
                         LIG1_dzErr.Fill(LowPtElectron_dzErr[k]);
                         LIG1_dxyErr.Fill(LowPtElectron_dxyErr[k]);
-                        LIG1_dxySig.Fill(LowPtElectron_dxySig[k]);
+                       
                         LIG1_dzSig.Fill(dzSig);
                         LIG1_dxySig.Fill(dxySig);
                         LIG1_IpSig.Fill(IPsig);
@@ -441,7 +441,7 @@ void KUSU::Loop()
                         LIG5_dz.Fill(LowPtElectron_dz[k]);
                         LIG5_dzErr.Fill(LowPtElectron_dzErr[k]);
                         LIG5_dxyErr.Fill(LowPtElectron_dxyErr[k]);
-                        LIG5_dxySig.Fill(LowPtElectron_dxySig[k]);
+                      
                         LIG5_dzSig.Fill(dzSig);
                         LIG5_dxySig.Fill(dxySig);
                         LIG5_IpSig.Fill(IPsig);
@@ -469,7 +469,7 @@ void KUSU::Loop()
                         LILG0_dz.Fill(LowPtElectron_dz[k]);
                         LILG0_dzErr.Fill(LowPtElectron_dzErr[k]);
                         LILG0_dxyErr.Fill(LowPtElectron_dxyErr[k]);
-                        LILG0_dxySig.Fill(LowPtElectron_dxySig[k]);
+                       
                         LILG0_dzSig.Fill(dzSig);
                         LILG0_dxySig.Fill(dxySig);
                         LILG0_IpSig.Fill(IPsig);
@@ -486,7 +486,7 @@ void KUSU::Loop()
                         LILG1_dz.Fill(LowPtElectron_dz[k]);
                         LILG1_dzErr.Fill(LowPtElectron_dzErr[k]);
                         LILG1_dxyErr.Fill(LowPtElectron_dxyErr[k]);
-                        LILG1_dxySig.Fill(LowPtElectron_dxySig[k]);
+                     
                         LILG1_dzSig.Fill(dzSig);
                         LILG1_dxySig.Fill(dxySig);
                         LILG1_IpSig.Fill(IPsig);
@@ -503,7 +503,7 @@ void KUSU::Loop()
                         LILG5_dz.Fill(LowPtElectron_dz[k]);
                         LILG5_dzErr.Fill(LowPtElectron_dzErr[k]);
                         LILG5_dxyErr.Fill(LowPtElectron_dxyErr[k]);
-                        LILG5_dxySig.Fill(LowPtElectron_dxySig[k]);
+                   
                         LILG5_dzSig.Fill(dzSig);
                         LILG5_dxySig.Fill(dxySig);
                         LILG5_IpSig.Fill(IPsig);
@@ -531,7 +531,7 @@ void KUSU::Loop()
                         LIFG0_dz.Fill(LowPtElectron_dz[k]);
                         LIFG0_dzErr.Fill(LowPtElectron_dzErr[k]);
                         LIFG0_dxyErr.Fill(LowPtElectron_dxyErr[k]);
-                        LIFG0_dxySig.Fill(LowPtElectron_dxySig[k]);
+                       
                         LIFG0_dzSig.Fill(dzSig);
                         LIFG0_dxySig.Fill(dxySig);
                         LIFG0_IpSig.Fill(IPsig);
@@ -548,7 +548,7 @@ void KUSU::Loop()
                         LIFG1_dz.Fill(LowPtElectron_dz[k]);
                         LIFG1_dzErr.Fill(LowPtElectron_dzErr[k]);
                         LIFG1_dxyErr.Fill(LowPtElectron_dxyErr[k]);
-                        LIFG1_dxySig.Fill(LowPtElectron_dxySig[k]);
+                   
                         LIFG1_dzSig.Fill(dzSig);
                         LIFG1_dxySig.Fill(dxySig);
                         LIFG1_IpSig.Fill(IPsig);
@@ -565,7 +565,7 @@ void KUSU::Loop()
                         LIFG1_dz.Fill(LowPtElectron_dz[k]);
                         LIFG1_dzErr.Fill(LowPtElectron_dzErr[k]);
                         LIFG1_dxyErr.Fill(LowPtElectron_dxyErr[k]);
-                        LIFG1_dxySig.Fill(LowPtElectron_dxySig[k]);
+                       
                         LIFG1_dzSig.Fill(dzSig);
                         LIFG1_dxySig.Fill(dxySig);
                         LIFG1_IpSig.Fill(IPsig);
