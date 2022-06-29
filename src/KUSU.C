@@ -1196,150 +1196,549 @@ void KUSU::Loop()
     }
 
     
+    //EMID
+    PlotHist(IRON1_FLAV0_EMID,      sample, plot_dir, "EMID_IRON1_Flav0", "EMID");
+    PlotHist(IRON2_FLAV0_EMID,      sample, plot_dir, "EMID_IRON2_Flav0", "EMID");
+    PlotHist(LONG1_FLAV0_EMID,      sample, plot_dir, "EMID_IRONLong1_Flav0","EMID");
+    PlotHist(LONG2_FLAV0_EMID,      sample, plot_dir, "EMID_IRONLong2_Flav0","EMID");
+    PlotHist(FAKE_FLAV0_EMID,      sample, plot_dir, "EMID_IRON1Fake_Flav0", "EMID");
     
-    PlotHist(IRON_FLAV0_EMID,      sample, plot_dir, "EMID_Iron_Flav0", "EMID");
-    PlotHist(LONG1_FLAV0_EMID,      sample, plot_dir, "EMID_IronLong_Flav0","EMID");
-    PlotHist(FAKE_FLAV0_EMID,      sample, plot_dir, "EMID_IronFake_Flav0", "EMID");
+    PlotHist(IRON1_FLAV1_EMID,      sample, plot_dir, "EMID_IRON1_Flav1", "EMID");
+    PlotHist(LONG1_FLAV1_EMID,      sample, plot_dir, "EMID_IRON1Long_Flav1", "EMID");
+    PlotHist(IRON2_FLAV1_EMID,      sample, plot_dir, "EMID_IRON2_Flav1", "EMID");
+    PlotHist(LONG2_FLAV1_EMID,      sample, plot_dir, "EMID_IRONLong2_Flav1", "EMID");
+    PlotHist(FAKE_FLAV1_EMID,      sample, plot_dir, "EMID_IRON1Fake_Flav1", "EMID");
     
-    PlotHist(IRON_FLAV1_EMID,      sample, plot_dir, "EMID_Iron_Flav1", "EMID");
-    PlotHist(LONG1_FLAV1_EMID,      sample, plot_dir, "EMID_IronLong_Flav1", "EMID");
-    PlotHist(FAKE_FLAV1_EMID,      sample, plot_dir, "EMID_IronFake_Flav1", "EMID");
-    
-    PlotHist(IRON_FLAV5_EMID,      sample, plot_dir, "EMID_Iron_Flav5", "EMID");
-    PlotHist(LONG1_FLAV5_EMID,      sample, plot_dir, "EMID_IronLong_Flav5", "EMID");
-    PlotHist(FAKE_FLAV5_EMID,      sample, plot_dir, "EMID_IronFake_Flav5", "EMID");
-    
-    PlotHist(IRON_FLAV0_pt,      sample, plot_dir, "pt_Iron_Flav0", "pt");
-    PlotHist(LONG1_FLAV0_pt,      sample, plot_dir, "pt_pt_IronLong_Flav0","pt");
-    PlotHist(FAKE_FLAV0_pt,      sample, plot_dir, "pt_IronFake_Flav0", "pt");
-    
-    PlotHist(IRON_FLAV1_pt,      sample, plot_dir, "pt_Iron_Flav1", "pt");
-    PlotHist(LONG1_FLAV1_pt,      sample, plot_dir, "pt_IronLong_Flav1", "pt");
-    PlotHist(FAKE_FLAV1_pt,      sample, plot_dir, "pt_IronFake_Flav1", "pt");
-    
-    PlotHist(IRON_FLAV5_pt,      sample, plot_dir, "pt_Iron_Flav5", "pt");
-    PlotHist(LONG1_FLAV5_pt,      sample, plot_dir, "pt_IronLong_Flav5", "pt");
-    PlotHist(FAKE_FLAV5_pt,      sample, plot_dir, "pt_IronFake_Flav5", "pt");
+    PlotHist(IRON1_FLAV5_EMID,      sample, plot_dir, "EMID_IRON1_Flav5", "EMID");
+    PlotHist(LONG1_FLAV5_EMID,      sample, plot_dir, "EMID_IRON1Long_Flav5", "EMID");
+    PlotHist(IRON2_FLAV5_EMID,      sample, plot_dir, "EMID_IRON2_Flav5", "EMID");
+    PlotHist(LONG2_FLAV5_EMID,      sample, plot_dir, "EMID_IRONLong2_Flav5", "EMID");
+    PlotHist(FAKE_FLAV5_EMID,      sample, plot_dir, "EMID_IRON1Fake_Flav5", "EMID");
     
     
-    PlotHist(IRON_FLAV0_eta,      sample, plot_dir, "eta_Iron_Flav0", "eta");
-    PlotHist(LONG1_FLAV0_eta,      sample, plot_dir, "eta_IronLong_Flav0","eta");
-    PlotHist(FAKE_FLAV0_eta,      sample, plot_dir, "eta_IronFake_Flav0", "eta");
+    //pt
+    PlotHist(IRON1_FLAV0_pt,      sample, plot_dir, "pt_IRON1_Flav0", "pt");
+    PlotHist(IRON2_FLAV0_pt,      sample, plot_dir, "pt_IRON2_Flav0", "pt");
+    PlotHist(LONG1_FLAV0_pt,      sample, plot_dir, "pt_IRONLong1_Flav0","pt");
+    PlotHist(LONG2_FLAV0_pt,      sample, plot_dir, "pt_IRONLong2_Flav0","pt");
+    PlotHist(FAKE_FLAV0_pt,      sample, plot_dir, "pt_IRON1Fake_Flav0", "pt");
     
-    PlotHist(IRON_FLAV1_eta,      sample, plot_dir, "eta_Iron_Flav1", "eta");
-    PlotHist(LONG1_FLAV1_eta,      sample, plot_dir, "eta_IronLong_Flav1", "eta");
-    PlotHist(FAKE_FLAV1_eta,      sample, plot_dir, "eta_IronFake_Flav1", "eta");
+    PlotHist(IRON1_FLAV1_pt,      sample, plot_dir, "pt_IRON1_Flav1", "pt");
+    PlotHist(LONG1_FLAV1_pt,      sample, plot_dir, "pt_IRON1Long_Flav1", "pt");
+    PlotHist(IRON2_FLAV1_pt,      sample, plot_dir, "pt_IRON2_Flav1", "pt");
+    PlotHist(LONG2_FLAV1_pt,      sample, plot_dir, "pt_IRONLong2_Flav1", "pt");
+    PlotHist(FAKE_FLAV1_pt,      sample, plot_dir, "pt_IRON1Fake_Flav1", "pt");
     
-    PlotHist(IRON_FLAV5_eta,      sample, plot_dir, "eta_Iron_Flav5", "eta");
-    PlotHist(LONG1_FLAV5_eta,      sample, plot_dir, "eta_IronLong_Flav5", "eta");
-    PlotHist(FAKE_FLAV5_eta,      sample, plot_dir, "eta_IronFake_Flav5", "eta");
+    PlotHist(IRON1_FLAV5_pt,      sample, plot_dir, "pt_IRON1_Flav5", "pt");
+    PlotHist(LONG1_FLAV5_pt,      sample, plot_dir, "pt_IRON1Long_Flav5", "pt");
+    PlotHist(IRON2_FLAV5_pt,      sample, plot_dir, "pt_IRON2_Flav5", "pt");
+    PlotHist(LONG2_FLAV5_pt,      sample, plot_dir, "pt_IRONLong2_Flav5", "pt");
+    PlotHist(FAKE_FLAV5_pt,      sample, plot_dir, "pt_IRON1Fake_Flav5", "pt");
     
-    PlotHist(IRON_FLAV0_dxy,      sample, plot_dir, "dxy_Iron_Flav0", "dxy");
-    PlotHist(LONG1_FLAV0_dxy,      sample, plot_dir, "dxy_IronLong_Flav0","dxy");
-    PlotHist(FAKE_FLAV0_dxy,      sample, plot_dir, "dxy_IronFake_Flav0", "dxy");
+    //eta
+    PlotHist(IRON1_FLAV0_eta,      sample, plot_dir, "eta_IRON1_Flav0", "eta");
+    PlotHist(IRON2_FLAV0_eta,      sample, plot_dir, "eta_IRON2_Flav0", "eta");
+    PlotHist(LONG1_FLAV0_eta,      sample, plot_dir, "eta_IRONLong1_Flav0","eta");
+    PlotHist(LONG2_FLAV0_eta,      sample, plot_dir, "eta_IRONLong2_Flav0","eta");
+    PlotHist(FAKE_FLAV0_eta,      sample, plot_dir, "eta_IRON1Fake_Flav0", "eta");
     
-    PlotHist(IRON_FLAV1_dxy,      sample, plot_dir, "dxy_Iron_Flav1", "dxy");
-    PlotHist(LONG1_FLAV1_dxy,      sample, plot_dir, "dxy_IronLong_Flav1", "dxy");
-    PlotHist(FAKE_FLAV1_dxy,      sample, plot_dir, "dxy_IronFake_Flav1", "dxy");
+    PlotHist(IRON1_FLAV1_eta,      sample, plot_dir, "eta_IRON1_Flav1", "eta");
+    PlotHist(LONG1_FLAV1_eta,      sample, plot_dir, "eta_IRON1Long_Flav1", "eta");
+    PlotHist(IRON2_FLAV1_eta,      sample, plot_dir, "eta_IRON2_Flav1", "eta");
+    PlotHist(LONG2_FLAV1_eta,      sample, plot_dir, "eta_IRONLong2_Flav1", "eta");
+    PlotHist(FAKE_FLAV1_eta,      sample, plot_dir, "eta_IRON1Fake_Flav1", "eta");
     
-    PlotHist(IRON_FLAV5_dxy,      sample, plot_dir, "dxy_Iron_Flav5", "dxy");
-    PlotHist(LONG1_FLAV5_dxy,      sample, plot_dir, "dxy_IronLong_Flav5", "dxy");
-    PlotHist(FAKE_FLAV5_dxy,      sample, plot_dir, "dxy_IronFake_Flav5", "dxy");
-    
-    PlotHist(IRON_FLAV0_dxyErr,      sample, plot_dir, "dxyErr_Iron_Flav0", "dxyErr");
-    PlotHist(LONG1_FLAV0_dxyErr,      sample, plot_dir, "dxyErr_IronLong_Flav0","dxyErr");
-    PlotHist(FAKE_FLAV0_dxyErr,      sample, plot_dir, "dxyErr_IronFake_Flav0", "dxyErr");
-    
-    PlotHist(IRON_FLAV1_dxyErr,      sample, plot_dir, "dxyErr_Iron_Flav1", "dxyErr");
-    PlotHist(LONG1_FLAV1_dxyErr,      sample, plot_dir, "dxyErr_IronLong_Flav1", "dxyErr");
-    PlotHist(FAKE_FLAV1_dxyErr,      sample, plot_dir, "dxyErr_IronFake_Flav1", "dxyErr");
-    
-    PlotHist(IRON_FLAV5_dxyErr,      sample, plot_dir, "dxyErr_Iron_Flav5", "dxyErr");
-    PlotHist(LONG1_FLAV5_dxyErr,      sample, plot_dir, "dxyErr_IronLong_Flav5", "dxyErr");
-    PlotHist(FAKE_FLAV5_dxyErr,      sample, plot_dir, "dxyErr_IronFake_Flav5", "dxyErr");
-    
-    PlotHist(IRON_FLAV0_dz,      sample, plot_dir, "dz_Iron_Flav0", "dz");
-    PlotHist(LONG1_FLAV0_dz,      sample, plot_dir, "dz_IronLong_Flav0","dz");
-    PlotHist(FAKE_FLAV0_dz,      sample, plot_dir, "dz_IronFake_Flav0", "dz");
-    
-    PlotHist(IRON_FLAV1_dz,      sample, plot_dir, "dz_Iron_Flav1", "dz");
-    PlotHist(LONG1_FLAV1_dz,      sample, plot_dir, "dz_IronLong_Flav1", "dz");
-    PlotHist(FAKE_FLAV1_dz,      sample, plot_dir, "dz_IronFake_Flav1", "dz");
-    
-    PlotHist(IRON_FLAV5_dz,      sample, plot_dir, "dz_Iron_Flav5", "dz");
-    PlotHist(LONG1_FLAV5_dz,      sample, plot_dir, "dz_IronLong_Flav5", "dz");
-    PlotHist(FAKE_FLAV5_dz,      sample, plot_dir, "dz_IronFake_Flav5", "dz");
+    PlotHist(IRON1_FLAV5_eta,      sample, plot_dir, "eta_IRON1_Flav5", "eta");
+    PlotHist(LONG1_FLAV5_eta,      sample, plot_dir, "eta_IRON1Long_Flav5", "eta");
+    PlotHist(IRON2_FLAV5_eta,      sample, plot_dir, "eta_IRON2_Flav5", "eta");
+    PlotHist(LONG2_FLAV5_eta,      sample, plot_dir, "eta_IRONLong2_Flav5", "eta");
+    PlotHist(FAKE_FLAV5_eta,      sample, plot_dir, "eta_IRON1Fake_Flav5", "eta");
     
     
-    PlotHist(IRON_FLAV0_dzErr,      sample, plot_dir, "dzErr_Iron_Flav0", "dzErr");
-    PlotHist(LONG1_FLAV0_dzErr,      sample, plot_dir, "dzErr_IronLong_Flav0","dzErr");
-    PlotHist(FAKE_FLAV0_dzErr,      sample, plot_dir, "dzErr_IronFake_Flav0", "dzErr");
+    //dxy
+    PlotHist(IRON1_FLAV0_dxy,      sample, plot_dir, "dxy_IRON1_Flav0", "dxy");
+    PlotHist(IRON2_FLAV0_dxy,      sample, plot_dir, "dxy_IRON2_Flav0", "dxy");
+    PlotHist(LONG1_FLAV0_dxy,      sample, plot_dir, "dxy_IRONLong1_Flav0","dxy");
+    PlotHist(LONG2_FLAV0_dxy,      sample, plot_dir, "dxy_IRONLong2_Flav0","dxy");
+    PlotHist(FAKE_FLAV0_dxy,      sample, plot_dir, "dxy_IRON1Fake_Flav0", "dxy");
     
-    PlotHist(IRON_FLAV1_dzErr,      sample, plot_dir, "dzErr_Iron_Flav1", "dzErr");
-    PlotHist(LONG1_FLAV1_dzErr,      sample, plot_dir, "dzErr_IronLong_Flav1", "dzErr");
-    PlotHist(FAKE_FLAV1_dzErr,      sample, plot_dir, "dzErr_IronFake_Flav1", "dzErr");
+    PlotHist(IRON1_FLAV1_dxy,      sample, plot_dir, "dxy_IRON1_Flav1", "dxy");
+    PlotHist(LONG1_FLAV1_dxy,      sample, plot_dir, "dxy_IRON1Long_Flav1", "dxy");
+    PlotHist(IRON2_FLAV1_dxy,      sample, plot_dir, "dxy_IRON2_Flav1", "dxy");
+    PlotHist(LONG2_FLAV1_dxy,      sample, plot_dir, "dxy_IRONLong2_Flav1", "dxy");
+    PlotHist(FAKE_FLAV1_dxy,      sample, plot_dir, "dxy_IRON1Fake_Flav1", "dxy");
     
-    PlotHist(IRON_FLAV5_dzErr,      sample, plot_dir, "dzErr_Iron_Flav5", "dzErr");
-    PlotHist(LONG1_FLAV5_dzErr,      sample, plot_dir, "dzErr_IronLong_Flav5", "dzErr");
-    PlotHist(FAKE_FLAV5_dzErr,      sample, plot_dir, "dzErr_IronFake_Flav5", "dzErr");
+    PlotHist(IRON1_FLAV5_dxy,      sample, plot_dir, "dxy_IRON1_Flav5", "dxy");
+    PlotHist(LONG1_FLAV5_dxy,      sample, plot_dir, "dxy_IRON1Long_Flav5", "dxy");
+    PlotHist(IRON2_FLAV5_dxy,      sample, plot_dir, "dxy_IRON2_Flav5", "dxy");
+    PlotHist(LONG2_FLAV5_dxy,      sample, plot_dir, "dxy_IRONLong2_Flav5", "dxy");
+    PlotHist(FAKE_FLAV5_dxy,      sample, plot_dir, "dxy_IRON1Fake_Flav5", "dxy");
     
-    PlotHist(IRON_FLAV0_CONV,      sample, plot_dir, "CONV_Iron_Flav0", "CONV");
-    PlotHist(LONG1_FLAV0_CONV,      sample, plot_dir, "CONV_IronLong_Flav0","CONV");
-    PlotHist(FAKE_FLAV0_CONV,      sample, plot_dir, "CONV_IronFake_Flav0", "CONV");
     
-    PlotHist(IRON_FLAV1_CONV,      sample, plot_dir, "CONV_Iron_Flav1", "CONV");
-    PlotHist(LONG1_FLAV1_CONV,      sample, plot_dir, "CONV_IronLong_Flav1", "CONV");
-    PlotHist(FAKE_FLAV1_CONV,      sample, plot_dir, "CONV_IronFake_Flav1", "CONV");
+    //dxyErr
+    PlotHist(IRON1_FLAV0_dxyErr,      sample, plot_dir, "dxyErr_IRON1_Flav0", "dxyErr");
+    PlotHist(IRON2_FLAV0_dxyErr,      sample, plot_dir, "dxyErr_IRON2_Flav0", "dxyErr");
+    PlotHist(LONG1_FLAV0_dxyErr,      sample, plot_dir, "dxyErr_IRONLong1_Flav0","dxyErr");
+    PlotHist(LONG2_FLAV0_dxyErr,      sample, plot_dir, "dxyErr_IRONLong2_Flav0","dxyErr");
+    PlotHist(FAKE_FLAV0_dxyErr,      sample, plot_dir, "dxyErr_IRON1Fake_Flav0", "dxyErr");
     
-    PlotHist(IRON_FLAV5_CONV,      sample, plot_dir, "CONV_Iron_Flav5", "CONV");
-    PlotHist(LONG1_FLAV5_CONV,      sample, plot_dir, "CONV_IronLong_Flav5", "CONV");
-    PlotHist(FAKE_FLAV5_CONV,      sample, plot_dir, "CONV_IronFake_Flav5", "CONV");
+    PlotHist(IRON1_FLAV1_dxyErr,      sample, plot_dir, "dxyErr_IRON1_Flav1", "dxyErr");
+    PlotHist(LONG1_FLAV1_dxyErr,      sample, plot_dir, "dxyErr_IRON1Long_Flav1", "dxyErr");
+    PlotHist(IRON2_FLAV1_dxyErr,      sample, plot_dir, "dxyErr_IRON2_Flav1", "dxyErr");
+    PlotHist(LONG2_FLAV1_dxyErr,      sample, plot_dir, "dxyErr_IRONLong2_Flav1", "dxyErr");
+    PlotHist(FAKE_FLAV1_dxyErr,      sample, plot_dir, "dxyErr_IRON1Fake_Flav1", "dxyErr");
     
-    PlotHist(IRON_FLAV0_ISO,      sample, plot_dir, "ISO_Iron_Flav0", "ISO");
-    PlotHist(LONG1_FLAV0_ISO,      sample, plot_dir, "ISO_IronLong_Flav0","ISO");
-    PlotHist(FAKE_FLAV0_ISO,      sample, plot_dir, "ISO_IronFake_Flav0", "ISO");
+    PlotHist(IRON1_FLAV5_dxyErr,      sample, plot_dir, "dxyErr_IRON1_Flav5", "dxyErr");
+    PlotHist(LONG1_FLAV5_dxyErr,      sample, plot_dir, "dxyErr_IRON1Long_Flav5", "dxyErr");
+    PlotHist(IRON2_FLAV5_dxyErr,      sample, plot_dir, "dxyErr_IRON2_Flav5", "dxyErr");
+    PlotHist(LONG2_FLAV5_dxyErr,      sample, plot_dir, "dxyErr_IRONLong2_Flav5", "dxyErr");
+    PlotHist(FAKE_FLAV5_dxyErr,      sample, plot_dir, "dxyErr_IRON1Fake_Flav5", "dxyErr");
     
-    PlotHist(IRON_FLAV1_ISO,      sample, plot_dir, "ISO_Iron_Flav1", "ISO");
-    PlotHist(LONG1_FLAV1_ISO,      sample, plot_dir, "ISO_IronLong_Flav1", "ISO");
-    PlotHist(FAKE_FLAV1_ISO,      sample, plot_dir, "ISO_IronFake_Flav1", "ISO");
     
-    PlotHist(IRON_FLAV5_ISO,      sample, plot_dir, "ISO_Iron_Flav5", "ISO");
-    PlotHist(LONG1_FLAV5_ISO,      sample, plot_dir, "ISO_IronLong_Flav5", "ISO");
-    PlotHist(FAKE_FLAV5_ISO,      sample, plot_dir, "ISO_IronFake_Flav5", "ISO");
+    //dz
+    PlotHist(IRON1_FLAV0_dz,      sample, plot_dir, "dz_IRON1_Flav0", "dz");
+    PlotHist(IRON2_FLAV0_dz,      sample, plot_dir, "dz_IRON2_Flav0", "dz");
+    PlotHist(LONG1_FLAV0_dz,      sample, plot_dir, "dz_IRONLong1_Flav0","dz");
+    PlotHist(LONG2_FLAV0_dz,      sample, plot_dir, "dz_IRONLong2_Flav0","dz");
+    PlotHist(FAKE_FLAV0_dz,      sample, plot_dir, "dz_IRON1Fake_Flav0", "dz");
     
-    PlotHist(IRON_FLAV0_IPSig1,      sample, plot_dir, "IPSig1_Iron_Flav0", "IPSig1");
-    PlotHist(LONG1_FLAV0_IPSig1,      sample, plot_dir, "IPSig1_IronLong_Flav0","IPSig1");
-    PlotHist(FAKE_FLAV0_IPSig1,      sample, plot_dir, "IPSig1_IronFake_Flav0", "IPSig1");
+    PlotHist(IRON1_FLAV1_dz,      sample, plot_dir, "dz_IRON1_Flav1", "dz");
+    PlotHist(LONG1_FLAV1_dz,      sample, plot_dir, "dz_IRON1Long_Flav1", "dz");
+    PlotHist(IRON2_FLAV1_dz,      sample, plot_dir, "dz_IRON2_Flav1", "dz");
+    PlotHist(LONG2_FLAV1_dz,      sample, plot_dir, "dz_IRONLong2_Flav1", "dz");
+    PlotHist(FAKE_FLAV1_dz,      sample, plot_dir, "dz_IRON1Fake_Flav1", "dz");
     
-    PlotHist(IRON_FLAV1_IPSig1,      sample, plot_dir, "IPSig1_Iron_Flav1", "IPSig1");
-    PlotHist(LONG1_FLAV1_IPSig1,      sample, plot_dir, "IPSig1_IronLong_Flav1", "IPSig1");
-    PlotHist(FAKE_FLAV1_IPSig1,      sample, plot_dir, "IPSig1_IronFake_Flav1", "IPSig1");
+    PlotHist(IRON1_FLAV5_dz,      sample, plot_dir, "dz_IRON1_Flav5", "dz");
+    PlotHist(LONG1_FLAV5_dz,      sample, plot_dir, "dz_IRON1Long_Flav5", "dz");
+    PlotHist(IRON2_FLAV5_dz,      sample, plot_dir, "dz_IRON2_Flav5", "dz");
+    PlotHist(LONG2_FLAV5_dz,      sample, plot_dir, "dz_IRONLong2_Flav5", "dz");
+    PlotHist(FAKE_FLAV5_dz,      sample, plot_dir, "dz_IRON1Fake_Flav5", "dz");
     
-    PlotHist(IRON_FLAV5_IPSig1,      sample, plot_dir, "IPSig1_Iron_Flav5", "IPSig1");
-    PlotHist(LONG1_FLAV5_IPSig1,      sample, plot_dir, "IPSig1_IronLong_Flav5", "IPSig1");
-    PlotHist(FAKE_FLAV5_IPSig1,      sample, plot_dir, "IPSig1_IronFake_Flav5", "IPSig1");
+    //dzERr
+    PlotHist(IRON1_FLAV0_dzErr,      sample, plot_dir, "dzErr_IRON1_Flav0", "dzErr");
+    PlotHist(IRON2_FLAV0_dzErr,      sample, plot_dir, "dzErr_IRON2_Flav0", "dzErr");
+    PlotHist(LONG1_FLAV0_dzErr,      sample, plot_dir, "dzErr_IRONLong1_Flav0","dzErr");
+    PlotHist(LONG2_FLAV0_dzErr,      sample, plot_dir, "dzErr_IRONLong2_Flav0","dzErr");
+    PlotHist(FAKE_FLAV0_dzErr,      sample, plot_dir, "dzErr_IRON1Fake_Flav0", "dzErr");
     
-    PlotHist(IRON_FLAV0_dxySig,      sample, plot_dir, "dxySigIron_Flav0", "dxySig");
-    PlotHist(LONG1_FLAV0_dxySig,      sample, plot_dir, "dxySigIronLong_Flav0","dxySig");
-    PlotHist(FAKE_FLAV0_dxySig,      sample, plot_dir, "dxySigIronFake_Flav0", "dxySig");
+    PlotHist(IRON1_FLAV1_dzErr,      sample, plot_dir, "dzErr_IRON1_Flav1", "dzErr");
+    PlotHist(LONG1_FLAV1_dzErr,      sample, plot_dir, "dzErr_IRON1Long_Flav1", "dzErr");
+    PlotHist(IRON2_FLAV1_dzErr,      sample, plot_dir, "dzErr_IRON2_Flav1", "dzErr");
+    PlotHist(LONG2_FLAV1_dzErr,      sample, plot_dir, "dzErr_IRONLong2_Flav1", "dzErr");
+    PlotHist(FAKE_FLAV1_dzErr,      sample, plot_dir, "dzErr_IRON1Fake_Flav1", "dzErr");
     
-    PlotHist(IRON_FLAV1_dxySig,      sample, plot_dir, "dxySigIron_Flav1", "dxySig");
-    PlotHist(LONG1_FLAV1_dxySig,      sample, plot_dir, "dxySigIronLong_Flav1", "dxySig");
-    PlotHist(FAKE_FLAV1_dxySig,      sample, plot_dir, "dxySigIronFake_Flav1", "dxySig");
+    PlotHist(IRON1_FLAV5_dzErr,      sample, plot_dir, "dzErr_IRON1_Flav5", "dzErr");
+    PlotHist(LONG1_FLAV5_dzErr,      sample, plot_dir, "dzErr_IRON1Long_Flav5", "dzErr");
+    PlotHist(IRON2_FLAV5_dzErr,      sample, plot_dir, "dzErr_IRON2_Flav5", "dzErr");
+    PlotHist(LONG2_FLAV5_dzErr,      sample, plot_dir, "dzErr_IRONLong2_Flav5", "dzErr");
+    PlotHist(FAKE_FLAV5_dzErr,      sample, plot_dir, "dzErr_IRON1Fake_Flav5", "dzErr");
     
-    PlotHist(IRON_FLAV5_dxySig,      sample, plot_dir, "dxySigIron_Flav5", "dxySig");
-    PlotHist(LONG1_FLAV5_dxySig,      sample, plot_dir, "dxySigIronLong_Flav5", "dxySig");
-    PlotHist(FAKE_FLAV5_dxySig,      sample, plot_dir, "dxySigIronFake_Flav5", "dxySig");
+    //CONV
+    PlotHist(IRON1_FLAV0_CONV,      sample, plot_dir, "CONV_IRON1_Flav0", "CONV");
+    PlotHist(IRON2_FLAV0_CONV,      sample, plot_dir, "CONV_IRON2_Flav0", "CONV");
+    PlotHist(LONG1_FLAV0_CONV,      sample, plot_dir, "CONV_IRONLong1_Flav0","CONV");
+    PlotHist(LONG2_FLAV0_CONV,      sample, plot_dir, "CONV_IRONLong2_Flav0","CONV");
+    PlotHist(FAKE_FLAV0_CONV,      sample, plot_dir, "CONV_IRON1Fake_Flav0", "CONV");
     
-    PlotHist(IRON_FLAV0_dzSig,      sample, plot_dir, "dzSig_Iron_Flav0", "dzSig");
-    PlotHist(LONG1_FLAV0_dzSig,      sample, plot_dir, "dzSig_IronLong_Flav0","dzSig");
-    PlotHist(FAKE_FLAV0_dzSig,      sample, plot_dir, "dzSig_IronFake_Flav0", "dzSig");
+    PlotHist(IRON1_FLAV1_CONV,      sample, plot_dir, "CONV_IRON1_Flav1", "CONV");
+    PlotHist(LONG1_FLAV1_CONV,      sample, plot_dir, "CONV_IRON1Long_Flav1", "CONV");
+    PlotHist(IRON2_FLAV1_CONV,      sample, plot_dir, "CONV_IRON2_Flav1", "CONV");
+    PlotHist(LONG2_FLAV1_CONV,      sample, plot_dir, "CONV_IRONLong2_Flav1", "CONV");
+    PlotHist(FAKE_FLAV1_CONV,      sample, plot_dir, "CONV_IRON1Fake_Flav1", "CONV");
     
-    PlotHist(IRON_FLAV1_dzSig,      sample, plot_dir, "dzSig_Iron_Flav1", "dzSig");
-    PlotHist(LONG1_FLAV1_dzSig,      sample, plot_dir, "dzSig_IronLong_Flav1", "dzSig");
-    PlotHist(FAKE_FLAV1_dzSig,      sample, plot_dir, "dzSig_IronFake_Flav1", "dzSig");
+    PlotHist(IRON1_FLAV5_CONV,      sample, plot_dir, "CONV_IRON1_Flav5", "CONV");
+    PlotHist(LONG1_FLAV5_CONV,      sample, plot_dir, "CONV_IRON1Long_Flav5", "CONV");
+    PlotHist(IRON2_FLAV5_CONV,      sample, plot_dir, "CONV_IRON2_Flav5", "CONV");
+    PlotHist(LONG2_FLAV5_CONV,      sample, plot_dir, "CONV_IRONLong2_Flav5", "CONV");
+    PlotHist(FAKE_FLAV5_CONV,      sample, plot_dir, "CONV_IRON1Fake_Flav5", "CONV");
     
-    PlotHist(IRON_FLAV5_dzSig,      sample, plot_dir, "dzSig_Iron_Flav5", "dzSig");
-    PlotHist(LONG1_FLAV5_dzSig,      sample, plot_dir, "dzSig_IronLong_Flav5", "dzSig");
-    PlotHist(FAKE_FLAV5_dzSig,      sample, plot_dir, "dzSig_IronFake_Flav5", "dzSig");
+    
+    //ISO
+    PlotHist(IRON1_FLAV0_ISO,      sample, plot_dir, "ISO_IRON1_Flav0", "ISO");
+    PlotHist(IRON2_FLAV0_ISO,      sample, plot_dir, "ISO_IRON2_Flav0", "ISO");
+    PlotHist(LONG1_FLAV0_ISO,      sample, plot_dir, "ISO_IRONLong1_Flav0","ISO");
+    PlotHist(LONG2_FLAV0_ISO,      sample, plot_dir, "ISO_IRONLong2_Flav0","ISO");
+    PlotHist(FAKE_FLAV0_ISO,      sample, plot_dir, "ISO_IRON1Fake_Flav0", "ISO");
+    
+    PlotHist(IRON1_FLAV1_ISO,      sample, plot_dir, "ISO_IRON1_Flav1", "ISO");
+    PlotHist(LONG1_FLAV1_ISO,      sample, plot_dir, "ISO_IRON1Long_Flav1", "ISO");
+    PlotHist(IRON2_FLAV1_ISO,      sample, plot_dir, "ISO_IRON2_Flav1", "ISO");
+    PlotHist(LONG2_FLAV1_ISO,      sample, plot_dir, "ISO_IRONLong2_Flav1", "ISO");
+    PlotHist(FAKE_FLAV1_ISO,      sample, plot_dir, "ISO_IRON1Fake_Flav1", "ISO");
+    
+    PlotHist(IRON1_FLAV5_ISO,      sample, plot_dir, "ISO_IRON1_Flav5", "ISO");
+    PlotHist(LONG1_FLAV5_ISO,      sample, plot_dir, "ISO_IRON1Long_Flav5", "ISO");
+    PlotHist(IRON2_FLAV5_ISO,      sample, plot_dir, "ISO_IRON2_Flav5", "ISO");
+    PlotHist(LONG2_FLAV5_ISO,      sample, plot_dir, "ISO_IRONLong2_Flav5", "ISO");
+    PlotHist(FAKE_FLAV5_ISO,      sample, plot_dir, "ISO_IRON1Fake_Flav5", "ISO");
+    
+    //IP Sig 1
+    PlotHist(IRON1_FLAV0_IPSig1,      sample, plot_dir, "IPSig1_IRON1_Flav0", "IPSig1");
+    PlotHist(IRON2_FLAV0_IPSig1,      sample, plot_dir, "IPSig1_IRON2_Flav0", "IPSig1");
+    PlotHist(LONG1_FLAV0_IPSig1,      sample, plot_dir, "IPSig1_IRONLong1_Flav0","IPSig1");
+    PlotHist(LONG2_FLAV0_IPSig1,      sample, plot_dir, "IPSig1_IRONLong2_Flav0","IPSig1");
+    PlotHist(FAKE_FLAV0_IPSig1,      sample, plot_dir, "IPSig1_IRON1Fake_Flav0", "IPSig1");
+    
+    PlotHist(IRON1_FLAV1_IPSig1,      sample, plot_dir, "IPSig1_IRON1_Flav1", "IPSig1");
+    PlotHist(LONG1_FLAV1_IPSig1,      sample, plot_dir, "IPSig1_IRON1Long_Flav1", "IPSig1");
+    PlotHist(IRON2_FLAV1_IPSig1,      sample, plot_dir, "IPSig1_IRON2_Flav1", "IPSig1");
+    PlotHist(LONG2_FLAV1_IPSig1,      sample, plot_dir, "IPSig1_IRONLong2_Flav1", "IPSig1");
+    PlotHist(FAKE_FLAV1_IPSig1,      sample, plot_dir, "IPSig1_IRON1Fake_Flav1", "IPSig1");
+    
+    PlotHist(IRON1_FLAV5_IPSig1,      sample, plot_dir, "IPSig1_IRON1_Flav5", "IPSig1");
+    PlotHist(LONG1_FLAV5_IPSig1,      sample, plot_dir, "IPSig1_IRON1Long_Flav5", "IPSig1");
+    PlotHist(IRON2_FLAV5_IPSig1,      sample, plot_dir, "IPSig1_IRON2_Flav5", "IPSig1");
+    PlotHist(LONG2_FLAV5_IPSig1,      sample, plot_dir, "IPSig1_IRONLong2_Flav5", "IPSig1");
+    PlotHist(FAKE_FLAV5_IPSig1,      sample, plot_dir, "IPSig1_IRON1Fake_Flav5", "IPSig1");
+    
+    //IP Sig 2
+    PlotHist(IRON1_FLAV0_IPSig2,      sample, plot_dir, "IPSig2_IRON1_Flav0", "IPSig2");
+    PlotHist(IRON2_FLAV0_IPSig2,      sample, plot_dir, "IPSig2_IRON2_Flav0", "IPSig2");
+    PlotHist(LONG1_FLAV0_IPSig2,      sample, plot_dir, "IPSig2_IRONLong1_Flav0","IPSig2");
+    PlotHist(LONG2_FLAV0_IPSig2,      sample, plot_dir, "IPSig2_IRONLong2_Flav0","IPSig2");
+    PlotHist(FAKE_FLAV0_IPSig2,      sample, plot_dir, "IPSig2_IRON1Fake_Flav0", "IPSig2");
+    
+    PlotHist(IRON1_FLAV1_IPSig2,      sample, plot_dir, "IPSig2_IRON1_Flav1", "IPSig2");
+    PlotHist(LONG1_FLAV1_IPSig2,      sample, plot_dir, "IPSig2_IRON1Long_Flav1", "IPSig2");
+    PlotHist(IRON2_FLAV1_IPSig2,      sample, plot_dir, "IPSig2_IRON2_Flav1", "IPSig2");
+    PlotHist(LONG2_FLAV1_IPSig2,      sample, plot_dir, "IPSig2_IRONLong2_Flav1", "IPSig2");
+    PlotHist(FAKE_FLAV1_IPSig2,      sample, plot_dir, "IPSig2_IRON1Fake_Flav1", "IPSig2");
+    
+    PlotHist(IRON1_FLAV5_IPSig2,      sample, plot_dir, "IPSig2_IRON1_Flav5", "IPSig2");
+    PlotHist(LONG1_FLAV5_IPSig2,      sample, plot_dir, "IPSig2_IRON1Long_Flav5", "IPSig2");
+    PlotHist(IRON2_FLAV5_IPSig2,      sample, plot_dir, "IPSig2_IRON2_Flav5", "IPSig2");
+    PlotHist(LONG2_FLAV5_IPSig2,      sample, plot_dir, "IPSig2_IRONLong2_Flav5", "IPSig2");
+    PlotHist(FAKE_FLAV5_IPSig2,      sample, plot_dir, "IPSig2_IRON1Fake_Flav5", "IPSig2");
+    
+    
+    //dxy Sig
+    PlotHist(IRON1_FLAV0_dxySig,      sample, plot_dir, "dxySig_IRON1_Flav0", "dxySig");
+    PlotHist(IRON2_FLAV0_dxySig,      sample, plot_dir, "dxySig_IRON2_Flav0", "dxySig");
+    PlotHist(LONG1_FLAV0_dxySig,      sample, plot_dir, "dxySig_IRONLong1_Flav0","dxySig");
+    PlotHist(LONG2_FLAV0_dxySig,      sample, plot_dir, "dxySig_IRONLong2_Flav0","dxySig");
+    PlotHist(FAKE_FLAV0_dxySig,      sample, plot_dir, "dxySig_IRON1Fake_Flav0", "dxySig");
+    
+    PlotHist(IRON1_FLAV1_dxySig,      sample, plot_dir, "dxySig_IRON1_Flav1", "dxySig");
+    PlotHist(LONG1_FLAV1_dxySig,      sample, plot_dir, "dxySig_IRON1Long_Flav1", "dxySig");
+    PlotHist(IRON2_FLAV1_dxySig,      sample, plot_dir, "dxySig_IRON2_Flav1", "dxySig");
+    PlotHist(LONG2_FLAV1_dxySig,      sample, plot_dir, "dxySig_IRONLong2_Flav1", "dxySig");
+    PlotHist(FAKE_FLAV1_dxySig,      sample, plot_dir, "dxySig_IRON1Fake_Flav1", "dxySig");
+    
+    PlotHist(IRON1_FLAV5_dxySig,      sample, plot_dir, "dxySig_IRON1_Flav5", "dxySig");
+    PlotHist(LONG1_FLAV5_dxySig,      sample, plot_dir, "dxySig_IRON1Long_Flav5", "dxySig");
+    PlotHist(IRON2_FLAV5_dxySig,      sample, plot_dir, "dxySig_IRON2_Flav5", "dxySig");
+    PlotHist(LONG2_FLAV5_dxySig,      sample, plot_dir, "dxySig_IRONLong2_Flav5", "dxySig");
+    PlotHist(FAKE_FLAV5_dxySig,      sample, plot_dir, "dxySig_IRON1Fake_Flav5", "dxySig");
+    
+    
+    //dz Sig
+    PlotHist(IRON1_FLAV0_dzSig,      sample, plot_dir, "dzSig_IRON1_Flav0", "dzSig");
+    PlotHist(IRON2_FLAV0_dzSig,      sample, plot_dir, "dzSig_IRON2_Flav0", "dzSig");
+    PlotHist(LONG1_FLAV0_dzSig,      sample, plot_dir, "dzSig_IRONLong1_Flav0","dzSig");
+    PlotHist(LONG2_FLAV0_dzSig,      sample, plot_dir, "dzSig_IRONLong2_Flav0","dzSig");
+    PlotHist(FAKE_FLAV0_dzSig,      sample, plot_dir, "dzSig_IRON1Fake_Flav0", "dzSig");
+    
+    PlotHist(IRON1_FLAV1_dzSig,      sample, plot_dir, "dzSig_IRON1_Flav1", "dzSig");
+    PlotHist(LONG1_FLAV1_dzSig,      sample, plot_dir, "dzSig_IRON1Long_Flav1", "dzSig");
+    PlotHist(IRON2_FLAV1_dzSig,      sample, plot_dir, "dzSig_IRON2_Flav1", "dzSig");
+    PlotHist(LONG2_FLAV1_dzSig,      sample, plot_dir, "dzSig_IRONLong2_Flav1", "dzSig");
+    PlotHist(FAKE_FLAV1_dzSig,      sample, plot_dir, "dzSig_IRON1Fake_Flav1", "dzSig");
+    
+    PlotHist(IRON1_FLAV5_dzSig,      sample, plot_dir, "dzSig_IRON1_Flav5", "dzSig");
+    PlotHist(LONG1_FLAV5_dzSig,      sample, plot_dir, "dzSig_IRON1Long_Flav5", "dzSig");
+    PlotHist(IRON2_FLAV5_dzSig,      sample, plot_dir, "dzSig_IRON2_Flav5", "dzSig");
+    PlotHist(LONG2_FLAV5_dzSig,      sample, plot_dir, "dzSig_IRONLong2_Flav5", "dzSig");
+    PlotHist(FAKE_FLAV5_dzSig,      sample, plot_dir, "dzSig_IRON1Fake_Flav5", "dzSig");
+    
+    //IP
+    
+    PlotHist(IRON1_FLAV0_IP,      sample, plot_dir, "IP_IRON1_Flav0", "IP");
+    PlotHist(IRON2_FLAV0_IP,      sample, plot_dir, "IP_IRON2_Flav0", "IP");
+    PlotHist(LONG1_FLAV0_IP,      sample, plot_dir, "IP_IRONLong1_Flav0","IP");
+    PlotHist(LONG2_FLAV0_IP,      sample, plot_dir, "IP_IRONLong2_Flav0","IP");
+    PlotHist(FAKE_FLAV0_IP,      sample, plot_dir, "IP_IRON1Fake_Flav0", "IP");
+    
+    PlotHist(IRON1_FLAV1_IP,      sample, plot_dir, "IP_IRON1_Flav1", "IP");
+    PlotHist(LONG1_FLAV1_IP,      sample, plot_dir, "IP_IRON1Long_Flav1", "IP");
+    PlotHist(IRON2_FLAV1_IP,      sample, plot_dir, "IP_IRON2_Flav1", "IP");
+    PlotHist(LONG2_FLAV1_IP,      sample, plot_dir, "IP_IRONLong2_Flav1", "IP");
+    PlotHist(FAKE_FLAV1_IP,      sample, plot_dir, "IP_IRON1Fake_Flav1", "IP");
+    
+    PlotHist(IRON1_FLAV5_IP,      sample, plot_dir, "IP_IRON1_Flav5", "IP");
+    PlotHist(LONG1_FLAV5_IP,      sample, plot_dir, "IP_IRON1Long_Flav5", "IP");
+    PlotHist(IRON2_FLAV5_IP,      sample, plot_dir, "IP_IRON2_Flav5", "IP");
+    PlotHist(LONG2_FLAV5_IP,      sample, plot_dir, "IP_IRONLong2_Flav5", "IP");
+    PlotHist(FAKE_FLAV5_IP,      sample, plot_dir, "IP_IRON1Fake_Flav5", "IP");
+    
+    
+    
+    //NO FLAV IRONS///////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////
+    //EMID
+    //EMID
+    PlotHist(IRON1_EMID,      sample, plot_dir, "EMID_IRON1", "EMID");
+    PlotHist(IRON2_EMID,      sample, plot_dir, "EMID_IRON2", "EMID");
+    PlotHist(IRONLONG1_EMID,      sample, plot_dir, "EMID_IRONLong1","EMID");
+    PlotHist(IRONLONG2_EMID,      sample, plot_dir, "EMID_IRONLong2","EMID");
+    PlotHist(IRONFAKE_EMID,      sample, plot_dir, "EMID_IRON1Fake", "EMID");
+    
+    
+    
+    //pt
+    PlotHist(IRON1_pt,      sample, plot_dir, "pt_IRON1", "pt");
+    PlotHist(IRON2_pt,      sample, plot_dir, "pt_IRON2", "pt");
+    PlotHist(IRONLONG1_pt,      sample, plot_dir, "pt_IRONLong1","pt");
+    PlotHist(IRONLONG2_pt,      sample, plot_dir, "pt_IRONLong2","pt");
+    PlotHist(IRONFAKE_pt,      sample, plot_dir, "pt_IRON1Fake", "pt");
+   
+    
+    //eta
+    PlotHist(IRON1_eta,      sample, plot_dir, "eta_IRON1", "eta");
+    PlotHist(IRON2_eta,      sample, plot_dir, "eta_IRON2", "eta");
+    PlotHist(IRONLONG1_eta,      sample, plot_dir, "eta_IRONLong1","eta");
+    PlotHist(IRONLONG2_eta,      sample, plot_dir, "eta_IRONLong2","eta");
+    PlotHist(IRONFAKE_eta,      sample, plot_dir, "eta_IRON1Fake", "eta");
+    
+
+    
+
+    
+    
+    //dxy
+    PlotHist(IRON1_dxy,      sample, plot_dir, "dxy_IRON1", "dxy");
+    PlotHist(IRON2_dxy,      sample, plot_dir, "dxy_IRON2", "dxy");
+    PlotHist(IRONLONG1_dxy,      sample, plot_dir, "dxy_IRONLong1","dxy");
+    PlotHist(IRONLONG2_dxy,      sample, plot_dir, "dxy_IRONLong2","dxy");
+    PlotHist(IRONFAKE_dxy,      sample, plot_dir, "dxy_IRON1Fake", "dxy");
+    
+    
+    
+    
+    //dxyErr
+    PlotHist(IRON1_dxyErr,      sample, plot_dir, "dxyErr_IRON1", "dxyErr");
+    PlotHist(IRON2_dxyErr,      sample, plot_dir, "dxyErr_IRON2", "dxyErr");
+    PlotHist(IRONLONG1_dxyErr,      sample, plot_dir, "dxyErr_IRONLong1","dxyErr");
+    PlotHist(IRONLONG2_dxyErr,      sample, plot_dir, "dxyErr_IRONLong2","dxyErr");
+    PlotHist(IRONFAKE_dxyErr,      sample, plot_dir, "dxyErr_IRON1Fake", "dxyErr");
+    
+    
+    
+    
+    //dz
+    PlotHist(IRON1_dz,      sample, plot_dir, "dz_IRON1", "dz");
+    PlotHist(IRON2_dz,      sample, plot_dir, "dz_IRON2", "dz");
+    PlotHist(IRONLONG1_dz,      sample, plot_dir, "dz_IRONLong1","dz");
+    PlotHist(IRONLONG2_dz,      sample, plot_dir, "dz_IRONLong2","dz");
+    PlotHist(IRONFAKE_dz,      sample, plot_dir, "dz_IRON1Fake", "dz");
+    
+    
+    
+    //dzERr
+    PlotHist(IRON1_dzErr,      sample, plot_dir, "dzErr_IRON1", "dzErr");
+    PlotHist(IRON2_dzErr,      sample, plot_dir, "dzErr_IRON2", "dzErr");
+    PlotHist(IRONLONG1_dzErr,      sample, plot_dir, "dzErr_IRONLong1","dzErr");
+    PlotHist(IRONLONG2_dzErr,      sample, plot_dir, "dzErr_IRONLong2","dzErr");
+    PlotHist(IRONFAKE_dzErr,      sample, plot_dir, "dzErr_IRON1Fake", "dzErr");
+    
+ 
+    
+    //CONV
+    PlotHist(IRON1_CONV,      sample, plot_dir, "CONV_IRON1", "CONV");
+    PlotHist(IRON2_CONV,      sample, plot_dir, "CONV_IRON2", "CONV");
+    PlotHist(IRONLONG1_CONV,      sample, plot_dir, "CONV_IRONLong1","CONV");
+    PlotHist(IRONLONG2_CONV,      sample, plot_dir, "CONV_IRONLong2","CONV");
+    PlotHist(IRONFAKE_CONV,      sample, plot_dir, "CONV_IRON1Fake", "CONV");
+ 
+    
+    
+    //ISO
+    PlotHist(IRON1_ISO,      sample, plot_dir, "ISO_IRON1", "ISO");
+    PlotHist(IRON2_ISO,      sample, plot_dir, "ISO_IRON2", "ISO");
+    PlotHist(IRONLONG1_ISO,      sample, plot_dir, "ISO_IRONLong1","ISO");
+    PlotHist(IRONLONG2_ISO,      sample, plot_dir, "ISO_IRONLong2","ISO");
+    PlotHist(IRONFAKE_ISO,      sample, plot_dir, "ISO_IRON1Fake", "ISO");
+    
+  
+    
+    //IP Sig 1
+    PlotHist(IRON1_IPSig1,      sample, plot_dir, "IPSig1_IRON1", "IPSig1");
+    PlotHist(IRON2_IPSig1,      sample, plot_dir, "IPSig1_IRON2", "IPSig1");
+    PlotHist(IRONLONG1_IPSig1,      sample, plot_dir, "IPSig1_IRONLong1","IPSig1");
+    PlotHist(IRONLONG2_IPSig1,      sample, plot_dir, "IPSig1_IRONLong2","IPSig1");
+    PlotHist(IRONFAKE_IPSig1,      sample, plot_dir, "IPSig1_IRON1Fake", "IPSig1");
+    
+   
+    
+    //IP Sig 2
+    PlotHist(IRON1_IPSig2,      sample, plot_dir, "IPSig2_IRON1", "IPSig2");
+    PlotHist(IRON2_IPSig2,      sample, plot_dir, "IPSig2_IRON2", "IPSig2");
+    PlotHist(IRONLONG1_IPSig2,      sample, plot_dir, "IPSig2_IRONLong1","IPSig2");
+    PlotHist(IRONLONG2_IPSig2,      sample, plot_dir, "IPSig2_IRONLong2","IPSig2");
+    PlotHist(IRONFAKE_IPSig2,      sample, plot_dir, "IPSig2_IRON1Fake", "IPSig2");
+    
+
+    
+    //dxy Sig
+    PlotHist(IRON1_dxySig,      sample, plot_dir, "dxySig_IRON1", "dxySig");
+    PlotHist(IRON2_dxySig,      sample, plot_dir, "dxySig_IRON2", "dxySig");
+    PlotHist(IRONLONG1_dxySig,      sample, plot_dir, "dxySig_IRONLong1","dxySig");
+    PlotHist(IRONLONG2_dxySig,      sample, plot_dir, "dxySig_IRONLong2","dxySig");
+    PlotHist(IRONFAKE_dxySig,      sample, plot_dir, "dxySig_IRON1Fake", "dxySig");
+    
+
+    
+    
+    //dz Sig
+    PlotHist(IRON1_dzSig,      sample, plot_dir, "dzSig_IRON1", "dzSig");
+    PlotHist(IRON2_dzSig,      sample, plot_dir, "dzSig_IRON2", "dzSig");
+    PlotHist(IRONLONG1_dzSig,      sample, plot_dir, "dzSig_IRONLong1","dzSig");
+    PlotHist(IRONLONG2_dzSig,      sample, plot_dir, "dzSig_IRONLong2","dzSig");
+    PlotHist(IRONFAKE_dzSig,      sample, plot_dir, "dzSig_IRON1Fake", "dzSig");
+
+    
+    //IP
+    
+    PlotHist(IRON1_IP,      sample, plot_dir, "IP_IRON1", "IP");
+    PlotHist(IRON2_IP,      sample, plot_dir, "IP_IRON2", "IP");
+    PlotHist(IRONLONG1_IP,      sample, plot_dir, "IP_IRONLong1","IP");
+    PlotHist(IRONLONG2_IP,      sample, plot_dir, "IP_IRONLong2","IP");
+    PlotHist(IRONFAKE_IP,      sample, plot_dir, "IP_IRON1Fake", "IP");
+    
+    
+    
+    ///////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////
+    //EMID
+    PlotHist(FLAV0_EMID,      sample, plot_dir, "EMID_FLAV0", "EMID");
+    PlotHist(FLAV1_EMID,      sample, plot_dir, "EMID_FLAV1", "EMID");
+    PlotHist(FLAV5_EMID,      sample, plot_dir, "EMID_FLAV5","EMID");
+    //PlotHist(IRONLONG2_EMID,      sample, plot_dir, "EMID_IRONLong2","EMID");
+    PlotHist(EMID,      sample, plot_dir, "EMID", "EMID");
+    
+    
+    
+    //pt
+    PlotHist(FLAV0_pt,      sample, plot_dir, "pt_FLAV0", "pt");
+    PlotHist(FLAV1_pt,      sample, plot_dir, "pt_FLAV1", "pt");
+    PlotHist(FLAV5_pt,      sample, plot_dir, "pt_FLAV5","pt");
+    //PlotHist(IRONLONG2_pt,      sample, plot_dir, "pt_IRONLong2","pt");
+    PlotHist(pt,      sample, plot_dir, "pt", "pt");
+   
+    
+    //eta
+    PlotHist(FLAV0_eta,      sample, plot_dir, "eta_FLAV0", "eta");
+    PlotHist(FLAV1_eta,      sample, plot_dir, "eta_FLAV1", "eta");
+    PlotHist(FLAV5_eta,      sample, plot_dir, "eta_FLAV5","eta");
+    //PlotHist(IRONLONG2_eta,      sample, plot_dir, "eta_IRONLong2","eta");
+    PlotHist(eta,      sample, plot_dir, "eta", "eta");
+    
+
+    
+
+    
+    
+    //dxy
+    PlotHist(FLAV0_dxy,      sample, plot_dir, "dxy_FLAV0", "dxy");
+    PlotHist(FLAV1_dxy,      sample, plot_dir, "dxy_FLAV1", "dxy");
+    PlotHist(FLAV5_dxy,      sample, plot_dir, "dxy_FLAV5","dxy");
+    //PlotHist(IRONLONG2_dxy,      sample, plot_dir, "dxy_IRONLong2","dxy");
+    PlotHist(dxy,      sample, plot_dir, "dxy", "dxy");
+    
+    
+    
+    
+    //dxyErr
+    PlotHist(FLAV0_dxyErr,      sample, plot_dir, "dxyErr_FLAV0", "dxyErr");
+    PlotHist(FLAV1_dxyErr,      sample, plot_dir, "dxyErr_FLAV1", "dxyErr");
+    PlotHist(FLAV5_dxyErr,      sample, plot_dir, "dxyErr_FLAV5","dxyErr");
+    //PlotHist(IRONLONG2_dxyErr,      sample, plot_dir, "dxyErr_IRONLong2","dxyErr");
+    PlotHist(dxyErr,      sample, plot_dir, "dxyErr", "dxyErr");
+    
+    
+    
+    
+    //dz
+    PlotHist(FLAV0_dz,      sample, plot_dir, "dz_FLAV0", "dz");
+    PlotHist(FLAV1_dz,      sample, plot_dir, "dz_FLAV1", "dz");
+    PlotHist(FLAV5_dz,      sample, plot_dir, "dz_FLAV5","dz");
+    //PlotHist(IRONLONG2_dz,      sample, plot_dir, "dz_IRONLong2","dz");
+    PlotHist(dz,      sample, plot_dir, "dz", "dz");
+    
+    
+    
+    //dzERr
+    PlotHist(FLAV0_dzErr,      sample, plot_dir, "dzErr_FLAV0", "dzErr");
+    PlotHist(FLAV1_dzErr,      sample, plot_dir, "dzErr_FLAV1", "dzErr");
+    PlotHist(FLAV5_dzErr,      sample, plot_dir, "dzErr_FLAV5","dzErr");
+    //PlotHist(IRONLONG2_dzErr,      sample, plot_dir, "dzErr_IRONLong2","dzErr");
+    PlotHist(dzErr,      sample, plot_dir, "dzErr", "dzErr");
+    
+ 
+    
+    //CONV
+    PlotHist(FLAV0_CONV,      sample, plot_dir, "CONV_FLAV0", "CONV");
+    PlotHist(FLAV1_CONV,      sample, plot_dir, "CONV_FLAV1", "CONV");
+    PlotHist(FLAV5_CONV,      sample, plot_dir, "CONV_FLAV5","CONV");
+    //PlotHist(IRONLONG2_CONV,      sample, plot_dir, "CONV_IRONLong2","CONV");
+    PlotHist(CONV,      sample, plot_dir, "CONV", "CONV");
+ 
+    
+    
+    //ISO
+    PlotHist(FLAV0_ISO,      sample, plot_dir, "ISO_FLAV0", "ISO");
+    PlotHist(FLAV1_ISO,      sample, plot_dir, "ISO_FLAV1", "ISO");
+    PlotHist(FLAV5_ISO,      sample, plot_dir, "ISO_FLAV5","ISO");
+    //PlotHist(IRONLONG2_ISO,      sample, plot_dir, "ISO_IRONLong2","ISO");
+    PlotHist(ISO,      sample, plot_dir, "ISO", "ISO");
+    
+  
+    
+    //IP Sig 1
+    PlotHist(FLAV0_IPSig1,      sample, plot_dir, "IPSig1_FLAV0", "IPSig1");
+    PlotHist(FLAV1_IPSig1,      sample, plot_dir, "IPSig1_FLAV1", "IPSig1");
+    PlotHist(FLAV5_IPSig1,      sample, plot_dir, "IPSig1_FLAV5","IPSig1");
+    //PlotHist(IRONLONG2_IPSig1,      sample, plot_dir, "IPSig1_IRONLong2","IPSig1");
+    PlotHist(IPSig1,      sample, plot_dir, "IPSig1", "IPSig1");
+    
+   
+    
+    //IP Sig 2
+    PlotHist(FLAV0_IPSig2,      sample, plot_dir, "IPSig2_FLAV0", "IPSig2");
+    PlotHist(FLAV1_IPSig2,      sample, plot_dir, "IPSig2_FLAV1", "IPSig2");
+    PlotHist(FLAV5_IPSig2,      sample, plot_dir, "IPSig2_FLAV5","IPSig2");
+    //PlotHist(IRONLONG2_IPSig2,      sample, plot_dir, "IPSig2_IRONLong2","IPSig2");
+    PlotHist(IPSig2,      sample, plot_dir, "IPSig2", "IPSig2");
+    
+
+    
+    //dxy Sig
+    PlotHist(FLAV0_dxySig,      sample, plot_dir, "dxySig_FLAV0", "dxySig");
+    PlotHist(FLAV1_dxySig,      sample, plot_dir, "dxySig_FLAV1", "dxySig");
+    PlotHist(FLAV5_dxySig,      sample, plot_dir, "dxySig_FLAV5","dxySig");
+    //PlotHist(IRONLONG2_dxySig,      sample, plot_dir, "dxySig_IRONLong2","dxySig");
+    PlotHist(dxySig,      sample, plot_dir, "dxySig", "dxySig");
+    
+
+    
+    
+    //dz Sig
+    PlotHist(FLAV0_dzSig,      sample, plot_dir, "dzSig_FLAV0", "dzSig");
+    PlotHist(FLAV1_dzSig,      sample, plot_dir, "dzSig_FLAV1", "dzSig");
+    PlotHist(FLAV5_dzSig,      sample, plot_dir, "dzSig_FLAV5","dzSig");
+    //PlotHist(IRONLONG2_dzSig,      sample, plot_dir, "dzSig_IRONLong2","dzSig");
+    PlotHist(dzSig,      sample, plot_dir, "dzSig", "dzSig");
+
+    
+    //IP
+    
+    PlotHist(FLAV0_IP,      sample, plot_dir, "IP_FLAV0", "IP");
+    PlotHist(FLAV1_IP,      sample, plot_dir, "IP_FLAV1", "IP");
+    PlotHist(FLAV5_IP,      sample, plot_dir, "IP_FLAV5","IP");
+    //PlotHist(IRONLONG2_IP,      sample, plot_dir, "IP_IRONLong2","IP");
+    PlotHist(IP,      sample, plot_dir, "IP_", "IP");
+    
+
+    
 }
