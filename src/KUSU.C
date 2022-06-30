@@ -643,6 +643,26 @@ void KUSU::Loop()
     TH1F FAKE_FLAV5_IP    = TH1F("IronFake_Flav5_IP","IronFake_Flav5_IP",  50,-5.0,5.0);
     
     
+    
+    //IPSigdiff
+    // LowIPSigdiffElectron_genPartFlav == 0
+    TH1F IRON1_FLAV0_IPSigdiff       = TH1F("Iron1_Flav0_IPSigdiff","Iron1_Flav0_IPSigdiff",     50,0.0,5.0);
+    TH1F LONG1_FLAV0_IPSigdiff    = TH1F("IronLong1_Flav0_IPSigdiff","IronLong1_Flav0_IPSigdiff",  50,-8.0,8.0);
+    TH1F IRON2_FLAV0_IPSigdiff       = TH1F("Iron2_Flav0_IPSigdiff","Iron2_Flav0_IPSigdiff",     50,0.0,5.0);
+    TH1F LONG2_FLAV0_IPSigdiff    = TH1F("IronLong2_Flav0_IPSigdiff","IronLong2_Flav0_IPSigdiff",  50,-8.0,8.0);
+    TH1F FAKE_FLAV0_IPSigdiff    = TH1F("IronFake_Flav0_IPSigdiff","IronFake_Flav0_IPSigdiff",  50,-5.0,5.0);
+    // LowIPSigdiffElectron_genPartFlav == 1
+    TH1F IRON1_FLAV1_IPSigdiff       = TH1F("Iron1_Flav1_IPSigdiff","Iron1_Flav1_IPSigdiff",     50,0.0,5.0);
+    TH1F LONG1_FLAV1_IPSigdiff    = TH1F("IronLong1_Flav1_IPSigdiff","IronLong1_Flav1_IPSigdiff",  50,-8.0,8.0);
+    TH1F IRON2_FLAV1_IPSigdiff       = TH1F("Iron2_Flav1_IPSigdiff","Iron2_Flav1_IPSigdiff",     50,0.0,5.0);
+    TH1F LONG2_FLAV1_IPSigdiff    = TH1F("IronLong2_Flav1_IPSigdiff","IronLong2_Flav1_IPSigdiff",  50,-8.0,8.0);
+    TH1F FAKE_FLAV1_IPSigdiff    = TH1F("IronFake_Flav1_IPSigdiff","IronFake_Flav1_IPSigdiff",  50,-5.0,5.0);
+    // LowIPSigdiffElectron_genPartFlav == 5
+    TH1F IRON1_FLAV5_IPSigdiff      = TH1F("Iron1_Flav5_IPSigdiff","Iron1_Flav5_IPSigdiff",     50,0.0,5.0);
+    TH1F LONG1_FLAV5_IPSigdiff    = TH1F("IronLong1_Flav5_IPSigdiff","IronLong1_Flav5_IPSigdiff",  50,-8.0,8.0);
+    TH1F IRON2_FLAV5_IPSigdiff      = TH1F("Iron2_Flav5_IPSigdiff","Iron2_Flav5_IPSigdiff",     50,0.0,5.0);
+    TH1F LONG2_FLAV5_IPSigdiff    = TH1F("IronLong2_Flav5_IPSigdiff","IronLong2_Flav5_IPSigdiff",  50,-8.0,8.0);
+    TH1F FAKE_FLAV5_IPSigdiff    = TH1F("IronFake_Flav5_IPSigdiff","IronFake_Flav5_IPSigdiff",  50,-5.0,5.0);
     //Ratio Plots
     
     
