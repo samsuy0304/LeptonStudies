@@ -334,18 +334,23 @@ void KUSU::Loop()
     
     
     // LowetaElectron_genPartFlav == 0
-    TH1F IRON_FLAV0_eta       = TH1F("Iron_Flav0_eta","Iron_Flav0_eta",     30,-3,3);
-    TH1F LONG1_FLAV0_eta    = TH1F("IronLong_Flav0_eta","IronLong_Flav0_eta",  30,-3,3);
-    TH1F FAKE_FLAV0_eta    = TH1F("IronFake_Flav0_eta","IronFake_Flav0_eta",  30,-3,3);
+    TH1F IRON1_FLAV0_eta       = TH1F("Iron1_Flav0_eta","Iron1_Flav0_eta",     40,0.0,20.0);
+    TH1F LONG1_FLAV0_eta    = TH1F("IronLong1_Flav0_eta","IronLong1_Flav0_eta",  40,0.0,20.0);
+    TH1F IRON2_FLAV0_eta       = TH1F("Iron2_Flav0_eta","Iron2_Flav0_eta",     40,0.0,20.0);
+    TH1F LONG2_FLAV0_eta    = TH1F("IronLong2_Flav0_eta","IronLong2_Flav0_eta",  40,0.0,20.0);
+    TH1F FAKE_FLAV0_eta    = TH1F("IronFake_Flav0_eta","IronFake_Flav0_eta",  40,0.0,20.0);
     // LowetaElectron_genPartFlav == 1
-    TH1F IRON_FLAV1_eta       = TH1F("Iron_Flav1_eta","Iron_Flav1_eta",     30,-3,3);
-    TH1F LONG1_FLAV1_eta    = TH1F("IronLong_Flav1_eta","IronLong_Flav1_eta",  30,-3,3);
-    TH1F FAKE_FLAV1_eta    = TH1F("IronFake_Flav1_eta","IronFake_Flav1_eta",  30,-3,3);
+    TH1F IRON1_FLAV1_eta       = TH1F("Iron1_Flav1_eta","Iron1_Flav1_eta",     40,0.0,20.0);
+    TH1F LONG1_FLAV1_eta    = TH1F("IronLong1_Flav1_eta","IronLong1_Flav1_eta",  40,0.0,20.0);
+    TH1F IRON2_FLAV1_eta       = TH1F("Iron2_Flav1_eta","Iron2_Flav1_eta",     40,0.0,20.0);
+    TH1F LONG2_FLAV1_eta    = TH1F("IronLong2_Flav1_eta","IronLong2_Flav1_eta",  40,0.0,20.0);
+    TH1F FAKE_FLAV1_eta    = TH1F("IronFake_Flav1_eta","IronFake_Flav1_eta",  40,0.0,20.0);
     // LowetaElectron_genPartFlav == 5
-    TH1F IRON_FLAV5_eta      = TH1F("Iron_Flav5_eta","Iron_Flav5_eta",     30,-3,3);
-    TH1F LONG1_FLAV5_eta    = TH1F("IronLong_Flav5_eta","IronLong_Flav5_eta",  30,-3,3);
-    TH1F FAKE_FLAV5_eta    = TH1F("IronFake_Flav5_eta","IronFake_Flav5_eta",  30,-3,3);
-    
+    TH1F IRON1_FLAV5_eta      = TH1F("Iron1_Flav5_eta","Iron1_Flav5_eta",     40,0.0,20.0);
+    TH1F LONG1_FLAV5_eta    = TH1F("IronLong1_Flav5_eta","IronLong1_Flav5_eta",  40,0.0,20.0);
+    TH1F IRON2_FLAV5_eta      = TH1F("Iron2_Flav5_eta","Iron2_Flav5_eta",     40,0.0,20.0);
+    TH1F LONG2_FLAV5_eta    = TH1F("IronLong2_Flav5_eta","IronLong2_Flav5_eta",  40,0.0,20.0);
+    TH1F FAKE_FLAV5_eta    = TH1F("IronFake_Flav5_eta","IronFake_Flav5_eta",  40,0.0,20.0);
     
     ///DXY
     
