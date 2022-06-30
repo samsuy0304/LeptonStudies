@@ -836,7 +836,7 @@ void KUSU::Loop()
             pt_vs_dxySig.Fill(LowPtElectron_pt[k],dxySig);
             pt_vs_dz.Fill(LowPtElectron_pt[k],LowPtElectron_dz[k]);
             pt_vs_dzErr.Fill(LowPtElectron_pt[k],LowPtElectron_dzErr[k]);
-            pt_vs_dzSig.Fill(LowPtElectron_pt[k],dzSig));
+            pt_vs_dzSig.Fill(LowPtElectron_pt[k],dzSig);
             pt_vs_Ip.Fill(LowPtElectron_pt[k],IP)  ; 
             pt_vs_IpErr.Fill(LowPtElectron_pt[k],IPErr); 
             pt_vs_IpSig1.Fill(LowPtElectron_pt[k],IPSig1) ; 
