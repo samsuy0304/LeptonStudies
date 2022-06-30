@@ -277,8 +277,8 @@ void KUSU::Loop()
     TH1F IRONLONG2_ISO = TH1F("IRONLONG2_ISO","IRONLONG2_ISO",50, 0.0, 20.0);
     
     //IRON Fake no flav
-    TH1F FAKE_EMID = TH1F("IRONFAKE_EMID", "IRONFAKE_EMID",50,0.0,20.0);
-    TH1F FAKE_pt = TH1F("IRONFAKE_pt", "IRONFAKE_pt",50,0.0,20.0);
+    TH1F FAKE_EMID = TH1F("FAKE_EMID", "FAKE_EMID",50,0.0,20.0);
+    TH1F FAKE_pt = TH1F("FAKE_pt", "IRONFAKE_pt",50,0.0,20.0);
     TH1F FAKE_eta = TH1F("IRONFAKE_eta", "IRONFAKE_eta",50,0.0,20.0);
     TH1F FAKE_dxy = TH1F("IRONFAKE_dxy", "IRONFAKE_dxy",50,0.0,20.0);  
     TH1F FAKE_dxyErr = TH1F("IRONFAKE_dxyErr", "IRONFAKE_dxyErr",50,0.0,20.0);  
@@ -1546,7 +1546,7 @@ void KUSU::Loop()
     PlotHist(IRON2_EMID,      sample, plot_dir, "EMID_IRON2", "EMID");
     PlotHist(IRONLONG1_EMID,      sample, plot_dir, "EMID_IRONLong1","EMID");
     PlotHist(IRONLONG2_EMID,      sample, plot_dir, "EMID_IRONLong2","EMID");
-    PlotHist(IRONFAKE_EMID,      sample, plot_dir, "EMID_IRON1Fake", "EMID");
+    PlotHist(FAKE_EMID,      sample, plot_dir, "EMID_IRON1Fake", "EMID");
     
     
     
@@ -1555,7 +1555,7 @@ void KUSU::Loop()
     PlotHist(IRON2_pt,      sample, plot_dir, "pt_IRON2", "pt");
     PlotHist(IRONLONG1_pt,      sample, plot_dir, "pt_IRONLong1","pt");
     PlotHist(IRONLONG2_pt,      sample, plot_dir, "pt_IRONLong2","pt");
-    PlotHist(IRONFAKE_pt,      sample, plot_dir, "pt_IRON1Fake", "pt");
+    PlotHist(FAKE_pt,      sample, plot_dir, "pt_IRON1Fake", "pt");
    
     
     //eta
@@ -1563,7 +1563,7 @@ void KUSU::Loop()
     PlotHist(IRON2_eta,      sample, plot_dir, "eta_IRON2", "eta");
     PlotHist(IRONLONG1_eta,      sample, plot_dir, "eta_IRONLong1","eta");
     PlotHist(IRONLONG2_eta,      sample, plot_dir, "eta_IRONLong2","eta");
-    PlotHist(IRONFAKE_eta,      sample, plot_dir, "eta_IRON1Fake", "eta");
+    PlotHist(FAKE_eta,      sample, plot_dir, "eta_IRON1Fake", "eta");
     
 
     
@@ -1575,7 +1575,7 @@ void KUSU::Loop()
     PlotHist(IRON2_dxy,      sample, plot_dir, "dxy_IRON2", "dxy");
     PlotHist(IRONLONG1_dxy,      sample, plot_dir, "dxy_IRONLong1","dxy");
     PlotHist(IRONLONG2_dxy,      sample, plot_dir, "dxy_IRONLong2","dxy");
-    PlotHist(IRONFAKE_dxy,      sample, plot_dir, "dxy_IRON1Fake", "dxy");
+    PlotHist(FAKE_dxy,      sample, plot_dir, "dxy_IRON1Fake", "dxy");
     
     
     
@@ -1585,7 +1585,7 @@ void KUSU::Loop()
     PlotHist(IRON2_dxyErr,      sample, plot_dir, "dxyErr_IRON2", "dxyErr");
     PlotHist(IRONLONG1_dxyErr,      sample, plot_dir, "dxyErr_IRONLong1","dxyErr");
     PlotHist(IRONLONG2_dxyErr,      sample, plot_dir, "dxyErr_IRONLong2","dxyErr");
-    PlotHist(IRONFAKE_dxyErr,      sample, plot_dir, "dxyErr_IRON1Fake", "dxyErr");
+    PlotHist(FAKE_dxyErr,      sample, plot_dir, "dxyErr_IRON1Fake", "dxyErr");
     
     
     
@@ -1595,7 +1595,7 @@ void KUSU::Loop()
     PlotHist(IRON2_dz,      sample, plot_dir, "dz_IRON2", "dz");
     PlotHist(IRONLONG1_dz,      sample, plot_dir, "dz_IRONLong1","dz");
     PlotHist(IRONLONG2_dz,      sample, plot_dir, "dz_IRONLong2","dz");
-    PlotHist(IRONFAKE_dz,      sample, plot_dir, "dz_IRON1Fake", "dz");
+    PlotHist(FAKE_dz,      sample, plot_dir, "dz_IRON1Fake", "dz");
     
     
     
@@ -1604,7 +1604,7 @@ void KUSU::Loop()
     PlotHist(IRON2_dzErr,      sample, plot_dir, "dzErr_IRON2", "dzErr");
     PlotHist(IRONLONG1_dzErr,      sample, plot_dir, "dzErr_IRONLong1","dzErr");
     PlotHist(IRONLONG2_dzErr,      sample, plot_dir, "dzErr_IRONLong2","dzErr");
-    PlotHist(IRONFAKE_dzErr,      sample, plot_dir, "dzErr_IRON1Fake", "dzErr");
+    PlotHist(FAKE_dzErr,      sample, plot_dir, "dzErr_IRON1Fake", "dzErr");
     
  
     
@@ -1613,7 +1613,7 @@ void KUSU::Loop()
     PlotHist(IRON2_CONV,      sample, plot_dir, "CONV_IRON2", "CONV");
     PlotHist(IRONLONG1_CONV,      sample, plot_dir, "CONV_IRONLong1","CONV");
     PlotHist(IRONLONG2_CONV,      sample, plot_dir, "CONV_IRONLong2","CONV");
-    PlotHist(IRONFAKE_CONV,      sample, plot_dir, "CONV_IRON1Fake", "CONV");
+    PlotHist(FAKE_CONV,      sample, plot_dir, "CONV_IRON1Fake", "CONV");
  
     
     
@@ -1622,7 +1622,7 @@ void KUSU::Loop()
     PlotHist(IRON2_ISO,      sample, plot_dir, "ISO_IRON2", "ISO");
     PlotHist(IRONLONG1_ISO,      sample, plot_dir, "ISO_IRONLong1","ISO");
     PlotHist(IRONLONG2_ISO,      sample, plot_dir, "ISO_IRONLong2","ISO");
-    PlotHist(IRONFAKE_ISO,      sample, plot_dir, "ISO_IRON1Fake", "ISO");
+    PlotHist(FAKE_ISO,      sample, plot_dir, "ISO_IRON1Fake", "ISO");
     
   
     
@@ -1631,7 +1631,7 @@ void KUSU::Loop()
     PlotHist(IRON2_IPSig1,      sample, plot_dir, "IPSig1_IRON2", "IPSig1");
     PlotHist(IRONLONG1_IPSig1,      sample, plot_dir, "IPSig1_IRONLong1","IPSig1");
     PlotHist(IRONLONG2_IPSig1,      sample, plot_dir, "IPSig1_IRONLong2","IPSig1");
-    PlotHist(IRONFAKE_IPSig1,      sample, plot_dir, "IPSig1_IRON1Fake", "IPSig1");
+    PlotHist(FAKE_IPSig1,      sample, plot_dir, "IPSig1_IRON1Fake", "IPSig1");
     
    
     
@@ -1640,7 +1640,7 @@ void KUSU::Loop()
     PlotHist(IRON2_IPSig2,      sample, plot_dir, "IPSig2_IRON2", "IPSig2");
     PlotHist(IRONLONG1_IPSig2,      sample, plot_dir, "IPSig2_IRONLong1","IPSig2");
     PlotHist(IRONLONG2_IPSig2,      sample, plot_dir, "IPSig2_IRONLong2","IPSig2");
-    PlotHist(IRONFAKE_IPSig2,      sample, plot_dir, "IPSig2_IRON1Fake", "IPSig2");
+    PlotHist(FAKE_IPSig2,      sample, plot_dir, "IPSig2_IRON1Fake", "IPSig2");
     
 
     
@@ -1649,7 +1649,7 @@ void KUSU::Loop()
     PlotHist(IRON2_dxySig,      sample, plot_dir, "dxySig_IRON2", "dxySig");
     PlotHist(IRONLONG1_dxySig,      sample, plot_dir, "dxySig_IRONLong1","dxySig");
     PlotHist(IRONLONG2_dxySig,      sample, plot_dir, "dxySig_IRONLong2","dxySig");
-    PlotHist(IRONFAKE_dxySig,      sample, plot_dir, "dxySig_IRON1Fake", "dxySig");
+    PlotHist(FAKE_dxySig,      sample, plot_dir, "dxySig_IRON1Fake", "dxySig");
     
 
     
@@ -1659,7 +1659,7 @@ void KUSU::Loop()
     PlotHist(IRON2_dzSig,      sample, plot_dir, "dzSig_IRON2", "dzSig");
     PlotHist(IRONLONG1_dzSig,      sample, plot_dir, "dzSig_IRONLong1","dzSig");
     PlotHist(IRONLONG2_dzSig,      sample, plot_dir, "dzSig_IRONLong2","dzSig");
-    PlotHist(IRONFAKE_dzSig,      sample, plot_dir, "dzSig_IRON1Fake", "dzSig");
+    PlotHist(FAKE_dzSig,      sample, plot_dir, "dzSig_IRON1Fake", "dzSig");
 
     
     //IP
@@ -1668,7 +1668,7 @@ void KUSU::Loop()
     PlotHist(IRON2_IP,      sample, plot_dir, "IP_IRON2", "IP");
     PlotHist(IRONLONG1_IP,      sample, plot_dir, "IP_IRONLong1","IP");
     PlotHist(IRONLONG2_IP,      sample, plot_dir, "IP_IRONLong2","IP");
-    PlotHist(IRONFAKE_IP,      sample, plot_dir, "IP_IRON1Fake", "IP");
+    PlotHist(FAKE_IP,      sample, plot_dir, "IP_IRON1Fake", "IP");
     
     
     
