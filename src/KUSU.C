@@ -1908,28 +1908,28 @@ void KUSU::Loop()
 
     //2D
     
-    PlotHist(pt_vs_EMID, sample, plot_dir,"Pt_EMID","EMID");
-    PlotHist(pt_vs_eta, sample,plot_dir,"Pt_eta","eta");
-    PlotHist(pt_vs_dxy, sample,plot_dir,"Pt_dxy","dxy");
+    PlotHist2(pt_vs_EMID, sample, plot_dir,"Pt_EMID","EMID");
+    PlotHist2(pt_vs_eta, sample,plot_dir,"Pt_eta","eta");
+    PlotHist2(pt_vs_dxy, sample,plot_dir,"Pt_dxy","dxy");
     
-    PlotHist(pt_vs_dxyErr, sample,plot_dir,"Pt_dxyErr","dxyErr");
-    PlotHist(pt_vs_dxySig, sample,plot_dir,"Pt_dxySig","dxySig");
-    PlotHist(pt_vs_dz, sample,plot_dir,"Pt_dz","dz");
-    PlotHist(pt_vs_dzErr, sample,plot_dir,"Pt_dzErr","dzErr");
-    PlotHist(pt_vs_dzSig, sample,plot_dir,"Pt_dzSig","dzSig");
-    PlotHist(pt_vs_Ip, sample,plot_dir,"Pt_Ip","Ip"); 
-    PlotHist(pt_vs_IpErr, sample,plot_dir,"Pt_IpErr","IpErr"); 
-    PlotHist(pt_vs_IpSig1, sample,plot_dir,"Pt_IpSig1","IpSig1"); 
-    PlotHist(pt_vs_IpSig2, sample,plot_dir,"Pt_IpSig2","IpSig2"); 
-    PlotHist(pt_vs_ISO, sample,plot_dir,"Pt_ISO","ISO");
+    PlotHist2(pt_vs_dxyErr, sample,plot_dir,"Pt_dxyErr","dxyErr");
+    PlotHist2(pt_vs_dxySig, sample,plot_dir,"Pt_dxySig","dxySig");
+    PlotHist2(pt_vs_dz, sample,plot_dir,"Pt_dz","dz");
+    PlotHist2(pt_vs_dzErr, sample,plot_dir,"Pt_dzErr","dzErr");
+    PlotHist2(pt_vs_dzSig, sample,plot_dir,"Pt_dzSig","dzSig");
+    PlotHist2(pt_vs_Ip, sample,plot_dir,"Pt_Ip","Ip"); 
+    PlotHist2(pt_vs_IpErr, sample,plot_dir,"Pt_IpErr","IpErr"); 
+    PlotHist2(pt_vs_IpSig1, sample,plot_dir,"Pt_IpSig1","IpSig1"); 
+    PlotHist2(pt_vs_IpSig2, sample,plot_dir,"Pt_IpSig2","IpSig2"); 
+    PlotHist2(pt_vs_ISO, sample,plot_dir,"Pt_ISO","ISO");
 
-    PlotHist(Flav_vs_EMID,sample,plot_dir,"Flav_EMID","EMID");
+    PlotHist2(Flav_vs_EMID,sample,plot_dir,"Flav_EMID","EMID");
 
 
 
-    PlotHist(dxysig_vs_dzsig,sample,plot_dir,"dxysig_dzsig","dz");
-    PlotHist(dzsig_vs_IPsig1,sample,plot_dir,"dzsig_IPsig","IPSig1");
-    PlotHist(dxysig_vs_IPsig1,sample,plot_dir,"dxysig_IPsig1","IPSig1");
-    PlotHist(dzsig_vs_IPsig2,sample,plot_dir,"dzsig_IPsig2","IPSig2");
-    PlotHist(dxysig_vs_IPsig2,sample,plot_dir,"dxy_IPsig2","IPSig2");
+    PlotHist2(dxysig_vs_dzsig,sample,plot_dir,"dxysig_dzsig","dz");
+    PlotHist2(dzsig_vs_IPsig1,sample,plot_dir,"dzsig_IPsig","IPSig1");
+    PlotHist2(dxysig_vs_IPsig1,sample,plot_dir,"dxysig_IPsig1","IPSig1");
+    PlotHist2(dzsig_vs_IPsig2,sample,plot_dir,"dzsig_IPsig2","IPSig2");
+    PlotHist2(dxysig_vs_IPsig2,sample,plot_dir,"dxy_IPsig2","IPSig2");
 }
