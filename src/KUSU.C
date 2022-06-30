@@ -92,6 +92,47 @@ void KUSU::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir, s
     c.SaveAs(output_name_pdf.c_str());
 }
 
+void KUSU::SetupHist2(TH2F &hist, std::string title, std::string x_title, std::string y_title, int color, int line_width)
+{
+    hist.SetStats(kFALSE);
+    
+    TAxis* x_axis = hist.GetXaxis();
+    TAxis* y_axis = hist.GetYaxis();
+    
+    hist.SetTitle(title.c_str());
+    x_axis->SetTitle(x_title.c_str());
+    y_axis->SetTitle(y_title.c_str());
+    hist.SetLineColor(color);
+    hist.SetLineWidth(line_width);
+}
+
+void KUSU::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable)
+{
+    printf("Plotting %s\n", plot_name.c_str());
+
+    // canvas
+    TCanvas c = TCanvas("c", "c", 800, 800);
+    c.SetLeftMargin(0.15);
+
+    // setup histogram
+    std::string title   = plot_name;
+    std::string x_title = GetLabel(variable);
+    std::string y_title = "Entries";
+    int color           = kBlack;
+    int line_width      = 1;
+    SetupHist2(hist, title, x_title, y_title, color, line_width);
+    gStyle->SetOptStat(111111);
+    // draw
+    hist.Draw("hist error same");
+    hist.SetStats(kTRUE);
+    
+    // save plot
+    std::string output_name = plot_dir + "/" + "_" + plot_name; 
+    std::string output_name_pdf = output_name + ".pdf";
+    c.Update();
+    c.SaveAs(output_name_pdf.c_str());
+}
+
 void KUSU::Loop()
 {
 
