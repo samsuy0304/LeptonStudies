@@ -669,7 +669,8 @@ void KUSU::Loop()
         
             }
     
-           
+            float IP = -999;
+            float IPErr = -999;
             IP = sqrt(LowPtElectron_dxy[k]**2 +LowPtElectron_dz[k]**2);
             IPErr = sqrt(LowPtElectron_dxyErr[k]**2 +LowPtElectron_dzErr[k]**2);
             
