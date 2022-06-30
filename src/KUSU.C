@@ -718,7 +718,7 @@ void KUSU::Loop()
     TH2F pt_vs_dxySig = TH2F("pt_vs_dxySig", "pt_vs_",80, 0.0,20.0,50,-5,5);
     TH2F pt_vs_dz = TH2F("pt_vs_dz", "pt_vs_",80, 0.0,20.0,100,-0.1,0.1);
     TH2F pt_vs_dzErr = TH2F("pt_vs_dzErr", "pt_vs_",80, 0.0,20.0,50,0,0.2);
-    TH2F pt_vs_dzSig = TH2F("pt_vs_dzSig", "pt_vs_",80, 0.0,20.0,50,-5.0,5.0)
+    TH2F pt_vs_dzSig = TH2F("pt_vs_dzSig", "pt_vs_",80, 0.0,20.0,50,-5.0,5.0);
     TH2F pt_vs_Ip = TH2F("pt_vs_Ip", "pt_vs_",80, 0.0,20.0,100,0.0,1.0)  ; 
     TH2F pt_vs_IpErr = TH2F("pt_vs_IpErr", "pt_vs_",80, 0.0,20.0,50,-5.0,5.0); 
     TH2F pt_vs_IpSig1 = TH2F("pt_vs_IpSig1", "pt_vs_",80, 0.0,20.0,100,0.0,10.0) ; 
@@ -836,7 +836,7 @@ void KUSU::Loop()
             pt_vs_dxySig.Fill(LowPtElectron_pt[k],dxySig);
             pt_vs_dz.Fill(LowPtElectron_pt[k],LowPtElectron_dz[k]);
             pt_vs_dzErr.Fill(LowPtElectron_pt[k],LowPtElectron_dzErr[k]);
-            pt_vs_dzSig.Fill(LowPtElectron_pt[k],dzSig))
+            pt_vs_dzSig.Fill(LowPtElectron_pt[k],dzSig));
             pt_vs_Ip.Fill(LowPtElectron_pt[k],IP)  ; 
             pt_vs_IpErr.Fill(LowPtElectron_pt[k],IPErr); 
             pt_vs_IpSig1.Fill(LowPtElectron_pt[k],IPSig1) ; 
