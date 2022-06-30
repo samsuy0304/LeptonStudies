@@ -152,148 +152,148 @@ void KUSU::Loop()
     TH1F IPSig2_graph= TH1F("IPSig2", "IPSig2",100,0.0,10.0);        
     TH1F IPSigDiff = TH1F("IPSigDiff", "IPSigDiff",50,-5.0,5.0);
     TH1F CONV = TH1F("CONV", "CONV",2,0.0,2.0);
-    TH1F ISO = TH1F("ISO","ISO",50,0.0,8.0);
+    TH1F ISO = TH1F("ISO","ISO",50,0.0,20.0);
     // Flav 0                                               
-    TH1F Flav0_EMID = TH1F("Flav0_EMID", "Flav0_EMID",50,0.0,20.0);
-    TH1F Flav0_pt = TH1F("Flav0_pt", "Flav0_pt",50,0.0,20.0)   ;
-    TH1F Flav0_eta = TH1F("Flav0_eta", "Flav0_eta",50,0.0,20.0)    ;
-    TH1F Flav0_dxy = TH1F("Flav0_dxy", "Flav0_dxy",50,0.0,20.0)  ;
-    TH1F Flav0_dxyErr = TH1F("Flav0_dxyErr", "Flav0_dxyErr",50,0.0,20.0)  ;
-    TH1F Flav0_dz = TH1F("Flav0_dz", "Flav0_dz",50,0.0,20.0)  ;
-    TH1F Flav0_dzErr = TH1F("Flav0_dzErr", "Flav0_dzErr",50,0.0,20.0) ; 
-    TH1F Flav0_dxySig = TH1F("Flav0_dxySig", "Flav0_dxySig",50,0.0,20.0);  
-    TH1F Flav0_dzSig = TH1F("Flav0_dzSig", "Flav0_dzSig",50,0.0,20.0) ; 
-    TH1F Flav0_IP = TH1F("Flav0_IP", "Flav0_IP",50,0.0,20.0)  ;
-    TH1F Flav0_IPErr = TH1F("Flav0_IPErr", "Flav0_IPErr",50,0.0,20.0);
-    TH1F Flav0_IPSig1 = TH1F("Flav0_IPSig1", "Flav0_IPSig1",50,0.0,20.0);
-    TH1F Flav0_IPSig2 = TH1F("Flav0_IPSig2", "Flav0_IPSig2",50,0.0,20.0);
-    TH1F Flav0_IPSigdiff = TH1F("Flav0_IPSigDiff", "Flav0_IPSigDiff",50,0.0,20.0);
+    TH1F Flav0_EMID = TH1F("Flav0_EMID", "Flav0_EMID",60,0.0,12.0);
+    TH1F Flav0_pt = TH1F("Flav0_pt", "Flav0_pt",80,0.0,20.0)   ;
+    TH1F Flav0_eta = TH1F("Flav0_eta", "Flav0_eta",30,-3,3)    ;
+    TH1F Flav0_dxy = TH1F("Flav0_dxy", "Flav0_dxy",100,-0.1,0.1)  ;
+    TH1F Flav0_dxyErr = TH1F("Flav0_dxyErr", "Flav0_dxyErr",50,0,0.06)  ;
+    TH1F Flav0_dz = TH1F("Flav0_dz", "Flav0_dz",100,-0.1,0.1)  ;
+    TH1F Flav0_dzErr = TH1F("Flav0_dzErr", "Flav0_dzErr",50,0,0.06) ; 
+    TH1F Flav0_dxySig = TH1F("Flav0_dxySig", "Flav0_dxySig",100,-3.0,3.0);  
+    TH1F Flav0_dzSig = TH1F("Flav0_dzSig", "Flav0_dzSig",100,-3.0,3.0) ; 
+    TH1F Flav0_IP = TH1F("Flav0_IP", "Flav0_IP",100,0.0,1.0)  ;
+    TH1F Flav0_IPErr = TH1F("Flav0_IPErr", "Flav0_IPErr",50,-5.0,5.0);
+    TH1F Flav0_IPSig1 = TH1F("Flav0_IPSig1", "Flav0_IPSig1",100,0.0,10.0);
+    TH1F Flav0_IPSig2 = TH1F("Flav0_IPSig2", "Flav0_IPSig2",100,0.0,10.0);
+    TH1F Flav0_IPSigdiff = TH1F("Flav0_IPSigDiff", "Flav0_IPSigDiff",100,-1.0,1.0);
     TH1F Flav0_CONV = TH1F("Flav0_CONV","Flav0_CONV",2,0.0,2.0);
     TH1F Flav0_ISO = TH1F("Flav0_ISO","Flav0_ISO",50, 0.0, 20.0);   
     //Flav1
-    TH1F Flav1_EMID = TH1F("Flav1_EMID", "Flav1_EMID",50,0.0,20.0);
-    TH1F Flav1_pt = TH1F("Flav1_pt", "Flav1_pt",50,0.0,20.0);
-    TH1F Flav1_eta = TH1F("Flav1_eta", "Flav1_eta",50,0.0,20.0);
-    TH1F Flav1_dxy = TH1F("Flav1_dxy", "Flav1_dxy",50,0.0,20.0) ; 
-    TH1F Flav1_dxyErr = TH1F("Flav1_dxyErr", "Flav1_dxyErr",50,0.0,20.0);  
-    TH1F Flav1_dz = TH1F("Flav1_dz", "Flav1_dz",50,0.0,20.0)  ;
+    TH1F Flav1_EMID = TH1F("Flav1_EMID", "Flav1_EMID",60,0.0,12.0);
+    TH1F Flav1_pt = TH1F("Flav1_pt", "Flav1_pt",80,0.0,20.0);
+    TH1F Flav1_eta = TH1F("Flav1_eta", "Flav1_eta",30,-3,3);
+    TH1F Flav1_dxy = TH1F("Flav1_dxy", "Flav1_dxy",100,-0.1,0.1) ; 
+    TH1F Flav1_dxyErr = TH1F("Flav1_dxyErr", "Flav1_dxyErr",50,0,0.06);  
+    TH1F Flav1_dz = TH1F("Flav1_dz", "Flav1_dz",100,-0.1,0.1)  ;
     TH1F Flav1_dzErr = TH1F("Flav1_dzErr", "Flav1_dzErr",50,0.0,20.0) ; 
-    TH1F Flav1_dxySig = TH1F("Flav1_dxySig", "Flav1_dxySig",50,0.0,20.0) ; 
+    TH1F Flav1_dxySig = TH1F("Flav1_dxySig", "Flav1_dxySig",100,-3.0,3.0) ; 
     TH1F Flav1_dzSig = TH1F("Flav1_dzSig", "Flav1_dzSig",50,0.0,20.0) ; 
     TH1F Flav1_IP = TH1F("Flav1_IP", "Flav1_IP",50,0.0,20.0)  ;
-    TH1F Flav1_IPErr = TH1F("Flav1_IPErr", "Flav1_IPErr",50,0.0,20.0);
-    TH1F Flav1_IPSig1 = TH1F("Flav1_IPSig1", "Flav1_IPSig1",50,0.0,20.0);
-    TH1F Flav1_IPSig2 = TH1F("Flav1_IPSig2", "Flav1_IPSig2",50,0.0,20.0);
-    TH1F Flav1_IPSigdiff = TH1F("Flav1_IPSigDiff", "Flav1_IPSigDiff",50,0.0,20.0);
+    TH1F Flav1_IPErr = TH1F("Flav1_IPErr", "Flav1_IPErr",50,-5.0,5.0);
+    TH1F Flav1_IPSig1 = TH1F("Flav1_IPSig1", "Flav1_IPSig1",100,0.0,10.0);
+    TH1F Flav1_IPSig2 = TH1F("Flav1_IPSig2", "Flav1_IPSig2",100,0.0,10.0);
+    TH1F Flav1_IPSigdiff = TH1F("Flav1_IPSigDiff", "Flav1_IPSigDiff",100,-1.0,1.0);
     TH1F Flav1_CONV = TH1F("Flav1_CONV","Flav1_CONV",2,0.0,2.0);
     TH1F Flav1_ISO = TH1F("Flav1_ISO","Flav1_ISO",50, 0.0, 20.0);   
     //Flav5
-    TH1F Flav5_EMID = TH1F("Flav5_EMID", "Flav5_EMID",50,0.0,20.0);
-    TH1F Flav5_pt = TH1F("Flav5_pt", "Flav5_pt",50,0.0,20.0);
-    TH1F Flav5_eta = TH1F("Flav5_eta", "Flav5_eta",50,0.0,20.0);
-    TH1F Flav5_dxy = TH1F("Flav5_dxy", "Flav5_dxy",50,0.0,20.0) ; 
-    TH1F Flav5_dxyErr = TH1F("Flav5_dxyErr", "Flav5_dxyErr",50,0.0,20.0) ; 
-    TH1F Flav5_dz = TH1F("Flav5_dz", "Flav5_dz",50,0.0,20.0)  ;
+    TH1F Flav5_EMID = TH1F("Flav5_EMID", "Flav5_EMID",60,0.0,12.0);
+    TH1F Flav5_pt = TH1F("Flav5_pt", "Flav5_pt",80,0.0,20.0);
+    TH1F Flav5_eta = TH1F("Flav5_eta", "Flav5_eta",30,-3,3);
+    TH1F Flav5_dxy = TH1F("Flav5_dxy", "Flav5_dxy",100,-0.1,0.1) ; 
+    TH1F Flav5_dxyErr = TH1F("Flav5_dxyErr", "Flav5_dxyErr",50,0,0.06) ; 
+    TH1F Flav5_dz = TH1F("Flav5_dz", "Flav5_dz",100,-0.1,0.1)  ;
     TH1F Flav5_dzErr = TH1F("Flav5_dzErr", "Flav5_dzErr",50,0.0,20.0);  
-    TH1F Flav5_dxySig = TH1F("Flav5_dxySig", "Flav5_dxySig",50,0.0,20.0) ; 
+    TH1F Flav5_dxySig = TH1F("Flav5_dxySig", "Flav5_dxySig",100,-3.0,3.0) ; 
     TH1F Flav5_dzSig = TH1F("Flav5_dzSig", "Flav5_dzSig",50,0.0,20.0)  ;
     TH1F Flav5_IP = TH1F("Flav5_IP", "Flav5_IP",50,0.0,20.0)  ;
-    TH1F Flav5_IPErr = TH1F("Flav5_IPErr", "Flav5_IPErr",50,0.0,20.0);
-    TH1F Flav5_IPSig1 = TH1F("Flav5_IPSig1", "Flav5_IPSig1",50,0.0,20.0);
-    TH1F Flav5_IPSig2 = TH1F("Flav5_IPSig2", "Flav5_IPSig2",50,0.0,20.0);
-    TH1F Flav5_IPSigdiff = TH1F("Flav5_IPSigDiff", "Flav5_IPSigDiff",50,0.0,20.0); 
+    TH1F Flav5_IPErr = TH1F("Flav5_IPErr", "Flav5_IPErr",50,-5.0,5.0);
+    TH1F Flav5_IPSig1 = TH1F("Flav5_IPSig1", "Flav5_IPSig1",100,0.0,10.0);
+    TH1F Flav5_IPSig2 = TH1F("Flav5_IPSig2", "Flav5_IPSig2",100,0.0,10.0);
+    TH1F Flav5_IPSigdiff = TH1F("Flav5_IPSigDiff", "Flav5_IPSigDiff",100,-1.0,1.0); 
     TH1F Flav5_CONV = TH1F("Flav5_CONV","Flav5_CONV",2,0.0,2.0);
     TH1F Flav5_ISO = TH1F("Flav5_ISO","Flav5_ISO",50, 0.0, 20.0);
         
     /// IRON1 No Flav
-    TH1F IRON1_EMID = TH1F("IRON1_EMID", "IRON1_EMID",50,0.0,20.0);
-    TH1F IRON1_pt = TH1F("IRON1_pt", "IRON1_pt",50,0.0,20.0);
-    TH1F IRON1_eta = TH1F("IRON1_eta", "IRON1_eta",50,0.0,20.0);
-    TH1F IRON1_dxy = TH1F("IRON1_dxy", "IRON1_dxy",50,0.0,20.0) ; 
-    TH1F IRON1_dxyErr = TH1F("IRON1_dxyErr", "IRON1_dxyErr",50,0.0,20.0);  
-    TH1F IRON1_dz = TH1F("IRON1_dz", "IRON1_dz",50,0.0,20.0)  ;
+    TH1F IRON1_EMID = TH1F("IRON1_EMID", "IRON1_EMID",60,0.0,12.0);
+    TH1F IRON1_pt = TH1F("IRON1_pt", "IRON1_pt",80,0.0,20.0);
+    TH1F IRON1_eta = TH1F("IRON1_eta", "IRON1_eta",30,-3,3);
+    TH1F IRON1_dxy = TH1F("IRON1_dxy", "IRON1_dxy",100,-0.1,0.1) ; 
+    TH1F IRON1_dxyErr = TH1F("IRON1_dxyErr", "IRON1_dxyErr",50,0,0.06);  
+    TH1F IRON1_dz = TH1F("IRON1_dz", "IRON1_dz",100,-0.1,0.1)  ;
     TH1F IRON1_dzErr = TH1F("IRON1_dzErr", "IRON1_dzErr",50,0.0,20.0);  
-    TH1F IRON1_dxySig = TH1F("IRON1_dxySig", "IRON1_dxySig",50,0.0,20.0);  
+    TH1F IRON1_dxySig = TH1F("IRON1_dxySig", "IRON1_dxySig",100,-3.0,3.0);  
     TH1F IRON1_dzSig = TH1F("IRON1_dzSig", "IRON1_dzSig",50,0.0,20.0)  ;
     TH1F IRON1_IP = TH1F("IRON1_IP", "IRON1_IP",50,0.0,20.0)  ;
-    TH1F IRON1_IPErr = TH1F("IRON1_IPErr", "IRON1_IPErr",50,0.0,20.0);
-    TH1F IRON1_IPSig1 = TH1F("IRON1_IPSig1", "IRON1_IPSig1",50,0.0,20.0);
-    TH1F IRON1_IPSig2 = TH1F("IRON1_IPSig2", "IRON1_IPSig2",50,0.0,20.0);
-    TH1F IRON1_IPSigdiff = TH1F("IRON1_IPSigDiff", "IRON1_IPSigDiff",50,0.0,20.0);
+    TH1F IRON1_IPErr = TH1F("IRON1_IPErr", "IRON1_IPErr",50,-5.0,5.0);
+    TH1F IRON1_IPSig1 = TH1F("IRON1_IPSig1", "IRON1_IPSig1",100,0.0,10.0);
+    TH1F IRON1_IPSig2 = TH1F("IRON1_IPSig2", "IRON1_IPSig2",100,0.0,10.0);
+    TH1F IRON1_IPSigdiff = TH1F("IRON1_IPSigDiff", "IRON1_IPSigDiff",100,-1.0,1.0);
     TH1F IRON1_CONV = TH1F("IRON1_CONV","IRON1_CONV",2,0.0,2.0);
     TH1F IRON1_ISO = TH1F("IRON1_ISO","IRON1_ISO",50, 0.0, 20.0);
         
     
      
     //IRON2 No Flav
-    TH1F IRON2_EMID = TH1F("IRON2_EMID", "IRON2_EMID",50,0.0,20.0);
-    TH1F IRON2_pt = TH1F("IRON2_pt", "IRON2_pt",50,0.0,20.0);
-    TH1F IRON2_eta = TH1F("IRON2_eta", "IRON2_eta",50,0.0,20.0);
-    TH1F IRON2_dxy = TH1F("IRON2_dxy", "IRON2_dxy",50,0.0,20.0);  
-    TH1F IRON2_dxyErr = TH1F("IRON2_dxyErr", "IRON2_dxyErr",50,0.0,20.0);  
-    TH1F IRON2_dz = TH1F("IRON2_dz", "IRON2_dz",50,0.0,20.0);  
+    TH1F IRON2_EMID = TH1F("IRON2_EMID", "IRON2_EMID",60,0.0,12.0);
+    TH1F IRON2_pt = TH1F("IRON2_pt", "IRON2_pt",80,0.0,20.0);
+    TH1F IRON2_eta = TH1F("IRON2_eta", "IRON2_eta",30,-3,3);
+    TH1F IRON2_dxy = TH1F("IRON2_dxy", "IRON2_dxy",100,-0.1,0.1);  
+    TH1F IRON2_dxyErr = TH1F("IRON2_dxyErr", "IRON2_dxyErr",50,0,0.06);  
+    TH1F IRON2_dz = TH1F("IRON2_dz", "IRON2_dz",100,-0.1,0.1);  
     TH1F IRON2_dzErr = TH1F("IRON2_dzErr", "IRON2_dzErr",50,0.0,20.0);  
-    TH1F IRON2_dxySig = TH1F("IRON2_dxySig", "IRON2_dxySig",50,0.0,20.0);  
+    TH1F IRON2_dxySig = TH1F("IRON2_dxySig", "IRON2_dxySig",100,-3.0,3.0);  
     TH1F IRON2_dzSig = TH1F("IRON2_dzSig", "IRON2_dzSig",50,0.0,20.0);  
     TH1F IRON2_IP = TH1F("IRON2_IP", "IRON2_IP",50,0.0,20.0);  
-    TH1F IRON2_IPErr = TH1F("IRON2_IPErr", "IRON2_IPErr",50,0.0,20.0);
-    TH1F IRON2_IPSig1 = TH1F("IRON2_IPSig1", "IRON2_IPSig1",50,0.0,20.0);
-    TH1F IRON2_IPSig2 = TH1F("IRON2_IPSig2", "IRON2_IPSig2",50,0.0,20.0);
-    TH1F IRON2_IPSigdiff = TH1F("IRON2_IPSigDiff", "IRON2_IPSigDiff",50,0.0,20.0);
+    TH1F IRON2_IPErr = TH1F("IRON2_IPErr", "IRON2_IPErr",50,-5.0,5.0);
+    TH1F IRON2_IPSig1 = TH1F("IRON2_IPSig1", "IRON2_IPSig1",100,0.0,10.0);
+    TH1F IRON2_IPSig2 = TH1F("IRON2_IPSig2", "IRON2_IPSig2",100,0.0,10.0);
+    TH1F IRON2_IPSigdiff = TH1F("IRON2_IPSigDiff", "IRON2_IPSigDiff",100,-1.0,1.0);
     TH1F IRON2_CONV = TH1F("IRON2_CONV","IRON2_CONV",2,0.0,2.0);
     TH1F IRON2_ISO = TH1F("IRON2_ISO","IRON2_ISO",50, 0.0, 20.0);
     
     //Long 1 No Flav
-    TH1F IRONLONG1_EMID = TH1F("IRONLONG1_EMID", "IRONLONG1_EMID",50,0.0,20.0);
-    TH1F IRONLONG1_pt = TH1F("IRONLONG1_pt", "IRONLONG1_pt",50,0.0,20.0);
-    TH1F IRONLONG1_eta = TH1F("IRONLONG1_eta", "IRONLONG1_eta",50,0.0,20.0);
-    TH1F IRONLONG1_dxy = TH1F("IRONLONG1_dxy", "IRONLONG1_dxy",50,0.0,20.0);  
-    TH1F IRONLONG1_dxyErr = TH1F("IRONLONG1_dxyErr", "IRONLONG1_dxyErr",50,0.0,20.0);  
-    TH1F IRONLONG1_dz = TH1F("IRONLONG1_dz", "IRONLONG1_dz",50,0.0,20.0);  
+    TH1F IRONLONG1_EMID = TH1F("IRONLONG1_EMID", "IRONLONG1_EMID",60,0.0,12.0);
+    TH1F IRONLONG1_pt = TH1F("IRONLONG1_pt", "IRONLONG1_pt",80,0.0,20.0);
+    TH1F IRONLONG1_eta = TH1F("IRONLONG1_eta", "IRONLONG1_eta",30,-3,3);
+    TH1F IRONLONG1_dxy = TH1F("IRONLONG1_dxy", "IRONLONG1_dxy",100,-0.1,0.1);  
+    TH1F IRONLONG1_dxyErr = TH1F("IRONLONG1_dxyErr", "IRONLONG1_dxyErr",50,0,0.06);  
+    TH1F IRONLONG1_dz = TH1F("IRONLONG1_dz", "IRONLONG1_dz",100,-0.1,0.1);  
     TH1F IRONLONG1_dzErr = TH1F("IRONLONG1_dzErr", "IRONLONG1_dzErr",50,0.0,20.0);  
-    TH1F IRONLONG1_dxySig = TH1F("IRONLONG1_dxySig", "IRONLONG1_dxySig",50,0.0,20.0);  
+    TH1F IRONLONG1_dxySig = TH1F("IRONLONG1_dxySig", "IRONLONG1_dxySig",100,-3.0,3.0);  
     TH1F IRONLONG1_dzSig = TH1F("IRONLONG1_dzSig", "IRONLONG1_dzSig",50,0.0,20.0);  
     TH1F IRONLONG1_IP = TH1F("IRONLONG1_IP", "IRONLONG1_IP",50,0.0,20.0);  
-    TH1F IRONLONG1_IPErr = TH1F("IRONLONG1_IPErr", "IRONLONG1_IPErr",50,0.0,20.0);
-    TH1F IRONLONG1_IPSig1 = TH1F("IRONLONG1_IPSig1", "IRONLONG1_IPSig1",50,0.0,20.0);
-    TH1F IRONLONG1_IPSig2 = TH1F("IRONLONG1_IPSig2", "IRONLONG1_IPSig2",50,0.0,20.0);
-    TH1F IRONLONG1_IPSigdiff = TH1F("IRONLONG1_IPSigDiff", "IRONLONG1_IPSigDiff",50,0.0,20.0);
+    TH1F IRONLONG1_IPErr = TH1F("IRONLONG1_IPErr", "IRONLONG1_IPErr",50,-5.0,5.0);
+    TH1F IRONLONG1_IPSig1 = TH1F("IRONLONG1_IPSig1", "IRONLONG1_IPSig1",100,0.0,10.0);
+    TH1F IRONLONG1_IPSig2 = TH1F("IRONLONG1_IPSig2", "IRONLONG1_IPSig2",100,0.0,10.0);
+    TH1F IRONLONG1_IPSigdiff = TH1F("IRONLONG1_IPSigDiff", "IRONLONG1_IPSigDiff",100,-1.0,1.0);
     TH1F IRONLONG1_CONV = TH1F("IRONLONG1_CONLONG1","IRONLONG1_CONV",2,0.0,2.0);
     TH1F IRONLONG1_ISO = TH1F("IRONLONG1_ISO","IRONLONG1_ISO",50, 0.0, 20.0);
     
     //Long 2 No Flav
-    TH1F IRONLONG2_EMID = TH1F("IRONLONG2_EMID", "IRONLONG2_EMID",50,0.0,20.0);
-    TH1F IRONLONG2_pt = TH1F("IRONLONG2_pt", "IRONLONG2_pt",50,0.0,20.0);
-    TH1F IRONLONG2_eta = TH1F("IRONLONG2_eta", "IRONLONG2_eta",50,0.0,20.0);
-    TH1F IRONLONG2_dxy = TH1F("IRONLONG2_dxy", "IRONLONG2_dxy",50,0.0,20.0);  
-    TH1F IRONLONG2_dxyErr = TH1F("IRONLONG2_dxyErr", "IRONLONG2_dxyErr",50,0.0,20.0);  
-    TH1F IRONLONG2_dz = TH1F("IRONLONG2_dz", "IRONLONG2_dz",50,0.0,20.0);  
+    TH1F IRONLONG2_EMID = TH1F("IRONLONG2_EMID", "IRONLONG2_EMID",60,0.0,12.0);
+    TH1F IRONLONG2_pt = TH1F("IRONLONG2_pt", "IRONLONG2_pt",80,0.0,20.0);
+    TH1F IRONLONG2_eta = TH1F("IRONLONG2_eta", "IRONLONG2_eta",30,-3,3);
+    TH1F IRONLONG2_dxy = TH1F("IRONLONG2_dxy", "IRONLONG2_dxy",100,-0.1,0.1);  
+    TH1F IRONLONG2_dxyErr = TH1F("IRONLONG2_dxyErr", "IRONLONG2_dxyErr",50,0,0.06);  
+    TH1F IRONLONG2_dz = TH1F("IRONLONG2_dz", "IRONLONG2_dz",100,-0.1,0.1);  
     TH1F IRONLONG2_dzErr = TH1F("IRONLONG2_dzErr", "IRONLONG2_dzErr",50,0.0,20.0);  
-    TH1F IRONLONG2_dxySig = TH1F("IRONLONG2_dxySig", "IRONLONG2_dxySig",50,0.0,20.0);  
+    TH1F IRONLONG2_dxySig = TH1F("IRONLONG2_dxySig", "IRONLONG2_dxySig",100,-3.0,3.0);  
     TH1F IRONLONG2_dzSig = TH1F("IRONLONG2_dzSig", "IRONLONG2_dzSig",50,0.0,20.0);  
     TH1F IRONLONG2_IP = TH1F("IRONLONG2_IP", "IRONLONG2_IP",50,0.0,20.0);  
-    TH1F IRONLONG2_IPErr = TH1F("IRONLONG2_IPErr", "IRONLONG2_IPErr",50,0.0,20.0);
-    TH1F IRONLONG2_IPSig1 = TH1F("IRONLONG2_IPSig1", "IRONLONG2_IPSig1",50,0.0,20.0);
-    TH1F IRONLONG2_IPSig2 = TH1F("IRONLONG2_IPSig2", "IRONLONG2_IPSig2",50,0.0,20.0);
-    TH1F IRONLONG2_IPSigdiff = TH1F("IRONLONG2_IPSigDiff", "IRONLONG2_IPSigDiff",50,0.0,20.0);
+    TH1F IRONLONG2_IPErr = TH1F("IRONLONG2_IPErr", "IRONLONG2_IPErr",50,-5.0,5.0);
+    TH1F IRONLONG2_IPSig1 = TH1F("IRONLONG2_IPSig1", "IRONLONG2_IPSig1",100,0.0,10.0);
+    TH1F IRONLONG2_IPSig2 = TH1F("IRONLONG2_IPSig2", "IRONLONG2_IPSig2",100,0.0,10.0);
+    TH1F IRONLONG2_IPSigdiff = TH1F("IRONLONG2_IPSigDiff", "IRONLONG2_IPSigDiff",100,-1.0,1.0);
     TH1F IRONLONG2_CONV = TH1F("IRONLONG2_CONLONG1","IRONLONG2_CONV",2,0.0,2.0);
     TH1F IRONLONG2_ISO = TH1F("IRONLONG2_ISO","IRONLONG2_ISO",50, 0.0, 20.0);
     
     //IRON Fake no flav
-    TH1F FAKE_EMID = TH1F("FAKE_EMID", "FAKE_EMID",50,0.0,20.0);
-    TH1F FAKE_pt = TH1F("FAKE_pt", "IRONFAKE_pt",50,0.0,20.0);
-    TH1F FAKE_eta = TH1F("IRONFAKE_eta", "IRONFAKE_eta",50,0.0,20.0);
-    TH1F FAKE_dxy = TH1F("IRONFAKE_dxy", "IRONFAKE_dxy",50,0.0,20.0);  
-    TH1F FAKE_dxyErr = TH1F("IRONFAKE_dxyErr", "IRONFAKE_dxyErr",50,0.0,20.0);  
-    TH1F FAKE_dz = TH1F("IRONFAKE_dz", "IRONFAKE_dz",50,0.0,20.0);  
+    TH1F FAKE_EMID = TH1F("FAKE_EMID", "FAKE_EMID",60,0.0,12.0);
+    TH1F FAKE_pt = TH1F("FAKE_pt", "IRONFAKE_pt",80,0.0,20.0);
+    TH1F FAKE_eta = TH1F("IRONFAKE_eta", "IRONFAKE_eta",30,-3,3);
+    TH1F FAKE_dxy = TH1F("IRONFAKE_dxy", "IRONFAKE_dxy",100,-0.1,0.1);  
+    TH1F FAKE_dxyErr = TH1F("IRONFAKE_dxyErr", "IRONFAKE_dxyErr",50,0,0.06);  
+    TH1F FAKE_dz = TH1F("IRONFAKE_dz", "IRONFAKE_dz",100,-0.1,0.1);  
     TH1F FAKE_dzErr = TH1F("IRONFAKE_dzErr", "IRONFAKE_dzErr",50,0.0,20.0);  
-    TH1F FAKE_dxySig = TH1F("IRONFAKE_dxySig", "IRONFAKE_dxySig",50,0.0,20.0);  
+    TH1F FAKE_dxySig = TH1F("IRONFAKE_dxySig", "IRONFAKE_dxySig",100,-3.0,3.0);  
     TH1F FAKE_dzSig = TH1F("IRONFAKE_dzSig", "IRONFAKE_dzSig",50,0.0,20.0);  
     TH1F FAKE_IP = TH1F("IRONFAKE_IP", "IRONFAKE_IP",50,0.0,20.0);  
-    TH1F FAKE_IPErr = TH1F("IRONFAKE_IPErr", "IRONFAKE_IPErr",50,0.0,20.0);
-    TH1F FAKE_IPSig1 = TH1F("IRONFAKE_IPSig1", "IRONFAKE_IPSig1",50,0.0,20.0);
-    TH1F FAKE_IPSig2 = TH1F("IRONFAKE_IPSig2", "IRONFAKE_IPSig2",50,0.0,20.0);
-    TH1F FAKE_IPSigdiff = TH1F("IRONFAKE_IPSigDiff", "IRONFAKE_IPSigDiff",50,0.0,20.0);
+    TH1F FAKE_IPErr = TH1F("IRONFAKE_IPErr", "IRONFAKE_IPErr",50,-5.0,5.0);
+    TH1F FAKE_IPSig1 = TH1F("IRONFAKE_IPSig1", "IRONFAKE_IPSig1",100,0.0,10.0);
+    TH1F FAKE_IPSig2 = TH1F("IRONFAKE_IPSig2", "IRONFAKE_IPSig2",100,0.0,10.0);
+    TH1F FAKE_IPSigdiff = TH1F("IRONFAKE_IPSigDiff", "IRONFAKE_IPSigDiff",100,-1.0,1.0);
     TH1F FAKE_CONV = TH1F("IRONFAKE_CONLONG1","IRONFAKE_CONV",2,0.0,2.0);
     TH1F FAKE_ISO = TH1F("IRONFAKE_ISO","IRONFAKE_ISO",50, 0.0, 20.0);
     
@@ -323,23 +323,23 @@ void KUSU::Loop()
     ///PT
     
     // LowPtElectron_genPartFlav == 0
-    TH1F IRON1_FLAV0_pt       = TH1F("Iron1_Flav0_pt","Iron1_Flav0_pt",     40,0.0,20.0);
-    TH1F LONG1_FLAV0_pt    = TH1F("IronLong1_Flav0_pt","IronLong1_Flav0_pt",  40,0.0,20.0);
-    TH1F IRON2_FLAV0_pt       = TH1F("Iron2_Flav0_pt","Iron2_Flav0_pt",     40,0.0,20.0);
-    TH1F LONG2_FLAV0_pt    = TH1F("IronLong2_Flav0_pt","IronLong2_Flav0_pt",  40,0.0,20.0);
-    TH1F FAKE_FLAV0_pt    = TH1F("IronFake_Flav0_pt","IronFake_Flav0_pt",  40,0.0,20.0);
+    TH1F IRON1_FLAV0_pt       = TH1F("Iron1_Flav0_pt","Iron1_Flav0_pt",80,0.0,20.0);
+    TH1F LONG1_FLAV0_pt    = TH1F("IronLong1_Flav0_pt","IronLong1_Flav0_pt",80,0.0,20.0);
+    TH1F IRON2_FLAV0_pt       = TH1F("Iron2_Flav0_pt","Iron2_Flav0_pt",80,0.0,20.0);
+    TH1F LONG2_FLAV0_pt    = TH1F("IronLong2_Flav0_pt","IronLong2_Flav0_pt",80,0.0,20.0);
+    TH1F FAKE_FLAV0_pt    = TH1F("IronFake_Flav0_pt","IronFake_Flav0_pt",80,0.0,20.0);
     // LowPtElectron_genPartFlav == 1
-    TH1F IRON1_FLAV1_pt       = TH1F("Iron1_Flav1_pt","Iron1_Flav1_pt",     40,0.0,20.0);
-    TH1F LONG1_FLAV1_pt    = TH1F("IronLong1_Flav1_pt","IronLong1_Flav1_pt",  40,0.0,20.0);
-    TH1F IRON2_FLAV1_pt       = TH1F("Iron2_Flav1_pt","Iron2_Flav1_pt",     40,0.0,20.0);
-    TH1F LONG2_FLAV1_pt    = TH1F("IronLong2_Flav1_pt","IronLong2_Flav1_pt",  40,0.0,20.0);
-    TH1F FAKE_FLAV1_pt    = TH1F("IronFake_Flav1_pt","IronFake_Flav1_pt",  40,0.0,20.0);
+    TH1F IRON1_FLAV1_pt       = TH1F("Iron1_Flav1_pt","Iron1_Flav1_pt",80,0.0,20.0);
+    TH1F LONG1_FLAV1_pt    = TH1F("IronLong1_Flav1_pt","IronLong1_Flav1_pt",80,0.0,20.0);
+    TH1F IRON2_FLAV1_pt       = TH1F("Iron2_Flav1_pt","Iron2_Flav1_pt",80,0.0,20.0);
+    TH1F LONG2_FLAV1_pt    = TH1F("IronLong2_Flav1_pt","IronLong2_Flav1_pt",80,0.0,20.0);
+    TH1F FAKE_FLAV1_pt    = TH1F("IronFake_Flav1_pt","IronFake_Flav1_pt",80,0.0,20.0);
     // LowPtElectron_genPartFlav == 5
-    TH1F IRON1_FLAV5_pt      = TH1F("Iron1_Flav5_pt","Iron1_Flav5_pt",     40,0.0,20.0);
-    TH1F LONG1_FLAV5_pt    = TH1F("IronLong1_Flav5_pt","IronLong1_Flav5_pt",  40,0.0,20.0);
-    TH1F IRON2_FLAV5_pt      = TH1F("Iron2_Flav5_pt","Iron2_Flav5_pt",     40,0.0,20.0);
-    TH1F LONG2_FLAV5_pt    = TH1F("IronLong2_Flav5_pt","IronLong2_Flav5_pt",  40,0.0,20.0);
-    TH1F FAKE_FLAV5_pt    = TH1F("IronFake_Flav5_pt","IronFake_Flav5_pt",  40,0.0,20.0);
+    TH1F IRON1_FLAV5_pt      = TH1F("Iron1_Flav5_pt","Iron1_Flav5_pt",80,0.0,20.0);
+    TH1F LONG1_FLAV5_pt    = TH1F("IronLong1_Flav5_pt","IronLong1_Flav5_pt",80,0.0,20.0);
+    TH1F IRON2_FLAV5_pt      = TH1F("Iron2_Flav5_pt","Iron2_Flav5_pt",80,0.0,20.0);
+    TH1F LONG2_FLAV5_pt    = TH1F("IronLong2_Flav5_pt","IronLong2_Flav5_pt",80,0.0,20.0);
+    TH1F FAKE_FLAV5_pt    = TH1F("IronFake_Flav5_pt","IronFake_Flav5_pt",80,0.0,20.0);
     
     
     
@@ -348,23 +348,23 @@ void KUSU::Loop()
     
     
     // LowetaElectron_genPartFlav == 0
-    TH1F IRON1_FLAV0_eta       = TH1F("Iron1_Flav0_eta","Iron1_Flav0_eta",     40,0.0,20.0);
-    TH1F LONG1_FLAV0_eta    = TH1F("IronLong1_Flav0_eta","IronLong1_Flav0_eta",  40,0.0,20.0);
-    TH1F IRON2_FLAV0_eta       = TH1F("Iron2_Flav0_eta","Iron2_Flav0_eta",     40,0.0,20.0);
-    TH1F LONG2_FLAV0_eta    = TH1F("IronLong2_Flav0_eta","IronLong2_Flav0_eta",  40,0.0,20.0);
-    TH1F FAKE_FLAV0_eta    = TH1F("IronFake_Flav0_eta","IronFake_Flav0_eta",  40,0.0,20.0);
+    TH1F IRON1_FLAV0_eta       = TH1F("Iron1_Flav0_eta","Iron1_Flav0_eta",30,-3,3);
+    TH1F LONG1_FLAV0_eta    = TH1F("IronLong1_Flav0_eta","IronLong1_Flav0_eta",30,-3,3);
+    TH1F IRON2_FLAV0_eta       = TH1F("Iron2_Flav0_eta","Iron2_Flav0_eta",30,-3,3);
+    TH1F LONG2_FLAV0_eta    = TH1F("IronLong2_Flav0_eta","IronLong2_Flav0_eta",30,-3,3);
+    TH1F FAKE_FLAV0_eta    = TH1F("IronFake_Flav0_eta","IronFake_Flav0_eta",30,-3,3);
     // LowetaElectron_genPartFlav == 1
-    TH1F IRON1_FLAV1_eta       = TH1F("Iron1_Flav1_eta","Iron1_Flav1_eta",     40,0.0,20.0);
-    TH1F LONG1_FLAV1_eta    = TH1F("IronLong1_Flav1_eta","IronLong1_Flav1_eta",  40,0.0,20.0);
-    TH1F IRON2_FLAV1_eta       = TH1F("Iron2_Flav1_eta","Iron2_Flav1_eta",     40,0.0,20.0);
-    TH1F LONG2_FLAV1_eta    = TH1F("IronLong2_Flav1_eta","IronLong2_Flav1_eta",  40,0.0,20.0);
-    TH1F FAKE_FLAV1_eta    = TH1F("IronFake_Flav1_eta","IronFake_Flav1_eta",  40,0.0,20.0);
+    TH1F IRON1_FLAV1_eta       = TH1F("Iron1_Flav1_eta","Iron1_Flav1_eta",30,-3,3);
+    TH1F LONG1_FLAV1_eta    = TH1F("IronLong1_Flav1_eta","IronLong1_Flav1_eta",30,-3,3);
+    TH1F IRON2_FLAV1_eta       = TH1F("Iron2_Flav1_eta","Iron2_Flav1_eta",30,-3,3);
+    TH1F LONG2_FLAV1_eta    = TH1F("IronLong2_Flav1_eta","IronLong2_Flav1_eta",30,-3,3);
+    TH1F FAKE_FLAV1_eta    = TH1F("IronFake_Flav1_eta","IronFake_Flav1_eta",30,-3,3);
     // LowetaElectron_genPartFlav == 5
-    TH1F IRON1_FLAV5_eta      = TH1F("Iron1_Flav5_eta","Iron1_Flav5_eta",     40,0.0,20.0);
-    TH1F LONG1_FLAV5_eta    = TH1F("IronLong1_Flav5_eta","IronLong1_Flav5_eta",  40,0.0,20.0);
-    TH1F IRON2_FLAV5_eta      = TH1F("Iron2_Flav5_eta","Iron2_Flav5_eta",     40,0.0,20.0);
-    TH1F LONG2_FLAV5_eta    = TH1F("IronLong2_Flav5_eta","IronLong2_Flav5_eta",  40,0.0,20.0);
-    TH1F FAKE_FLAV5_eta    = TH1F("IronFake_Flav5_eta","IronFake_Flav5_eta",  40,0.0,20.0);
+    TH1F IRON1_FLAV5_eta      = TH1F("Iron1_Flav5_eta","Iron1_Flav5_eta",30,-3,3);
+    TH1F LONG1_FLAV5_eta    = TH1F("IronLong1_Flav5_eta","IronLong1_Flav5_eta",30,-3,3);
+    TH1F IRON2_FLAV5_eta      = TH1F("Iron2_Flav5_eta","Iron2_Flav5_eta",30,-3,3);
+    TH1F LONG2_FLAV5_eta    = TH1F("IronLong2_Flav5_eta","IronLong2_Flav5_eta",30,-3,3);
+    TH1F FAKE_FLAV5_eta    = TH1F("IronFake_Flav5_eta","IronFake_Flav5_eta",30,-3,3);
     
     ///DXY
     
@@ -514,23 +514,23 @@ void KUSU::Loop()
     
 
  // LowdxySigElectron_genPartFlav == 0
-    TH1F IRON1_FLAV0_dxySig       = TH1F("Iron1_Flav0_dxySig","Iron1_Flav0_dxySig",     50,-5.0,5.0);
-    TH1F LONG1_FLAV0_dxySig    = TH1F("IronLong1_Flav0_dxySig","IronLong1_Flav0_dxySig",  50,-8.0,8.0);
-    TH1F IRON2_FLAV0_dxySig       = TH1F("Iron2_Flav0_dxySig","Iron2_Flav0_dxySig",     50,-5.0,5.0);
-    TH1F LONG2_FLAV0_dxySig    = TH1F("IronLong2_Flav0_dxySig","IronLong2_Flav0_dxySig",  50,-8.0,8.0);
-    TH1F FAKE_FLAV0_dxySig    = TH1F("IronFake_Flav0_dxySig","IronFake_Flav0_dxySig",  50,-5.0,5.0);
+    TH1F IRON1_FLAV0_dxySig       = TH1F("Iron1_Flav0_dxySig","Iron1_Flav0_dxySig",100,-3.0,3.0);
+    TH1F LONG1_FLAV0_dxySig    = TH1F("IronLong1_Flav0_dxySig","IronLong1_Flav0_dxySig",100,-3.0,3.0);
+    TH1F IRON2_FLAV0_dxySig       = TH1F("Iron2_Flav0_dxySig","Iron2_Flav0_dxySig",100,-3.0,3.0);
+    TH1F LONG2_FLAV0_dxySig    = TH1F("IronLong2_Flav0_dxySig","IronLong2_Flav0_dxySig",100,-3.0,3.0);
+    TH1F FAKE_FLAV0_dxySig    = TH1F("IronFake_Flav0_dxySig","IronFake_Flav0_dxySig",100,-3.0,3.0);
     // LowdxySigElectron_genPartFlav == 1
-    TH1F IRON1_FLAV1_dxySig       = TH1F("Iron1_Flav1_dxySig","Iron1_Flav1_dxySig",     50,-5.0,5.0);
-    TH1F LONG1_FLAV1_dxySig    = TH1F("IronLong1_Flav1_dxySig","IronLong1_Flav1_dxySig",  50,-8.0,8.0);
-    TH1F IRON2_FLAV1_dxySig       = TH1F("Iron2_Flav1_dxySig","Iron2_Flav1_dxySig",     50,-5.0,5.0);
-    TH1F LONG2_FLAV1_dxySig    = TH1F("IronLong2_Flav1_dxySig","IronLong2_Flav1_dxySig",  50,-8.0,8.0);
-    TH1F FAKE_FLAV1_dxySig    = TH1F("IronFake_Flav1_dxySig","IronFake_Flav1_dxySig",  50,-5.0,5.0);
+    TH1F IRON1_FLAV1_dxySig       = TH1F("Iron1_Flav1_dxySig","Iron1_Flav1_dxySig",100,-3.0,3.0);
+    TH1F LONG1_FLAV1_dxySig    = TH1F("IronLong1_Flav1_dxySig","IronLong1_Flav1_dxySig",100,-3.0,3.0);
+    TH1F IRON2_FLAV1_dxySig       = TH1F("Iron2_Flav1_dxySig","Iron2_Flav1_dxySig",100,-3.0,3.0);
+    TH1F LONG2_FLAV1_dxySig    = TH1F("IronLong2_Flav1_dxySig","IronLong2_Flav1_dxySig",100,-3.0,3.0);
+    TH1F FAKE_FLAV1_dxySig    = TH1F("IronFake_Flav1_dxySig","IronFake_Flav1_dxySig",100,-3.0,3.0);
     // LowdxySigElectron_genPartFlav == 5
-    TH1F IRON1_FLAV5_dxySig      = TH1F("Iron1_Flav5_dxySig","Iron1_Flav5_dxySig",     50,-5.0,5.0);
-    TH1F LONG1_FLAV5_dxySig    = TH1F("IronLong1_Flav5_dxySig","IronLong1_Flav5_dxySig",  50,-8.0,8.0);
-    TH1F IRON2_FLAV5_dxySig      = TH1F("Iron2_Flav5_dxySig","Iron2_Flav5_dxySig",     50,-5.0,5.0);
-    TH1F LONG2_FLAV5_dxySig    = TH1F("IronLong2_Flav5_dxySig","IronLong2_Flav5_dxySig",  50,-8.0,8.0);
-    TH1F FAKE_FLAV5_dxySig    = TH1F("IronFake_Flav5_dxySig","IronFake_Flav5_dxySig",  50,-5.0,5.0);
+    TH1F IRON1_FLAV5_dxySig      = TH1F("Iron1_Flav5_dxySig","Iron1_Flav5_dxySig",100,-3.0,3.0);
+    TH1F LONG1_FLAV5_dxySig    = TH1F("IronLong1_Flav5_dxySig","IronLong1_Flav5_dxySig",100,-3.0,3.0);
+    TH1F IRON2_FLAV5_dxySig      = TH1F("Iron2_Flav5_dxySig","Iron2_Flav5_dxySig",100,-3.0,3.0);
+    TH1F LONG2_FLAV5_dxySig    = TH1F("IronLong2_Flav5_dxySig","IronLong2_Flav5_dxySig",100,-3.0,3.0);
+    TH1F FAKE_FLAV5_dxySig    = TH1F("IronFake_Flav5_dxySig","IronFake_Flav5_dxySig",100,-3.0,3.0);
     
     
     //dz Sig
@@ -538,23 +538,23 @@ void KUSU::Loop()
     
 
  // LowdzSigElectron_genPartFlav == 0
-    TH1F IRON1_FLAV0_dzSig       = TH1F("Iron1_Flav0_dzSig","Iron1_Flav0_dzSig",     50,-3.0,3.0);
-    TH1F LONG1_FLAV0_dzSig    = TH1F("IronLong1_Flav0_dzSig","IronLong1_Flav0_dzSig",  50,-8.0,8.0);
-    TH1F IRON2_FLAV0_dzSig       = TH1F("Iron2_Flav0_dzSig","Iron2_Flav0_dzSig",     50,-3.0,3.0);
-    TH1F LONG2_FLAV0_dzSig    = TH1F("IronLong2_Flav0_dzSig","IronLong2_Flav0_dzSig",  50,-8.0,8.0);
-    TH1F FAKE_FLAV0_dzSig    = TH1F("IronFake_Flav0_dzSig","IronFake_Flav0_dzSig",  50,-5.0,5.0);
+    TH1F IRON1_FLAV0_dzSig       = TH1F("Iron1_Flav0_dzSig","Iron1_Flav0_dzSig",50,-3.0,3.0);
+    TH1F LONG1_FLAV0_dzSig    = TH1F("IronLong1_Flav0_dzSig","IronLong1_Flav0_dzSig",50,-3.0,3.0);
+    TH1F IRON2_FLAV0_dzSig       = TH1F("Iron2_Flav0_dzSig","Iron2_Flav0_dzSig",50,-3.0,3.0);
+    TH1F LONG2_FLAV0_dzSig    = TH1F("IronLong2_Flav0_dzSig","IronLong2_Flav0_dzSig",50,-3.0,3.0);
+    TH1F FAKE_FLAV0_dzSig    = TH1F("IronFake_Flav0_dzSig","IronFake_Flav0_dzSig",50,-3.0,3.0);
     // LowdzSigElectron_genPartFlav == 1
-    TH1F IRON1_FLAV1_dzSig       = TH1F("Iron1_Flav1_dzSig","Iron1_Flav1_dzSig",     50,-3.0,3.0);
-    TH1F LONG1_FLAV1_dzSig    = TH1F("IronLong1_Flav1_dzSig","IronLong1_Flav1_dzSig",  50,-8.0,8.0);
-    TH1F IRON2_FLAV1_dzSig       = TH1F("Iron2_Flav1_dzSig","Iron2_Flav1_dzSig",     50,-3.0,3.0);
-    TH1F LONG2_FLAV1_dzSig    = TH1F("IronLong2_Flav1_dzSig","IronLong2_Flav1_dzSig",  50,-8.0,8.0);
-    TH1F FAKE_FLAV1_dzSig    = TH1F("IronFake_Flav1_dzSig","IronFake_Flav1_dzSig",  50,-5.0,5.0);
+    TH1F IRON1_FLAV1_dzSig       = TH1F("Iron1_Flav1_dzSig","Iron1_Flav1_dzSig",50,-3.0,3.0);
+    TH1F LONG1_FLAV1_dzSig    = TH1F("IronLong1_Flav1_dzSig","IronLong1_Flav1_dzSig",50,-3.0,3.0);
+    TH1F IRON2_FLAV1_dzSig       = TH1F("Iron2_Flav1_dzSig","Iron2_Flav1_dzSig",50,-3.0,3.0);
+    TH1F LONG2_FLAV1_dzSig    = TH1F("IronLong2_Flav1_dzSig","IronLong2_Flav1_dzSig",50,-3.0,3.0);
+    TH1F FAKE_FLAV1_dzSig    = TH1F("IronFake_Flav1_dzSig","IronFake_Flav1_dzSig",50,-3.0,3.0);
     // LowdzSigElectron_genPartFlav == 5
-    TH1F IRON1_FLAV5_dzSig      = TH1F("Iron1_Flav5_dzSig","Iron1_Flav5_dzSig",     50,-3.0,3.0);
-    TH1F LONG1_FLAV5_dzSig    = TH1F("IronLong1_Flav5_dzSig","IronLong1_Flav5_dzSig",  50,-8.0,8.0);
-    TH1F IRON2_FLAV5_dzSig      = TH1F("Iron2_Flav5_dzSig","Iron2_Flav5_dzSig",     50,-3.0,3.0);
-    TH1F LONG2_FLAV5_dzSig    = TH1F("IronLong2_Flav5_dzSig","IronLong2_Flav5_dzSig",  50,-8.0,8.0);
-    TH1F FAKE_FLAV5_dzSig    = TH1F("IronFake_Flav5_dzSig","IronFake_Flav5_dzSig",  50,-5.0,5.0);
+    TH1F IRON1_FLAV5_dzSig      = TH1F("Iron1_Flav5_dzSig","Iron1_Flav5_dzSig",50,-3.0,3.0);
+    TH1F LONG1_FLAV5_dzSig    = TH1F("IronLong1_Flav5_dzSig","IronLong1_Flav5_dzSig",50,-3.0,3.0);
+    TH1F IRON2_FLAV5_dzSig      = TH1F("Iron2_Flav5_dzSig","Iron2_Flav5_dzSig",50,-3.0,3.0);
+    TH1F LONG2_FLAV5_dzSig    = TH1F("IronLong2_Flav5_dzSig","IronLong2_Flav5_dzSig",50,-3.0,3.0);
+    TH1F FAKE_FLAV5_dzSig    = TH1F("IronFake_Flav5_dzSig","IronFake_Flav5_dzSig",50,-3.0,3.0);
     
     
     
@@ -562,88 +562,88 @@ void KUSU::Loop()
     //IP Sig1
 
  // LowIPSig1Electron_genPartFlav == 0
-    TH1F IRON1_FLAV0_IPSig1       = TH1F("Iron1_Flav0_IPSig1","Iron1_Flav0_IPSig1",     50,0.0,5.0);
-    TH1F LONG1_FLAV0_IPSig1    = TH1F("IronLong1_Flav0_IPSig1","IronLong1_Flav0_IPSig1",  50,-8.0,8.0);
-    TH1F IRON2_FLAV0_IPSig1       = TH1F("Iron2_Flav0_IPSig1","Iron2_Flav0_IPSig1",     50,0.0,5.0);
-    TH1F LONG2_FLAV0_IPSig1    = TH1F("IronLong2_Flav0_IPSig1","IronLong2_Flav0_IPSig1",  50,-8.0,8.0);
-    TH1F FAKE_FLAV0_IPSig1    = TH1F("IronFake_Flav0_IPSig1","IronFake_Flav0_IPSig1",  50,-5.0,5.0);
+    TH1F IRON1_FLAV0_IPSig1       = TH1F("Iron1_Flav0_IPSig1","Iron1_Flav0_IPSig1",100,0.0,10.0);
+    TH1F LONG1_FLAV0_IPSig1    = TH1F("IronLong1_Flav0_IPSig1","IronLong1_Flav0_IPSig1",100,0.0,10.0);
+    TH1F IRON2_FLAV0_IPSig1       = TH1F("Iron2_Flav0_IPSig1","Iron2_Flav0_IPSig1",100,0.0,10.0);
+    TH1F LONG2_FLAV0_IPSig1    = TH1F("IronLong2_Flav0_IPSig1","IronLong2_Flav0_IPSig1",100,0.0,10.0);
+    TH1F FAKE_FLAV0_IPSig1    = TH1F("IronFake_Flav0_IPSig1","IronFake_Flav0_IPSig1",100,0.0,10.0);
     // LowIPSig1Electron_genPartFlav == 1
-    TH1F IRON1_FLAV1_IPSig1       = TH1F("Iron1_Flav1_IPSig1","Iron1_Flav1_IPSig1",     50,0.0,5.0);
-    TH1F LONG1_FLAV1_IPSig1    = TH1F("IronLong1_Flav1_IPSig1","IronLong1_Flav1_IPSig1",  50,-8.0,8.0);
-    TH1F IRON2_FLAV1_IPSig1       = TH1F("Iron2_Flav1_IPSig1","Iron2_Flav1_IPSig1",     50,0.0,5.0);
-    TH1F LONG2_FLAV1_IPSig1    = TH1F("IronLong2_Flav1_IPSig1","IronLong2_Flav1_IPSig1",  50,-8.0,8.0);
-    TH1F FAKE_FLAV1_IPSig1    = TH1F("IronFake_Flav1_IPSig1","IronFake_Flav1_IPSig1",  50,-5.0,5.0);
+    TH1F IRON1_FLAV1_IPSig1       = TH1F("Iron1_Flav1_IPSig1","Iron1_Flav1_IPSig1",100,0.0,10.0);
+    TH1F LONG1_FLAV1_IPSig1    = TH1F("IronLong1_Flav1_IPSig1","IronLong1_Flav1_IPSig1",100,0.0,10.0);
+    TH1F IRON2_FLAV1_IPSig1       = TH1F("Iron2_Flav1_IPSig1","Iron2_Flav1_IPSig1",100,0.0,10.0);
+    TH1F LONG2_FLAV1_IPSig1    = TH1F("IronLong2_Flav1_IPSig1","IronLong2_Flav1_IPSig1",100,0.0,10.0);
+    TH1F FAKE_FLAV1_IPSig1    = TH1F("IronFake_Flav1_IPSig1","IronFake_Flav1_IPSig1",100,0.0,10.0);
     // LowIPSig1Electron_genPartFlav == 5
-    TH1F IRON1_FLAV5_IPSig1      = TH1F("Iron1_Flav5_IPSig1","Iron1_Flav5_IPSig1",     50,0.0,5.0);
-    TH1F LONG1_FLAV5_IPSig1    = TH1F("IronLong1_Flav5_IPSig1","IronLong1_Flav5_IPSig1",  50,-8.0,8.0);
-    TH1F IRON2_FLAV5_IPSig1      = TH1F("Iron2_Flav5_IPSig1","Iron2_Flav5_IPSig1",     50,0.0,5.0);
-    TH1F LONG2_FLAV5_IPSig1    = TH1F("IronLong2_Flav5_IPSig1","IronLong2_Flav5_IPSig1",  50,-8.0,8.0);
-    TH1F FAKE_FLAV5_IPSig1    = TH1F("IronFake_Flav5_IPSig1","IronFake_Flav5_IPSig1",  50,-5.0,5.0);
+    TH1F IRON1_FLAV5_IPSig1      = TH1F("Iron1_Flav5_IPSig1","Iron1_Flav5_IPSig1",100,0.0,10.0);
+    TH1F LONG1_FLAV5_IPSig1    = TH1F("IronLong1_Flav5_IPSig1","IronLong1_Flav5_IPSig1",100,0.0,10.0);
+    TH1F IRON2_FLAV5_IPSig1      = TH1F("Iron2_Flav5_IPSig1","Iron2_Flav5_IPSig1",100,0.0,10.0);
+    TH1F LONG2_FLAV5_IPSig1    = TH1F("IronLong2_Flav5_IPSig1","IronLong2_Flav5_IPSig1",100,0.0,10.0);
+    TH1F FAKE_FLAV5_IPSig1    = TH1F("IronFake_Flav5_IPSig1","IronFake_Flav5_IPSig1",100,0.0,10.0);
     
     
     //IP Sig2
     
     // LowIPSig2Electron_genPartFlav == 0
-    TH1F IRON1_FLAV0_IPSig2       = TH1F("Iron1_Flav0_IPSig2","Iron1_Flav0_IPSig2",     50,0.0,5.0);
-    TH1F LONG1_FLAV0_IPSig2    = TH1F("IronLong1_Flav0_IPSig2","IronLong1_Flav0_IPSig2",  50,-8.0,8.0);
-    TH1F IRON2_FLAV0_IPSig2       = TH1F("Iron2_Flav0_IPSig2","Iron2_Flav0_IPSig2",     50,0.0,5.0);
-    TH1F LONG2_FLAV0_IPSig2    = TH1F("IronLong2_Flav0_IPSig2","IronLong2_Flav0_IPSig2",  50,-8.0,8.0);
-    TH1F FAKE_FLAV0_IPSig2    = TH1F("IronFake_Flav0_IPSig2","IronFake_Flav0_IPSig2",  50,-5.0,5.0);
+    TH1F IRON1_FLAV0_IPSig2       = TH1F("Iron1_Flav0_IPSig2","Iron1_Flav0_IPSig2",100,0.0,10.0);
+    TH1F LONG1_FLAV0_IPSig2    = TH1F("IronLong1_Flav0_IPSig2","IronLong1_Flav0_IPSig2",100,0.0,10.0);
+    TH1F IRON2_FLAV0_IPSig2       = TH1F("Iron2_Flav0_IPSig2","Iron2_Flav0_IPSig2",100,0.0,10.0);
+    TH1F LONG2_FLAV0_IPSig2    = TH1F("IronLong2_Flav0_IPSig2","IronLong2_Flav0_IPSig2",100,0.0,10.0);
+    TH1F FAKE_FLAV0_IPSig2    = TH1F("IronFake_Flav0_IPSig2","IronFake_Flav0_IPSig2",100,0.0,10.0);
     // LowIPSig2Electron_genPartFlav == 1
-    TH1F IRON1_FLAV1_IPSig2       = TH1F("Iron1_Flav1_IPSig2","Iron1_Flav1_IPSig2",     50,0.0,5.0);
-    TH1F LONG1_FLAV1_IPSig2    = TH1F("IronLong1_Flav1_IPSig2","IronLong1_Flav1_IPSig2",  50,-8.0,8.0);
-    TH1F IRON2_FLAV1_IPSig2       = TH1F("Iron2_Flav1_IPSig2","Iron2_Flav1_IPSig2",     50,0.0,5.0);
-    TH1F LONG2_FLAV1_IPSig2    = TH1F("IronLong2_Flav1_IPSig2","IronLong2_Flav1_IPSig2",  50,-8.0,8.0);
-    TH1F FAKE_FLAV1_IPSig2    = TH1F("IronFake_Flav1_IPSig2","IronFake_Flav1_IPSig2",  50,-5.0,5.0);
+    TH1F IRON1_FLAV1_IPSig2       = TH1F("Iron1_Flav1_IPSig2","Iron1_Flav1_IPSig2",100,0.0,10.0);
+    TH1F LONG1_FLAV1_IPSig2    = TH1F("IronLong1_Flav1_IPSig2","IronLong1_Flav1_IPSig2",100,0.0,10.0);
+    TH1F IRON2_FLAV1_IPSig2       = TH1F("Iron2_Flav1_IPSig2","Iron2_Flav1_IPSig2",100,0.0,10.0);
+    TH1F LONG2_FLAV1_IPSig2    = TH1F("IronLong2_Flav1_IPSig2","IronLong2_Flav1_IPSig2",100,0.0,10.0);
+    TH1F FAKE_FLAV1_IPSig2    = TH1F("IronFake_Flav1_IPSig2","IronFake_Flav1_IPSig2",100,0.0,10.0);
     // LowIPSig2Electron_genPartFlav == 5
-    TH1F IRON1_FLAV5_IPSig2      = TH1F("Iron1_Flav5_IPSig2","Iron1_Flav5_IPSig2",     50,0.0,5.0);
-    TH1F LONG1_FLAV5_IPSig2    = TH1F("IronLong1_Flav5_IPSig2","IronLong1_Flav5_IPSig2",  50,-8.0,8.0);
-    TH1F IRON2_FLAV5_IPSig2      = TH1F("Iron2_Flav5_IPSig2","Iron2_Flav5_IPSig2",     50,0.0,5.0);
-    TH1F LONG2_FLAV5_IPSig2    = TH1F("IronLong2_Flav5_IPSig2","IronLong2_Flav5_IPSig2",  50,-8.0,8.0);
-    TH1F FAKE_FLAV5_IPSig2    = TH1F("IronFake_Flav5_IPSig2","IronFake_Flav5_IPSig2",  50,-5.0,5.0);
+    TH1F IRON1_FLAV5_IPSig2      = TH1F("Iron1_Flav5_IPSig2","Iron1_Flav5_IPSig2",100,0.0,10.0);
+    TH1F LONG1_FLAV5_IPSig2    = TH1F("IronLong1_Flav5_IPSig2","IronLong1_Flav5_IPSig2",100,0.0,10.0);
+    TH1F IRON2_FLAV5_IPSig2      = TH1F("Iron2_Flav5_IPSig2","Iron2_Flav5_IPSig2",100,0.0,10.0);
+    TH1F LONG2_FLAV5_IPSig2    = TH1F("IronLong2_Flav5_IPSig2","IronLong2_Flav5_IPSig2",100,0.0,10.0);
+    TH1F FAKE_FLAV5_IPSig2    = TH1F("IronFake_Flav5_IPSig2","IronFake_Flav5_IPSig2",100,0.0,10.0);
     
     
     
     //IP Err
     // LowIPErrElectron_genPartFlav == 0
-    TH1F IRON1_FLAV0_IPErr       = TH1F("Iron1_Flav0_IPErr","Iron1_Flav0_IPErr",     50,0.0,5.0);
-    TH1F LONG1_FLAV0_IPErr    = TH1F("IronLong1_Flav0_IPErr","IronLong1_Flav0_IPErr",  50,-8.0,8.0);
-    TH1F IRON2_FLAV0_IPErr       = TH1F("Iron2_Flav0_IPErr","Iron2_Flav0_IPErr",     50,0.0,5.0);
-    TH1F LONG2_FLAV0_IPErr    = TH1F("IronLong2_Flav0_IPErr","IronLong2_Flav0_IPErr",  50,-8.0,8.0);
-    TH1F FAKE_FLAV0_IPErr    = TH1F("IronFake_Flav0_IPErr","IronFake_Flav0_IPErr",  50,-5.0,5.0);
+    TH1F IRON1_FLAV0_IPErr       = TH1F("Iron1_Flav0_IPErr","Iron1_Flav0_IPErr",50,-5.0,5.0);
+    TH1F LONG1_FLAV0_IPErr    = TH1F("IronLong1_Flav0_IPErr","IronLong1_Flav0_IPErr",50,-5.0,5.0);
+    TH1F IRON2_FLAV0_IPErr       = TH1F("Iron2_Flav0_IPErr","Iron2_Flav0_IPErr",50,-5.0,5.0);
+    TH1F LONG2_FLAV0_IPErr    = TH1F("IronLong2_Flav0_IPErr","IronLong2_Flav0_IPErr",50,-5.0,5.0);
+    TH1F FAKE_FLAV0_IPErr    = TH1F("IronFake_Flav0_IPErr","IronFake_Flav0_IPErr",50,-5.0,5.0);
     // LowIPErrElectron_genPartFlav == 1
-    TH1F IRON1_FLAV1_IPErr       = TH1F("Iron1_Flav1_IPErr","Iron1_Flav1_IPErr",     50,0.0,5.0);
-    TH1F LONG1_FLAV1_IPErr    = TH1F("IronLong1_Flav1_IPErr","IronLong1_Flav1_IPErr",  50,-8.0,8.0);
-    TH1F IRON2_FLAV1_IPErr       = TH1F("Iron2_Flav1_IPErr","Iron2_Flav1_IPErr",     50,0.0,5.0);
-    TH1F LONG2_FLAV1_IPErr    = TH1F("IronLong2_Flav1_IPErr","IronLong2_Flav1_IPErr",  50,-8.0,8.0);
-    TH1F FAKE_FLAV1_IPErr    = TH1F("IronFake_Flav1_IPErr","IronFake_Flav1_IPErr",  50,-5.0,5.0);
+    TH1F IRON1_FLAV1_IPErr       = TH1F("Iron1_Flav1_IPErr","Iron1_Flav1_IPErr",50,-5.0,5.0);
+    TH1F LONG1_FLAV1_IPErr    = TH1F("IronLong1_Flav1_IPErr","IronLong1_Flav1_IPErr",50,-5.0,5.0);
+    TH1F IRON2_FLAV1_IPErr       = TH1F("Iron2_Flav1_IPErr","Iron2_Flav1_IPErr",50,-5.0,5.0);
+    TH1F LONG2_FLAV1_IPErr    = TH1F("IronLong2_Flav1_IPErr","IronLong2_Flav1_IPErr",50,-5.0,5.0);
+    TH1F FAKE_FLAV1_IPErr    = TH1F("IronFake_Flav1_IPErr","IronFake_Flav1_IPErr",50,-5.0,5.0);
     // LowIPErrElectron_genPartFlav == 5
-    TH1F IRON1_FLAV5_IPErr      = TH1F("Iron1_Flav5_IPErr","Iron1_Flav5_IPErr",     50,0.0,5.0);
-    TH1F LONG1_FLAV5_IPErr    = TH1F("IronLong1_Flav5_IPErr","IronLong1_Flav5_IPErr",  50,-8.0,8.0);
-    TH1F IRON2_FLAV5_IPErr      = TH1F("Iron2_Flav5_IPErr","Iron2_Flav5_IPErr",     50,0.0,5.0);
-    TH1F LONG2_FLAV5_IPErr    = TH1F("IronLong2_Flav5_IPErr","IronLong2_Flav5_IPErr",  50,-8.0,8.0);
-    TH1F FAKE_FLAV5_IPErr    = TH1F("IronFake_Flav5_IPErr","IronFake_Flav5_IPErr",  50,-5.0,5.0);
+    TH1F IRON1_FLAV5_IPErr      = TH1F("Iron1_Flav5_IPErr","Iron1_Flav5_IPErr",50,-5.0,5.0);
+    TH1F LONG1_FLAV5_IPErr    = TH1F("IronLong1_Flav5_IPErr","IronLong1_Flav5_IPErr",50,-5.0,5.0);
+    TH1F IRON2_FLAV5_IPErr      = TH1F("Iron2_Flav5_IPErr","Iron2_Flav5_IPErr",50,-5.0,5.0);
+    TH1F LONG2_FLAV5_IPErr    = TH1F("IronLong2_Flav5_IPErr","IronLong2_Flav5_IPErr",50,-5.0,5.0);
+    TH1F FAKE_FLAV5_IPErr    = TH1F("IronFake_Flav5_IPErr","IronFake_Flav5_IPErr",50,-5.0,5.0);
     
     
     //IP
     // LowIPElectron_genPartFlav == 0
-    TH1F IRON1_FLAV0_IP       = TH1F("Iron1_Flav0_IP","Iron1_Flav0_IP",     50,0.0,5.0);
-    TH1F LONG1_FLAV0_IP    = TH1F("IronLong1_Flav0_IP","IronLong1_Flav0_IP",  50,-8.0,8.0);
-    TH1F IRON2_FLAV0_IP       = TH1F("Iron2_Flav0_IP","Iron2_Flav0_IP",     50,0.0,5.0);
-    TH1F LONG2_FLAV0_IP    = TH1F("IronLong2_Flav0_IP","IronLong2_Flav0_IP",  50,-8.0,8.0);
-    TH1F FAKE_FLAV0_IP    = TH1F("IronFake_Flav0_IP","IronFake_Flav0_IP",  50,-5.0,5.0);
+    TH1F IRON1_FLAV0_IP       = TH1F("Iron1_Flav0_IP","Iron1_Flav0_IP",100,0.0,1.0);
+    TH1F LONG1_FLAV0_IP    = TH1F("IronLong1_Flav0_IP","IronLong1_Flav0_IP",100,0.0,1.0);
+    TH1F IRON2_FLAV0_IP       = TH1F("Iron2_Flav0_IP","Iron2_Flav0_IP",100,0.0,1.0);
+    TH1F LONG2_FLAV0_IP    = TH1F("IronLong2_Flav0_IP","IronLong2_Flav0_IP",100,0.0,1.0);
+    TH1F FAKE_FLAV0_IP    = TH1F("IronFake_Flav0_IP","IronFake_Flav0_IP",100,0.0,1.0);
     // LowIPElectron_genPartFlav == 1
-    TH1F IRON1_FLAV1_IP       = TH1F("Iron1_Flav1_IP","Iron1_Flav1_IP",     50,0.0,5.0);
-    TH1F LONG1_FLAV1_IP    = TH1F("IronLong1_Flav1_IP","IronLong1_Flav1_IP",  50,-8.0,8.0);
-    TH1F IRON2_FLAV1_IP       = TH1F("Iron2_Flav1_IP","Iron2_Flav1_IP",     50,0.0,5.0);
-    TH1F LONG2_FLAV1_IP    = TH1F("IronLong2_Flav1_IP","IronLong2_Flav1_IP",  50,-8.0,8.0);
-    TH1F FAKE_FLAV1_IP    = TH1F("IronFake_Flav1_IP","IronFake_Flav1_IP",  50,-5.0,5.0);
+    TH1F IRON1_FLAV1_IP       = TH1F("Iron1_Flav1_IP","Iron1_Flav1_IP",100,0.0,1.0);
+    TH1F LONG1_FLAV1_IP    = TH1F("IronLong1_Flav1_IP","IronLong1_Flav1_IP",100,0.0,1.0);
+    TH1F IRON2_FLAV1_IP       = TH1F("Iron2_Flav1_IP","Iron2_Flav1_IP",100,0.0,1.0);
+    TH1F LONG2_FLAV1_IP    = TH1F("IronLong2_Flav1_IP","IronLong2_Flav1_IP",100,0.0,1.0);
+    TH1F FAKE_FLAV1_IP    = TH1F("IronFake_Flav1_IP","IronFake_Flav1_IP",100,0.0,1.0);
     // LowIPElectron_genPartFlav == 5
-    TH1F IRON1_FLAV5_IP      = TH1F("Iron1_Flav5_IP","Iron1_Flav5_IP",     50,0.0,5.0);
-    TH1F LONG1_FLAV5_IP    = TH1F("IronLong1_Flav5_IP","IronLong1_Flav5_IP",  50,-8.0,8.0);
-    TH1F IRON2_FLAV5_IP      = TH1F("Iron2_Flav5_IP","Iron2_Flav5_IP",     50,0.0,5.0);
-    TH1F LONG2_FLAV5_IP    = TH1F("IronLong2_Flav5_IP","IronLong2_Flav5_IP",  50,-8.0,8.0);
-    TH1F FAKE_FLAV5_IP    = TH1F("IronFake_Flav5_IP","IronFake_Flav5_IP",  50,-5.0,5.0);
+    TH1F IRON1_FLAV5_IP      = TH1F("Iron1_Flav5_IP","Iron1_Flav5_IP",100,0.0,1.0);
+    TH1F LONG1_FLAV5_IP    = TH1F("IronLong1_Flav5_IP","IronLong1_Flav5_IP",100,0.0,1.0);
+    TH1F IRON2_FLAV5_IP      = TH1F("Iron2_Flav5_IP","Iron2_Flav5_IP",100,0.0,1.0);
+    TH1F LONG2_FLAV5_IP    = TH1F("IronLong2_Flav5_IP","IronLong2_Flav5_IP",100,0.0,1.0);
+    TH1F FAKE_FLAV5_IP    = TH1F("IronFake_Flav5_IP","IronFake_Flav5_IP",100,0.0,1.0);
     
     
     
@@ -670,28 +670,31 @@ void KUSU::Loop()
     
     
     
-    TH2F pt_vs_EMID = TH2F("pt_vs_EMID", "pt_vs_",40, 0.0,20.0, 60,0.0, 12.0);
-    TH2F pt_vs_eta = TH2F("pt_vs_eta", "pt_vs_",40, 0.0,20.0,30,-3,3);
-    TH2F pt_vs_dxy = TH2F("pt_vs_dxy", "pt_vs_",40, 0.0,20.0,50,-0.2,0.2);
-    TH2F pt_vs_dxyErr = TH2F("pt_vs_dxyErr", "pt_vs_",40, 0.0,20.0,50,0.0,0.2);
-    TH2F pt_vs_dxySig = TH2F("pt_vs_dxySig", "pt_vs_",40, 0.0,20.0,50,-5,5);
-    TH2F pt_vs_dz = TH2F("pt_vs_dz", "pt_vs_",40, 0.0,20.0,100,-0.1,0.1);
-    TH2F pt_vs_dzErr = TH2F("pt_vs_dzErr", "pt_vs_",40, 0.0,20.0,50,0,0.2);
-    TH2F pt_vs_dzSig = TH2F("pt_vs_dzSig", "pt_vs_",40, 0.0,20.0,50,-5.0,5.0)
-    TH2F pt_vs_Ip = TH2F("pt_vs_Ip", "pt_vs_",40, 0.0,20.0,
-    TH2F pt_vs_IpErr = TH2F("pt_vs_IpErr", "pt_vs_",40, 0.0,20.0,
-    TH2F pt_vs_IpSig1 = TH2F("pt_vs_IpSig1", "pt_vs_",40, 0.0,20.0,
-    TH2F pt_vs_IpSig2 = TH2F("pt_vs_IpSig2", "pt_vs_",40, 0.0,20.0,
-    TH2F pt_vs_ISO = TH2F("pt_vs_ISO", "pt_vs_",40, 0.0,20.0,
+    TH2F pt_vs_EMID = TH2F("pt_vs_EMID", "pt_vs_",80, 0.0,20.0, 60,0.0, 12.0);
+    TH2F pt_vs_eta = TH2F("pt_vs_eta", "pt_vs_",80, 0.0,20.0,30,-3,3);
+    TH2F pt_vs_dxy = TH2F("pt_vs_dxy", "pt_vs_",80, 0.0,20.0,50,-0.2,0.2);
+    TH2F pt_vs_dxyErr = TH2F("pt_vs_dxyErr", "pt_vs_",80, 0.0,20.0,50,0.0,0.2);
+    TH2F pt_vs_dxySig = TH2F("pt_vs_dxySig", "pt_vs_",80, 0.0,20.0,50,-5,5);
+    TH2F pt_vs_dz = TH2F("pt_vs_dz", "pt_vs_",80, 0.0,20.0,100,-0.1,0.1);
+    TH2F pt_vs_dzErr = TH2F("pt_vs_dzErr", "pt_vs_",80, 0.0,20.0,50,0,0.2);
+    TH2F pt_vs_dzSig = TH2F("pt_vs_dzSig", "pt_vs_",80, 0.0,20.0,50,-5.0,5.0)
+    TH2F pt_vs_Ip = TH2F("pt_vs_Ip", "pt_vs_",80, 0.0,20.0,100,0.0,1.0)  ; 
+    TH2F pt_vs_IpErr = TH2F("pt_vs_IpErr", "pt_vs_",80, 0.0,20.0,50,-5.0,5.0); 
+    TH2F pt_vs_IpSig1 = TH2F("pt_vs_IpSig1", "pt_vs_",80, 0.0,20.0,100,0.0,10.0) ; 
+    TH2F pt_vs_IpSig2 = TH2F("pt_vs_IpSig2", "pt_vs_",80, 0.0,20.0,100,0.0,10.0) ; 
+    TH2F pt_vs_ISO = TH2F("pt_vs_ISO", "pt_vs_",80, 0.0,20.0,50,0.0,8.0);
   
     TH2F Flav_vs_EMID = TH2F("Flav_vs_EMID", "Flav_vs_EMID", 6,0,6,60,0.0,12.0);
  
     
     
-    //TH2F dxysig_vs_dzsig = TH2F(
-    //TH2F dzsig_vs_IPsig = TH2F(
-    //TH2F dxysig_vs_IPsig = TH2F(
+    TH2F dxysig_vs_dzsig = TH2F("dxysig_vs_dzsig","dxysig_vs_dzsig",100,-3.0,3.0,100,-3.0,3.0);
+    TH2F dzsig_vs_IPsig1 = TH2F("dzsig_vs_IPsig1","dzsig_vs_IPsig1",10,-3.0,3.0,100,0.0,10.0);
+    TH2F dxysig_vs_IPsig1 = TH2F("dxysig_vs_IPsig1","dxysig_vs_IPsig1",10,-3.0,3.0,100,0.0,10.0);
+    TH2F dzsig_vs_IPsig2 = TH2F("dzsig_vs_IPsig2","dzsig_vs_IPsig2",10,-3.0,3.0,100,0.0,10.0);
+    TH2F dxysig_vs_IPsig2 = TH2F("dxysig_vs_IPsig2","dxysig_vs_IPsig2",10,-3.0,3.0,100,0.0,10.0);
    
+    
     
     
     
@@ -783,6 +786,31 @@ void KUSU::Loop()
             IPSig2_graph.Fill(IPSig2);
             IP_graph.Fill(IP);
             IPErr_graph.Fill(IPErr);
+            
+            
+            pt_vs_EMID.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
+            pt_vs_eta.Fill(LowPtElectron_pt[k],LowPtElectron_eta[k]);
+            pt_vs_dxy.Fill(LowPtElectron_pt[k],LowPtElectron_dxy[k]);
+            pt_vs_dxyErr.Fill(LowPtElectron_pt[k],LowPtElectron_dxyErr[k]);
+            pt_vs_dxySig.Fill(LowPtElectron_pt[k],dxySig);
+            pt_vs_dz.Fill(LowPtElectron_pt[k],LowPtElectron_dz[k]);
+            pt_vs_dzErr.Fill(LowPtElectron_pt[k],LowPtElectron_dzErr[k]);
+            pt_vs_dzSig.Fill(LowPtElectron_pt[k],dzSig))
+            pt_vs_Ip.Fill(LowPtElectron_pt[k],IP)  ; 
+            pt_vs_IpErr.Fill(LowPtElectron_pt[k],IPErr); 
+            pt_vs_IpSig1.Fill(LowPtElectron_pt[k],IPSig1) ; 
+            pt_vs_IpSig2.Fill(LowPtElectron_pt[k],IPSig2) ; 
+            pt_vs_ISO.Fill(LowPtElectron_pt[k],LowPtElectron_miniPFRelIso_all[k]);
+
+            Flav_vs_EMID.Fill(LowPtElectron_genPartFlav[k],LowPtElectron_embeddedID[k]);
+
+
+
+            dxysig_vs_dzsig.Fill(dxySig,dzSig);
+            dzsig_vs_IPsig1.Fill(dzSig,IPSig1);
+            dxysig_vs_IPsig1.Fill(dxySig,IPSig1);
+            dzsig_vs_IPsig2.Fill(dzSig,IPSig2);
+            dxysig_vs_IPsig2.Fill(dxySig,IPSig2);
            
             
             //Flavor 0
@@ -1837,5 +1865,30 @@ void KUSU::Loop()
     PlotHist(IP_graph,      sample, plot_dir, "IP_", "IP");
     
 
+    //2D
     
+    PlotHist(pt_vs_EMID, sample, plot_dir,"Pt_EMID","EMID");
+    PlotHist(pt_vs_eta, sample,plot_dir,"Pt_eta","eta");
+    PlotHist(pt_vs_dxy, sample,plot_dir,"Pt_dxy","dxy");
+    
+    PlotHist(pt_vs_dxyErr, sample,plot_dir,"Pt_dxyErr","dxyErr");
+    PlotHist(pt_vs_dxySig, sample,plot_dir,"Pt_dxySig","dxySig");
+    PlotHist(pt_vs_dz, sample,plot_dir,"Pt_dz","dz");
+    PlotHist(pt_vs_dzErr, sample,plot_dir,"Pt_dzErr","dzErr");
+    PlotHist(pt_vs_dzSig, sample,plot_dir,"Pt_dzSig","dzSig");
+    PlotHist(pt_vs_Ip, sample,plot_dir,"Pt_Ip","Ip"); 
+    PlotHist(pt_vs_IpErr, sample,plot_dir,"Pt_IpErr","IpErr"); 
+    PlotHist(pt_vs_IpSig1, sample,plot_dir,"Pt_IpSig1","IpSig1"); 
+    PlotHist(pt_vs_IpSig2, sample,plot_dir,"Pt_IpSig2","IpSig2"); 
+    PlotHist(pt_vs_ISO, sample,plot_dir,"Pt_ISO","ISO");
+
+    PlotHist(Flav_vs_EMID,sample,plot_dir,"Flav_EMID","EMID");
+
+
+
+    PlotHist(dxysig_vs_dzsig,sample,plot_dir,"dxysig_dzsig","dz");
+    PlotHist(dzsig_vs_IPsig1,sample,plot_dir,"dzsig_IPsig","IPSig1");
+    PlotHist(dxysig_vs_IPsig1,sample,plot_dir,"dxysig_IPsig1","IPSig1");
+    PlotHist(dzsig_vs_IPsig2,sample,plot_dir,"dzsig_IPsig2","IPSig2");
+    PlotHist(dxysig_vs_IPsig2,sample,plot_dir,"dxy_IPsig2","IPSig2");
 }
