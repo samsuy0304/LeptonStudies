@@ -31,6 +31,9 @@ std::string KUSU::GetLabel(std::string variable)
         {"ISO",         "ISO"},
         {"CONV",      "Conveto"},
         {"IPSig1",      "d_{IP} sig1"},
+        {"IPSig2",      "d_{IP} sig2"},
+        {"IP",      "d_{IP}"},
+        
         
     };
     std::string label = "";
