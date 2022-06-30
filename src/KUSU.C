@@ -138,21 +138,21 @@ void KUSU::Loop()
     // Only Flavors
     // NO Flav
     TH1F EMID = TH1F("EMID", "EMID",60,0.0,12.0);
-    TH1F Pt = TH1F("pt", "pt",40,0.0,20.0);
+    TH1F Pt = TH1F("pt", "pt",80,0.0,20.0);
     TH1F Eta = TH1F("eta", "eta",30,-3,3);
-    TH1F Dxy = TH1F("dxy", "dxy",50,-0.2,0.2); 
-    TH1F DxyErr = TH1F("dxyErr", "dxyErr",50,0,0.2)  ;
-    TH1F Dz = TH1F("dz", "dz",50,-0.2,0.2)  ;
-    TH1F DzErr = TH1F("dzErr", "dzErr",50,0,0.2);  
-    TH1F DxySig = TH1F("dxySig", "dxySig",50,-5.0,5.0);  
-    TH1F DzSig = TH1F("dzSig", "dzSig",50,-5.0,5.0)  ;                         
-    TH1F IP_graph = TH1F("IP", "IP",50,-5.0,5.0)  ;                      
+    TH1F Dxy = TH1F("dxy", "dxy",100,-0.1,0.1); 
+    TH1F DxyErr = TH1F("dxyErr", "dxyErr",50,0,0.06)  ;
+    TH1F Dz = TH1F("dz", "dz",100,-0.1,0.1)  ;
+    TH1F DzErr = TH1F("dzErr", "dzErr",50,0,0.06);  
+    TH1F DxySig = TH1F("dxySig", "dxySig",100,-3.0,3.0);  
+    TH1F DzSig = TH1F("dzSig", "dzSig",50,-3.0,3.0)  ;                         
+    TH1F IP_graph = TH1F("IP", "IP",100,0.0,1.0)  ;                      
     TH1F IPErr_graph = TH1F("IPErr", "IPErr",50,-5.0,5.0);   
-    TH1F IPSig1_graph = TH1F("IPSig1", "IPSig1",50,-5.0,5.0) ;   
-    TH1F IPSig2_graph= TH1F("IPSig2", "IPSig2",50,-5.0,5.0);        
+    TH1F IPSig1_graph = TH1F("IPSig1", "IPSig1",100,0.0,10.0) ;   
+    TH1F IPSig2_graph= TH1F("IPSig2", "IPSig2",100,0.0,10.0);        
     TH1F IPSigDiff = TH1F("IPSigDiff", "IPSigDiff",50,-5.0,5.0);
     TH1F CONV = TH1F("CONV", "CONV",2,0.0,2.0);
-    TH1F ISO = TH1F("ISO","ISO",50,0.0,20.0);
+    TH1F ISO = TH1F("ISO","ISO",50,0.0,8.0);
     // Flav 0                                               
     TH1F Flav0_EMID = TH1F("Flav0_EMID", "Flav0_EMID",50,0.0,20.0);
     TH1F Flav0_pt = TH1F("Flav0_pt", "Flav0_pt",50,0.0,20.0)   ;
@@ -667,6 +667,35 @@ void KUSU::Loop()
     TH1F LONG2_FLAV5_IPSigdiff    = TH1F("IronLong2_Flav5_IPSigdiff","IronLong2_Flav5_IPSigdiff",  50,-8.0,8.0);
     TH1F FAKE_FLAV5_IPSigdiff    = TH1F("IronFake_Flav5_IPSigdiff","IronFake_Flav5_IPSigdiff",  50,-5.0,5.0);
     //Ratio Plots
+    
+    
+    
+    TH2F pt_vs_EMID = TH2F("pt_vs_EMID", "pt_vs_",40, 0.0,20.0, 60,0.0, 12.0);
+    TH2F pt_vs_eta = TH2F("pt_vs_eta", "pt_vs_",40, 0.0,20.0,30,-3,3);
+    TH2F pt_vs_dxy = TH2F("pt_vs_dxy", "pt_vs_",40, 0.0,20.0,50,-0.2,0.2);
+    TH2F pt_vs_dxyErr = TH2F("pt_vs_dxyErr", "pt_vs_",40, 0.0,20.0,50,0.0,0.2);
+    TH2F pt_vs_dxySig = TH2F("pt_vs_dxySig", "pt_vs_",40, 0.0,20.0,50,-5,5);
+    TH2F pt_vs_dz = TH2F("pt_vs_dz", "pt_vs_",40, 0.0,20.0,100,-0.1,0.1);
+    TH2F pt_vs_dzErr = TH2F("pt_vs_dzErr", "pt_vs_",40, 0.0,20.0,50,0,0.2);
+    TH2F pt_vs_dzSig = TH2F("pt_vs_dzSig", "pt_vs_",40, 0.0,20.0,50,-5.0,5.0)
+    TH2F pt_vs_Ip = TH2F("pt_vs_Ip", "pt_vs_",40, 0.0,20.0,
+    TH2F pt_vs_IpErr = TH2F("pt_vs_IpErr", "pt_vs_",40, 0.0,20.0,
+    TH2F pt_vs_IpSig1 = TH2F("pt_vs_IpSig1", "pt_vs_",40, 0.0,20.0,
+    TH2F pt_vs_IpSig2 = TH2F("pt_vs_IpSig2", "pt_vs_",40, 0.0,20.0,
+    TH2F pt_vs_ISO = TH2F("pt_vs_ISO", "pt_vs_",40, 0.0,20.0,
+  
+    TH2F Flav_vs_EMID = TH2F("Flav_vs_EMID", "Flav_vs_EMID", 6,0,6,60,0.0,12.0);
+ 
+    
+    
+    //TH2F dxysig_vs_dzsig = TH2F(
+    //TH2F dzsig_vs_IPsig = TH2F(
+    //TH2F dxysig_vs_IPsig = TH2F(
+   
+    
+    
+    
+    
     
     
     
