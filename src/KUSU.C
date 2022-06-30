@@ -826,8 +826,7 @@ void KUSU::Loop()
             {
                 
                 
-                
-                
+      
                 
                 
                 if (LowPtElectron_miniPFRelIso_all[k] <4 && abs(LowPtElectron_dxy[k])<0.05 && abs(LowPtElectron_dz[k])<0.1 && IPSig1<2)
@@ -850,6 +849,8 @@ void KUSU::Loop()
                     IRON1_IPSig2.Fill(IPSig2);
                     IRON1_IP.Fill(IP);
                     IRON1_IPErr.Fill(IPErr);
+                    
+                    
                     if (LowPtElectron_genPartFlav[k] == 5)
                     {
                         IRON1_FLAV5_EMID.Fill(LowPtElectron_embeddedID[k]);
@@ -903,7 +904,7 @@ void KUSU::Loop()
                         IRON1_FLAV1_dxySig.Fill(dxySig);
                         IRON1_FLAV1_IPSig1.Fill(IPSig1);
                         IRON1_FLAV1_CONV.Fill(LowPtElectron_convVeto[k]);
-                        IRON1_FLAV1_ISO.Fill(LowPtElectron_miniPFRelIso__all[k]);
+                        IRON1_FLAV1_ISO.Fill(LowPtElectron_miniPFRelIso_all[k]);
                         IRON1_FLAV1_IPSigdiff.Fill(IPdiff);
                         IRON1_FLAV1_IPSig2.Fill(IPSig2);
                         IRON1_FLAV1_IP.Fill(IP);
@@ -989,7 +990,7 @@ void KUSU::Loop()
                         IRON2_FLAV1_dxySig.Fill(dxySig);
                         IRON2_FLAV1_IPSig1.Fill(IPSig1);
                         IRON2_FLAV1_CONV.Fill(LowPtElectron_convVeto[k]);
-                        IRON2_FLAV1_ISO.Fill(LowPtElectron_miniPFRelIso__all[k]);
+                        IRON2_FLAV1_ISO.Fill(LowPtElectron_miniPFRelIso_all[k]);
                         IRON2_FLAV1_IPSigdiff.Fill(IPdiff);
                         IRON2_FLAV1_IPSig2.Fill(IPSig2);
                         IRON2_FLAV1_IP.Fill(IP);
@@ -1006,6 +1007,22 @@ void KUSU::Loop()
                     //Irom Long
                 if (LowPtElectron_miniPFRelIso_all[k] <4 &&  IPSig1>=2)
                 {
+                    IRONLONG1_EMID.Fill(LowPtElectron_embeddedID[k]);
+                    IRONLONG1_eta.Fill(LowPtElectron_eta[k]);
+                    IRONLONG1_pt.Fill(LowPtElectron_pt[k]);
+                    IRONLONG1_dxy.Fill(LowPtElectron_dxy[k]);
+                    IRONLONG1_dz.Fill(LowPtElectron_dz[k]);
+                    IRONLONG1_dzErr.Fill(LowPtElectron_dzErr[k]);
+                    IRONLONG1_dxyErr.Fill(LowPtElectron_dxyErr[k]); 
+                    IRONLONG1_dzSig.Fill(dzSig);
+                    IRONLONG1_dxySig.Fill(dxySig);
+                    IRONLONG1_IPSig1.Fill(IPSig1);
+                    IRONLONG1_CONV.Fill(LowPtElectron_convVeto[k]);
+                    IRONLONG1_ISO.Fill(LowPtElectron_miniPFRelIso_all[k]);
+                    IRONLONG1_IPSigdiff.Fill(IPdiff);
+                    IRONLONG1_IPSig2.Fill(IPSig2);
+                    IRONLONG1_IP.Fill(IP);
+                    IRONLONG1_IPErr.Fill(IPErr);
                     
                     
                     if (LowPtElectron_genPartFlav[k] == 5)
@@ -1074,82 +1091,82 @@ void KUSU::Loop()
                 {
                     //////////////////////////////////////////////////
                     //LONG 2
-                    LONG2_EMID.Fill(LowPtElectron_embeddedID[k]);
-                    LONG2_eta.Fill(LowPtElectron_eta[k]);
-                    LONG2_pt.Fill(LowPtElectron_pt[k]);
-                    LONG2_dxy.Fill(LowPtElectron_dxy[k]);
-                    LONG2_dz.Fill(LowPtElectron_dz[k]);
-                    LONG2_dzErr.Fill(LowPtElectron_dzErr[k]);
-                    LONG2_dxyErr.Fill(LowPtElectron_dxyErr[k]); 
-                    LONG2_dzSig.Fill(dzSig);
-                    LONG2_dxySig.Fill(dxySig);
-                    LONG2_IPSig1.Fill(IPSig1);
-                    LONG2_CONV.Fill(LowPtElectron_convVeto[k]);
-                    LONG2_ISO.Fill(LowPtElectron_miniPFRelIso_all[k]);
-                    LONG2_IPSigdiff.Fill(IPdiff);
-                    LONG2_IPSig2.Fill(IPSig2);
-                    LONG2_IP.Fill(IP);
-                    LONG2_IPErr.Fill(IPErr);
+                   IRONLONG2_EMID.Fill(LowPtElectron_embeddedID[k]);
+                   IRONLONG2_eta.Fill(LowPtElectron_eta[k]);
+                   IRONLONG2_pt.Fill(LowPtElectron_pt[k]);
+                   IRONLONG2_dxy.Fill(LowPtElectron_dxy[k]);
+                   IRONLONG2_dz.Fill(LowPtElectron_dz[k]);
+                   IRONLONG2_dzErr.Fill(LowPtElectron_dzErr[k]);
+                   IRONLONG2_dxyErr.Fill(LowPtElectron_dxyErr[k]); 
+                   IRONLONG2_dzSig.Fill(dzSig);
+                   IRONLONG2_dxySig.Fill(dxySig);
+                   IRONLONG2_IPSig1.Fill(IPSig1);
+                   IRONLONG2_CONV.Fill(LowPtElectron_convVeto[k]);
+                   IRONLONG2_ISO.Fill(LowPtElectron_miniPFRelIso_all[k]);
+                   IRONLONG2_IPSigdiff.Fill(IPdiff);
+                   IRONLONG2_IPSig2.Fill(IPSig2);
+                   IRONLONG2_IP.Fill(IP);
+                   IRONLONG2_IPErr.Fill(IPErr);
                     
                     
                     if (LowPtElectron_genPartFlav[k] == 5)
                     {
-                        LONG2_FLAV5_EMID.Fill(LowPtElectron_embeddedID[k]);
-                        LONG2_FLAV5_eta.Fill(LowPtElectron_eta[k]);
-                        LONG2_FLAV5_pt.Fill(LowPtElectron_pt[k]);
-                        LONG2_FLAV5_dxy.Fill(LowPtElectron_dxy[k]);
-                        LONG2_FLAV5_dz.Fill(LowPtElectron_dz[k]);
-                        LONG2_FLAV5_dzErr.Fill(LowPtElectron_dzErr[k]);
-                        LONG2_FLAV5_dxyErr.Fill(LowPtElectron_dxyErr[k]); 
-                        LONG2_FLAV5_dzSig.Fill(dzSig);
-                        LONG2_FLAV5_dxySig.Fill(dxySig);
-                        LONG2_FLAV5_IPSig1.Fill(IPSig1);
-                        LONG2_FLAV5_CONV.Fill(LowPtElectron_convVeto[k]);
-                        LONG2_FLAV5_ISO.Fill(LowPtElectron_miniPFRelIso_all[k]);
-                        LONG2_FLAV5_IPSigdiff.Fill(IPdiff);
-                        LONG2_FLAV5_IPSig2.Fill(IPSig2);
-                        LONG2_FLAV5_IP.Fill(IP);
-                        LONG2_FLAV5_IPErr.Fill(IPErr);
+                       LONG2_FLAV5_EMID.Fill(LowPtElectron_embeddedID[k]);
+                       LONG2_FLAV5_eta.Fill(LowPtElectron_eta[k]);
+                       LONG2_FLAV5_pt.Fill(LowPtElectron_pt[k]);
+                       LONG2_FLAV5_dxy.Fill(LowPtElectron_dxy[k]);
+                       LONG2_FLAV5_dz.Fill(LowPtElectron_dz[k]);
+                       LONG2_FLAV5_dzErr.Fill(LowPtElectron_dzErr[k]);
+                       LONG2_FLAV5_dxyErr.Fill(LowPtElectron_dxyErr[k]); 
+                       LONG2_FLAV5_dzSig.Fill(dzSig);
+                       LONG2_FLAV5_dxySig.Fill(dxySig);
+                       LONG2_FLAV5_IPSig1.Fill(IPSig1);
+                       LONG2_FLAV5_CONV.Fill(LowPtElectron_convVeto[k]);
+                       LONG2_FLAV5_ISO.Fill(LowPtElectron_miniPFRelIso_all[k]);
+                       LONG2_FLAV5_IPSigdiff.Fill(IPdiff);
+                       LONG2_FLAV5_IPSig2.Fill(IPSig2);
+                       LONG2_FLAV5_IP.Fill(IP);
+                       LONG2_FLAV5_IPErr.Fill(IPErr);
                     }
                     // LowPtElectron_genPartFlav == 1
                     if (LowPtElectron_genPartFlav[k] == 0)
                     {
-                        LONG2_FLAV0_EMID.Fill(LowPtElectron_embeddedID[k]);
-                        LONG2_FLAV0_eta.Fill(LowPtElectron_eta[k]);
-                        LONG2_FLAV0_pt.Fill(LowPtElectron_pt[k]);
-                        LONG2_FLAV0_dxy.Fill(LowPtElectron_dxy[k]);
-                        LONG2_FLAV0_dz.Fill(LowPtElectron_dz[k]);
-                        LONG2_FLAV0_dzErr.Fill(LowPtElectron_dzErr[k]);
-                        LONG2_FLAV0_dxyErr.Fill(LowPtElectron_dxyErr[k]); 
-                        LONG2_FLAV0_dzSig.Fill(dzSig);
-                        LONG2_FLAV0_dxySig.Fill(dxySig);
-                        LONG2_FLAV0_IPSig1.Fill(IPSig1);
-                        LONG2_FLAV0_CONV.Fill(LowPtElectron_convVeto[k]);
-                        LONG2_FLAV0_ISO.Fill(LowPtElectron_miniPFRelIso_all[k]);
-                        LONG2_FLAV0_IPSigdiff.Fill(IPdiff);
-                        LONG2_FLAV0_IPSig2.Fill(IPSig2);
-                        LONG2_FLAV0_IP.Fill(IP);
-                        LONG2_FLAV0_IPErr.Fill(IPErr);
+                       LONG2_FLAV0_EMID.Fill(LowPtElectron_embeddedID[k]);
+                       LONG2_FLAV0_eta.Fill(LowPtElectron_eta[k]);
+                       LONG2_FLAV0_pt.Fill(LowPtElectron_pt[k]);
+                       LONG2_FLAV0_dxy.Fill(LowPtElectron_dxy[k]);
+                       LONG2_FLAV0_dz.Fill(LowPtElectron_dz[k]);
+                       LONG2_FLAV0_dzErr.Fill(LowPtElectron_dzErr[k]);
+                       LONG2_FLAV0_dxyErr.Fill(LowPtElectron_dxyErr[k]); 
+                       LONG2_FLAV0_dzSig.Fill(dzSig);
+                       LONG2_FLAV0_dxySig.Fill(dxySig);
+                       LONG2_FLAV0_IPSig1.Fill(IPSig1);
+                       LONG2_FLAV0_CONV.Fill(LowPtElectron_convVeto[k]);
+                       LONG2_FLAV0_ISO.Fill(LowPtElectron_miniPFRelIso_all[k]);
+                       LONG2_FLAV0_IPSigdiff.Fill(IPdiff);
+                       LONG2_FLAV0_IPSig2.Fill(IPSig2);
+                       LONG2_FLAV0_IP.Fill(IP);
+                       LONG2_FLAV0_IPErr.Fill(IPErr);
                     }
                     // LowPtElectron_genPartFlav == 5
                     if (LowPtElectron_genPartFlav[k] == 1)
                     {
-                        LONG2_FLAV1_EMID.Fill(LowPtElectron_embeddedID[k]);
-                        LONG2_FLAV1_eta.Fill(LowPtElectron_eta[k]);
-                        LONG2_FLAV1_pt.Fill(LowPtElectron_pt[k]);
-                        LONG2_FLAV1_dxy.Fill(LowPtElectron_dxy[k]);
-                        LONG2_FLAV1_dz.Fill(LowPtElectron_dz[k]);
-                        LONG2_FLAV1_dzErr.Fill(LowPtElectron_dzErr[k]);
-                        LONG2_FLAV1_dxyErr.Fill(LowPtElectron_dxyErr[k]); 
-                        LONG2_FLAV1_dzSig.Fill(dzSig);
-                        LONG2_FLAV1_dxySig.Fill(dxySig);
-                        LONG2_FLAV1_IPSig1.Fill(IPSig1);
-                        LONG2_FLAV1_CONV.Fill(LowPtElectron_convVeto[k]);
-                        LONG2_FLAV1_ISO.Fill(LowPtElectron_miniPFRelIso_all[k]);
-                        LONG2_FLAV1_IPSigdiff.Fill(IPdiff);
-                        LONG2_FLAV1_IPSig2.Fill(IPSig2);
-                        LONG2_FLAV1_IP.Fill(IP);
-                        LONG2_FLAV1_IPErr.Fill(IPErr);
+                       LONG2_FLAV1_EMID.Fill(LowPtElectron_embeddedID[k]);
+                       LONG2_FLAV1_eta.Fill(LowPtElectron_eta[k]);
+                       LONG2_FLAV1_pt.Fill(LowPtElectron_pt[k]);
+                       LONG2_FLAV1_dxy.Fill(LowPtElectron_dxy[k]);
+                       LONG2_FLAV1_dz.Fill(LowPtElectron_dz[k]);
+                       LONG2_FLAV1_dzErr.Fill(LowPtElectron_dzErr[k]);
+                       LONG2_FLAV1_dxyErr.Fill(LowPtElectron_dxyErr[k]); 
+                       LONG2_FLAV1_dzSig.Fill(dzSig);
+                       LONG2_FLAV1_dxySig.Fill(dxySig);
+                       LONG2_FLAV1_IPSig1.Fill(IPSig1);
+                       LONG2_FLAV1_CONV.Fill(LowPtElectron_convVeto[k]);
+                       LONG2_FLAV1_ISO.Fill(LowPtElectron_miniPFRelIso_all[k]);
+                       LONG2_FLAV1_IPSigdiff.Fill(IPdiff);
+                       LONG2_FLAV1_IPSig2.Fill(IPSig2);
+                       LONG2_FLAV1_IP.Fill(IP);
+                       LONG2_FLAV1_IPErr.Fill(IPErr);
                     }
 
                 }
