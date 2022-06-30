@@ -164,9 +164,9 @@ void KUSU::Loop()
     TH1F Flav0_IPErr = TH1F("Flav0_IPErr", "Flav0_IPErr",50,0.0,20.0);
     TH1F Flav0_IPSig1 = TH1F("Flav0_IPSig1", "Flav0_IPSig1",50,0.0,20.0);
     TH1F Flav0_IPSig2 = TH1F("Flav0_IPSig2", "Flav0_IPSig2",50,0.0,20.0);
-    TH1F Flav0_IPSigDiff = TH1F("Flav0_IPSigDiff", "Flav0_IPSigDiff",50,0.0,20.0);
+    TH1F Flav0_IPSigdiff = TH1F("Flav0_IPSigDiff", "Flav0_IPSigDiff",50,0.0,20.0);
     TH1F Flav0_CONV = TH1F("Flav0_CONV","Flav0_CONV",2,0.0,2.0);
-        
+    TH1F Flav0_ISO = TH1F("Flav0_ISO","Flav0_ISO",50, 0.0, 20.0);   
     //Flav1
     TH1F Flav1_EMID = TH1F("Flav1_EMID", "Flav1_EMID",50,0.0,20.0);
     TH1F Flav1_pt = TH1F("Flav1_pt", "Flav1_pt",50,0.0,20.0);
@@ -181,9 +181,9 @@ void KUSU::Loop()
     TH1F Flav1_IPErr = TH1F("Flav1_IPErr", "Flav1_IPErr",50,0.0,20.0);
     TH1F Flav1_IPSig1 = TH1F("Flav1_IPSig1", "Flav1_IPSig1",50,0.0,20.0);
     TH1F Flav1_IPSig2 = TH1F("Flav1_IPSig2", "Flav1_IPSig2",50,0.0,20.0);
-    TH1F Flav1_IPSigDiff = TH1F("Flav1_IPSigDiff", "Flav1_IPSigDiff",50,0.0,20.0);
+    TH1F Flav1_IPSigdiff = TH1F("Flav1_IPSigDiff", "Flav1_IPSigDiff",50,0.0,20.0);
     TH1F Flav1_CONV = TH1F("Flav1_CONV","Flav1_CONV",2,0.0,2.0);
-        
+    TH1F Flav1_ISO = TH1F("Flav1_ISO","Flav1_ISO",50, 0.0, 20.0);   
     //Flav5
     TH1F Flav5_EMID = TH1F("Flav5_EMID", "Flav5_EMID",50,0.0,20.0);
     TH1F Flav5_pt = TH1F("Flav5_pt", "Flav5_pt",50,0.0,20.0);
@@ -198,8 +198,9 @@ void KUSU::Loop()
     TH1F Flav5_IPErr = TH1F("Flav5_IPErr", "Flav5_IPErr",50,0.0,20.0);
     TH1F Flav5_IPSig1 = TH1F("Flav5_IPSig1", "Flav5_IPSig1",50,0.0,20.0);
     TH1F Flav5_IPSig2 = TH1F("Flav5_IPSig2", "Flav5_IPSig2",50,0.0,20.0);
-    TH1F Flav5_IPSigDiff = TH1F("Flav5_IPSigDiff", "Flav5_IPSigDiff",50,0.0,20.0); 
+    TH1F Flav5_IPSigdiff = TH1F("Flav5_IPSigDiff", "Flav5_IPSigDiff",50,0.0,20.0); 
     TH1F Flav5_CONV = TH1F("Flav5_CONV","Flav5_CONV",2,0.0,2.0);
+    TH1F Flav5_ISO = TH1F("Flav5_ISO","Flav5_ISO",50, 0.0, 20.0);
         
     /// IRON1 No Flav
     TH1F IRON1_EMID = TH1F("IRON1_EMID", "IRON1_EMID",50,0.0,20.0);
@@ -215,7 +216,7 @@ void KUSU::Loop()
     TH1F IRON1_IPErr = TH1F("IRON1_IPErr", "IRON1_IPErr",50,0.0,20.0);
     TH1F IRON1_IPSig1 = TH1F("IRON1_IPSig1", "IRON1_IPSig1",50,0.0,20.0);
     TH1F IRON1_IPSig2 = TH1F("IRON1_IPSig2", "IRON1_IPSig2",50,0.0,20.0);
-    TH1F IRON1_IPSigDiff = TH1F("IRON1_IPSigDiff", "IRON1_IPSigDiff",50,0.0,20.0);
+    TH1F IRON1_IPSigdiff = TH1F("IRON1_IPSigDiff", "IRON1_IPSigDiff",50,0.0,20.0);
     
      
     //IRON2 No Flav
@@ -232,7 +233,7 @@ void KUSU::Loop()
     TH1F IRON2_IPErr = TH1F("IRON2_IPErr", "IRON2_IPErr",50,0.0,20.0);
     TH1F IRON2_IPSig1 = TH1F("IRON2_IPSig1", "IRON2_IPSig1",50,0.0,20.0);
     TH1F IRON2_IPSig2 = TH1F("IRON2_IPSig2", "IRON2_IPSig2",50,0.0,20.0);
-    TH1F IRON2_IPSigDiff = TH1F("IRON2_IPSigDiff", "IRON2_IPSigDiff",50,0.0,20.0);
+    TH1F IRON2_IPSigdiff = TH1F("IRON2_IPSigDiff", "IRON2_IPSigDiff",50,0.0,20.0);
     
     //Long 1 No Flav
     TH1F IRONLONG1_EMID = TH1F("IRONLONG1_EMID", "IRONLONG1_EMID",50,0.0,20.0);
@@ -248,7 +249,7 @@ void KUSU::Loop()
     TH1F IRONLONG1_IPErr = TH1F("IRONLONG1_IPErr", "IRONLONG1_IPErr",50,0.0,20.0);
     TH1F IRONLONG1_IPSig1 = TH1F("IRONLONG1_IPSig1", "IRONLONG1_IPSig1",50,0.0,20.0);
     TH1F IRONLONG1_IPSig2 = TH1F("IRONLONG1_IPSig2", "IRONLONG1_IPSig2",50,0.0,20.0);
-    TH1F IRONLONG1_IPSigDiff = TH1F("IRONLONG1_IPSigDiff", "IRONLONG1_IPSigDiff",50,0.0,20.0);
+    TH1F IRONLONG1_IPSigdiff = TH1F("IRONLONG1_IPSigDiff", "IRONLONG1_IPSigDiff",50,0.0,20.0);
     
     //Long 2 No Flav
     TH1F IRONLONG2_EMID = TH1F("IRONLONG2_EMID", "IRONLONG2_EMID",50,0.0,20.0);
@@ -264,7 +265,7 @@ void KUSU::Loop()
     TH1F IRONLONG2_IPErr = TH1F("IRONLONG2_IPErr", "IRONLONG2_IPErr",50,0.0,20.0);
     TH1F IRONLONG2_IPSig1 = TH1F("IRONLONG2_IPSig1", "IRONLONG2_IPSig1",50,0.0,20.0);
     TH1F IRONLONG2_IPSig2 = TH1F("IRONLONG2_IPSig2", "IRONLONG2_IPSig2",50,0.0,20.0);
-    TH1F IRONLONG2_IPSigDiff = TH1F("IRONLONG2_IPSigDiff", "IRONLONG2_IPSigDiff",50,0.0,20.0);
+    TH1F IRONLONG2_IPSigdiff = TH1F("IRONLONG2_IPSigDiff", "IRONLONG2_IPSigDiff",50,0.0,20.0);
     
     //IRON Fake no flav
     TH1F IRONFAKE_EMID = TH1F("IRONFAKE_EMID", "IRONFAKE_EMID",50,0.0,20.0);
@@ -280,7 +281,7 @@ void KUSU::Loop()
     TH1F IRONFAKE_IPErr = TH1F("IRONFAKE_IPErr", "IRONFAKE_IPErr",50,0.0,20.0);
     TH1F IRONFAKE_IPSig1 = TH1F("IRONFAKE_IPSig1", "IRONFAKE_IPSig1",50,0.0,20.0);
     TH1F IRONFAKE_IPSig2 = TH1F("IRONFAKE_IPSig2", "IRONFAKE_IPSig2",50,0.0,20.0);
-    TH1F IRONFAKE_IPSigDiff = TH1F("IRONFAKE_IPSigDiff", "IRONFAKE_IPSigDiff",50,0.0,20.0);
+    TH1F IRONFAKE_IPSigdiff = TH1F("IRONFAKE_IPSigDiff", "IRONFAKE_IPSigDiff",50,0.0,20.0);
     
     
     // LowPtElectron_genPartFlav == 0
@@ -677,8 +678,8 @@ void KUSU::Loop()
             
             if (LowPtElectron_dxyErr[k] != 0 && LowPtElectron_dzErr[k] != 0)
             {
-                IP = sqrt(LowPtElectron_dxy[k]**2 +LowPtElectron_dz[k]**2);
-                IPErr = sqrt(LowPtElectron_dxyErr[k]**2 +LowPtElectron_dzErr[k]**2);
+                IP = sqrt(LowPtElectron_dxy[k]*LowPtElectron_dxy[k] +LowPtElectron_dz[k]*LowPtElectron_dz[k]);
+                IPErr = sqrt(LowPtElectron_dxyErr[k]*LowPtElectron_dxyErr[k] +LowPtElectron_dzErr[k]*LowPtElectron_dzErr[k]);
         
             }
               
@@ -734,8 +735,8 @@ void KUSU::Loop()
                 Flav0_ISO.Fill(LowPtElectron_miniPFRelIso_all[k]);
                 Flav0_IPSigdiff.Fill(IPdiff);
                 Flav0_IPSig2.Fill(IPSig2);
-                Flav0_IP_graph.Fill(IP);
-                Flav0_IPErr_graph.Fill(IPErr);
+                Flav0_IP.Fill(IP);
+                Flav0_IPErr.Fill(IPErr);
                 
                 
             }
@@ -756,8 +757,8 @@ void KUSU::Loop()
                 Flav1_ISO.Fill(LowPtElectron_miniPFRelIso_all[k]);
                 Flav1_IPSigdiff.Fill(IPdiff);
                 Flav1_IPSig2.Fill(IPSig2);
-                Flav1_IP_graph.Fill(IP);
-                Flav1_IPErr_graph.Fill(IPErr);
+                Flav1_IP.Fill(IP);
+                Flav1_IPErr.Fill(IPErr);
             }
             
             if (LowPtElectron_genPartFlav[k] == 5)
@@ -776,8 +777,8 @@ void KUSU::Loop()
                 Flav5_ISO.Fill(LowPtElectron_miniPFRelIso_all[k]);
                 Flav5_IPSigdiff.Fill(IPdiff);
                 Flav5_IPSig2.Fill(IPSig2);
-                Flav5_IP_graph.Fill(IP);
-                Flav5_IPErr_graph.Fill(IPErr);
+                Flav5_IP.Fill(IP);
+                Flav5_IPErr.Fill(IPErr);
             }
             
             
