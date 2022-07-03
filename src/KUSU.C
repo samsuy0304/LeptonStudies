@@ -123,7 +123,7 @@ void KUSU::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir, 
     SetupHist2(hist, title, x_title, y_title, color, line_width);
     gStyle->SetOptStat(111111);
     // draw
-    hist.Draw("hist error same");
+    hist.Draw("colz");
     hist.SetStats(kTRUE);
     
     // save plot
