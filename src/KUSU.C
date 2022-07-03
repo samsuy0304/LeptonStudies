@@ -86,7 +86,7 @@ void KUSU::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir, s
     hist.SetStats(kTRUE);
     
     // save plot
-    std::string output_name = plot_dir + "/" + "_" + plot_name; 
+    std::string output_name = plot_dir + "/" + "44_Nopt_" + plot_name; 
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());
@@ -106,7 +106,7 @@ void KUSU::SetupHist2(TH2F &hist, std::string title, std::string x_title, std::s
     hist.SetLineWidth(line_width);
 }
 
-void KUSU::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable)
+void KUSU::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable,std::string variable2)
 {
     printf("Plotting %s\n", plot_name.c_str());
 
@@ -117,7 +117,7 @@ void KUSU::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir, 
     // setup histogram
     std::string title   = plot_name;
     std::string x_title = GetLabel(variable);
-    std::string y_title = "Entries";
+    std::string y_title = GetLabel(variable2);
     int color           = kBlack;
     int line_width      = 1;
     SetupHist2(hist, title, x_title, y_title, color, line_width);
@@ -127,7 +127,7 @@ void KUSU::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir, 
     hist.SetStats(kTRUE);
     
     // save plot
-    std::string output_name = plot_dir + "/" + "_" + plot_name; 
+    std::string output_name = plot_dir + "/" + "44_Nopt_" + plot_name; 
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());
@@ -166,7 +166,7 @@ void KUSU::Loop()
         return;
     }
 
-    std::string plot_dir = "macro_plots";
+    std::string plot_dir = "/eos/user/s/ssakhare/macro_plots";
     std::string sample = "SMS-T2-4bd_genMET-80_mStop-500_mLSP-490";
     printf("Running over %s\n", sample.c_str());
 
@@ -1908,28 +1908,27 @@ void KUSU::Loop()
 
     //2D
     
-    PlotHist2(pt_vs_EMID, sample, plot_dir,"Pt_EMID","EMID");
-    PlotHist2(pt_vs_eta, sample,plot_dir,"Pt_eta","eta");
-    PlotHist2(pt_vs_dxy, sample,plot_dir,"Pt_dxy","dxy");
+    PlotHist2(pt_vs_EMID, sample, plot_dir,"Pt_EMID","pt","EMID");
+    PlotHist2(pt_vs_eta, sample,plot_dir,"Pt_eta","pt","eta");
+    PlotHist2(pt_vs_dxy, sample,plot_dir,"Pt_dxy","pt","dxy");
     
-    PlotHist2(pt_vs_dxyErr, sample,plot_dir,"Pt_dxyErr","dxyErr");
-    PlotHist2(pt_vs_dxySig, sample,plot_dir,"Pt_dxySig","dxySig");
-    PlotHist2(pt_vs_dz, sample,plot_dir,"Pt_dz","dz");
-    PlotHist2(pt_vs_dzErr, sample,plot_dir,"Pt_dzErr","dzErr");
-    PlotHist2(pt_vs_dzSig, sample,plot_dir,"Pt_dzSig","dzSig");
-    PlotHist2(pt_vs_Ip, sample,plot_dir,"Pt_Ip","Ip"); 
-    PlotHist2(pt_vs_IpErr, sample,plot_dir,"Pt_IpErr","IpErr"); 
-    PlotHist2(pt_vs_IpSig1, sample,plot_dir,"Pt_IpSig1","IpSig1"); 
-    PlotHist2(pt_vs_IpSig2, sample,plot_dir,"Pt_IpSig2","IpSig2"); 
-    PlotHist2(pt_vs_ISO, sample,plot_dir,"Pt_ISO","ISO");
-
-    PlotHist2(Flav_vs_EMID,sample,plot_dir,"Flav_EMID","EMID");
-
+    PlotHist2(pt_vs_dxyErr, sample,plot_dir,"Pt_dxyErr","pt","dxyErr");
+    PlotHist2(pt_vs_dxySig, sample,plot_dir,"Pt_dxySig","pt","dxySig");
+    PlotHist2(pt_vs_dz, sample,plot_dir,"Pt_dz","pt","dz");
+    PlotHist2(pt_vs_dzErr, sample,plot_dir,"Pt_dzErr","pt","dzErr");
+    PlotHist2(pt_vs_dzSig, sample,plot_dir,"Pt_dzSig","pt","dzSig");
+    PlotHist2(pt_vs_Ip, sample,plot_dir,"Pt_Ip","pt","Ip"); 
+    PlotHist2(pt_vs_IpErr, sample,plot_dir,"Pt_IpErr","pt","IpErr"); 
+    PlotHist2(pt_vs_IpSig1, sample,plot_dir,"Pt_IpSig1","pt","IpSig1"); 
+    PlotHist2(pt_vs_IpSig2, sample,plot_dir,"Pt_IpSig2","pt","IpSig2"); 
+    PlotHist2(pt_vs_ISO, sample,plot_dir,"Pt_ISO","pt","ISO");
+    PlotHist2(Flav_vs_EMID,sample,plot_dir,"Flav_EMID","Flav","EMID");
 
 
-    PlotHist2(dxysig_vs_dzsig,sample,plot_dir,"dxysig_dzsig","dz");
-    PlotHist2(dzsig_vs_IPsig1,sample,plot_dir,"dzsig_IPsig","IPSig1");
-    PlotHist2(dxysig_vs_IPsig1,sample,plot_dir,"dxysig_IPsig1","IPSig1");
-    PlotHist2(dzsig_vs_IPsig2,sample,plot_dir,"dzsig_IPsig2","IPSig2");
-    PlotHist2(dxysig_vs_IPsig2,sample,plot_dir,"dxy_IPsig2","IPSig2");
+
+    PlotHist2(dxysig_vs_dzsig,sample,plot_dir,"dxysig_dzsig","dxysig","dzsig");
+    PlotHist2(dzsig_vs_IPsig1,sample,plot_dir,"dzsig_IPsig","dzsig","IPSig1");
+    PlotHist2(dxysig_vs_IPsig1,sample,plot_dir,"dxysig_IPsig1","dxysig","IPSig1");
+    PlotHist2(dzsig_vs_IPsig2,sample,plot_dir,"dzsig_IPsig2","dzsig","IPSig2");
+    PlotHist2(dxysig_vs_IPsig2,sample,plot_dir,"dxy_IPsig2","dxysig","IPSig2");
 }
