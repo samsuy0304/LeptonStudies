@@ -86,7 +86,7 @@ void KUSU::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir, s
     hist.SetStats(kTRUE);
     
     // save plot
-    std::string output_name = plot_dir + "/" + "LowCut_" + plot_name; 
+    std::string output_name = plot_dir + "/" + "MidCut_" + plot_name; 
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());
@@ -127,7 +127,7 @@ void KUSU::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir, 
     hist.SetStats(kTRUE);
     
     // save plot
-    std::string output_name = plot_dir + "/" + "44_Nopt_" + plot_name; 
+    std::string output_name = plot_dir + "/" + "MidCut_" + plot_name; 
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());
@@ -166,7 +166,7 @@ void KUSU::Loop()
         return;
     }
 
-    std::string plot_dir = "/eos/user/s/ssakhare/LowCut";
+    std::string plot_dir = "/eos/user/s/ssakhare/MidCut";
     std::string sample = "SMS-T2-4bd_genMET-80_mStop-500_mLSP-490";
     printf("Running over %s\n", sample.c_str());
 
