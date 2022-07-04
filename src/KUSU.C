@@ -810,7 +810,7 @@ void KUSU::Loop()
                
             
             // No Flav
-            if (LowPtElectron_pt[k]>=5 && LowPtElectron_pt[k]<10)
+            if (LowPtElectron_pt[k]>=1 && LowPtElectron_pt[k]<5)
             {   
                 EMID.Fill(LowPtElectron_embeddedID[k]);
                 Eta.Fill(LowPtElectron_eta[k]);
