@@ -80,7 +80,7 @@ void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,
     hist.SetStats(kTRUE);
     
     // save plot
-    std::string output_name = plot_dir + "/" + "HighCut_" + plot_name; 
+    std::string output_name = plot_dir + "/" + "NoCut_" + plot_name; 
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());;
@@ -122,7 +122,7 @@ void TTJETS::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir
     hist.SetStats(kTRUE);
     
     // save plot
-    std::string output_name = plot_dir + "/" + "HighCut_" + plot_name; 
+    std::string output_name = plot_dir + "/" + "NoCut_" + plot_name; 
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());
@@ -162,7 +162,7 @@ void TTJETS::Loop()
         return;
     }
 
-    std::string plot_dir = "/eos/user/s/ssakhare/ttbar/HighCut";
+    std::string plot_dir = "/eos/user/s/ssakhare/ttbar/NoCut";
     std::string sample = "TTbar";
     printf("Running over %s\n", sample.c_str());
 
@@ -806,7 +806,7 @@ void TTJETS::Loop()
                
             
             // No Flav
-            if (LowPtElectron_pt[k]>=10 && LowPtElectron_pt[k]<20)
+            if (true)
             {   
                 EMID.Fill(LowPtElectron_embeddedID[k]);
                 Eta.Fill(LowPtElectron_eta[k]);
