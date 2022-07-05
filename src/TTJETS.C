@@ -101,7 +101,7 @@ void TTJETS::SetupHist2(TH2F &hist, std::string title, std::string x_title, std:
     hist.SetLineWidth(line_width);
 }
 
-void TTJETS::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable)
+void TTJETS::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable, std::string variable2)
 {
     printf("Plotting %s\n", plot_name.c_str());
 
