@@ -133,6 +133,42 @@ void KUSU::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir, 
     c.SaveAs(output_name_pdf.c_str());
 }
 
+void KUSU::ROC(TH1F &sigHist, TH1F &bkgHist)//, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable,std::string variable2)
+{
+    printf("Plotting %s\n", plot_name.c_str());
+    
+    int nbins = sigHist->GetNbinsX(); // Finding out the number of bins
+    
+    // get the total integrals for each histogram
+    float sig_integral = sigHist->Integral(1,nbins);
+    float bkg_integral = bkgHist->Integral(1,nbins);
+
+    // create containers sig = x points, bkg = y points
+    std::vector<float> sigPoints(nbins);
+    std::vector<float> bkgPoints(nbins);
+
+    // in the loop, fill the containers with the x and y points
+    // each x point is this loop's slice integral over total integral (signal)
+    // each y point is this loop's slice integral over total integral (background)
+    for ( int i = 0; i < nbins; ++i ) {
+      // notice the slice integral is dependent on i!
+      // on each iteration we take a larger and larger slice of the histograms
+      // eventually the slice will be the total integral (from bin 1 to bin nbins)
+      // that point is (1,1) on the ROC curve.
+      float sig_slice_integral = sigHist->Integral(nbins-i,nbins);
+      float bkg_slice_integral = bkgHist->Integral(nbins-i,nbins);
+      sigPoints.push_back(sig_slice_integral/sig_integral);
+      bkgPoints.push_back(bkg_slice_integral/bkg_integral);
+        
+      // create a TGraph from the containers
+    // this graph will have N (=nbins) number of points forming the curve.
+    TGraph *g = new TGraph(sigPoints.size(),&sigPoints[0],&bkgPoints[0]);
+    g.Draw();
+    g.Update();
+    g.SaveAs("Trial.pdf")
+             
+}
+
 void KUSU::Loop()
 {
 
@@ -1937,3 +1973,83 @@ void KUSU::Loop()
     PlotHist2(dzsig_vs_IPsig2,sample,plot_dir,"dzsig_vs_IPsig2","dzsig","IPSig2");
     PlotHist2(dxysig_vs_IPsig2,sample,plot_dir,"dxy_vs_IPsig2","dxysig","IPSig2");
 }
+
+
+void KUSU::Loop()
+{
+
+    // In a ROOT session, you can do:
+    //      root> .L NanoClass.C
+    //      root> NanoClass t
+    //      root> t.GetEntry(12); // Fill t data members with entry number 12
+    //      root> t.Show();       // Show values of entry 12
+    //      root> t.Show(16);     // Read and show values of entry 16
+    //      root> t.Loop();       // Loop on all entries
+    //
+    //  This is the loop skeleton where:
+    //    jentry is the global entry number in the chain
+    //    ientry is the entry number in the current Tree
+    //  Note that the argument to GetEntry must be:
+    //    jentry for TChain::GetEntry
+    //    ientry for TTree::GetEntry and TBranch::GetEntry
+    //
+    // To read only selected branches, Insert statements like:
+    // METHOD1:
+    //    fChain->SetBranchStatus("*",0);  // disable all branches
+    //    fChain->SetBranchStatus("branchname",1);  // activate branchname
+    // METHOD2: replace line
+    //    fChain->GetEntry(jentry);       //read all branches
+    // by  b_branchname->GetEntry(ientry); //read only this branch
+    
+    gROOT->SetBatch(kTRUE);
+    
+    if (fChain == 0)
+    {
+        return;
+    }
+
+    std::string plot_dir = "/eos/user/s/ssakhare/ROCPlots";
+    std::string sample = "SMS-T2-4bd_genMET-80_mStop-500_mLSP-490";
+    printf("Running over %s\n", sample.c_str());
+
+    Long64_t nentries = fChain->GetEntriesFast();
+    Long64_t nbytes = 0, nb = 0;
+    
+    
+    TH1F Flav0_EMID = TH1F("Flav0_EMID", "Flav0_EMID",60,0.0,12.0);
+    TH1F Flav1_EMID = TH1F("Flav1_EMID", "Flav1_EMID",60,0.0,12.0);
+    
+    for (Long64_t jentry=0; jentry<nentries;jentry++) 
+    {
+        Long64_t ientry = LoadTree(jentry);
+        if (ientry < 0) break;
+        nb = fChain->GetEntry(jentry);
+        nbytes += nb;
+        // if (Cut(ientry) < 0) continue;
+        if (jentry % 1000 == 0)
+        {
+            std::cout << "Event " << jentry << std::endl;
+        }
+        
+        // loop over electrons
+        for (int k = 0; k < nLowPtElectron; ++k)
+        {
+       
+           
+           if (LowPtElectron_genPartFlav[k] == 0)
+           {
+               Flav0_EMID.Fill(LowPtElectron_embeddedID[k]);
+           }
+           
+           if (LowPtElectron_genPartFlav[k] == 1)
+           {
+               Flav0_EMID.Fill(LowPtElectron_embeddedID[k]);
+           }   
+        }//End of loop
+    }    
+    PlotHist(Flav0_EMID,sample,plot_dir,"Flav0_EMID","EMID");
+    PlotHist(Flav1_EMID,sample,plot_dir,"Flav1_EMID","EMID");
+    ROC(Flav1_EMID, Flav0_EMID);
+        
+}        
+        
