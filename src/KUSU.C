@@ -168,7 +168,7 @@ void KUSU::ROC(TH1F &sigHist, TH1F &bkgHist)//, std::string sample_name, std::st
     TGraph *g = new TGraph(sigPoints.size(),&sigPoints[0],&bkgPoints[0]);
     g->Draw();
     c.Update();
-    c.SaveAs("Trial.pdf");
+    c.SaveAs("/eos/user/s/ssakhare/Trial.pdf");
     }         
 }
 
