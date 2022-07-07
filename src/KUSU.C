@@ -10,10 +10,10 @@
 
 
 std::string KUSU::GetLabel(std::string variable)
-{
-    std::map<std::string, std::string> labels {
+{ 
+    std::map<std::string, std::string> labels { 
         // variables
-        {"nElectrons",  "n_{e}"},
+        { "nElectrons",  "n_{e}"},
         {"pt",          "p_{T} [GeV]"},
         {"eta",         "#eta"},
         {"phi",         "#phi"},
@@ -135,13 +135,13 @@ void KUSU::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir, 
 
 void KUSU::ROC(TH1F &sigHist, TH1F &bkgHist)//, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable,std::string variable2)
 {
-    printf("Plotting %s\n", plot_name.c_str());
+    printf("Plotting ROC")
     
-    int nbins = sigHist->GetNbinsX(); // Finding out the number of bins
+    int nbins = sigHist.GetNbinsX(); // Finding out the number of bins
     
     // get the total integrals for each histogram
-    float sig_integral = sigHist->Integral(1,nbins);
-    float bkg_integral = bkgHist->Integral(1,nbins);
+    float sig_integral = sigHist.Integral(1,nbins);
+    float bkg_integral = bkgHist.Integral(1,nbins);
 
     // create containers sig = x points, bkg = y points
     std::vector<float> sigPoints(nbins);
@@ -155,22 +155,22 @@ void KUSU::ROC(TH1F &sigHist, TH1F &bkgHist)//, std::string sample_name, std::st
       // on each iteration we take a larger and larger slice of the histograms
       // eventually the slice will be the total integral (from bin 1 to bin nbins)
       // that point is (1,1) on the ROC curve.
-      float sig_slice_integral = sigHist->Integral(nbins-i,nbins);
-      float bkg_slice_integral = bkgHist->Integral(nbins-i,nbins);
+      float sig_slice_integral = sigHist.Integral(nbins-i,nbins);
+      float bkg_slice_integral = bkgHist.Integral(nbins-i,nbins);
       sigPoints.push_back(sig_slice_integral/sig_integral);
       bkgPoints.push_back(bkg_slice_integral/bkg_integral);
         
       // create a TGraph from the containers
     // this graph will have N (=nbins) number of points forming the curve.
     TGraph *g = new TGraph(sigPoints.size(),&sigPoints[0],&bkgPoints[0]);
-    g.Draw();
-    g.Update();
-    g.SaveAs("Trial.pdf")
+    g->Draw();
+    g->Update();
+    g->SaveAs("Trial.pdf");
              
 }
 
 void KUSU::Loop()
-{
+{ 
 
     // In a ROOT session, you can do:
     //      root> .L NanoClass.C
@@ -198,7 +198,7 @@ void KUSU::Loop()
     gROOT->SetBatch(kTRUE);
     
     if (fChain == 0)
-    {
+    { 
         return;
     }
 
@@ -784,24 +784,24 @@ void KUSU::Loop()
     
     
     
-    for (Long64_t jentry=0; jentry<nentries;jentry++) {
+    for (Long64_t jentry=0; jentry<nentries;jentry++) { 
         Long64_t ientry = LoadTree(jentry);
         if (ientry < 0) break;
         nb = fChain->GetEntry(jentry);
         nbytes += nb;
         // if (Cut(ientry) < 0) continue;
         if (jentry % 1000 == 0)
-        {
+        { 
             std::cout << "Event " << jentry << std::endl;
         }
         
         // loop over electrons
         for (int k = 0; k < nLowPtElectron; ++k)
-        {
+        { 
             float dxySig = -999;
             // avoid dividing by 0
             if (LowPtElectron_dxyErr[k] != 0)
-            {
+            { 
                 dxySig = LowPtElectron_dxy[k] / LowPtElectron_dxyErr[k];
             }
             
@@ -809,14 +809,14 @@ void KUSU::Loop()
             float dzSig = -999;
             
             if (LowPtElectron_dzErr[k] != 0)
-            {
+            { 
                 dzSig = LowPtElectron_dz[k] / LowPtElectron_dzErr[k];
             }
                 
             
             float IPSig1 =-999; //
             if (LowPtElectron_dxyErr[k] != 0 && LowPtElectron_dzErr[k] != 0)
-            {
+            { 
                 IPSig1 = sqrt(dxySig*dxySig + dzSig*dzSig);
         
             }
@@ -825,7 +825,7 @@ void KUSU::Loop()
             float IPErr = -999;
             
             if (LowPtElectron_dxyErr[k] != 0 && LowPtElectron_dzErr[k] != 0)
-            {
+            { 
                 IP = sqrt(LowPtElectron_dxy[k]*LowPtElectron_dxy[k] +LowPtElectron_dz[k]*LowPtElectron_dz[k]);
                 IPErr = sqrt(LowPtElectron_dxyErr[k]*LowPtElectron_dxyErr[k] +LowPtElectron_dzErr[k]*LowPtElectron_dzErr[k]);
         
@@ -836,7 +836,7 @@ void KUSU::Loop()
             
             float IPSig2 =-999; //
             if (LowPtElectron_dxyErr[k] != 0)
-            {
+            { 
                 IPSig2 = abs(IP/IPErr);
                  
             }
@@ -847,7 +847,7 @@ void KUSU::Loop()
             
             // No Flav
             if (LowPtElectron_pt[k]>=10 && LowPtElectron_pt[k]<20)
-            {   
+            {    
                 EMID.Fill(LowPtElectron_embeddedID[k]);
                 Eta.Fill(LowPtElectron_eta[k]);
                 Pt.Fill(LowPtElectron_pt[k]);
@@ -894,7 +894,7 @@ void KUSU::Loop()
                 //Flavor 0
 
                 if (LowPtElectron_genPartFlav[k] == 0)
-                {
+                { 
                     Flav0_EMID.Fill(LowPtElectron_embeddedID[k]);
                     Flav0_eta.Fill(LowPtElectron_eta[k]);
                     Flav0_pt.Fill(LowPtElectron_pt[k]);
@@ -916,7 +916,7 @@ void KUSU::Loop()
                 }
 
                 if (LowPtElectron_genPartFlav[k] == 1)
-                {
+                { 
                     Flav1_EMID.Fill(LowPtElectron_embeddedID[k]);
                     Flav1_eta.Fill(LowPtElectron_eta[k]);
                     Flav1_pt.Fill(LowPtElectron_pt[k]);
@@ -936,7 +936,7 @@ void KUSU::Loop()
                 }
 
                 if (LowPtElectron_genPartFlav[k] == 5)
-                {
+                { 
                     Flav5_EMID.Fill(LowPtElectron_embeddedID[k]);
                     Flav5_eta.Fill(LowPtElectron_eta[k]);
                     Flav5_pt.Fill(LowPtElectron_pt[k]);
@@ -961,14 +961,14 @@ void KUSU::Loop()
                 //////////////////////////////////////////////////////////////////////////////////////////////////////
                 ///////////////////////////////////////////////////////////////////////////////////////////////////////
                 if (LowPtElectron_eta[k] <2.4 && LowPtElectron_embeddedID[k]>=1.5)
-                {
+                { 
 
 
 
 
 
                     if (LowPtElectron_miniPFRelIso_all[k] <4 && abs(LowPtElectron_dxy[k])<0.05 && abs(LowPtElectron_dz[k])<0.1 && IPSig1<2)
-                    {
+                    { 
                         //////////////////////////////////////////////////
                         //Iron
                         IRON1_EMID.Fill(LowPtElectron_embeddedID[k]);
@@ -990,7 +990,7 @@ void KUSU::Loop()
 
 
                         if (LowPtElectron_genPartFlav[k] == 5)
-                        {
+                        { 
                             IRON1_FLAV5_EMID.Fill(LowPtElectron_embeddedID[k]);
                             IRON1_FLAV5_eta.Fill(LowPtElectron_eta[k]);
                             IRON1_FLAV5_pt.Fill(LowPtElectron_pt[k]);
@@ -1010,7 +1010,7 @@ void KUSU::Loop()
                         }
                         // LowPtElectron_genPartFlav == 1
                         if (LowPtElectron_genPartFlav[k] == 0)
-                        {
+                        { 
                             IRON1_FLAV0_EMID.Fill(LowPtElectron_embeddedID[k]);
                             IRON1_FLAV0_eta.Fill(LowPtElectron_eta[k]);
                             IRON1_FLAV0_pt.Fill(LowPtElectron_pt[k]);
@@ -1030,7 +1030,7 @@ void KUSU::Loop()
                         }
                         // LowPtElectron_genPartFlav == 5
                         if (LowPtElectron_genPartFlav[k] == 1)
-                        {
+                        { 
                             IRON1_FLAV1_EMID.Fill(LowPtElectron_embeddedID[k]);
                             IRON1_FLAV1_eta.Fill(LowPtElectron_eta[k]);
                             IRON1_FLAV1_pt.Fill(LowPtElectron_pt[k]);
@@ -1054,7 +1054,7 @@ void KUSU::Loop()
 
                     //IRON2 
                     if (LowPtElectron_miniPFRelIso_all[k] <4 && abs(LowPtElectron_dxy[k])<0.05 && abs(LowPtElectron_dz[k])<0.1 && IPSig1<2)
-                    {
+                    { 
                         //////////////////////////////////////////////////
                         //Iron
                         IRON2_EMID.Fill(LowPtElectron_embeddedID[k]);
@@ -1076,7 +1076,7 @@ void KUSU::Loop()
 
 
                         if (LowPtElectron_genPartFlav[k] == 5)
-                        {
+                        { 
                             IRON2_FLAV5_EMID.Fill(LowPtElectron_embeddedID[k]);
                             IRON2_FLAV5_eta.Fill(LowPtElectron_eta[k]);
                             IRON2_FLAV5_pt.Fill(LowPtElectron_pt[k]);
@@ -1096,7 +1096,7 @@ void KUSU::Loop()
                         }
                         // LowPtElectron_genPartFlav == 1
                         if (LowPtElectron_genPartFlav[k] == 0)
-                        {
+                        { 
                             IRON2_FLAV0_EMID.Fill(LowPtElectron_embeddedID[k]);
                             IRON2_FLAV0_eta.Fill(LowPtElectron_eta[k]);
                             IRON2_FLAV0_pt.Fill(LowPtElectron_pt[k]);
@@ -1116,7 +1116,7 @@ void KUSU::Loop()
                         }
                         // LowPtElectron_genPartFlav == 5
                         if (LowPtElectron_genPartFlav[k] == 1)
-                        {
+                        { 
                             IRON2_FLAV1_EMID.Fill(LowPtElectron_embeddedID[k]);
                             IRON2_FLAV1_eta.Fill(LowPtElectron_eta[k]);
                             IRON2_FLAV1_pt.Fill(LowPtElectron_pt[k]);
@@ -1144,7 +1144,7 @@ void KUSU::Loop()
                     //////////////////////////////////////////////////
                         //Irom Long
                     if (LowPtElectron_miniPFRelIso_all[k] <4 &&  IPSig1>=2)
-                    {
+                    { 
                         IRONLONG1_EMID.Fill(LowPtElectron_embeddedID[k]);
                         IRONLONG1_eta.Fill(LowPtElectron_eta[k]);
                         IRONLONG1_pt.Fill(LowPtElectron_pt[k]);
@@ -1164,7 +1164,7 @@ void KUSU::Loop()
 
 
                         if (LowPtElectron_genPartFlav[k] == 5)
-                        {
+                        { 
                             LONG1_FLAV5_EMID.Fill(LowPtElectron_embeddedID[k]);
                             LONG1_FLAV5_eta.Fill(LowPtElectron_eta[k]);
                             LONG1_FLAV5_pt.Fill(LowPtElectron_pt[k]);
@@ -1184,7 +1184,7 @@ void KUSU::Loop()
                         }
                         // LowPtElectron_genPartFlav == 1
                         if (LowPtElectron_genPartFlav[k] == 0)
-                        {
+                        { 
                             LONG1_FLAV0_EMID.Fill(LowPtElectron_embeddedID[k]);
                             LONG1_FLAV0_eta.Fill(LowPtElectron_eta[k]);
                             LONG1_FLAV0_pt.Fill(LowPtElectron_pt[k]);
@@ -1204,7 +1204,7 @@ void KUSU::Loop()
                         }
                         // LowPtElectron_genPartFlav == 5
                         if (LowPtElectron_genPartFlav[k] == 1)
-                        {
+                        { 
                             LONG1_FLAV1_EMID.Fill(LowPtElectron_embeddedID[k]);
                             LONG1_FLAV1_eta.Fill(LowPtElectron_eta[k]);
                             LONG1_FLAV1_pt.Fill(LowPtElectron_pt[k]);
@@ -1226,7 +1226,7 @@ void KUSU::Loop()
                     }
 
                     if (LowPtElectron_miniPFRelIso_all[k] <4 &&  abs(LowPtElectron_dz[k])>=2)
-                    {
+                    { 
                         //////////////////////////////////////////////////
                         //LONG 2
                        IRONLONG2_EMID.Fill(LowPtElectron_embeddedID[k]);
@@ -1248,7 +1248,7 @@ void KUSU::Loop()
 
 
                         if (LowPtElectron_genPartFlav[k] == 5)
-                        {
+                        { 
                            LONG2_FLAV5_EMID.Fill(LowPtElectron_embeddedID[k]);
                            LONG2_FLAV5_eta.Fill(LowPtElectron_eta[k]);
                            LONG2_FLAV5_pt.Fill(LowPtElectron_pt[k]);
@@ -1268,7 +1268,7 @@ void KUSU::Loop()
                         }
                         // LowPtElectron_genPartFlav == 1
                         if (LowPtElectron_genPartFlav[k] == 0)
-                        {
+                        { 
                            LONG2_FLAV0_EMID.Fill(LowPtElectron_embeddedID[k]);
                            LONG2_FLAV0_eta.Fill(LowPtElectron_eta[k]);
                            LONG2_FLAV0_pt.Fill(LowPtElectron_pt[k]);
@@ -1288,7 +1288,7 @@ void KUSU::Loop()
                         }
                         // LowPtElectron_genPartFlav == 5
                         if (LowPtElectron_genPartFlav[k] == 1)
-                        {
+                        { 
                            LONG2_FLAV1_EMID.Fill(LowPtElectron_embeddedID[k]);
                            LONG2_FLAV1_eta.Fill(LowPtElectron_eta[k]);
                            LONG2_FLAV1_pt.Fill(LowPtElectron_pt[k]);
@@ -1314,7 +1314,7 @@ void KUSU::Loop()
 
 
                     if (LowPtElectron_miniPFRelIso_all[k] >=4 && abs(LowPtElectron_dxy[k])<0.05 && abs(LowPtElectron_dz[k])<0.1 && IPSig1<2)
-                    {
+                    { 
                         //////////////////////////////////////////////////
                         //Iron
                         FAKE_EMID.Fill(LowPtElectron_embeddedID[k]);
@@ -1334,7 +1334,7 @@ void KUSU::Loop()
                         FAKE_IP.Fill(IP);
                         FAKE_IPErr.Fill(IPErr);
                         if (LowPtElectron_genPartFlav[k] == 5)
-                        {
+                        { 
                             FAKE_FLAV5_EMID.Fill(LowPtElectron_embeddedID[k]);
                             FAKE_FLAV5_eta.Fill(LowPtElectron_eta[k]);
                             FAKE_FLAV5_pt.Fill(LowPtElectron_pt[k]);
@@ -1354,7 +1354,7 @@ void KUSU::Loop()
                         }
                         // LowPtElectron_genPartFlav == 1
                         if (LowPtElectron_genPartFlav[k] == 0)
-                        {
+                        { 
                             FAKE_FLAV0_EMID.Fill(LowPtElectron_embeddedID[k]);
                             FAKE_FLAV0_eta.Fill(LowPtElectron_eta[k]);
                             FAKE_FLAV0_pt.Fill(LowPtElectron_pt[k]);
@@ -1374,7 +1374,7 @@ void KUSU::Loop()
                         }
                         // LowPtElectron_genPartFlav == 5
                         if (LowPtElectron_genPartFlav[k] == 1)
-                        {
+                        { 
                             FAKE_FLAV1_EMID.Fill(LowPtElectron_embeddedID[k]);
                             FAKE_FLAV1_eta.Fill(LowPtElectron_eta[k]);
                             FAKE_FLAV1_pt.Fill(LowPtElectron_pt[k]);
@@ -1975,8 +1975,8 @@ void KUSU::Loop()
 }
 
 
-void KUSU::Loop()
-{
+void KUSU::Loop2()
+{ 
 
     // In a ROOT session, you can do:
     //      root> .L NanoClass.C
@@ -2004,7 +2004,7 @@ void KUSU::Loop()
     gROOT->SetBatch(kTRUE);
     
     if (fChain == 0)
-    {
+    { 
         return;
     }
 
@@ -2020,29 +2020,29 @@ void KUSU::Loop()
     TH1F Flav1_EMID = TH1F("Flav1_EMID", "Flav1_EMID",60,0.0,12.0);
     
     for (Long64_t jentry=0; jentry<nentries;jentry++) 
-    {
+    { 
         Long64_t ientry = LoadTree(jentry);
         if (ientry < 0) break;
         nb = fChain->GetEntry(jentry);
         nbytes += nb;
         // if (Cut(ientry) < 0) continue;
         if (jentry % 1000 == 0)
-        {
+        { 
             std::cout << "Event " << jentry << std::endl;
         }
         
         // loop over electrons
         for (int k = 0; k < nLowPtElectron; ++k)
-        {
+        { 
        
            
            if (LowPtElectron_genPartFlav[k] == 0)
-           {
+           { 
                Flav0_EMID.Fill(LowPtElectron_embeddedID[k]);
            }
            
            if (LowPtElectron_genPartFlav[k] == 1)
-           {
+           { 
                Flav0_EMID.Fill(LowPtElectron_embeddedID[k]);
            }   
         }//End of loop
