@@ -2046,7 +2046,7 @@ void KUSU::Loop2()
            
            if (LowPtElectron_genPartFlav[k] == 1)
            { 
-               Flav0_EMID.Fill(LowPtElectron_embeddedID[k]);
+               Flav1_EMID.Fill(LowPtElectron_embeddedID[k]);
            }   
         }//End of loop
     }    
