@@ -135,7 +135,7 @@ void KUSU::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir, 
 
 void KUSU::ROC(TH1F &sigHist, TH1F &bkgHist)//, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable,std::string variable2)
 {
-    printf("Plotting ROC")
+    printf("Plotting ROC");
     
     int nbins = sigHist.GetNbinsX(); // Finding out the number of bins
     
@@ -164,9 +164,8 @@ void KUSU::ROC(TH1F &sigHist, TH1F &bkgHist)//, std::string sample_name, std::st
     // this graph will have N (=nbins) number of points forming the curve.
     TGraph *g = new TGraph(sigPoints.size(),&sigPoints[0],&bkgPoints[0]);
     g->Draw();
-    g->Update();
     g->SaveAs("Trial.pdf");
-             
+    }         
 }
 
 void KUSU::Loop()
