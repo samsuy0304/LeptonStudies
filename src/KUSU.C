@@ -165,7 +165,7 @@ void KUSU::ROC(TH1F &sigHist, TH1F &bkgHist)//, std::string sample_name, std::st
         
       // create a TGraph from the containers
     // this graph will have N (=nbins) number of points forming the curve.
-    TGraph *g = new TGraph(sigPoints.size(),&sigPoints,&bkgPoints);
+    TGraph *g = new TGraph(sigPoints.size(),&sigPoints[0],&bkgPoints[0]);
     g->Draw();
     c.Update();
     c.SaveAs("/eos/user/s/ssakhare/Trial.pdf");
