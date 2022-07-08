@@ -168,7 +168,7 @@ void KUSU::ROC(TH1F &sigHist, TH1F &bkgHist, std::string plot_name)//, std::stri
     TGraph *g = new TGraph(sigPoints.size(),&sigPoints[0],&bkgPoints[0]);
     g->SetTitle(plot_name.c_str());
     g->GetYaxis()->SetTitle("True Positive Rate");
-    g->GetYaxis()->SetTitle("False Positive Rate");
+    g->GetXaxis()->SetTitle("False Positive Rate");
     g->Draw();
    
     c.Update();
@@ -2029,7 +2029,7 @@ void KUSU::Loop2()
 
     Long64_t nentries = fChain->GetEntriesFast();
     Long64_t nbytes = 0, nb = 0;
-    float Lower_pt = 0.0
+    float Lower_pt = 0.0;
     float Higher_pt = 5.0;
     
     
