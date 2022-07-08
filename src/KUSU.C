@@ -133,7 +133,7 @@ void KUSU::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir, 
     c.SaveAs(output_name_pdf.c_str());
 }
 
-void KUSU::ROC(TH1F &sigHist, TH1F &bkgHist)//, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable,std::string variable2)
+void KUSU::ROC(TH1F &sigHist, TH1F &bkgHist, std::string plot_name)//, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable,std::string variable2)
 {
     printf("Plotting ROC");
     // canvas
@@ -162,13 +162,19 @@ void KUSU::ROC(TH1F &sigHist, TH1F &bkgHist)//, std::string sample_name, std::st
       float bkg_slice_integral = bkgHist.Integral(nbins-i,nbins);
       sigPoints.push_back(sig_slice_integral/sig_integral);
       bkgPoints.push_back(bkg_slice_integral/bkg_integral);
-        
+    }  
       // create a TGraph from the containers
     // this graph will have N (=nbins) number of points forming the curve.
     TGraph *g = new TGraph(sigPoints.size(),&sigPoints[0],&bkgPoints[0]);
+    g->SetTitle(plot_name.c_str());
+    g->GetYaxis()->SetTitle("True Positive Rate");
+    g->GetYaxis()->SetTitle("False Positive Rate");
     g->Draw();
+   
     c.Update();
-    c.SaveAs("/eos/user/s/ssakhare/Trial.pdf");
+    std::string output_name = ("/eos/user/s/ssakhare/ROCPlots/"+"SM_HighCut" + plot_name;
+    std::string output_name_pdf = output_name + ".pdf";
+    c.SaveAs(output_name_pdf.c_str());
     }         
 }
 
@@ -872,7 +878,7 @@ void KUSU::Loop()
                
             
             // No Flav
-            if (LowPtElectron_convVeto[k]=1 && LowPtElectron_pt[k]>=10 && LowPtElectron_pt[k]<20)
+            if (LowPtElectron_convVeto[k]=1 && LowPtElectron_pt[k]>=Lower_pt && LowPtElectron_pt[k]<Higher_pt)
             {    
                 EMID.Fill(LowPtElectron_embeddedID[k]);
                 Eta.Fill(LowPtElectron_eta[k]);
@@ -1080,7 +1086,7 @@ void KUSU::Loop()
 
 
                     //IRON2_PARAMETERS 
-                    if (LowPtElectron_miniPFRelIso_all[k] <4 && abs(LowPtElectron_dxy[k])<0.05 && abs(LowPtElectron_dz[k])<0.1 && dzSig<2)
+                    if (LowPtElectron_miniPFRelIso_all[k] <4 && abs(LowPtElectron_dxy[k])<0.05 && abs(LowPtElectron_dz[k])<0.1 && abs(dzSig)<2)
                     { 
                         //////////////////////////////////////////////////
                         //Iron
@@ -2043,8 +2049,20 @@ void KUSU::Loop2()
     Long64_t nbytes = 0, nb = 0;
     
     
-    TH1F Flav0_EMID = TH1F("Flav0_EMID", "Flav0_EMID",60,0.0,12.0);
-    TH1F Flav1_EMID = TH1F("Flav1_EMID", "Flav1_EMID",60,0.0,12.0);
+    TH1F Flav0_EMID_R = TH1F("Flav0_EMID", "Flav0_EMID",60,0.0,12.0);
+    TH1F Flav1_EMID_R = TH1F("Flav1_EMID", "Flav1_EMID",60,0.0,12.0);
+    
+    TH1F Iron1_Flav0_EMID_R = TH1F("Iron1_Flav0_EMID", "Iron1_Flav0_EMID",60,4.0,12.0);
+    TH1F Iron1_Flav1_EMID_R = TH1F("Iron1_Flav1_EMID", "Iron1_Flav1_EMID",60,4.0,12.0);
+    
+    TH1F Iron2_Flav0_EMID_R = TH1F("Iron2_Flav0_EMID", "Iron2_Flav0_EMID",60,4.0,12.0);
+    TH1F Iron2_Flav1_EMID_R = TH1F("Iron2_Flav1_EMID", "Iron2_Flav1_EMID",60,4.0,12.0);
+    
+    TH1F IronLong1_Flav0_EMID_R = TH1F("IronLong1_Flav0_EMID", "IronLong1_Flav0_EMID",60,4.0,12.0);
+    TH1F IronLong1_Flav1_EMID_R = TH1F("IronLong1_Flav1_EMID", "IronLong1_Flav1_EMID",60,4.0,12.0);
+    
+    TH1F IronFake_Flav0_EMID_R = TH1F("IronFake_Flav0_EMID", "IronFake_Flav0_EMID",60,4.0,12.0);
+    TH1F IronFake_Flav1_EMID_R = TH1F("IronFake_Flav1_EMID", "IronFake_Flav1_EMID",60,4.0,12.0);
     
     for (Long64_t jentry=0; jentry<nentries;jentry++) 
     { 
@@ -2063,20 +2081,125 @@ void KUSU::Loop2()
         { 
        
            
-           if (LowPtElectron_genPartFlav[k] == 0)
-           { 
-               Flav0_EMID.Fill(LowPtElectron_embeddedID[k]);
-           }
            
-           if (LowPtElectron_genPartFlav[k] == 1)
-           { 
-               Flav1_EMID.Fill(LowPtElectron_embeddedID[k]);
-           }   
+            
+           
+          
+           
+           //Starting Partameters 
+           if (LowPtElectron_convVeto[k]=1 && LowPtElectron_pt[k]>=Lower_pt && LowPtElectron_pt[k]<Higher_pt && abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=4){
+               
+               if (LowPtElectron_genPartFlav[k] == 0)
+               { 
+                   Flav0_EMID_R.Fill(LowPtElectron_embeddedID[k]);
+               }
+
+               if (LowPtElectron_genPartFlav[k] == 1)
+               { 
+                   Flav1_EMID_R.Fill(LowPtElectron_embeddedID[k]);
+               }
+               
+               
+               //IRON1
+               if (LowPtElectron_miniPFRelIso_all[k] <4 && abs(LowPtElectron_dxy[k])<0.05 && abs(LowPtElectron_dz[k])<0.1 && IPSig1<2)
+               {
+                   if (LowPtElectron_genPartFlav[k] == 0)
+                   { 
+                       Iron1_Flav0_EMID_R.Fill(LowPtElectron_embeddedID[k]);
+                   }
+
+                   if (LowPtElectron_genPartFlav[k] == 1)
+                   { 
+                       Iron1_Flav1_EMID_R.Fill(LowPtElectron_embeddedID[k]);
+                   }
+               }  
+               
+               //IRON2_PARAMETERS 
+               if (LowPtElectron_miniPFRelIso_all[k] <4 && abs(LowPtElectron_dxy[k])<0.05 && abs(LowPtElectron_dz[k])<0.1 && abs(dzSig)<2)
+               {
+                   if (LowPtElectron_genPartFlav[k] == 0)
+                   { 
+                       Iron2_Flav0_EMID_R.Fill(LowPtElectron_embeddedID[k]);
+                   }
+
+                   if (LowPtElectron_genPartFlav[k] == 1)
+                   { 
+                       Iron2_Flav1_EMID_R.Fill(LowPtElectron_embeddedID[k]);
+                   } 
+               }
+               
+               //////////////////////////////////////////////////
+                //Irom Long
+               if (LowPtElectron_miniPFRelIso_all[k] <4 &&  IPSig1>=2)
+               {
+                   if (LowPtElectron_genPartFlav[k] == 0)
+                   { 
+                       IronLong1_Flav0_EMID_R.Fill(LowPtElectron_embeddedID[k]);
+                   }
+
+                   if (LowPtElectron_genPartFlav[k] == 1)
+                   { 
+                       IronLong1_Flav1_EMID_R.Fill(LowPtElectron_embeddedID[k]);
+                   }
+               }
+               
+               
+               //IRoNlong2 para
+               
+               if (LowPtElectron_miniPFRelIso_all[k] <4 &&  abs(dzSig)>=2)
+               {
+                   if (LowPtElectron_genPartFlav[k] == 0)
+                   { 
+                       IronLong2_Flav0_EMID_R.Fill(LowPtElectron_embeddedID[k]);
+                   }
+
+                   if (LowPtElectron_genPartFlav[k] == 1)
+                   { 
+                       IronLong2_Flav1_EMID_R.Fill(LowPtElectron_embeddedID[k]);
+                   }
+               }
+               
+               
+               
+               if (LowPtElectron_miniPFRelIso_all[k] >=4 && abs(LowPtElectron_dxy[k])<0.05 && abs(LowPtElectron_dz[k])<0.1 && IPSig1<2)
+               {
+                   if (LowPtElectron_genPartFlav[k] == 0)
+                   { 
+                       IronFake_Flav0_EMID_R.Fill(LowPtElectron_embeddedID[k]);
+                   }
+
+                   if (LowPtElectron_genPartFlav[k] == 1)
+                   { 
+                       IronFake_Flav1_EMID_R.Fill(LowPtElectron_embeddedID[k]);
+                   }
+               }
+        
+
+           }    
+         
         }//End of loop
     }    
-    PlotHist(Flav0_EMID,sample,plot_dir,"Flav0_EMID","EMID");
-    PlotHist(Flav1_EMID,sample,plot_dir,"Flav1_EMID","EMID");
-    ROC(Flav1_EMID, Flav0_EMID);
+    PlotHist(IronLong2_Flav0_EMID_R,sample,plot_dir,"Flav0_EMID","EMID");
+    PlotHist(IronLong2_Flav1_EMID_R,sample,plot_dir,"Flav1_EMID","EMID");
+    ROC(IronLong2_Flav1_EMID_R, IronLong2_Flav0_EMID_R, "IronLong2_Flav(SignalFLav1)");
+    
+    PlotHist(IronFake_Flav0_EMID_R,sample,plot_dir,"Flav0_EMID","EMID");
+    PlotHist(IronFake_Flav1_EMID_R,sample,plot_dir,"Flav1_EMID","EMID");
+    ROC(IronFake_Flav1_EMID_R, IronFake_Flav0_EMID_R, "IronFake_Flav(SignalFLav1)");
+    
+    PlotHist(IronLong1_Flav0_EMID_R,sample,plot_dir,"Flav0_EMID","EMID");
+    PlotHist(IronLong1_Flav1_EMID_R,sample,plot_dir,"Flav1_EMID","EMID");
+    ROC(IronLong1_Flav1_EMID_R, IronLong1_Flav0_EMID_R, "IronLong1_Flav(SignalFLav1)");
+    
+    PlotHist(Iron1_Flav0_EMID_R,sample,plot_dir,"Flav0_EMID","EMID");
+    PlotHist(Iron1_Flav1_EMID_R,sample,plot_dir,"Flav1_EMID","EMID");
+    ROC(Iron1_Flav1_EMID_R, Iron1_Flav0_EMID_R, "Iron1_Flav(SignalFLav1)");
+    
+    PlotHist(Iron2_Flav0_EMID_R,sample,plot_dir,"Flav0_EMID","EMID");
+    PlotHist(Iron2_Flav1_EMID_R,sample,plot_dir,"Flav1_EMID","EMID");
+    ROC(Iron2_Flav1_EMID_R, Iron2_Flav0_EMID_R, "Iron2_Flav(SignalFLav1)");
+        
+        
         
 }        
         
