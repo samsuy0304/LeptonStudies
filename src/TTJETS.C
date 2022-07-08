@@ -29,6 +29,7 @@ std::string TTJETS::GetLabel(std::string variable)
         {"IPSig1",      "d_{IP} sig1"},
         {"IPSig2",      "d_{IP} sig2"},
         {"IP",      "d_{IP}"},
+        {"GenID ",      "GenID"},
     };
     std::string label = "";
     // check if variable exists in labels
@@ -306,7 +307,7 @@ void TTJETS::Loop()
     TH1F IRON1_IPSigdiff = TH1F("IRON1_IPSigDiff", "IRON1_IPSigDiff",100,-1.0,1.0);
     TH1F IRON1_CONV = TH1F("IRON1_CONV","IRON1_CONV",2,0.0,2.0);
     TH1F IRON1_ISO = TH1F("IRON1_ISO","IRON1_ISO",50, 0.0, 20.0);
-        
+    TH1F IRON1_GenID_idx = TH1F("IRON1_GenID_idx","IRON1_GenID_idx",50, 0.0, 50.0);    
     
      
     //IRON2 No Flav
@@ -326,6 +327,7 @@ void TTJETS::Loop()
     TH1F IRON2_IPSigdiff = TH1F("IRON2_IPSigDiff", "IRON2_IPSigDiff",100,-1.0,1.0);
     TH1F IRON2_CONV = TH1F("IRON2_CONV","IRON2_CONV",2,0.0,2.0);
     TH1F IRON2_ISO = TH1F("IRON2_ISO","IRON2_ISO",50, 0.0, 20.0);
+    
     
     //Long 1 No Flav
     TH1F IRONLONG1_EMID = TH1F("IRONLONG1_EMID", "IRONLONG1_EMID",60,0.0,12.0);
@@ -990,6 +992,10 @@ void TTJETS::Loop()
                         pt_vs_ISO.Fill(LowPtElectron_pt[k],LowPtElectron_miniPFRelIso_all[k]);
 
                         Flav_vs_EMID.Fill(LowPtElectron_genPartFlav[k],LowPtElectron_embeddedID[k]);
+                        
+                        
+                        
+                        IRON1_GenID_idx.Fill(LowPtElectron_genPartIdx[k]);
 
 
 
@@ -1413,7 +1419,12 @@ void TTJETS::Loop()
             
     }
     
+    
+    PlotHist(IRON1_GenID_idx,      sample, plot_dir, "Iron1_GenIDX", "GenID");
+    
     //EMID
+    
+    
     PlotHist(IRON1_FLAV0_EMID,      sample, plot_dir, "EMID_IRON1_Flav0", "EMID");
     PlotHist(IRON2_FLAV0_EMID,      sample, plot_dir, "EMID_IRON2_Flav0", "EMID");
     PlotHist(LONG1_FLAV0_EMID,      sample, plot_dir, "EMID_IRONLong1_Flav0","EMID");
