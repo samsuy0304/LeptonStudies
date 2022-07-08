@@ -175,7 +175,7 @@ void KUSU::ROC(TH1F &sigHist, TH1F &bkgHist, std::string plot_name)//, std::stri
     std::string output_name = std::string("/eos/user/s/ssakhare/ROCPlots/")+std::string("SM_HighCut") + plot_name;
     std::string output_name_pdf = output_name + ".pdf";
     c.SaveAs(output_name_pdf.c_str());
-    }         
+             
 }
 
 void KUSU::Loop()
