@@ -172,7 +172,7 @@ void KUSU::ROC(TH1F &sigHist, TH1F &bkgHist, std::string plot_name)//, std::stri
     g->Draw();
    
     c.Update();
-    std::string output_name = ("/eos/user/s/ssakhare/ROCPlots/"+"SM_HighCut" + plot_name;
+    std::string output_name = "/eos/user/s/ssakhare/ROCPlots/"+"SM_HighCut" + plot_name;
     std::string output_name_pdf = output_name + ".pdf";
     c.SaveAs(output_name_pdf.c_str());
     }         
@@ -218,28 +218,10 @@ void KUSU::Loop()
 
     Long64_t nentries = fChain->GetEntriesFast();
     Long64_t nbytes = 0, nb = 0;
-    float Lower_pt = -999;
-    float Higher_pt = -999;
+    float Lower_pt = 10.0;
+    float Higher_pt = 20.0;
     
-    if (Checker = "HighCut"){
-        Lower_pt = 10.0;
-        Higher_pt =20.0;
-    }
     
-    if (Checker = "LowCut"){
-        Lower_pt = 0.0;
-        Higher_pt =5.0;
-    }
-    
-    if (Checker = "MidCut"){
-        Lower_pt = 5.0;
-        Higher_pt =10.0;
-    }
-    
-    if (Checker = "NoCut"){
-        Lower_pt = 0.0;
-        Higher_pt =20.0;
-    }
 
     // Int_t           LowPtElectron_genPartIdx[5];   //[nLowPtElectron]
     // UChar_t         LowPtElectron_genPartFlav[5];   //[nLowPtElectron]
@@ -2060,6 +2042,8 @@ void KUSU::Loop2()
     
     TH1F IronLong1_Flav0_EMID_R = TH1F("IronLong1_Flav0_EMID", "IronLong1_Flav0_EMID",60,4.0,12.0);
     TH1F IronLong1_Flav1_EMID_R = TH1F("IronLong1_Flav1_EMID", "IronLong1_Flav1_EMID",60,4.0,12.0);
+    TH1F IronLong2_Flav0_EMID_R = TH1F("IronLong2_Flav0_EMID", "IronLong2_Flav0_EMID",60,4.0,12.0);
+    TH1F IronLong2_Flav1_EMID_R = TH1F("IronLong2_Flav1_EMID", "IronLong2_Flav1_EMID",60,4.0,12.0);
     
     TH1F IronFake_Flav0_EMID_R = TH1F("IronFake_Flav0_EMID", "IronFake_Flav0_EMID",60,4.0,12.0);
     TH1F IronFake_Flav1_EMID_R = TH1F("IronFake_Flav1_EMID", "IronFake_Flav1_EMID",60,4.0,12.0);
@@ -2080,7 +2064,50 @@ void KUSU::Loop2()
         for (int k = 0; k < nLowPtElectron; ++k)
         { 
        
-           
+           float dxySig = -999;
+            // avoid dividing by 0
+            if (LowPtElectron_dxyErr[k] != 0)
+            { 
+                dxySig = LowPtElectron_dxy[k] / LowPtElectron_dxyErr[k];
+            }
+            
+            
+            float dzSig = -999;
+            
+            if (LowPtElectron_dzErr[k] != 0)
+            { 
+                dzSig = LowPtElectron_dz[k] / LowPtElectron_dzErr[k];
+            }
+                
+            
+            float IPSig1 =-999; //
+            if (LowPtElectron_dxyErr[k] != 0 && LowPtElectron_dzErr[k] != 0)
+            { 
+                IPSig1 = sqrt(dxySig*dxySig + dzSig*dzSig);
+        
+            }
+    
+            float IP = -999;
+            float IPErr = -999;
+            
+            if (LowPtElectron_dxyErr[k] != 0 && LowPtElectron_dzErr[k] != 0)
+            { 
+                IP = sqrt(LowPtElectron_dxy[k]*LowPtElectron_dxy[k] +LowPtElectron_dz[k]*LowPtElectron_dz[k]);
+                IPErr = sqrt(LowPtElectron_dxyErr[k]*LowPtElectron_dxyErr[k] +LowPtElectron_dzErr[k]*LowPtElectron_dzErr[k]);
+        
+            }
+              
+            
+            
+            
+            float IPSig2 =-999; //
+            if (LowPtElectron_dxyErr[k] != 0)
+            { 
+                IPSig2 = abs(IP/IPErr);
+                 
+            }
+            
+            float IPdiff = IPSig1 - IPSig2;
            
             
            
