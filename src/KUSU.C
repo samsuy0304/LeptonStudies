@@ -172,7 +172,7 @@ void KUSU::ROC(TH1F &sigHist, TH1F &bkgHist, std::string plot_name)//, std::stri
     g->Draw();
    
     c.Update();
-    std::string output_name = "/eos/user/s/ssakhare/ROCPlots/"+"SM_HighCut" + plot_name;
+    std::string output_name = std::string("/eos/user/s/ssakhare/ROCPlots/")+std::string("SM_HighCut") + plot_name;
     std::string output_name_pdf = output_name + ".pdf";
     c.SaveAs(output_name_pdf.c_str());
     }         
@@ -860,7 +860,7 @@ void KUSU::Loop()
                
             
             // No Flav
-            if (LowPtElectron_convVeto[k]=1 && LowPtElectron_pt[k]>=Lower_pt && LowPtElectron_pt[k]<Higher_pt)
+            if (LowPtElectron_convVeto[k]==1 && LowPtElectron_pt[k]>=Lower_pt && LowPtElectron_pt[k]<Higher_pt)
             {    
                 EMID.Fill(LowPtElectron_embeddedID[k]);
                 Eta.Fill(LowPtElectron_eta[k]);
@@ -2029,6 +2029,8 @@ void KUSU::Loop2()
 
     Long64_t nentries = fChain->GetEntriesFast();
     Long64_t nbytes = 0, nb = 0;
+    float Lower_pt = 10.0;
+    float Higher_pt = 20.0;
     
     
     TH1F Flav0_EMID_R = TH1F("Flav0_EMID", "Flav0_EMID",60,0.0,12.0);
@@ -2114,7 +2116,7 @@ void KUSU::Loop2()
           
            
            //Starting Partameters 
-           if (LowPtElectron_convVeto[k]=1 && LowPtElectron_pt[k]>=Lower_pt && LowPtElectron_pt[k]<Higher_pt && abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=4){
+           if (LowPtElectron_convVeto[k]==1 && LowPtElectron_pt[k]>=Lower_pt && LowPtElectron_pt[k]<Higher_pt && abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=4){
                
                if (LowPtElectron_genPartFlav[k] == 0)
                { 
