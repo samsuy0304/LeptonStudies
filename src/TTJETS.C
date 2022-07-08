@@ -205,12 +205,16 @@ void TTJETS::Loop()
         return;
     }
 
-    std::string plot_dir = "/eos/user/s/ssakhare/ttbar/NoCut";
+    std::string plot_dir = "/eos/user/s/ssakhare/ttbar/LowCut";
     std::string sample = "TTbar";
     printf("Running over %s\n", sample.c_str());
 
-    Long64_t nentries = fChain->GetEntriesFast();
+     Long64_t nentries = fChain->GetEntriesFast();
     Long64_t nbytes = 0, nb = 0;
+    float Lower_pt = 1.0;
+    float Higher_pt = 5.0;
+    
+    
 
     // Int_t           LowPtElectron_genPartIdx[5];   //[nLowPtElectron]
     // UChar_t         LowPtElectron_genPartFlav[5];   //[nLowPtElectron]
@@ -218,15 +222,15 @@ void TTJETS::Loop()
     // Only Flavors
     // NO Flav
     TH1F EMID = TH1F("EMID", "EMID",60,0.0,12.0);
-    TH1F Pt = TH1F("pt", "pt",80,0.0,20.0);
-    TH1F Eta = TH1F("eta", "eta",30,-3,3);
-    TH1F Dxy = TH1F("dxy", "dxy",100,-0.1,0.1); 
-    TH1F DxyErr = TH1F("dxyErr", "dxyErr",50,0,0.06)  ;
-    TH1F Dz = TH1F("dz", "dz",100,-0.1,0.1)  ;
+    TH1F Pt = TH1F("pt", "pt",80,Lower_pt,Higher_pt);
+    TH1F Eta = TH1F("eta", "eta",30,-2.4,2.4);
+    TH1F Dxy = TH1F("dxy", "dxy",100,0.05,-0.05); 
+    TH1F DxyErr = TH1F("dxyErr", "dxyErr",50,0,0.02)  ;
+    TH1F Dz = TH1F("dz", "dz",100,-0.05,0.05)  ;
     TH1F DzErr = TH1F("dzErr", "dzErr",50,0,0.06);  
     TH1F DxySig = TH1F("dxySig", "dxySig",100,-3.0,3.0);  
     TH1F DzSig = TH1F("dzSig", "dzSig",50,-3.0,3.0)  ;                         
-    TH1F IP_graph = TH1F("IP", "IP",100,0.0,1.0)  ;                      
+    TH1F IP_graph = TH1F("IP", "IP",100,0.0,0.01)  ;                      
     TH1F IPErr_graph = TH1F("IPErr", "IPErr",50,-5.0,5.0);   
     TH1F IPSig1_graph = TH1F("IPSig1", "IPSig1",100,0.0,10.0) ;   
     TH1F IPSig2_graph= TH1F("IPSig2", "IPSig2",100,0.0,10.0);        
@@ -235,15 +239,15 @@ void TTJETS::Loop()
     TH1F ISO = TH1F("ISO","ISO",50,0.0,20.0);
     // Flav 0                                               
     TH1F Flav0_EMID = TH1F("Flav0_EMID", "Flav0_EMID",60,0.0,12.0);
-    TH1F Flav0_pt = TH1F("Flav0_pt", "Flav0_pt",80,0.0,20.0)   ;
-    TH1F Flav0_eta = TH1F("Flav0_eta", "Flav0_eta",30,-3,3)    ;
-    TH1F Flav0_dxy = TH1F("Flav0_dxy", "Flav0_dxy",100,-0.1,0.1)  ;
-    TH1F Flav0_dxyErr = TH1F("Flav0_dxyErr", "Flav0_dxyErr",50,0,0.06)  ;
-    TH1F Flav0_dz = TH1F("Flav0_dz", "Flav0_dz",100,-0.1,0.1)  ;
+    TH1F Flav0_pt = TH1F("Flav0_pt", "Flav0_pt",80,Lower_pt,Higher_pt)   ;
+    TH1F Flav0_eta = TH1F("Flav0_eta", "Flav0_eta",30,-2.4,2.4)    ;
+    TH1F Flav0_dxy = TH1F("Flav0_dxy", "Flav0_dxy",100,0.05,-0.05)  ;
+    TH1F Flav0_dxyErr = TH1F("Flav0_dxyErr", "Flav0_dxyErr",50,0,0.02)  ;
+    TH1F Flav0_dz = TH1F("Flav0_dz", "Flav0_dz",100,-0.05,0.05)  ;
     TH1F Flav0_dzErr = TH1F("Flav0_dzErr", "Flav0_dzErr",50,0,0.06) ; 
     TH1F Flav0_dxySig = TH1F("Flav0_dxySig", "Flav0_dxySig",100,-3.0,3.0);  
     TH1F Flav0_dzSig = TH1F("Flav0_dzSig", "Flav0_dzSig",100,-3.0,3.0) ; 
-    TH1F Flav0_IP = TH1F("Flav0_IP", "Flav0_IP",100,0.0,1.0)  ;
+    TH1F Flav0_IP = TH1F("Flav0_IP", "Flav0_IP",100,0.0,0.01)  ;
     TH1F Flav0_IPErr = TH1F("Flav0_IPErr", "Flav0_IPErr",50,-5.0,5.0);
     TH1F Flav0_IPSig1 = TH1F("Flav0_IPSig1", "Flav0_IPSig1",100,0.0,10.0);
     TH1F Flav0_IPSig2 = TH1F("Flav0_IPSig2", "Flav0_IPSig2",100,0.0,10.0);
@@ -252,15 +256,15 @@ void TTJETS::Loop()
     TH1F Flav0_ISO = TH1F("Flav0_ISO","Flav0_ISO",50, 0.0, 20.0);   
     //Flav1
     TH1F Flav1_EMID = TH1F("Flav1_EMID", "Flav1_EMID",60,0.0,12.0);
-    TH1F Flav1_pt = TH1F("Flav1_pt", "Flav1_pt",80,0.0,20.0);
-    TH1F Flav1_eta = TH1F("Flav1_eta", "Flav1_eta",30,-3,3);
-    TH1F Flav1_dxy = TH1F("Flav1_dxy", "Flav1_dxy",100,-0.1,0.1) ; 
-    TH1F Flav1_dxyErr = TH1F("Flav1_dxyErr", "Flav1_dxyErr",50,0,0.06);  
-    TH1F Flav1_dz = TH1F("Flav1_dz", "Flav1_dz",100,-0.1,0.1)  ;
-    TH1F Flav1_dzErr = TH1F("Flav1_dzErr", "Flav1_dzErr",50,0.0,20.0) ; 
+    TH1F Flav1_pt = TH1F("Flav1_pt", "Flav1_pt",80,Lower_pt,Higher_pt);
+    TH1F Flav1_eta = TH1F("Flav1_eta", "Flav1_eta",30,-2.4,2.4);
+    TH1F Flav1_dxy = TH1F("Flav1_dxy", "Flav1_dxy",100,0.05,-0.05) ; 
+    TH1F Flav1_dxyErr = TH1F("Flav1_dxyErr", "Flav1_dxyErr",50,0,0.02);  
+    TH1F Flav1_dz = TH1F("Flav1_dz", "Flav1_dz",100,-0.05,0.05)  ;
+    TH1F Flav1_dzErr = TH1F("Flav1_dzErr", "Flav1_dzErr",50,0.0,0.06) ; 
     TH1F Flav1_dxySig = TH1F("Flav1_dxySig", "Flav1_dxySig",100,-3.0,3.0) ; 
     TH1F Flav1_dzSig = TH1F("Flav1_dzSig", "Flav1_dzSig",50,0.0,20.0) ; 
-    TH1F Flav1_IP = TH1F("Flav1_IP", "Flav1_IP",50,0.0,20.0)  ;
+    TH1F Flav1_IP = TH1F("Flav1_IP", "Flav1_IP",100,0.0,0.01)  ;
     TH1F Flav1_IPErr = TH1F("Flav1_IPErr", "Flav1_IPErr",50,-5.0,5.0);
     TH1F Flav1_IPSig1 = TH1F("Flav1_IPSig1", "Flav1_IPSig1",100,0.0,10.0);
     TH1F Flav1_IPSig2 = TH1F("Flav1_IPSig2", "Flav1_IPSig2",100,0.0,10.0);
@@ -269,15 +273,15 @@ void TTJETS::Loop()
     TH1F Flav1_ISO = TH1F("Flav1_ISO","Flav1_ISO",50, 0.0, 20.0);   
     //Flav5
     TH1F Flav5_EMID = TH1F("Flav5_EMID", "Flav5_EMID",60,0.0,12.0);
-    TH1F Flav5_pt = TH1F("Flav5_pt", "Flav5_pt",80,0.0,20.0);
-    TH1F Flav5_eta = TH1F("Flav5_eta", "Flav5_eta",30,-3,3);
-    TH1F Flav5_dxy = TH1F("Flav5_dxy", "Flav5_dxy",100,-0.1,0.1) ; 
-    TH1F Flav5_dxyErr = TH1F("Flav5_dxyErr", "Flav5_dxyErr",50,0,0.06) ; 
-    TH1F Flav5_dz = TH1F("Flav5_dz", "Flav5_dz",100,-0.1,0.1)  ;
-    TH1F Flav5_dzErr = TH1F("Flav5_dzErr", "Flav5_dzErr",50,0.0,20.0);  
+    TH1F Flav5_pt = TH1F("Flav5_pt", "Flav5_pt",80,Lower_pt,Higher_pt);
+    TH1F Flav5_eta = TH1F("Flav5_eta", "Flav5_eta",30,-2.4,2.4);
+    TH1F Flav5_dxy = TH1F("Flav5_dxy", "Flav5_dxy",100,0.05,-0.05) ; 
+    TH1F Flav5_dxyErr = TH1F("Flav5_dxyErr", "Flav5_dxyErr",50,0,0.02) ; 
+    TH1F Flav5_dz = TH1F("Flav5_dz", "Flav5_dz",100,-0.05,0.05)  ;
+    TH1F Flav5_dzErr = TH1F("Flav5_dzErr", "Flav5_dzErr",50,0.0,0.06);  
     TH1F Flav5_dxySig = TH1F("Flav5_dxySig", "Flav5_dxySig",100,-3.0,3.0) ; 
     TH1F Flav5_dzSig = TH1F("Flav5_dzSig", "Flav5_dzSig",50,0.0,20.0)  ;
-    TH1F Flav5_IP = TH1F("Flav5_IP", "Flav5_IP",50,0.0,20.0)  ;
+    TH1F Flav5_IP = TH1F("Flav5_IP", "Flav5_IP",100,0.0,0.01)  ;
     TH1F Flav5_IPErr = TH1F("Flav5_IPErr", "Flav5_IPErr",50,-5.0,5.0);
     TH1F Flav5_IPSig1 = TH1F("Flav5_IPSig1", "Flav5_IPSig1",100,0.0,10.0);
     TH1F Flav5_IPSig2 = TH1F("Flav5_IPSig2", "Flav5_IPSig2",100,0.0,10.0);
@@ -287,18 +291,18 @@ void TTJETS::Loop()
         
     /// IRON1 No Flav
     TH1F IRON1_EMID = TH1F("IRON1_EMID", "IRON1_EMID",60,0.0,12.0);
-    TH1F IRON1_pt = TH1F("IRON1_pt", "IRON1_pt",80,0.0,20.0);
-    TH1F IRON1_eta = TH1F("IRON1_eta", "IRON1_eta",30,-3,3);
-    TH1F IRON1_dxy = TH1F("IRON1_dxy", "IRON1_dxy",100,-0.1,0.1) ; 
-    TH1F IRON1_dxyErr = TH1F("IRON1_dxyErr", "IRON1_dxyErr",50,0,0.06);  
-    TH1F IRON1_dz = TH1F("IRON1_dz", "IRON1_dz",100,-0.1,0.1)  ;
-    TH1F IRON1_dzErr = TH1F("IRON1_dzErr", "IRON1_dzErr",50,0.0,20.0);  
+    TH1F IRON1_pt = TH1F("IRON1_pt", "IRON1_pt",80,Lower_pt,Higher_pt);
+    TH1F IRON1_eta = TH1F("IRON1_eta", "IRON1_eta",30,-2.4,2.4);
+    TH1F IRON1_dxy = TH1F("IRON1_dxy", "IRON1_dxy",100,0.05,-0.05) ; 
+    TH1F IRON1_dxyErr = TH1F("IRON1_dxyErr", "IRON1_dxyErr",50,0,0.02);  
+    TH1F IRON1_dz = TH1F("IRON1_dz", "IRON1_dz",100,-0.05,0.05)  ;
+    TH1F IRON1_dzErr = TH1F("IRON1_dzErr", "IRON1_dzErr",50,0.0,0.06);  
     TH1F IRON1_dxySig = TH1F("IRON1_dxySig", "IRON1_dxySig",100,-3.0,3.0);  
     TH1F IRON1_dzSig = TH1F("IRON1_dzSig", "IRON1_dzSig",50,0.0,20.0)  ;
-    TH1F IRON1_IP = TH1F("IRON1_IP", "IRON1_IP",50,0.0,20.0)  ;
+    TH1F IRON1_IP = TH1F("IRON1_IP", "IRON1_IP",100,0.0,0.01)  ;
     TH1F IRON1_IPErr = TH1F("IRON1_IPErr", "IRON1_IPErr",50,-5.0,5.0);
-    TH1F IRON1_IPSig1 = TH1F("IRON1_IPSig1", "IRON1_IPSig1",100,0.0,10.0);
-    TH1F IRON1_IPSig2 = TH1F("IRON1_IPSig2", "IRON1_IPSig2",100,0.0,10.0);
+    TH1F IRON1_IPSig1 = TH1F("IRON1_IPSig1", "IRON1_IPSig1",100,0.0,2.0);
+    TH1F IRON1_IPSig2 = TH1F("IRON1_IPSig2", "IRON1_IPSig2",100,0.0,2.0);
     TH1F IRON1_IPSigdiff = TH1F("IRON1_IPSigDiff", "IRON1_IPSigDiff",100,-1.0,1.0);
     TH1F IRON1_CONV = TH1F("IRON1_CONV","IRON1_CONV",2,0.0,2.0);
     TH1F IRON1_ISO = TH1F("IRON1_ISO","IRON1_ISO",50, 0.0, 20.0);
@@ -307,15 +311,15 @@ void TTJETS::Loop()
      
     //IRON2 No Flav
     TH1F IRON2_EMID = TH1F("IRON2_EMID", "IRON2_EMID",60,0.0,12.0);
-    TH1F IRON2_pt = TH1F("IRON2_pt", "IRON2_pt",80,0.0,20.0);
-    TH1F IRON2_eta = TH1F("IRON2_eta", "IRON2_eta",30,-3,3);
-    TH1F IRON2_dxy = TH1F("IRON2_dxy", "IRON2_dxy",100,-0.1,0.1);  
-    TH1F IRON2_dxyErr = TH1F("IRON2_dxyErr", "IRON2_dxyErr",50,0,0.06);  
-    TH1F IRON2_dz = TH1F("IRON2_dz", "IRON2_dz",100,-0.1,0.1);  
-    TH1F IRON2_dzErr = TH1F("IRON2_dzErr", "IRON2_dzErr",50,0.0,20.0);  
+    TH1F IRON2_pt = TH1F("IRON2_pt", "IRON2_pt",80,Lower_pt,Higher_pt);
+    TH1F IRON2_eta = TH1F("IRON2_eta", "IRON2_eta",30,-2.4,2.4);
+    TH1F IRON2_dxy = TH1F("IRON2_dxy", "IRON2_dxy",100,0.05,-0.05);  
+    TH1F IRON2_dxyErr = TH1F("IRON2_dxyErr", "IRON2_dxyErr",50,0,0.02);  
+    TH1F IRON2_dz = TH1F("IRON2_dz", "IRON2_dz",100,-0.05,0.05);  
+    TH1F IRON2_dzErr = TH1F("IRON2_dzErr", "IRON2_dzErr",50,0.0,0.06);  
     TH1F IRON2_dxySig = TH1F("IRON2_dxySig", "IRON2_dxySig",100,-3.0,3.0);  
     TH1F IRON2_dzSig = TH1F("IRON2_dzSig", "IRON2_dzSig",50,0.0,20.0);  
-    TH1F IRON2_IP = TH1F("IRON2_IP", "IRON2_IP",50,0.0,20.0);  
+    TH1F IRON2_IP = TH1F("IRON2_IP", "IRON2_IP",100,0.0,0.01);  
     TH1F IRON2_IPErr = TH1F("IRON2_IPErr", "IRON2_IPErr",50,-5.0,5.0);
     TH1F IRON2_IPSig1 = TH1F("IRON2_IPSig1", "IRON2_IPSig1",100,0.0,10.0);
     TH1F IRON2_IPSig2 = TH1F("IRON2_IPSig2", "IRON2_IPSig2",100,0.0,10.0);
@@ -325,15 +329,15 @@ void TTJETS::Loop()
     
     //Long 1 No Flav
     TH1F IRONLONG1_EMID = TH1F("IRONLONG1_EMID", "IRONLONG1_EMID",60,0.0,12.0);
-    TH1F IRONLONG1_pt = TH1F("IRONLONG1_pt", "IRONLONG1_pt",80,0.0,20.0);
-    TH1F IRONLONG1_eta = TH1F("IRONLONG1_eta", "IRONLONG1_eta",30,-3,3);
-    TH1F IRONLONG1_dxy = TH1F("IRONLONG1_dxy", "IRONLONG1_dxy",100,-0.1,0.1);  
-    TH1F IRONLONG1_dxyErr = TH1F("IRONLONG1_dxyErr", "IRONLONG1_dxyErr",50,0,0.06);  
-    TH1F IRONLONG1_dz = TH1F("IRONLONG1_dz", "IRONLONG1_dz",100,-0.1,0.1);  
-    TH1F IRONLONG1_dzErr = TH1F("IRONLONG1_dzErr", "IRONLONG1_dzErr",50,0.0,20.0);  
+    TH1F IRONLONG1_pt = TH1F("IRONLONG1_pt", "IRONLONG1_pt",80,Lower_pt,Higher_pt);
+    TH1F IRONLONG1_eta = TH1F("IRONLONG1_eta", "IRONLONG1_eta",30,-2.4,2.4);
+    TH1F IRONLONG1_dxy = TH1F("IRONLONG1_dxy", "IRONLONG1_dxy",100,0.05,-0.05);  
+    TH1F IRONLONG1_dxyErr = TH1F("IRONLONG1_dxyErr", "IRONLONG1_dxyErr",50,0,0.02);  
+    TH1F IRONLONG1_dz = TH1F("IRONLONG1_dz", "IRONLONG1_dz",100,-0.05,0.05);  
+    TH1F IRONLONG1_dzErr = TH1F("IRONLONG1_dzErr", "IRONLONG1_dzErr",50,0.0,0.06);  
     TH1F IRONLONG1_dxySig = TH1F("IRONLONG1_dxySig", "IRONLONG1_dxySig",100,-3.0,3.0);  
     TH1F IRONLONG1_dzSig = TH1F("IRONLONG1_dzSig", "IRONLONG1_dzSig",50,0.0,20.0);  
-    TH1F IRONLONG1_IP = TH1F("IRONLONG1_IP", "IRONLONG1_IP",50,0.0,20.0);  
+    TH1F IRONLONG1_IP = TH1F("IRONLONG1_IP", "IRONLONG1_IP",100,0.0,0.01);  
     TH1F IRONLONG1_IPErr = TH1F("IRONLONG1_IPErr", "IRONLONG1_IPErr",50,-5.0,5.0);
     TH1F IRONLONG1_IPSig1 = TH1F("IRONLONG1_IPSig1", "IRONLONG1_IPSig1",100,0.0,10.0);
     TH1F IRONLONG1_IPSig2 = TH1F("IRONLONG1_IPSig2", "IRONLONG1_IPSig2",100,0.0,10.0);
@@ -343,15 +347,15 @@ void TTJETS::Loop()
     
     //Long 2 No Flav
     TH1F IRONLONG2_EMID = TH1F("IRONLONG2_EMID", "IRONLONG2_EMID",60,0.0,12.0);
-    TH1F IRONLONG2_pt = TH1F("IRONLONG2_pt", "IRONLONG2_pt",80,0.0,20.0);
-    TH1F IRONLONG2_eta = TH1F("IRONLONG2_eta", "IRONLONG2_eta",30,-3,3);
-    TH1F IRONLONG2_dxy = TH1F("IRONLONG2_dxy", "IRONLONG2_dxy",100,-0.1,0.1);  
-    TH1F IRONLONG2_dxyErr = TH1F("IRONLONG2_dxyErr", "IRONLONG2_dxyErr",50,0,0.06);  
-    TH1F IRONLONG2_dz = TH1F("IRONLONG2_dz", "IRONLONG2_dz",100,-0.1,0.1);  
-    TH1F IRONLONG2_dzErr = TH1F("IRONLONG2_dzErr", "IRONLONG2_dzErr",50,0.0,20.0);  
+    TH1F IRONLONG2_pt = TH1F("IRONLONG2_pt", "IRONLONG2_pt",80,Lower_pt,Higher_pt);
+    TH1F IRONLONG2_eta = TH1F("IRONLONG2_eta", "IRONLONG2_eta",30,-2.4,2.4);
+    TH1F IRONLONG2_dxy = TH1F("IRONLONG2_dxy", "IRONLONG2_dxy",100,0.05,-0.05);  
+    TH1F IRONLONG2_dxyErr = TH1F("IRONLONG2_dxyErr", "IRONLONG2_dxyErr",50,0,0.02);  
+    TH1F IRONLONG2_dz = TH1F("IRONLONG2_dz", "IRONLONG2_dz",100,-0.05,0.05);  
+    TH1F IRONLONG2_dzErr = TH1F("IRONLONG2_dzErr", "IRONLONG2_dzErr",50,0.0,0.06);  
     TH1F IRONLONG2_dxySig = TH1F("IRONLONG2_dxySig", "IRONLONG2_dxySig",100,-3.0,3.0);  
     TH1F IRONLONG2_dzSig = TH1F("IRONLONG2_dzSig", "IRONLONG2_dzSig",50,0.0,20.0);  
-    TH1F IRONLONG2_IP = TH1F("IRONLONG2_IP", "IRONLONG2_IP",50,0.0,20.0);  
+    TH1F IRONLONG2_IP = TH1F("IRONLONG2_IP", "IRONLONG2_IP",100,0.0,0.01);  
     TH1F IRONLONG2_IPErr = TH1F("IRONLONG2_IPErr", "IRONLONG2_IPErr",50,-5.0,5.0);
     TH1F IRONLONG2_IPSig1 = TH1F("IRONLONG2_IPSig1", "IRONLONG2_IPSig1",100,0.0,10.0);
     TH1F IRONLONG2_IPSig2 = TH1F("IRONLONG2_IPSig2", "IRONLONG2_IPSig2",100,0.0,10.0);
@@ -361,15 +365,15 @@ void TTJETS::Loop()
     
     //IRON Fake no flav
     TH1F FAKE_EMID = TH1F("FAKE_EMID", "FAKE_EMID",60,0.0,12.0);
-    TH1F FAKE_pt = TH1F("FAKE_pt", "IRONFAKE_pt",80,0.0,20.0);
-    TH1F FAKE_eta = TH1F("IRONFAKE_eta", "IRONFAKE_eta",30,-3,3);
-    TH1F FAKE_dxy = TH1F("IRONFAKE_dxy", "IRONFAKE_dxy",100,-0.1,0.1);  
-    TH1F FAKE_dxyErr = TH1F("IRONFAKE_dxyErr", "IRONFAKE_dxyErr",50,0,0.06);  
-    TH1F FAKE_dz = TH1F("IRONFAKE_dz", "IRONFAKE_dz",100,-0.1,0.1);  
-    TH1F FAKE_dzErr = TH1F("IRONFAKE_dzErr", "IRONFAKE_dzErr",50,0.0,20.0);  
+    TH1F FAKE_pt = TH1F("FAKE_pt", "IRONFAKE_pt",80,Lower_pt,Higher_pt);
+    TH1F FAKE_eta = TH1F("IRONFAKE_eta", "IRONFAKE_eta",30,-2.4,2.4);
+    TH1F FAKE_dxy = TH1F("IRONFAKE_dxy", "IRONFAKE_dxy",100,0.05,-0.05);  
+    TH1F FAKE_dxyErr = TH1F("IRONFAKE_dxyErr", "IRONFAKE_dxyErr",50,0,0.02);  
+    TH1F FAKE_dz = TH1F("IRONFAKE_dz", "IRONFAKE_dz",100,-0.05,0.05);  
+    TH1F FAKE_dzErr = TH1F("IRONFAKE_dzErr", "IRONFAKE_dzErr",50,0.0,0.06);  
     TH1F FAKE_dxySig = TH1F("IRONFAKE_dxySig", "IRONFAKE_dxySig",100,-3.0,3.0);  
     TH1F FAKE_dzSig = TH1F("IRONFAKE_dzSig", "IRONFAKE_dzSig",50,0.0,20.0);  
-    TH1F FAKE_IP = TH1F("IRONFAKE_IP", "IRONFAKE_IP",50,0.0,20.0);  
+    TH1F FAKE_IP = TH1F("IRONFAKE_IP", "IRONFAKE_IP",100,0.0,0.01);  
     TH1F FAKE_IPErr = TH1F("IRONFAKE_IPErr", "IRONFAKE_IPErr",50,-5.0,5.0);
     TH1F FAKE_IPSig1 = TH1F("IRONFAKE_IPSig1", "IRONFAKE_IPSig1",100,0.0,10.0);
     TH1F FAKE_IPSig2 = TH1F("IRONFAKE_IPSig2", "IRONFAKE_IPSig2",100,0.0,10.0);
@@ -403,23 +407,23 @@ void TTJETS::Loop()
     ///PT
     
     // LowPtElectron_genPartFlav == 0
-    TH1F IRON1_FLAV0_pt       = TH1F("Iron1_Flav0_pt","Iron1_Flav0_pt",80,0.0,20.0);
-    TH1F LONG1_FLAV0_pt    = TH1F("IronLong1_Flav0_pt","IronLong1_Flav0_pt",80,0.0,20.0);
-    TH1F IRON2_FLAV0_pt       = TH1F("Iron2_Flav0_pt","Iron2_Flav0_pt",80,0.0,20.0);
-    TH1F LONG2_FLAV0_pt    = TH1F("IronLong2_Flav0_pt","IronLong2_Flav0_pt",80,0.0,20.0);
-    TH1F FAKE_FLAV0_pt    = TH1F("IronFake_Flav0_pt","IronFake_Flav0_pt",80,0.0,20.0);
+    TH1F IRON1_FLAV0_pt       = TH1F("Iron1_Flav0_pt","Iron1_Flav0_pt",80,Lower_pt,Higher_pt);
+    TH1F LONG1_FLAV0_pt    = TH1F("IronLong1_Flav0_pt","IronLong1_Flav0_pt",80,Lower_pt,Higher_pt);
+    TH1F IRON2_FLAV0_pt       = TH1F("Iron2_Flav0_pt","Iron2_Flav0_pt",80,Lower_pt,Higher_pt);
+    TH1F LONG2_FLAV0_pt    = TH1F("IronLong2_Flav0_pt","IronLong2_Flav0_pt",80,Lower_pt,Higher_pt);
+    TH1F FAKE_FLAV0_pt    = TH1F("IronFake_Flav0_pt","IronFake_Flav0_pt",80,Lower_pt,Higher_pt);
     // LowPtElectron_genPartFlav == 1
-    TH1F IRON1_FLAV1_pt       = TH1F("Iron1_Flav1_pt","Iron1_Flav1_pt",80,0.0,20.0);
-    TH1F LONG1_FLAV1_pt    = TH1F("IronLong1_Flav1_pt","IronLong1_Flav1_pt",80,0.0,20.0);
-    TH1F IRON2_FLAV1_pt       = TH1F("Iron2_Flav1_pt","Iron2_Flav1_pt",80,0.0,20.0);
-    TH1F LONG2_FLAV1_pt    = TH1F("IronLong2_Flav1_pt","IronLong2_Flav1_pt",80,0.0,20.0);
-    TH1F FAKE_FLAV1_pt    = TH1F("IronFake_Flav1_pt","IronFake_Flav1_pt",80,0.0,20.0);
+    TH1F IRON1_FLAV1_pt       = TH1F("Iron1_Flav1_pt","Iron1_Flav1_pt",80,Lower_pt,Higher_pt);
+    TH1F LONG1_FLAV1_pt    = TH1F("IronLong1_Flav1_pt","IronLong1_Flav1_pt",80,Lower_pt,Higher_pt);
+    TH1F IRON2_FLAV1_pt       = TH1F("Iron2_Flav1_pt","Iron2_Flav1_pt",80,Lower_pt,Higher_pt);
+    TH1F LONG2_FLAV1_pt    = TH1F("IronLong2_Flav1_pt","IronLong2_Flav1_pt",80,Lower_pt,Higher_pt);
+    TH1F FAKE_FLAV1_pt    = TH1F("IronFake_Flav1_pt","IronFake_Flav1_pt",80,Lower_pt,Higher_pt);
     // LowPtElectron_genPartFlav == 5
-    TH1F IRON1_FLAV5_pt      = TH1F("Iron1_Flav5_pt","Iron1_Flav5_pt",80,0.0,20.0);
-    TH1F LONG1_FLAV5_pt    = TH1F("IronLong1_Flav5_pt","IronLong1_Flav5_pt",80,0.0,20.0);
-    TH1F IRON2_FLAV5_pt      = TH1F("Iron2_Flav5_pt","Iron2_Flav5_pt",80,0.0,20.0);
-    TH1F LONG2_FLAV5_pt    = TH1F("IronLong2_Flav5_pt","IronLong2_Flav5_pt",80,0.0,20.0);
-    TH1F FAKE_FLAV5_pt    = TH1F("IronFake_Flav5_pt","IronFake_Flav5_pt",80,0.0,20.0);
+    TH1F IRON1_FLAV5_pt      = TH1F("Iron1_Flav5_pt","Iron1_Flav5_pt",80,Lower_pt,Higher_pt);
+    TH1F LONG1_FLAV5_pt    = TH1F("IronLong1_Flav5_pt","IronLong1_Flav5_pt",80,Lower_pt,Higher_pt);
+    TH1F IRON2_FLAV5_pt      = TH1F("Iron2_Flav5_pt","Iron2_Flav5_pt",80,Lower_pt,Higher_pt);
+    TH1F LONG2_FLAV5_pt    = TH1F("IronLong2_Flav5_pt","IronLong2_Flav5_pt",80,Lower_pt,Higher_pt);
+    TH1F FAKE_FLAV5_pt    = TH1F("IronFake_Flav5_pt","IronFake_Flav5_pt",80,Lower_pt,Higher_pt);
     
     
     
@@ -428,23 +432,23 @@ void TTJETS::Loop()
     
     
     // LowetaElectron_genPartFlav == 0
-    TH1F IRON1_FLAV0_eta       = TH1F("Iron1_Flav0_eta","Iron1_Flav0_eta",30,-3,3);
-    TH1F LONG1_FLAV0_eta    = TH1F("IronLong1_Flav0_eta","IronLong1_Flav0_eta",30,-3,3);
-    TH1F IRON2_FLAV0_eta       = TH1F("Iron2_Flav0_eta","Iron2_Flav0_eta",30,-3,3);
-    TH1F LONG2_FLAV0_eta    = TH1F("IronLong2_Flav0_eta","IronLong2_Flav0_eta",30,-3,3);
-    TH1F FAKE_FLAV0_eta    = TH1F("IronFake_Flav0_eta","IronFake_Flav0_eta",30,-3,3);
+    TH1F IRON1_FLAV0_eta       = TH1F("Iron1_Flav0_eta","Iron1_Flav0_eta",30,-2.4,2.4);
+    TH1F LONG1_FLAV0_eta    = TH1F("IronLong1_Flav0_eta","IronLong1_Flav0_eta",30,-2.4,2.4);
+    TH1F IRON2_FLAV0_eta       = TH1F("Iron2_Flav0_eta","Iron2_Flav0_eta",30,-2.4,2.4);
+    TH1F LONG2_FLAV0_eta    = TH1F("IronLong2_Flav0_eta","IronLong2_Flav0_eta",30,-2.4,2.4);
+    TH1F FAKE_FLAV0_eta    = TH1F("IronFake_Flav0_eta","IronFake_Flav0_eta",30,-2.4,2.4);
     // LowetaElectron_genPartFlav == 1
-    TH1F IRON1_FLAV1_eta       = TH1F("Iron1_Flav1_eta","Iron1_Flav1_eta",30,-3,3);
-    TH1F LONG1_FLAV1_eta    = TH1F("IronLong1_Flav1_eta","IronLong1_Flav1_eta",30,-3,3);
-    TH1F IRON2_FLAV1_eta       = TH1F("Iron2_Flav1_eta","Iron2_Flav1_eta",30,-3,3);
-    TH1F LONG2_FLAV1_eta    = TH1F("IronLong2_Flav1_eta","IronLong2_Flav1_eta",30,-3,3);
-    TH1F FAKE_FLAV1_eta    = TH1F("IronFake_Flav1_eta","IronFake_Flav1_eta",30,-3,3);
+    TH1F IRON1_FLAV1_eta       = TH1F("Iron1_Flav1_eta","Iron1_Flav1_eta",30,-2.4,2.4);
+    TH1F LONG1_FLAV1_eta    = TH1F("IronLong1_Flav1_eta","IronLong1_Flav1_eta",30,-2.4,2.4);
+    TH1F IRON2_FLAV1_eta       = TH1F("Iron2_Flav1_eta","Iron2_Flav1_eta",30,-2.4,2.4);
+    TH1F LONG2_FLAV1_eta    = TH1F("IronLong2_Flav1_eta","IronLong2_Flav1_eta",30,-2.4,2.4);
+    TH1F FAKE_FLAV1_eta    = TH1F("IronFake_Flav1_eta","IronFake_Flav1_eta",30,-2.4,2.4);
     // LowetaElectron_genPartFlav == 5
-    TH1F IRON1_FLAV5_eta      = TH1F("Iron1_Flav5_eta","Iron1_Flav5_eta",30,-3,3);
-    TH1F LONG1_FLAV5_eta    = TH1F("IronLong1_Flav5_eta","IronLong1_Flav5_eta",30,-3,3);
-    TH1F IRON2_FLAV5_eta      = TH1F("Iron2_Flav5_eta","Iron2_Flav5_eta",30,-3,3);
-    TH1F LONG2_FLAV5_eta    = TH1F("IronLong2_Flav5_eta","IronLong2_Flav5_eta",30,-3,3);
-    TH1F FAKE_FLAV5_eta    = TH1F("IronFake_Flav5_eta","IronFake_Flav5_eta",30,-3,3);
+    TH1F IRON1_FLAV5_eta      = TH1F("Iron1_Flav5_eta","Iron1_Flav5_eta",30,-2.4,2.4);
+    TH1F LONG1_FLAV5_eta    = TH1F("IronLong1_Flav5_eta","IronLong1_Flav5_eta",30,-2.4,2.4);
+    TH1F IRON2_FLAV5_eta      = TH1F("Iron2_Flav5_eta","Iron2_Flav5_eta",30,-2.4,2.4);
+    TH1F LONG2_FLAV5_eta    = TH1F("IronLong2_Flav5_eta","IronLong2_Flav5_eta",30,-2.4,2.4);
+    TH1F FAKE_FLAV5_eta    = TH1F("IronFake_Flav5_eta","IronFake_Flav5_eta",30,-2.4,2.4);
     
     ///DXY
     
@@ -707,23 +711,23 @@ void TTJETS::Loop()
     
     //IP
     // LowIPElectron_genPartFlav == 0
-    TH1F IRON1_FLAV0_IP       = TH1F("Iron1_Flav0_IP","Iron1_Flav0_IP",100,0.0,1.0);
-    TH1F LONG1_FLAV0_IP    = TH1F("IronLong1_Flav0_IP","IronLong1_Flav0_IP",100,0.0,1.0);
-    TH1F IRON2_FLAV0_IP       = TH1F("Iron2_Flav0_IP","Iron2_Flav0_IP",100,0.0,1.0);
-    TH1F LONG2_FLAV0_IP    = TH1F("IronLong2_Flav0_IP","IronLong2_Flav0_IP",100,0.0,1.0);
-    TH1F FAKE_FLAV0_IP    = TH1F("IronFake_Flav0_IP","IronFake_Flav0_IP",100,0.0,1.0);
+    TH1F IRON1_FLAV0_IP       = TH1F("Iron1_Flav0_IP","Iron1_Flav0_IP",100,0.0,0.01);
+    TH1F LONG1_FLAV0_IP    = TH1F("IronLong1_Flav0_IP","IronLong1_Flav0_IP",100,0.0,0.01);
+    TH1F IRON2_FLAV0_IP       = TH1F("Iron2_Flav0_IP","Iron2_Flav0_IP",100,0.0,0.01);
+    TH1F LONG2_FLAV0_IP    = TH1F("IronLong2_Flav0_IP","IronLong2_Flav0_IP",100,0.0,0.01);
+    TH1F FAKE_FLAV0_IP    = TH1F("IronFake_Flav0_IP","IronFake_Flav0_IP",100,0.0,0.01);
     // LowIPElectron_genPartFlav == 1
-    TH1F IRON1_FLAV1_IP       = TH1F("Iron1_Flav1_IP","Iron1_Flav1_IP",100,0.0,1.0);
-    TH1F LONG1_FLAV1_IP    = TH1F("IronLong1_Flav1_IP","IronLong1_Flav1_IP",100,0.0,1.0);
-    TH1F IRON2_FLAV1_IP       = TH1F("Iron2_Flav1_IP","Iron2_Flav1_IP",100,0.0,1.0);
-    TH1F LONG2_FLAV1_IP    = TH1F("IronLong2_Flav1_IP","IronLong2_Flav1_IP",100,0.0,1.0);
-    TH1F FAKE_FLAV1_IP    = TH1F("IronFake_Flav1_IP","IronFake_Flav1_IP",100,0.0,1.0);
+    TH1F IRON1_FLAV1_IP       = TH1F("Iron1_Flav1_IP","Iron1_Flav1_IP",100,0.0,0.01);
+    TH1F LONG1_FLAV1_IP    = TH1F("IronLong1_Flav1_IP","IronLong1_Flav1_IP",100,0.0,0.01);
+    TH1F IRON2_FLAV1_IP       = TH1F("Iron2_Flav1_IP","Iron2_Flav1_IP",100,0.0,0.01);
+    TH1F LONG2_FLAV1_IP    = TH1F("IronLong2_Flav1_IP","IronLong2_Flav1_IP",100,0.0,0.01);
+    TH1F FAKE_FLAV1_IP    = TH1F("IronFake_Flav1_IP","IronFake_Flav1_IP",100,0.0,0.01);
     // LowIPElectron_genPartFlav == 5
-    TH1F IRON1_FLAV5_IP      = TH1F("Iron1_Flav5_IP","Iron1_Flav5_IP",100,0.0,1.0);
-    TH1F LONG1_FLAV5_IP    = TH1F("IronLong1_Flav5_IP","IronLong1_Flav5_IP",100,0.0,1.0);
-    TH1F IRON2_FLAV5_IP      = TH1F("Iron2_Flav5_IP","Iron2_Flav5_IP",100,0.0,1.0);
-    TH1F LONG2_FLAV5_IP    = TH1F("IronLong2_Flav5_IP","IronLong2_Flav5_IP",100,0.0,1.0);
-    TH1F FAKE_FLAV5_IP    = TH1F("IronFake_Flav5_IP","IronFake_Flav5_IP",100,0.0,1.0);
+    TH1F IRON1_FLAV5_IP      = TH1F("Iron1_Flav5_IP","Iron1_Flav5_IP",100,0.0,0.01);
+    TH1F LONG1_FLAV5_IP    = TH1F("IronLong1_Flav5_IP","IronLong1_Flav5_IP",100,0.0,0.01);
+    TH1F IRON2_FLAV5_IP      = TH1F("Iron2_Flav5_IP","Iron2_Flav5_IP",100,0.0,0.01);
+    TH1F LONG2_FLAV5_IP    = TH1F("IronLong2_Flav5_IP","IronLong2_Flav5_IP",100,0.0,0.01);
+    TH1F FAKE_FLAV5_IP    = TH1F("IronFake_Flav5_IP","IronFake_Flav5_IP",100,0.0,0.01);
     
     
     
@@ -750,19 +754,19 @@ void TTJETS::Loop()
     
     
     
-    TH2F pt_vs_EMID = TH2F("pt_vs_EMID", "pt_vs_",80, 0.0,20.0, 60,0.0, 12.0);
-    TH2F pt_vs_eta = TH2F("pt_vs_eta", "pt_vs_",80, 0.0,20.0,30,-3,3);
-    TH2F pt_vs_dxy = TH2F("pt_vs_dxy", "pt_vs_",80, 0.0,20.0,50,-0.2,0.2);
-    TH2F pt_vs_dxyErr = TH2F("pt_vs_dxyErr", "pt_vs_",80, 0.0,20.0,50,0.0,0.2);
-    TH2F pt_vs_dxySig = TH2F("pt_vs_dxySig", "pt_vs_",80, 0.0,20.0,50,-5,5);
-    TH2F pt_vs_dz = TH2F("pt_vs_dz", "pt_vs_",80, 0.0,20.0,100,-0.1,0.1);
-    TH2F pt_vs_dzErr = TH2F("pt_vs_dzErr", "pt_vs_",80, 0.0,20.0,50,0,0.2);
-    TH2F pt_vs_dzSig = TH2F("pt_vs_dzSig", "pt_vs_",80, 0.0,20.0,50,-5.0,5.0);
-    TH2F pt_vs_Ip = TH2F("pt_vs_Ip", "pt_vs_",80, 0.0,20.0,100,0.0,1.0)  ; 
-    TH2F pt_vs_IpErr = TH2F("pt_vs_IpErr", "pt_vs_",80, 0.0,20.0,50,-5.0,5.0); 
-    TH2F pt_vs_IpSig1 = TH2F("pt_vs_IpSig1", "pt_vs_",80, 0.0,20.0,100,0.0,10.0) ; 
-    TH2F pt_vs_IpSig2 = TH2F("pt_vs_IpSig2", "pt_vs_",80, 0.0,20.0,100,0.0,10.0) ; 
-    TH2F pt_vs_ISO = TH2F("pt_vs_ISO", "pt_vs_",80, 0.0,20.0,50,0.0,8.0);
+    TH2F pt_vs_EMID = TH2F("pt_vs_EMID", "pt_vs_EMID",100,Lower_pt,Higher_pt, 60,4.0, 12.0);
+    TH2F pt_vs_eta = TH2F("pt_vs_eta", "pt_vs_eta",100,Lower_pt,Higher_pt,30,-2.4,2.4);
+    TH2F pt_vs_dxy = TH2F("pt_vs_dxy", "pt_vs_dxy",100,Lower_pt,Higher_pt,50,-0.05,0.05);
+    TH2F pt_vs_dxyErr = TH2F("pt_vs_dxyErr", "pt_vs_dxyErr",100,Lower_pt,Higher_pt,50,0.0,0.02);
+    TH2F pt_vs_dxySig = TH2F("pt_vs_dxySig", "pt_vs_dxySig",100,Lower_pt,Higher_pt,50,-3,3);
+    TH2F pt_vs_dz = TH2F("pt_vs_dz", "pt_vs_dz",100,Lower_pt,Higher_pt,100,-0.05,0.05);
+    TH2F pt_vs_dzErr = TH2F("pt_vs_dzErr", "pt_vs_dzErr",100,Lower_pt,Higher_pt,50,0,0.06);
+    TH2F pt_vs_dzSig = TH2F("pt_vs_dzSig", "pt_vs_dzSig",100,Lower_pt,Higher_pt,50,-5.0,5.0);
+    TH2F pt_vs_Ip = TH2F("pt_vs_Ip", "pt_vs_IP",100,Lower_pt,Higher_pt,100,0.0,0.01)  ; 
+    TH2F pt_vs_IpErr = TH2F("pt_vs_IpErr", "pt_vs_IpErr",100,Lower_pt,Higher_pt,50,-5.0,5.0); 
+    TH2F pt_vs_IpSig1 = TH2F("pt_vs_IpSig1", "pt_vs_IPSig1",100,Lower_pt,Higher_pt,100,0.0,6.0) ; 
+    TH2F pt_vs_IpSig2 = TH2F("pt_vs_IpSig2", "pt_vs_IPSig2",100,Lower_pt,Higher_pt,100,0.0,6.0) ; 
+    TH2F pt_vs_ISO = TH2F("pt_vs_ISO", "pt_vs_ISO",100,Lower_pt,Higher_pt,50,0.0,8.0);
   
     TH2F Flav_vs_EMID = TH2F("Flav_vs_EMID", "Flav_vs_EMID", 6,0,6,60,0.0,12.0);
  
@@ -787,24 +791,24 @@ void TTJETS::Loop()
     
     
     
-    for (Long64_t jentry=0; jentry<nentries;jentry++) {
+    for (Long64_t jentry=0; jentry<nentries;jentry++) { 
         Long64_t ientry = LoadTree(jentry);
         if (ientry < 0) break;
         nb = fChain->GetEntry(jentry);
         nbytes += nb;
         // if (Cut(ientry) < 0) continue;
         if (jentry % 1000 == 0)
-        {
+        { 
             std::cout << "Event " << jentry << std::endl;
         }
         
         // loop over electrons
         for (int k = 0; k < nLowPtElectron; ++k)
-        {
+        { 
             float dxySig = -999;
             // avoid dividing by 0
             if (LowPtElectron_dxyErr[k] != 0)
-            {
+            { 
                 dxySig = LowPtElectron_dxy[k] / LowPtElectron_dxyErr[k];
             }
             
@@ -812,14 +816,14 @@ void TTJETS::Loop()
             float dzSig = -999;
             
             if (LowPtElectron_dzErr[k] != 0)
-            {
+            { 
                 dzSig = LowPtElectron_dz[k] / LowPtElectron_dzErr[k];
             }
                 
             
             float IPSig1 =-999; //
             if (LowPtElectron_dxyErr[k] != 0 && LowPtElectron_dzErr[k] != 0)
-            {
+            { 
                 IPSig1 = sqrt(dxySig*dxySig + dzSig*dzSig);
         
             }
@@ -828,7 +832,7 @@ void TTJETS::Loop()
             float IPErr = -999;
             
             if (LowPtElectron_dxyErr[k] != 0 && LowPtElectron_dzErr[k] != 0)
-            {
+            { 
                 IP = sqrt(LowPtElectron_dxy[k]*LowPtElectron_dxy[k] +LowPtElectron_dz[k]*LowPtElectron_dz[k]);
                 IPErr = sqrt(LowPtElectron_dxyErr[k]*LowPtElectron_dxyErr[k] +LowPtElectron_dzErr[k]*LowPtElectron_dzErr[k]);
         
@@ -839,7 +843,7 @@ void TTJETS::Loop()
             
             float IPSig2 =-999; //
             if (LowPtElectron_dxyErr[k] != 0)
-            {
+            { 
                 IPSig2 = abs(IP/IPErr);
                  
             }
@@ -849,8 +853,8 @@ void TTJETS::Loop()
                
             
             // No Flav
-            if (true)
-            {   
+            if (LowPtElectron_convVeto[k]==1 && LowPtElectron_pt[k]>=Lower_pt && LowPtElectron_pt[k]<Higher_pt)
+            {    
                 EMID.Fill(LowPtElectron_embeddedID[k]);
                 Eta.Fill(LowPtElectron_eta[k]);
                 Pt.Fill(LowPtElectron_pt[k]);
@@ -869,35 +873,13 @@ void TTJETS::Loop()
                 IPErr_graph.Fill(IPErr);
 
 
-                pt_vs_EMID.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
-                pt_vs_eta.Fill(LowPtElectron_pt[k],LowPtElectron_eta[k]);
-                pt_vs_dxy.Fill(LowPtElectron_pt[k],LowPtElectron_dxy[k]);
-                pt_vs_dxyErr.Fill(LowPtElectron_pt[k],LowPtElectron_dxyErr[k]);
-                pt_vs_dxySig.Fill(LowPtElectron_pt[k],dxySig);
-                pt_vs_dz.Fill(LowPtElectron_pt[k],LowPtElectron_dz[k]);
-                pt_vs_dzErr.Fill(LowPtElectron_pt[k],LowPtElectron_dzErr[k]);
-                pt_vs_dzSig.Fill(LowPtElectron_pt[k],dzSig);
-                pt_vs_Ip.Fill(LowPtElectron_pt[k],IP)  ; 
-                pt_vs_IpErr.Fill(LowPtElectron_pt[k],IPErr); 
-                pt_vs_IpSig1.Fill(LowPtElectron_pt[k],IPSig1) ; 
-                pt_vs_IpSig2.Fill(LowPtElectron_pt[k],IPSig2) ; 
-                pt_vs_ISO.Fill(LowPtElectron_pt[k],LowPtElectron_miniPFRelIso_all[k]);
-
-                Flav_vs_EMID.Fill(LowPtElectron_genPartFlav[k],LowPtElectron_embeddedID[k]);
-
-
-
-                dxysig_vs_dzsig.Fill(dxySig,dzSig);
-                dzsig_vs_IPsig1.Fill(dzSig,IPSig1);
-                dxysig_vs_IPsig1.Fill(dxySig,IPSig1);
-                dzsig_vs_IPsig2.Fill(dzSig,IPSig2);
-                dxysig_vs_IPsig2.Fill(dxySig,IPSig2);
+                
 
 
                 //Flavor 0
 
                 if (LowPtElectron_genPartFlav[k] == 0)
-                {
+                { 
                     Flav0_EMID.Fill(LowPtElectron_embeddedID[k]);
                     Flav0_eta.Fill(LowPtElectron_eta[k]);
                     Flav0_pt.Fill(LowPtElectron_pt[k]);
@@ -919,7 +901,7 @@ void TTJETS::Loop()
                 }
 
                 if (LowPtElectron_genPartFlav[k] == 1)
-                {
+                { 
                     Flav1_EMID.Fill(LowPtElectron_embeddedID[k]);
                     Flav1_eta.Fill(LowPtElectron_eta[k]);
                     Flav1_pt.Fill(LowPtElectron_pt[k]);
@@ -939,7 +921,7 @@ void TTJETS::Loop()
                 }
 
                 if (LowPtElectron_genPartFlav[k] == 5)
-                {
+                { 
                     Flav5_EMID.Fill(LowPtElectron_embeddedID[k]);
                     Flav5_eta.Fill(LowPtElectron_eta[k]);
                     Flav5_pt.Fill(LowPtElectron_pt[k]);
@@ -963,15 +945,16 @@ void TTJETS::Loop()
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////
                 //////////////////////////////////////////////////////////////////////////////////////////////////////
                 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-                if (LowPtElectron_eta[k] <2.4 && LowPtElectron_embeddedID[k]>=1.5)
-                {
+                //GENERAL_PARAMETERS
+                if (abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=4)
+                { 
 
 
 
-
+                    //////IRON1_PARAMETERS
 
                     if (LowPtElectron_miniPFRelIso_all[k] <4 && abs(LowPtElectron_dxy[k])<0.05 && abs(LowPtElectron_dz[k])<0.1 && IPSig1<2)
-                    {
+                    { 
                         //////////////////////////////////////////////////
                         //Iron
                         IRON1_EMID.Fill(LowPtElectron_embeddedID[k]);
@@ -990,10 +973,35 @@ void TTJETS::Loop()
                         IRON1_IPSig2.Fill(IPSig2);
                         IRON1_IP.Fill(IP);
                         IRON1_IPErr.Fill(IPErr);
+                        
+                        
+                        pt_vs_EMID.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
+                        pt_vs_eta.Fill(LowPtElectron_pt[k],LowPtElectron_eta[k]);
+                        pt_vs_dxy.Fill(LowPtElectron_pt[k],LowPtElectron_dxy[k]);
+                        pt_vs_dxyErr.Fill(LowPtElectron_pt[k],LowPtElectron_dxyErr[k]);
+                        pt_vs_dxySig.Fill(LowPtElectron_pt[k],dxySig);
+                        pt_vs_dz.Fill(LowPtElectron_pt[k],LowPtElectron_dz[k]);
+                        pt_vs_dzErr.Fill(LowPtElectron_pt[k],LowPtElectron_dzErr[k]);
+                        pt_vs_dzSig.Fill(LowPtElectron_pt[k],dzSig);
+                        pt_vs_Ip.Fill(LowPtElectron_pt[k],IP)  ; 
+                        pt_vs_IpErr.Fill(LowPtElectron_pt[k],IPErr); 
+                        pt_vs_IpSig1.Fill(LowPtElectron_pt[k],IPSig1) ; 
+                        pt_vs_IpSig2.Fill(LowPtElectron_pt[k],IPSig2) ; 
+                        pt_vs_ISO.Fill(LowPtElectron_pt[k],LowPtElectron_miniPFRelIso_all[k]);
+
+                        Flav_vs_EMID.Fill(LowPtElectron_genPartFlav[k],LowPtElectron_embeddedID[k]);
+
+
+
+                        dxysig_vs_dzsig.Fill(dxySig,dzSig);
+                        dzsig_vs_IPsig1.Fill(dzSig,IPSig1);
+                        dxysig_vs_IPsig1.Fill(dxySig,IPSig1);
+                        dzsig_vs_IPsig2.Fill(dzSig,IPSig2);
+                        dxysig_vs_IPsig2.Fill(dxySig,IPSig2);
 
 
                         if (LowPtElectron_genPartFlav[k] == 5)
-                        {
+                        { 
                             IRON1_FLAV5_EMID.Fill(LowPtElectron_embeddedID[k]);
                             IRON1_FLAV5_eta.Fill(LowPtElectron_eta[k]);
                             IRON1_FLAV5_pt.Fill(LowPtElectron_pt[k]);
@@ -1013,7 +1021,7 @@ void TTJETS::Loop()
                         }
                         // LowPtElectron_genPartFlav == 1
                         if (LowPtElectron_genPartFlav[k] == 0)
-                        {
+                        { 
                             IRON1_FLAV0_EMID.Fill(LowPtElectron_embeddedID[k]);
                             IRON1_FLAV0_eta.Fill(LowPtElectron_eta[k]);
                             IRON1_FLAV0_pt.Fill(LowPtElectron_pt[k]);
@@ -1033,7 +1041,7 @@ void TTJETS::Loop()
                         }
                         // LowPtElectron_genPartFlav == 5
                         if (LowPtElectron_genPartFlav[k] == 1)
-                        {
+                        { 
                             IRON1_FLAV1_EMID.Fill(LowPtElectron_embeddedID[k]);
                             IRON1_FLAV1_eta.Fill(LowPtElectron_eta[k]);
                             IRON1_FLAV1_pt.Fill(LowPtElectron_pt[k]);
@@ -1055,9 +1063,9 @@ void TTJETS::Loop()
                     }
 
 
-                    //IRON2 
-                    if (LowPtElectron_miniPFRelIso_all[k] <4 && abs(LowPtElectron_dxy[k])<0.05 && abs(LowPtElectron_dz[k])<0.1 && IPSig1<2)
-                    {
+                    //IRON2_PARAMETERS 
+                    if (LowPtElectron_miniPFRelIso_all[k] <4 && abs(LowPtElectron_dxy[k])<0.05 && abs(LowPtElectron_dz[k])<0.1 && abs(dzSig)<2)
+                    { 
                         //////////////////////////////////////////////////
                         //Iron
                         IRON2_EMID.Fill(LowPtElectron_embeddedID[k]);
@@ -1079,7 +1087,7 @@ void TTJETS::Loop()
 
 
                         if (LowPtElectron_genPartFlav[k] == 5)
-                        {
+                        { 
                             IRON2_FLAV5_EMID.Fill(LowPtElectron_embeddedID[k]);
                             IRON2_FLAV5_eta.Fill(LowPtElectron_eta[k]);
                             IRON2_FLAV5_pt.Fill(LowPtElectron_pt[k]);
@@ -1099,7 +1107,7 @@ void TTJETS::Loop()
                         }
                         // LowPtElectron_genPartFlav == 1
                         if (LowPtElectron_genPartFlav[k] == 0)
-                        {
+                        { 
                             IRON2_FLAV0_EMID.Fill(LowPtElectron_embeddedID[k]);
                             IRON2_FLAV0_eta.Fill(LowPtElectron_eta[k]);
                             IRON2_FLAV0_pt.Fill(LowPtElectron_pt[k]);
@@ -1119,7 +1127,7 @@ void TTJETS::Loop()
                         }
                         // LowPtElectron_genPartFlav == 5
                         if (LowPtElectron_genPartFlav[k] == 1)
-                        {
+                        { 
                             IRON2_FLAV1_EMID.Fill(LowPtElectron_embeddedID[k]);
                             IRON2_FLAV1_eta.Fill(LowPtElectron_eta[k]);
                             IRON2_FLAV1_pt.Fill(LowPtElectron_pt[k]);
@@ -1147,7 +1155,7 @@ void TTJETS::Loop()
                     //////////////////////////////////////////////////
                         //Irom Long
                     if (LowPtElectron_miniPFRelIso_all[k] <4 &&  IPSig1>=2)
-                    {
+                    { 
                         IRONLONG1_EMID.Fill(LowPtElectron_embeddedID[k]);
                         IRONLONG1_eta.Fill(LowPtElectron_eta[k]);
                         IRONLONG1_pt.Fill(LowPtElectron_pt[k]);
@@ -1167,7 +1175,7 @@ void TTJETS::Loop()
 
 
                         if (LowPtElectron_genPartFlav[k] == 5)
-                        {
+                        { 
                             LONG1_FLAV5_EMID.Fill(LowPtElectron_embeddedID[k]);
                             LONG1_FLAV5_eta.Fill(LowPtElectron_eta[k]);
                             LONG1_FLAV5_pt.Fill(LowPtElectron_pt[k]);
@@ -1187,7 +1195,7 @@ void TTJETS::Loop()
                         }
                         // LowPtElectron_genPartFlav == 1
                         if (LowPtElectron_genPartFlav[k] == 0)
-                        {
+                        { 
                             LONG1_FLAV0_EMID.Fill(LowPtElectron_embeddedID[k]);
                             LONG1_FLAV0_eta.Fill(LowPtElectron_eta[k]);
                             LONG1_FLAV0_pt.Fill(LowPtElectron_pt[k]);
@@ -1207,7 +1215,7 @@ void TTJETS::Loop()
                         }
                         // LowPtElectron_genPartFlav == 5
                         if (LowPtElectron_genPartFlav[k] == 1)
-                        {
+                        { 
                             LONG1_FLAV1_EMID.Fill(LowPtElectron_embeddedID[k]);
                             LONG1_FLAV1_eta.Fill(LowPtElectron_eta[k]);
                             LONG1_FLAV1_pt.Fill(LowPtElectron_pt[k]);
@@ -1228,8 +1236,8 @@ void TTJETS::Loop()
 
                     }
 
-                    if (LowPtElectron_miniPFRelIso_all[k] <4 &&  abs(LowPtElectron_dz[k])>=2)
-                    {
+                    if (LowPtElectron_miniPFRelIso_all[k] <4 &&  abs(dzSig)>=2)
+                    { 
                         //////////////////////////////////////////////////
                         //LONG 2
                        IRONLONG2_EMID.Fill(LowPtElectron_embeddedID[k]);
@@ -1251,7 +1259,7 @@ void TTJETS::Loop()
 
 
                         if (LowPtElectron_genPartFlav[k] == 5)
-                        {
+                        { 
                            LONG2_FLAV5_EMID.Fill(LowPtElectron_embeddedID[k]);
                            LONG2_FLAV5_eta.Fill(LowPtElectron_eta[k]);
                            LONG2_FLAV5_pt.Fill(LowPtElectron_pt[k]);
@@ -1271,7 +1279,7 @@ void TTJETS::Loop()
                         }
                         // LowPtElectron_genPartFlav == 1
                         if (LowPtElectron_genPartFlav[k] == 0)
-                        {
+                        { 
                            LONG2_FLAV0_EMID.Fill(LowPtElectron_embeddedID[k]);
                            LONG2_FLAV0_eta.Fill(LowPtElectron_eta[k]);
                            LONG2_FLAV0_pt.Fill(LowPtElectron_pt[k]);
@@ -1291,7 +1299,7 @@ void TTJETS::Loop()
                         }
                         // LowPtElectron_genPartFlav == 5
                         if (LowPtElectron_genPartFlav[k] == 1)
-                        {
+                        { 
                            LONG2_FLAV1_EMID.Fill(LowPtElectron_embeddedID[k]);
                            LONG2_FLAV1_eta.Fill(LowPtElectron_eta[k]);
                            LONG2_FLAV1_pt.Fill(LowPtElectron_pt[k]);
@@ -1317,7 +1325,7 @@ void TTJETS::Loop()
 
 
                     if (LowPtElectron_miniPFRelIso_all[k] >=4 && abs(LowPtElectron_dxy[k])<0.05 && abs(LowPtElectron_dz[k])<0.1 && IPSig1<2)
-                    {
+                    { 
                         //////////////////////////////////////////////////
                         //Iron
                         FAKE_EMID.Fill(LowPtElectron_embeddedID[k]);
@@ -1337,7 +1345,7 @@ void TTJETS::Loop()
                         FAKE_IP.Fill(IP);
                         FAKE_IPErr.Fill(IPErr);
                         if (LowPtElectron_genPartFlav[k] == 5)
-                        {
+                        { 
                             FAKE_FLAV5_EMID.Fill(LowPtElectron_embeddedID[k]);
                             FAKE_FLAV5_eta.Fill(LowPtElectron_eta[k]);
                             FAKE_FLAV5_pt.Fill(LowPtElectron_pt[k]);
@@ -1357,7 +1365,7 @@ void TTJETS::Loop()
                         }
                         // LowPtElectron_genPartFlav == 1
                         if (LowPtElectron_genPartFlav[k] == 0)
-                        {
+                        { 
                             FAKE_FLAV0_EMID.Fill(LowPtElectron_embeddedID[k]);
                             FAKE_FLAV0_eta.Fill(LowPtElectron_eta[k]);
                             FAKE_FLAV0_pt.Fill(LowPtElectron_pt[k]);
@@ -1377,7 +1385,7 @@ void TTJETS::Loop()
                         }
                         // LowPtElectron_genPartFlav == 5
                         if (LowPtElectron_genPartFlav[k] == 1)
-                        {
+                        { 
                             FAKE_FLAV1_EMID.Fill(LowPtElectron_embeddedID[k]);
                             FAKE_FLAV1_eta.Fill(LowPtElectron_eta[k]);
                             FAKE_FLAV1_pt.Fill(LowPtElectron_pt[k]);
@@ -1404,7 +1412,6 @@ void TTJETS::Loop()
             
             
     }
-
     
     //EMID
     PlotHist(IRON1_FLAV0_EMID,      sample, plot_dir, "EMID_IRON1_Flav0", "EMID");
