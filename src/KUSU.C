@@ -86,7 +86,7 @@ void KUSU::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir, s
     hist.SetStats(kTRUE);
     
     // save plot
-    std::string output_name = plot_dir + "/" + "HighCut_" + plot_name; 
+    std::string output_name = plot_dir + "/" + "LowCut_" + plot_name; 
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());
@@ -127,7 +127,7 @@ void KUSU::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir, 
     hist.SetStats(kTRUE);
     
     // save plot
-    std::string output_name = plot_dir + "/" + "HighCut_" + plot_name; 
+    std::string output_name = plot_dir + "/" + "LowCut_" + plot_name; 
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());
@@ -172,7 +172,7 @@ void KUSU::ROC(TH1F &sigHist, TH1F &bkgHist, std::string plot_name)//, std::stri
     g->Draw();
    
     c.Update();
-    std::string output_name = std::string("/eos/user/s/ssakhare/ROCPlots/")+std::string("SM_HighCut") + plot_name;
+    std::string output_name = std::string("/eos/user/s/ssakhare/ROCPlots/")+std::string("SM_LowCut_")+plot_name;
     std::string output_name_pdf = output_name + ".pdf";
     c.SaveAs(output_name_pdf.c_str());
              
@@ -211,8 +211,8 @@ void KUSU::Loop()
         return;
     }
 
-    std::string plot_dir = "/eos/user/s/ssakhare/HighCut";
-    std::string Checker = "HighCut";
+    std::string plot_dir = "/eos/user/s/ssakhare/LowCut";
+    std::string Checker = "LowCut";
     std::string sample = "SMS-T2-4bd_genMET-80_mStop-500_mLSP-490";
     printf("Running over %s\n", sample.c_str());
 
@@ -2029,8 +2029,8 @@ void KUSU::Loop2()
 
     Long64_t nentries = fChain->GetEntriesFast();
     Long64_t nbytes = 0, nb = 0;
-    float Lower_pt = 10.0;
-    float Higher_pt = 20.0;
+    float Lower_pt = 0.0
+    float Higher_pt = 5.0;
     
     
     TH1F Flav0_EMID_R = TH1F("Flav0_EMID", "Flav0_EMID",32,4.0,12.0);
