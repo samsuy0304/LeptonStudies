@@ -2208,24 +2208,29 @@ void KUSU::Loop2()
          
         }//End of loop
     }    
-    PlotHist(IronLong2_Flav0_EMID_R,sample,plot_dir,"Flav0_EMID","EMID");
-    PlotHist(IronLong2_Flav1_EMID_R,sample,plot_dir,"Flav1_EMID","EMID");
+    PlotHist(IronLong2_Flav0_EMID_R,sample,plot_dir,"IronLong2_Flav0_EMID","EMID");
+    PlotHist(IronLong2_Flav1_EMID_R,sample,plot_dir,"IronLong2_Flav1_EMID","EMID");
     ROC(IronLong2_Flav1_EMID_R, IronLong2_Flav0_EMID_R, "IronLong2_Flav(SignalFLav1)");
     
-    PlotHist(IronFake_Flav0_EMID_R,sample,plot_dir,"Flav0_EMID","EMID");
-    PlotHist(IronFake_Flav1_EMID_R,sample,plot_dir,"Flav1_EMID","EMID");
-    ROC(IronFake_Flav1_EMID_R, IronFake_Flav0_EMID_R, "IronFake_Flav(SignalFLav1)");
+    PlotHist(Flav0_EMID_R,sample,plot_dir,"Flav0_EMID","EMID");
+    PlotHist(Flav1_EMID_R,sample,plot_dir,"Flav1_EMID","EMID");
+    ROC(Flav1_EMID_R, Flav0_EMID_R, "Flav(SignalFLav1)");
     
-    PlotHist(IronLong1_Flav0_EMID_R,sample,plot_dir,"Flav0_EMID","EMID");
-    PlotHist(IronLong1_Flav1_EMID_R,sample,plot_dir,"Flav1_EMID","EMID");
+    
+    PlotHist(IronFake_Flav0_EMID_R,sample,plot_dir,"Fake_Flav0_EMID","EMID");
+    PlotHist(IronFake_Flav1_EMID_R,sample,plot_dir,"Fake_Flav1_EMID","EMID");
+    ROC(IronFake_Flav1_EMID_R, IronFake_Flav0_EMID_R, "Fake_Flav(SignalFLav1)");
+    
+    PlotHist(IronLong1_Flav0_EMID_R,sample,plot_dir,"IronLong1_Flav0_EMID","EMID");
+    PlotHist(IronLong1_Flav1_EMID_R,sample,plot_dir,"IronLong1_Flav1_EMID","EMID");
     ROC(IronLong1_Flav1_EMID_R, IronLong1_Flav0_EMID_R, "IronLong1_Flav(SignalFLav1)");
     
-    PlotHist(Iron1_Flav0_EMID_R,sample,plot_dir,"Flav0_EMID","EMID");
-    PlotHist(Iron1_Flav1_EMID_R,sample,plot_dir,"Flav1_EMID","EMID");
+    PlotHist(Iron1_Flav0_EMID_R,sample,plot_dir,"Iron1_Flav0_EMID","EMID");
+    PlotHist(Iron1_Flav1_EMID_R,sample,plot_dir,"Iron1_Flav1_EMID","EMID");
     ROC(Iron1_Flav1_EMID_R, Iron1_Flav0_EMID_R, "Iron1_Flav(SignalFLav1)");
     
-    PlotHist(Iron2_Flav0_EMID_R,sample,plot_dir,"Flav0_EMID","EMID");
-    PlotHist(Iron2_Flav1_EMID_R,sample,plot_dir,"Flav1_EMID","EMID");
+    PlotHist(Iron2_Flav0_EMID_R,sample,plot_dir,"Iron2_Iron2_Flav0_EMID","EMID");
+    PlotHist(Iron2_Flav1_EMID_R,sample,plot_dir,"Iron2_Flav1_EMID","EMID");
     ROC(Iron2_Flav1_EMID_R, Iron2_Flav0_EMID_R, "Iron2_Flav(SignalFLav1)");
         
         
