@@ -2033,22 +2033,22 @@ void KUSU::Loop2()
     float Higher_pt = 20.0;
     
     
-    TH1F Flav0_EMID_R = TH1F("Flav0_EMID", "Flav0_EMID",100,4.0,12.0);
-    TH1F Flav1_EMID_R = TH1F("Flav1_EMID", "Flav1_EMID",100,4.0,12.0);
+    TH1F Flav0_EMID_R = TH1F("Flav0_EMID", "Flav0_EMID",32,4.0,12.0);
+    TH1F Flav1_EMID_R = TH1F("Flav1_EMID", "Flav1_EMID",32,4.0,12.0);
     
-    TH1F Iron1_Flav0_EMID_R = TH1F("Iron1_Flav0_EMID", "Iron1_Flav0_EMID",100,4.0,12.0);
-    TH1F Iron1_Flav1_EMID_R = TH1F("Iron1_Flav1_EMID", "Iron1_Flav1_EMID",100,4.0,12.0);
+    TH1F Iron1_Flav0_EMID_R = TH1F("Iron1_Flav0_EMID", "Iron1_Flav0_EMID",32,4.0,12.0);
+    TH1F Iron1_Flav1_EMID_R = TH1F("Iron1_Flav1_EMID", "Iron1_Flav1_EMID",32,4.0,12.0);
     
-    TH1F Iron2_Flav0_EMID_R = TH1F("Iron2_Flav0_EMID", "Iron2_Flav0_EMID",100,4.0,12.0);
-    TH1F Iron2_Flav1_EMID_R = TH1F("Iron2_Flav1_EMID", "Iron2_Flav1_EMID",100,4.0,12.0);
+    TH1F Iron2_Flav0_EMID_R = TH1F("Iron2_Flav0_EMID", "Iron2_Flav0_EMID",32,4.0,12.0);
+    TH1F Iron2_Flav1_EMID_R = TH1F("Iron2_Flav1_EMID", "Iron2_Flav1_EMID",32,4.0,12.0);
     
-    TH1F IronLong1_Flav0_EMID_R = TH1F("IronLong1_Flav0_EMID", "IronLong1_Flav0_EMID",100,4.0,12.0);
-    TH1F IronLong1_Flav1_EMID_R = TH1F("IronLong1_Flav1_EMID", "IronLong1_Flav1_EMID",100,4.0,12.0);
-    TH1F IronLong2_Flav0_EMID_R = TH1F("IronLong2_Flav0_EMID", "IronLong2_Flav0_EMID",100,4.0,12.0);
-    TH1F IronLong2_Flav1_EMID_R = TH1F("IronLong2_Flav1_EMID", "IronLong2_Flav1_EMID",100,4.0,12.0);
+    TH1F IronLong1_Flav0_EMID_R = TH1F("IronLong1_Flav0_EMID", "IronLong1_Flav0_EMID",32,4.0,12.0);
+    TH1F IronLong1_Flav1_EMID_R = TH1F("IronLong1_Flav1_EMID", "IronLong1_Flav1_EMID",32,4.0,12.0);
+    TH1F IronLong2_Flav0_EMID_R = TH1F("IronLong2_Flav0_EMID", "IronLong2_Flav0_EMID",32,4.0,12.0);
+    TH1F IronLong2_Flav1_EMID_R = TH1F("IronLong2_Flav1_EMID", "IronLong2_Flav1_EMID",32,4.0,12.0);
     
-    TH1F IronFake_Flav0_EMID_R = TH1F("IronFake_Flav0_EMID", "IronFake_Flav0_EMID",100,4.0,12.0);
-    TH1F IronFake_Flav1_EMID_R = TH1F("IronFake_Flav1_EMID", "IronFake_Flav1_EMID",100,4.0,12.0);
+    TH1F IronFake_Flav0_EMID_R = TH1F("IronFake_Flav0_EMID", "IronFake_Flav0_EMID",32,4.0,12.0);
+    TH1F IronFake_Flav1_EMID_R = TH1F("IronFake_Flav1_EMID", "IronFake_Flav1_EMID",32,4.0,12.0);
     
     for (Long64_t jentry=0; jentry<nentries;jentry++) 
     { 
