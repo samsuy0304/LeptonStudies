@@ -761,19 +761,20 @@ void KUSU::Loop()
     
     
     
-    TH2F pt_vs_EMID = TH2F("pt_vs_EMID", "pt_vs_EMID",100,Lower_pt,Higher_pt, 60,4.0, 12.0);
+    TH2F pt_vs_EMID = TH2F("pt_vs_EMID", "pt_vs_EMID",20,Lower_pt,Higher_pt, 60,4.0, 12.0);
     TH2F pt_vs_eta = TH2F("pt_vs_eta", "pt_vs_eta",100,Lower_pt,Higher_pt,30,-2.4,2.4);
-    TH2F pt_vs_dxy = TH2F("pt_vs_dxy", "pt_vs_dxy",100,Lower_pt,Higher_pt,50,-0.05,0.05);
-    TH2F pt_vs_dxyErr = TH2F("pt_vs_dxyErr", "pt_vs_dxyErr",100,Lower_pt,Higher_pt,50,0.0,0.02);
-    TH2F pt_vs_dxySig = TH2F("pt_vs_dxySig", "pt_vs_dxySig",100,Lower_pt,Higher_pt,50,-3,3);
-    TH2F pt_vs_dz = TH2F("pt_vs_dz", "pt_vs_dz",100,Lower_pt,Higher_pt,100,-0.05,0.05);
-    TH2F pt_vs_dzErr = TH2F("pt_vs_dzErr", "pt_vs_dzErr",100,Lower_pt,Higher_pt,50,0,0.06);
-    TH2F pt_vs_dzSig = TH2F("pt_vs_dzSig", "pt_vs_dzSig",100,Lower_pt,Higher_pt,50,-5.0,5.0);
-    TH2F pt_vs_Ip = TH2F("pt_vs_Ip", "pt_vs_IP",100,Lower_pt,Higher_pt,100,0.0,0.01)  ; 
-    TH2F pt_vs_IpErr = TH2F("pt_vs_IpErr", "pt_vs_IpErr",100,Lower_pt,Higher_pt,50,-5.0,5.0); 
-    TH2F pt_vs_IpSig1 = TH2F("pt_vs_IpSig1", "pt_vs_IPSig1",100,Lower_pt,Higher_pt,100,0.0,6.0) ; 
-    TH2F pt_vs_IpSig2 = TH2F("pt_vs_IpSig2", "pt_vs_IPSig2",100,Lower_pt,Higher_pt,100,0.0,6.0) ; 
-    TH2F pt_vs_ISO = TH2F("pt_vs_ISO", "pt_vs_ISO",100,Lower_pt,Higher_pt,50,0.0,8.0);
+    TH2F pt_vs_dxy = TH2F("pt_vs_dxy", "pt_vs_dxy",20,Lower_pt,Higher_pt,50,-0.05,0.05);
+    TH2F pt_vs_dxyErr = TH2F("pt_vs_dxyErr", "pt_vs_dxyErr",20,Lower_pt,Higher_pt,50,0.0,0.02);
+    TH2F pt_vs_dxySig = TH2F("pt_vs_dxySig", "pt_vs_dxySig",20,Lower_pt,Higher_pt,50,-3,3);
+    TH2F pt_vs_dz = TH2F("pt_vs_dz", "pt_vs_dz",20,Lower_pt,Higher_pt,100,-0.05,0.05);
+    TH2F pt_vs_dzErr = TH2F("pt_vs_dzErr", "pt_vs_dzErr",20,Lower_pt,Higher_pt,50,0,0.06);
+    TH2F pt_vs_dzSig = TH2F("pt_vs_dzSig", "pt_vs_dzSig",20,Lower_pt,Higher_pt,50,-5.0,5.0);
+    TH2F pt_vs_Ip = TH2F("pt_vs_Ip", "pt_vs_IP",20,Lower_pt,Higher_pt,100,0.0,0.01)  ; 
+    TH2F pt_vs_IpErr = TH2F("pt_vs_IpErr", "pt_vs_IpErr",20,Lower_pt,Higher_pt,50,-5.0,5.0); 
+    TH2F pt_vs_IpSig1 = TH2F("pt_vs_IpSig1", "pt_vs_IPSig1",20,Lower_pt,Higher_pt,100,0.0,6.0) ; 
+    TH2F pt_vs_IpSig2 = TH2F("pt_vs_IpSig2", "pt_vs_IPSig2",20,Lower_pt,Higher_pt,100,0.0,6.0) ; 
+    TH2F pt_vs_ISO = TH2F("pt_vs_ISO", "pt_vs_ISO",20,Lower_pt,Higher_pt,50,0.0,8.0);
+    TH2F pt_vs_Flav = TH2F("pt_vs_Flav", "pt_vs_Flav",20,Lower_pt,Higher_pt,50,0.0,8.0);
   
     TH2F Flav_vs_EMID = TH2F("Flav_vs_EMID", "Flav_vs_EMID", 6,0,6,60,0.0,12.0);
  
@@ -880,29 +881,7 @@ void KUSU::Loop()
                 IPErr_graph.Fill(IPErr);
 
 
-                pt_vs_EMID.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
-                pt_vs_eta.Fill(LowPtElectron_pt[k],LowPtElectron_eta[k]);
-                pt_vs_dxy.Fill(LowPtElectron_pt[k],LowPtElectron_dxy[k]);
-                pt_vs_dxyErr.Fill(LowPtElectron_pt[k],LowPtElectron_dxyErr[k]);
-                pt_vs_dxySig.Fill(LowPtElectron_pt[k],dxySig);
-                pt_vs_dz.Fill(LowPtElectron_pt[k],LowPtElectron_dz[k]);
-                pt_vs_dzErr.Fill(LowPtElectron_pt[k],LowPtElectron_dzErr[k]);
-                pt_vs_dzSig.Fill(LowPtElectron_pt[k],dzSig);
-                pt_vs_Ip.Fill(LowPtElectron_pt[k],IP)  ; 
-                pt_vs_IpErr.Fill(LowPtElectron_pt[k],IPErr); 
-                pt_vs_IpSig1.Fill(LowPtElectron_pt[k],IPSig1) ; 
-                pt_vs_IpSig2.Fill(LowPtElectron_pt[k],IPSig2) ; 
-                pt_vs_ISO.Fill(LowPtElectron_pt[k],LowPtElectron_miniPFRelIso_all[k]);
-
-                Flav_vs_EMID.Fill(LowPtElectron_genPartFlav[k],LowPtElectron_embeddedID[k]);
-
-
-
-                dxysig_vs_dzsig.Fill(dxySig,dzSig);
-                dzsig_vs_IPsig1.Fill(dzSig,IPSig1);
-                dxysig_vs_IPsig1.Fill(dxySig,IPSig1);
-                dzsig_vs_IPsig2.Fill(dzSig,IPSig2);
-                dxysig_vs_IPsig2.Fill(dxySig,IPSig2);
+                
 
 
                 //Flavor 0
@@ -975,7 +954,7 @@ void KUSU::Loop()
                 //////////////////////////////////////////////////////////////////////////////////////////////////////
                 ///////////////////////////////////////////////////////////////////////////////////////////////////////
                 //GENERAL_PARAMETERS
-                if (abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=4)
+                if (abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=5)
                 { 
 
 
@@ -1002,6 +981,31 @@ void KUSU::Loop()
                         IRON1_IPSig2.Fill(IPSig2);
                         IRON1_IP.Fill(IP);
                         IRON1_IPErr.Fill(IPErr);
+                        
+                        
+                        pt_vs_EMID.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
+                        pt_vs_eta.Fill(LowPtElectron_pt[k],LowPtElectron_eta[k]);
+                        pt_vs_dxy.Fill(LowPtElectron_pt[k],LowPtElectron_dxy[k]);
+                        pt_vs_dxyErr.Fill(LowPtElectron_pt[k],LowPtElectron_dxyErr[k]);
+                        pt_vs_dxySig.Fill(LowPtElectron_pt[k],dxySig);
+                        pt_vs_dz.Fill(LowPtElectron_pt[k],LowPtElectron_dz[k]);
+                        pt_vs_dzErr.Fill(LowPtElectron_pt[k],LowPtElectron_dzErr[k]);
+                        pt_vs_dzSig.Fill(LowPtElectron_pt[k],dzSig);
+                        pt_vs_Ip.Fill(LowPtElectron_pt[k],IP)  ; 
+                        pt_vs_IpErr.Fill(LowPtElectron_pt[k],IPErr); 
+                        pt_vs_IpSig1.Fill(LowPtElectron_pt[k],IPSig1) ; 
+                        pt_vs_IpSig2.Fill(LowPtElectron_pt[k],IPSig2) ; 
+                        pt_vs_ISO.Fill(LowPtElectron_pt[k],LowPtElectron_miniPFRelIso_all[k]);
+
+                        Flav_vs_EMID.Fill(LowPtElectron_genPartFlav[k],LowPtElectron_embeddedID[k]);
+
+
+
+                dxysig_vs_dzsig.Fill(dxySig,dzSig);
+                dzsig_vs_IPsig1.Fill(dzSig,IPSig1);
+                dxysig_vs_IPsig1.Fill(dxySig,IPSig1);
+                dzsig_vs_IPsig2.Fill(dzSig,IPSig2);
+                dxysig_vs_IPsig2.Fill(dxySig,IPSig2);
 
 
                         if (LowPtElectron_genPartFlav[k] == 5)
