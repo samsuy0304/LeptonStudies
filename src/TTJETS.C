@@ -156,6 +156,8 @@ void TTJETS::ROC(TH1F &sigHist, TH1F &bkgHist, std::string plot_name)//, std::st
       // that point is (1,1) on the ROC curve.
       float sig_slice_integral = sigHist.Integral(nbins-i,nbins);
       float bkg_slice_integral = bkgHist.Integral(nbins-i,nbins);
+      std::cout << std::fixed << std::setprecision(2) << sig_slice_integral;
+      std::cout << std::fixed << std::setprecision(2) << bkg_slice_integral;
       sigPoints.push_back(sig_slice_integral/sig_integral);
       bkgPoints.push_back(bkg_slice_integral/bkg_integral);
     }  
@@ -168,7 +170,7 @@ void TTJETS::ROC(TH1F &sigHist, TH1F &bkgHist, std::string plot_name)//, std::st
     g->Draw();
    
     c.Update();
-    std::string output_name = std::string("/eos/user/s/ssakhare/ROCPlots/")+std::string("SM_LowCut_")+plot_name;
+    std::string output_name = std::string("/eos/user/s/ssakhare/ROCPlots/")+std::string("TTJETS_LowCut_")+plot_name;
     std::string output_name_pdf = output_name + ".pdf";
     c.SaveAs(output_name_pdf.c_str());
              
@@ -2033,7 +2035,7 @@ void TTJETS::Loop2()
     }
 
     std::string plot_dir = "/eos/user/s/ssakhare/ROCPlots";
-    std::string sample = "SMS-T2-4bd_genMET-80_mStop-500_mLSP-490";
+    std::string sample = "TTJETS";
     printf("Running over %s\n", sample.c_str());
 
     Long64_t nentries = fChain->GetEntriesFast();
