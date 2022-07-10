@@ -81,7 +81,7 @@ void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,
     hist.SetStats(kTRUE);
     
     // save plot
-    std::string output_name = plot_dir + "/"+ specific+ "/2D/LowCut_" + plot_name; 
+    std::string output_name = plot_dir + "/"+ specific+ "/LowCut_" + plot_name; 
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());;
