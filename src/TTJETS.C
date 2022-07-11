@@ -88,7 +88,7 @@ void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,
     try {
       cout << "\nWriting  array contents to file...";
       //open file for writing
-      ofstream fw("c:\\demos\\CPlusPlusSampleFile.txt", std::ofstream::app);
+      ofstream fw("/eos/user/s/ssakhare/Store.csv", std::ofstream::app);
       //check if file was successfully opened for writing
       if (fw.is_open())
       {
