@@ -31,7 +31,7 @@ std::string TTJETS::GetLabel(std::string variable)
         {"IP",      "d_{IP}"},
         {"GenID ",      "GenID"},
     };
-    std::string label = "MidCut";
+    std::string label = "HighCut";
     // check if variable exists in labels
     if (labels.find(variable) == labels.end())
     {
@@ -81,7 +81,7 @@ void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,
     hist.SetStats(kTRUE);
     
     // save plot
-    std::string output_name = plot_dir + "/"+ specific+ "/MidCut_" + plot_name; 
+    std::string output_name = plot_dir + "/"+ specific+ "/HighCut_" + plot_name; 
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());;
@@ -123,7 +123,7 @@ void TTJETS::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir
     hist.SetStats(kTRUE);
     
     // save plot
-    std::string output_name = plot_dir + "/" + "MidCut_" + plot_name; 
+    std::string output_name = plot_dir + "/" + "HighCut_" + plot_name; 
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());
@@ -170,7 +170,7 @@ void TTJETS::ROC(TH1F &sigHist, TH1F &bkgHist, std::string plot_name)//, std::st
     g->Draw();
    
     c.Update();
-    std::string output_name = std::string("/eos/user/s/ssakhare/ROCPlots/")+std::string("TTJETS_MidCut_")+plot_name;
+    std::string output_name = std::string("/eos/user/s/ssakhare/ROCPlots/")+std::string("TTJETS_HighCut_")+plot_name;
     std::string output_name_pdf = output_name + ".pdf";
     c.SaveAs(output_name_pdf.c_str());
              
@@ -208,14 +208,14 @@ void TTJETS::Loop()
         return;
     }
 
-    std::string plot_dir = "/eos/user/s/ssakhare/ttbar/MidCut";
+    std::string plot_dir = "/eos/user/s/ssakhare/ttbar/HighCut";
     std::string sample = "TTbar";
     printf("Running over %s\n", sample.c_str());
 
      Long64_t nentries = fChain->GetEntriesFast();
     Long64_t nbytes = 0, nb = 0;
-    float Lower_pt = 5.0;
-    float Higher_pt = 10.0;
+    float Lower_pt = 10.0;
+    float Higher_pt = 20.0;
     
     
 
@@ -2040,8 +2040,8 @@ void TTJETS::Loop2()
 
     Long64_t nentries = fChain->GetEntriesFast();
     Long64_t nbytes = 0, nb = 0;
-    float Lower_pt = 5.0;
-    float Higher_pt = 10.0;
+    float Lower_pt = 10.0;
+    float Higher_pt = 20.0;
     
     
     TH1F Flav0_EMID_R = TH1F("Flav0_EMID", "Flav0_EMID",32,4.0,12.0);
@@ -2219,33 +2219,112 @@ void TTJETS::Loop2()
          
         }//End of loop
     }    
-    PlotHist(IronLong2_Flav0_EMID_R,sample,plot_dir,"MidCut","IronLong2_Flav0_EMID","EMID");
-    PlotHist(IronLong2_Flav1_EMID_R,sample,plot_dir,"MidCut","IronLong2_Flav1_EMID","EMID");
+    PlotHist(IronLong2_Flav0_EMID_R,sample,plot_dir,"HighCut","IronLong2_Flav0_EMID","EMID");
+    PlotHist(IronLong2_Flav1_EMID_R,sample,plot_dir,"HighCut","IronLong2_Flav1_EMID","EMID");
     ROC(IronLong2_Flav1_EMID_R, IronLong2_Flav0_EMID_R, "IronLong2_Flav(SignalFLav1)");
     
-    PlotHist(Flav0_EMID_R,sample,plot_dir,"MidCut","Flav0_EMID","EMID");
-    PlotHist(Flav1_EMID_R,sample,plot_dir,"MidCut","Flav1_EMID","EMID");
+    PlotHist(Flav0_EMID_R,sample,plot_dir,"HighCut","Flav0_EMID","EMID");
+    PlotHist(Flav1_EMID_R,sample,plot_dir,"HighCut","Flav1_EMID","EMID");
     ROC(Flav1_EMID_R, Flav0_EMID_R, "Flav(SignalFLav1)");
     
     
-    PlotHist(IronFake_Flav0_EMID_R,sample,plot_dir,"MidCut","Fake_Flav0_EMID","EMID");
-    PlotHist(IronFake_Flav1_EMID_R,sample,plot_dir,"MidCut","Fake_Flav1_EMID","EMID");
+    PlotHist(IronFake_Flav0_EMID_R,sample,plot_dir,"HighCut","Fake_Flav0_EMID","EMID");
+    PlotHist(IronFake_Flav1_EMID_R,sample,plot_dir,"HighCut","Fake_Flav1_EMID","EMID");
     ROC(IronFake_Flav1_EMID_R, IronFake_Flav0_EMID_R, "Fake_Flav(SignalFLav1)");
     
-    PlotHist(IronLong1_Flav0_EMID_R,sample,plot_dir,"MidCut","IronLong1_Flav0_EMID","EMID");
-    PlotHist(IronLong1_Flav1_EMID_R,sample,plot_dir,"MidCut","IronLong1_Flav1_EMID","EMID");
+    PlotHist(IronLong1_Flav0_EMID_R,sample,plot_dir,"HighCut","IronLong1_Flav0_EMID","EMID");
+    PlotHist(IronLong1_Flav1_EMID_R,sample,plot_dir,"HighCut","IronLong1_Flav1_EMID","EMID");
     ROC(IronLong1_Flav1_EMID_R, IronLong1_Flav0_EMID_R, "IronLong1_Flav(SignalFLav1)");
     
-    PlotHist(Iron1_Flav0_EMID_R,sample,plot_dir,"MidCut","Iron1_Flav0_EMID","EMID");
-    PlotHist(Iron1_Flav1_EMID_R,sample,plot_dir,"MidCut","Iron1_Flav1_EMID","EMID");
+    PlotHist(Iron1_Flav0_EMID_R,sample,plot_dir,"HighCut","Iron1_Flav0_EMID","EMID");
+    PlotHist(Iron1_Flav1_EMID_R,sample,plot_dir,"HighCut","Iron1_Flav1_EMID","EMID");
     ROC(Iron1_Flav1_EMID_R, Iron1_Flav0_EMID_R, "Iron1_Flav(SignalFLav1)");
     
-    PlotHist(Iron2_Flav0_EMID_R,sample,plot_dir,"MidCut","Iron2_Iron2_Flav0_EMID","EMID");
-    PlotHist(Iron2_Flav1_EMID_R,sample,plot_dir,"MidCut","Iron2_Flav1_EMID","EMID");
+    PlotHist(Iron2_Flav0_EMID_R,sample,plot_dir,"HighCut","Iron2_Iron2_Flav0_EMID","EMID");
+    PlotHist(Iron2_Flav1_EMID_R,sample,plot_dir,"HighCut","Iron2_Flav1_EMID","EMID");
     ROC(Iron2_Flav1_EMID_R, Iron2_Flav0_EMID_R, "Iron2_Flav(SignalFLav1)");
         
         
         
+}   
+
+
+
+void TTJETS::Random()
+{ 
+
+    TH2F pt_vs_Flav_Low = TH2F("pt_vs_Flav_Low", "pt_vs_Flav_Low",20,.0,5.0,50,0.0,8.0);
+    TH2F pt_vs_Flav_Mid = TH2F("pt_vs_Flav_Mid", "pt_vs_Flav_Mid",20,5.0,10.0,50,0.0,8.0);
+    TH2F pt_vs_Flav_High = TH2F("pt_vs_Flav_High", "pt_vs_Flav_High",20,10.0,20.0,50,0.0,8.0);
+    TH2F pt_vs_Flav_NoPt = TH2F("pt_vs_Flav_NoPt", "pt_vs_Flav_NoPt",20,0.0,20.0,50,0.0,8.0);
+    
+    gROOT->SetBatch(kTRUE);
+    
+    if (fChain == 0)
+    { 
+        return;
+    }
+
+    std::string plot_dir = "/eos/user/s/ssakhare/ROCPlots";
+    std::string sample = "TTJETS";
+    printf("Running over %s\n", sample.c_str());
+
+    Long64_t nentries = fChain->GetEntriesFast();
+    Long64_t nbytes = 0, nb = 0;
+   
+    
+    
+    
+    for (Long64_t jentry=0; jentry<nentries;jentry++) 
+    { 
+        Long64_t ientry = LoadTree(jentry);
+        if (ientry < 0) break;
+        nb = fChain->GetEntry(jentry);
+        nbytes += nb;
+        // if (Cut(ientry) < 0) continue;
+        if (jentry % 1000 == 0)
+        { 
+            std::cout << "Event " << jentry << std::endl;
+        }
+        
+        // loop over electrons
+        for (int k = 0; k < nLowPtElectron; ++k)
+        { 
+       
+           
+          
+           
+           //Starting Partameters 
+           if (LowPtElectron_convVeto[k]==1  && abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=5){
+               
+               pt_vs_Flav_NoPt.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
+               
+               if( LowPtElectron_pt[k]>=1.0 && LowPtElectron_pt[k]<5.0){
+                   pt_vs_Flav_Low.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
+               } 
+               
+               if( LowPtElectron_pt[k]>=5.0 && LowPtElectron_pt[k]<10.0){
+                   pt_vs_Flav_Mid.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
+               }
+               
+               if( LowPtElectron_pt[k]>=10.0 && LowPtElectron_pt[k]<20.0){
+                   pt_vs_Flav_High.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
+               }
+        
+
+           }    
+         
+        }//End of loop
+    }    
+    PlotHist2(pt_vs_Flav_Low,sample,plot_dir,"pt_vs_Flav_Low","pt","Flav");
+    PlotHist2(pt_vs_Flav_Mid,sample,plot_dir,"pt_vs_Flav_Mid","pt","Flav");
+    PlotHist2(pt_vs_Flav_High,sample,plot_dir,"pt_vs_Flav_High","pt","Flav");
+    PlotHist2(pt_vs_Flav_NoPt,sample,plot_dir,"pt_vs_Flav_NoPt","pt","Flav");
+        
+        
 }        
+        
+
+
         
 
