@@ -179,7 +179,7 @@ void TTJETS::ROC(TH1F &sigHist, TH1F &bkgHist, std::string plot_name)//, std::st
       std::cout << std::fixed << std::setprecision(2) << sig_slice_integral;
       std::cout << std::fixed << std::setprecision(2) << bkg_slice_integral;
       sigPoints.push_back(sig_slice_integral/Real);
-      bkgPoints.push_back(bkg_slice_integral/Fake));
+      bkgPoints.push_back(bkg_slice_integral/Fake);
     }  
       // create a TGraph from the containers
     // this graph will have N (=nbins) number of points forming the curve.
@@ -2273,10 +2273,13 @@ void TTJETS::Loop2()
 void TTJETS::Random()
 { 
 
-    TH2F pt_vs_Flav_Low = TH2F("pt_vs_Flav_Low", "pt_vs_Flav_Low",20,.0,5.0,50,0.0,8.0);
-    TH2F pt_vs_Flav_Mid = TH2F("pt_vs_Flav_Mid", "pt_vs_Flav_Mid",20,5.0,10.0,50,0.0,8.0);
-    TH2F pt_vs_Flav_High = TH2F("pt_vs_Flav_High", "pt_vs_Flav_High",20,10.0,20.0,50,0.0,8.0);
-    TH2F pt_vs_Flav_NoPt = TH2F("pt_vs_Flav_NoPt", "pt_vs_Flav_NoPt",20,0.0,20.0,50,0.0,8.0);
+    TH2F pt_vs_Flav_Low = TH2F("pt_vs_Flav_Low", "pt_vs_Flav_Low",20,.0,5.0,1,0.0,1.0);
+    TH2F pt_vs_Flav_Mid = TH2F("pt_vs_Flav_Mid", "pt_vs_Flav_Mid",20,5.0,10.0,1,0.0,1.0);
+    TH2F pt_vs_Flav_High = TH2F("pt_vs_Flav_High", "pt_vs_Flav_High",20,10.0,20.0,1,1.0,2.0);
+    TH2F pt_vs_Flav_NoPt = TH2F("pt_vs_Flav_NoPt", "pt_vs_Flav_NoPt",20,0.0,20.0,1,1.0,2.0);
+    
+    TH2F pt_vs_EMID_FLAV0 = TH2F("pt_vs_EMID_Flav0", "pt_vs_EMID_Flav0",20,1.0,5.0,22,1.5,12.5);
+    TH2F pt_vs_EMID_FLAV1 = TH2F("pt_vs_EMID_Flav1", "pt_vs_EMID_Flav1",20,1.0,5.0,22,1.5,12.5);
     
     gROOT->SetBatch(kTRUE);
     
@@ -2321,6 +2324,16 @@ void TTJETS::Random()
                
                if( LowPtElectron_pt[k]>=1.0 && LowPtElectron_pt[k]<5.0){
                    pt_vs_Flav_Low.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
+                   
+                   if (LowPtElectron_genPartFlav[k] = 0){
+                      pt_vs_EMID_FLAV0.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
+                   }
+                   
+                   if (LowPtElectron_genPartFlav[k] = 1){
+                      pt_vs_EMID_FLAV1.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
+                   }
+                   
+                    
                } 
                
                if( LowPtElectron_pt[k]>=5.0 && LowPtElectron_pt[k]<10.0){
@@ -2340,6 +2353,9 @@ void TTJETS::Random()
     PlotHist2(pt_vs_Flav_Mid,sample,plot_dir,"pt_vs_Flav_Mid","pt","Flav");
     PlotHist2(pt_vs_Flav_High,sample,plot_dir,"pt_vs_Flav_High","pt","Flav");
     PlotHist2(pt_vs_Flav_NoPt,sample,plot_dir,"pt_vs_Flav_NoPt","pt","Flav");
+    
+    PlotHist2( pt_vs_EMID_FLAV0,sample,plot_dir," pt_vs_EMID_FLAV0","pt","EMID");
+    PlotHist2 pt_vs_EMID_FLAV1,sample,plot_dir," pt_vs_EMID_FLAV1","pt","EMID");
         
         
 }        
