@@ -33,7 +33,7 @@ std::string TTJETS::GetLabel(std::string variable)
         {"IP",      "d_{IP}"},
         {"GenID ",      "GenID"},
     };
-    std::string label = "LowCut";
+    std::string label = "MidCut";
     // check if variable exists in labels
     if (labels.find(variable) == labels.end())
     {
@@ -85,11 +85,7 @@ void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,
     std::string s = std::to_string(lepnum);
     std::string entry = plot_name +","+ s;
     
-    //exception handling
-    try {
-      cout << "\nWriting  array contents to file...";
-      //open file for writingF
-      ofstream fw("/eos/user/s/ssakhare/Store.csv", std::ofstream::app);
+    ofstream fw("/eos/user/s/ssakhare/Store.csv", std::ofstream::app);
       //check if file was successfully opened for writing
       if (fw.is_open())
       {
@@ -100,17 +96,10 @@ void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,
         fw.close();
       }
       else cout << "Problem with opening file";
-    }
-    catch (const char* msg) {
-      cerr << msg << endl;
-    }
-    cout << "\nDone!";
-    cout << "\nPress any key to exit...";
-    getchar();
     
     
     // save plot
-    std::string output_name = plot_dir + "/"+ specific+ "/LowCut_" + plot_name; 
+    std::string output_name = plot_dir + "/"+ specific+ "/MidCut_" + plot_name; 
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());;
@@ -152,7 +141,7 @@ void TTJETS::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir
     hist.SetStats(kTRUE);
     
     // save plot
-    std::string output_name = plot_dir + "/" + "LowCut_" + plot_name; 
+    std::string output_name = plot_dir + "/" + "MidCut_" + plot_name; 
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());
@@ -199,7 +188,7 @@ void TTJETS::ROC(TH1F &sigHist, TH1F &bkgHist, std::string plot_name)//, std::st
     g->Draw();
    
     c.Update();
-    std::string output_name = std::string("/eos/user/s/ssakhare/ROCPlots/")+std::string("TTJETS_LowCut_")+plot_name;
+    std::string output_name = std::string("/eos/user/s/ssakhare/ROCPlots/")+std::string("TTJETS_MidCut_")+plot_name;
     std::string output_name_pdf = output_name + ".pdf";
     c.SaveAs(output_name_pdf.c_str());
              
@@ -237,7 +226,7 @@ void TTJETS::Loop()
         return;
     }
 
-    std::string plot_dir = "/eos/user/s/ssakhare/ttbar/LowCut";
+    std::string plot_dir = "/eos/user/s/ssakhare/ttbar/MidCut";
     std::string sample = "TTbar";
     printf("Running over %s\n", sample.c_str());
 
@@ -2248,29 +2237,29 @@ void TTJETS::Loop2()
          
         }//End of loop
     }    
-    PlotHist(IronLong2_Flav0_EMID_R,sample,plot_dir,"LowCut","IronLong2_Flav0_EMID","EMID");
-    PlotHist(IronLong2_Flav1_EMID_R,sample,plot_dir,"LowCut","IronLong2_Flav1_EMID","EMID");
+    PlotHist(IronLong2_Flav0_EMID_R,sample,plot_dir,"MidCut","IronLong2_Flav0_EMID","EMID");
+    PlotHist(IronLong2_Flav1_EMID_R,sample,plot_dir,"MidCut","IronLong2_Flav1_EMID","EMID");
     ROC(IronLong2_Flav1_EMID_R, IronLong2_Flav0_EMID_R, "IronLong2_Flav(SignalFLav1)");
     
-    PlotHist(Flav0_EMID_R,sample,plot_dir,"LowCut","Flav0_EMID","EMID");
-    PlotHist(Flav1_EMID_R,sample,plot_dir,"LowCut","Flav1_EMID","EMID");
+    PlotHist(Flav0_EMID_R,sample,plot_dir,"MidCut","Flav0_EMID","EMID");
+    PlotHist(Flav1_EMID_R,sample,plot_dir,"MidCut","Flav1_EMID","EMID");
     ROC(Flav1_EMID_R, Flav0_EMID_R, "Flav(SignalFLav1)");
     
     
-    PlotHist(IronFake_Flav0_EMID_R,sample,plot_dir,"LowCut","Fake_Flav0_EMID","EMID");
-    PlotHist(IronFake_Flav1_EMID_R,sample,plot_dir,"LowCut","Fake_Flav1_EMID","EMID");
+    PlotHist(IronFake_Flav0_EMID_R,sample,plot_dir,"MidCut","Fake_Flav0_EMID","EMID");
+    PlotHist(IronFake_Flav1_EMID_R,sample,plot_dir,"MidCut","Fake_Flav1_EMID","EMID");
     ROC(IronFake_Flav1_EMID_R, IronFake_Flav0_EMID_R, "Fake_Flav(SignalFLav1)");
     
-    PlotHist(IronLong1_Flav0_EMID_R,sample,plot_dir,"LowCut","IronLong1_Flav0_EMID","EMID");
-    PlotHist(IronLong1_Flav1_EMID_R,sample,plot_dir,"LowCut","IronLong1_Flav1_EMID","EMID");
+    PlotHist(IronLong1_Flav0_EMID_R,sample,plot_dir,"MidCut","IronLong1_Flav0_EMID","EMID");
+    PlotHist(IronLong1_Flav1_EMID_R,sample,plot_dir,"MidCut","IronLong1_Flav1_EMID","EMID");
     ROC(IronLong1_Flav1_EMID_R, IronLong1_Flav0_EMID_R, "IronLong1_Flav(SignalFLav1)");
     
-    PlotHist(Iron1_Flav0_EMID_R,sample,plot_dir,"LowCut","Iron1_Flav0_EMID","EMID");
-    PlotHist(Iron1_Flav1_EMID_R,sample,plot_dir,"LowCut","Iron1_Flav1_EMID","EMID");
+    PlotHist(Iron1_Flav0_EMID_R,sample,plot_dir,"MidCut","Iron1_Flav0_EMID","EMID");
+    PlotHist(Iron1_Flav1_EMID_R,sample,plot_dir,"MidCut","Iron1_Flav1_EMID","EMID");
     ROC(Iron1_Flav1_EMID_R, Iron1_Flav0_EMID_R, "Iron1_Flav(SignalFLav1)");
     
-    PlotHist(Iron2_Flav0_EMID_R,sample,plot_dir,"LowCut","Iron2_Iron2_Flav0_EMID","EMID");
-    PlotHist(Iron2_Flav1_EMID_R,sample,plot_dir,"LowCut","Iron2_Flav1_EMID","EMID");
+    PlotHist(Iron2_Flav0_EMID_R,sample,plot_dir,"MidCut","Iron2_Iron2_Flav0_EMID","EMID");
+    PlotHist(Iron2_Flav1_EMID_R,sample,plot_dir,"MidCut","Iron2_Flav1_EMID","EMID");
     ROC(Iron2_Flav1_EMID_R, Iron2_Flav0_EMID_R, "Iron2_Flav(SignalFLav1)");
         
         
