@@ -174,10 +174,12 @@ void TTJETS::ROC(TH1F &sigHist, TH1F &bkgHist, std::string plot_name)//, std::st
       // that point is (1,1) on the ROC curve.
       float sig_slice_integral = sigHist.Integral(nbins-i,nbins);
       float bkg_slice_integral = bkgHist.Integral(nbins-i,nbins);
+      int Fake = 3688;
+      int Real = 589;
       std::cout << std::fixed << std::setprecision(2) << sig_slice_integral;
       std::cout << std::fixed << std::setprecision(2) << bkg_slice_integral;
-      sigPoints.push_back(sig_slice_integral/(sig_slice_integral+bkg_slice_integral));
-      bkgPoints.push_back(bkg_slice_integral/(sig_slice_integral+bkg_slice_integral));
+      sigPoints.push_back(sig_slice_integral/Real);
+      bkgPoints.push_back(bkg_slice_integral/Fake));
     }  
       // create a TGraph from the containers
     // this graph will have N (=nbins) number of points forming the curve.
@@ -2313,7 +2315,7 @@ void TTJETS::Random()
           
            
            //Starting Partameters 
-           if (LowPtElectron_convVeto[k]==1  && abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=5){
+           if (LowPtElectron_convVeto[k]==1  && abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=1.5){
                
                pt_vs_Flav_NoPt.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
                
