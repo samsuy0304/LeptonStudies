@@ -243,8 +243,8 @@ void TTJETS::Loop()
 
      Long64_t nentries = fChain->GetEntriesFast();
     Long64_t nbytes = 0, nb = 0;
-    float Lower_pt = 10.0;
-    float Higher_pt = 20.0;
+    float Lower_pt = 5.0;
+    float Higher_pt = 10.0;
     
     
 
@@ -2069,8 +2069,8 @@ void TTJETS::Loop2()
 
     Long64_t nentries = fChain->GetEntriesFast();
     Long64_t nbytes = 0, nb = 0;
-    float Lower_pt = 10.0;
-    float Higher_pt = 20.0;
+    float Lower_pt = 5.0;
+    float Higher_pt = 10.0;
     
     
     TH1F Flav0_EMID_R = TH1F("Flav0_EMID", "Flav0_EMID",32,4.0,12.0);
