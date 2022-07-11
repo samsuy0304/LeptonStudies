@@ -183,7 +183,7 @@ void TTJETS::ROC(TH1F &sigHist, TH1F &bkgHist, std::string plot_name)//, std::st
     }  
       // create a TGraph from the containers
     // this graph will have N (=nbins) number of points forming the curve.
-    TGraph *g = new TGraph(sigPoints.size(),&sigPoints[0],&bkgPoints[0]);
+    TGraph *g = new TGraph(sigPoints.size(),&bkgPoints[0],&sigPoints[0]);
     g->SetTitle(plot_name.c_str());
     g->GetYaxis()->SetTitle("True Positive Rate");
     g->GetXaxis()->SetTitle("False Positive Rate");
@@ -2147,7 +2147,7 @@ void TTJETS::Loop2()
           
            
            //Starting Partameters 
-           if (LowPtElectron_convVeto[k]==1 && LowPtElectron_pt[k]>=Lower_pt && LowPtElectron_pt[k]<Higher_pt && abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=5){
+           if (LowPtElectron_convVeto[k]==1 && LowPtElectron_pt[k]>=Lower_pt && LowPtElectron_pt[k]<Higher_pt && abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=1.5){
                
                if (LowPtElectron_genPartFlav[k] == 0)
                { 
