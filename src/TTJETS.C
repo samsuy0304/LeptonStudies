@@ -82,7 +82,8 @@ void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,
     hist.Draw("hist error same");
     hist.SetStats(kTRUE);
     int lepnum = hist.GetEntries();
-    std::string entry = plot_name +","+ lepnum.to_string();
+    std::string s = std::to_string(lepnum);
+    std::string entry = plot_name +","+ s;
     
     //exception handling
     try {
@@ -93,9 +94,9 @@ void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,
       if (fw.is_open())
       {
         //store array contents to text file
-        for (int i = 0; i < arraySize; i++) {
-          fw << entry.c_str() << "\n";
-        }
+        
+        fw << entry.c_str() << "\n";
+        
         fw.close();
       }
       else cout << "Problem with opening file";
