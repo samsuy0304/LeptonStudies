@@ -2318,7 +2318,7 @@ void TTJETS::Random()
           
            
            //Starting Partameters 
-           if (LowPtElectron_convVeto[k]==1  && abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=1.5){
+           if (LowPtElectron_convVeto[k]==1  && abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=1.5 &&LowPtElectron_miniPFRelIso_all[k] <4 && abs(LowPtElectron_dxy[k])<0.05 && abs(LowPtElectron_dz[k])<0.1 && IPSig1<2){
                
                pt_vs_Flav_NoPt.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
                
@@ -2349,13 +2349,13 @@ void TTJETS::Random()
          
         }//End of loop
     }    
-    PlotHist2(pt_vs_Flav_Low,sample,plot_dir,"pt_vs_Flav_Low","pt","Flav");
-    PlotHist2(pt_vs_Flav_Mid,sample,plot_dir,"pt_vs_Flav_Mid","pt","Flav");
-    PlotHist2(pt_vs_Flav_High,sample,plot_dir,"pt_vs_Flav_High","pt","Flav");
-    PlotHist2(pt_vs_Flav_NoPt,sample,plot_dir,"pt_vs_Flav_NoPt","pt","Flav");
+    PlotHist2(pt_vs_Flav_Low,sample,plot_dir,"pt_vs_Flav_Iron1Low","pt","Flav");
+    PlotHist2(pt_vs_Flav_Mid,sample,plot_dir,"pt_vs_Flav_Iron1Mid","pt","Flav");
+    PlotHist2(pt_vs_Flav_High,sample,plot_dir,"pt_vs_Flav_Iron1High","pt","Flav");
+    PlotHist2(pt_vs_Flav_NoPt,sample,plot_dir,"pt_vs_Flav_Iron1NoPt","pt","Flav");
     
-    PlotHist2( pt_vs_EMID_FLAV0,sample,plot_dir," pt_vs_EMID_FLAV0","pt","EMID");
-    PlotHist2( pt_vs_EMID_FLAV1,sample,plot_dir," pt_vs_EMID_FLAV1","pt","EMID");
+    PlotHist2( pt_vs_EMID_FLAV0,sample,plot_dir," pt_vs_EMID_Iron1FLAV0","pt","EMID");
+    PlotHist2( pt_vs_EMID_FLAV1,sample,plot_dir," pt_vs_EMID_Iron1FLAV1","pt","EMID");
         
         
 }        
