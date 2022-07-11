@@ -969,7 +969,7 @@ void TTJETS::Loop()
                 //////////////////////////////////////////////////////////////////////////////////////////////////////
                 ///////////////////////////////////////////////////////////////////////////////////////////////////////
                 //GENERAL_PARAMETERS
-                if (abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=5)
+                if (abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=1.5)
                 { 
 
 
