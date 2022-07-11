@@ -2315,7 +2315,50 @@ void TTJETS::Random()
         { 
        
            
-          
+           float dxySig = -999;
+            // avoid dividing by 0
+            if (LowPtElectron_dxyErr[k] != 0)
+            { 
+                dxySig = LowPtElectron_dxy[k] / LowPtElectron_dxyErr[k];
+            }
+            
+            
+            float dzSig = -999;
+            
+            if (LowPtElectron_dzErr[k] != 0)
+            { 
+                dzSig = LowPtElectron_dz[k] / LowPtElectron_dzErr[k];
+            }
+                
+            
+            float IPSig1 =-999; //
+            if (LowPtElectron_dxyErr[k] != 0 && LowPtElectron_dzErr[k] != 0)
+            { 
+                IPSig1 = sqrt(dxySig*dxySig + dzSig*dzSig);
+        
+            }
+    
+            float IP = -999;
+            float IPErr = -999;
+            
+            if (LowPtElectron_dxyErr[k] != 0 && LowPtElectron_dzErr[k] != 0)
+            { 
+                IP = sqrt(LowPtElectron_dxy[k]*LowPtElectron_dxy[k] +LowPtElectron_dz[k]*LowPtElectron_dz[k]);
+                IPErr = sqrt(LowPtElectron_dxyErr[k]*LowPtElectron_dxyErr[k] +LowPtElectron_dzErr[k]*LowPtElectron_dzErr[k]);
+        
+            }
+              
+            
+            
+            
+            float IPSig2 =-999; //
+            if (LowPtElectron_dxyErr[k] != 0)
+            { 
+                IPSig2 = abs(IP/IPErr);
+                 
+            }
+            
+            float IPdiff = IPSig1 - IPSig2;
            
            //Starting Partameters 
            if (LowPtElectron_convVeto[k]==1  && abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=1.5 &&LowPtElectron_miniPFRelIso_all[k] <4 && abs(LowPtElectron_dxy[k])<0.05 && abs(LowPtElectron_dz[k])<0.1 && IPSig1<2){
