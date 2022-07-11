@@ -82,7 +82,7 @@ void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,
     hist.Draw("hist error same");
     hist.SetStats(kTRUE);
     int lepnum = hist.GetEntries();
-    std::string entry = plot_name.c_str() +","+ lepnum.c_str()
+    std::string entry = plot_name +","+ lepnum.to_string();
     
     //exception handling
     try {
