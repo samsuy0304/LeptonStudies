@@ -3,7 +3,9 @@
 #include <TH2.h>
 #include <TStyle.h>
 #include <TCanvas.h>
-
+#include <iostream>
+#include <string>
+#include <fstream>
 
 std::string TTJETS::GetLabel(std::string variable)
 {
@@ -79,6 +81,32 @@ void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,
     // draw
     hist.Draw("hist error same");
     hist.SetStats(kTRUE);
+    int lepnum = hist.GetEntries();
+    std::string entry = plot_name.c_str() +","+ lepnum.c_str()
+    
+    //exception handling
+    try {
+      cout << "\nWriting  array contents to file...";
+      //open file for writing
+      ofstream fw("c:\\demos\\CPlusPlusSampleFile.txt", std::ofstream::app);
+      //check if file was successfully opened for writing
+      if (fw.is_open())
+      {
+        //store array contents to text file
+        for (int i = 0; i < arraySize; i++) {
+          fw << entry.c_str() << "\n";
+        }
+        fw.close();
+      }
+      else cout << "Problem with opening file";
+    }
+    catch (const char* msg) {
+      cerr << msg << endl;
+    }
+    cout << "\nDone!";
+    cout << "\nPress any key to exit...";
+    getchar();
+    
     
     // save plot
     std::string output_name = plot_dir + "/"+ specific+ "/HighCut_" + plot_name; 
