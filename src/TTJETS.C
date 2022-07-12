@@ -178,8 +178,8 @@ void TTJETS::ROC(TH1F &sigHist, TH1F &bkgHist, std::string plot_name)//, std::st
       int Real = 589;
       std::cout << std::fixed << std::setprecision(2) << sig_slice_integral;
       std::cout << std::fixed << std::setprecision(2) << bkg_slice_integral;
-      sigPoints.push_back(sig_slice_integral/sigPoints);
-      bkgPoints.push_back(bkg_slice_integral/bkgPoints);
+      sigPoints.push_back(sig_slice_integral/sig_integral);
+      bkgPoints.push_back(bkg_slice_integral/bkg_integral);
     }  
       // create a TGraph from the containers
     // this graph will have N (=nbins) number of points forming the curve.
