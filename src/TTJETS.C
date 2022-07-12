@@ -2399,7 +2399,7 @@ void TTJETS::Random()
                    
                    if (LowPtElectron_genPartFlav[k]==0){
                        pt_vs_Flav1_Low.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
-                       pt_vs_EMID_FlAV1_Low.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
+                       pt_vs_EMID_FLAV1_Low.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
                    }
                     
                } 
