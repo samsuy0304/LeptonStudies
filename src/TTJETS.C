@@ -2380,12 +2380,12 @@ void TTJETS::Random()
                //FlavCut
                if (LowPtElectron_genPartFlav[k]==0){
                    pt_vs_Flav0_NoPt.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
-                   pt_vs_EMID_Flav0_NoPt.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
+                   pt_vs_EMID_FLAV0_NoPt.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
                } 
 
                if (LowPtElectron_genPartFlav[k]==0){
                    pt_vs_Flav1_NoPt.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
-                   pt_vs_EMID_Flav1_NoPt.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
+                   pt_vs_EMID_FLAV1_NoPt.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
                }
                
                
@@ -2394,12 +2394,12 @@ void TTJETS::Random()
                    //FlavCut
                    if (LowPtElectron_genPartFlav[k]==0){
                        pt_vs_Flav0_Low.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
-                       pt_vs_EMID_Flav0_LowCut.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
+                       pt_vs_EMID_FLAV0_Low.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
                    } 
                    
                    if (LowPtElectron_genPartFlav[k]==0){
                        pt_vs_Flav1_Low.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
-                       pt_vs_EMID_Flav1_Low.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
+                       pt_vs_EMID_FlAV1_Low.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
                    }
                     
                } 
@@ -2408,12 +2408,12 @@ void TTJETS::Random()
                    //FlavCut
                    if (LowPtElectron_genPartFlav[k]==0){
                        pt_vs_Flav0_Mid.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
-                       pt_vs_EMID_Flav0_Mid.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
+                       pt_vs_EMID_FLAV0_Mid.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
                    } 
                    
                    if (LowPtElectron_genPartFlav[k]==0){
                        pt_vs_Flav1_Mid.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
-                       pt_vs_EMID_Flav1_Mid.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
+                       pt_vs_EMID_FLAV1_Mid.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
                    }
                    
                    
@@ -2426,12 +2426,12 @@ void TTJETS::Random()
                    //FlavCut
                    if (LowPtElectron_genPartFlav[k]==0){
                        pt_vs_Flav0_High.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
-                       pt_vs_EMID_Flav0_High.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
+                       pt_vs_EMID_FLAV0_High.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
                    } 
                    
                    if (LowPtElectron_genPartFlav[k]==0){
                        pt_vs_Flav1_High.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
-                       pt_vs_EMID_Flav1_High.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
+                       pt_vs_EMID_FLAV1_High.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
                    }
                
                }
