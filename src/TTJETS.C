@@ -2368,6 +2368,23 @@ void TTJETS::Random()
                if( LowPtElectron_pt[k]>=1.0 && LowPtElectron_pt[k]<5.0){
                    pt_vs_Flav_Low.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
                    
+                 
+                   
+                    
+               } 
+               
+               if( LowPtElectron_pt[k]>=5.0 && LowPtElectron_pt[k]<10.0){
+                   pt_vs_Flav_Mid.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
+                   
+                   
+                  
+               }
+               
+               if( LowPtElectron_pt[k]>=10.0 && LowPtElectron_pt[k]<20.0){
+                   pt_vs_Flav_High.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
+                   
+                   
+                   
                    if (LowPtElectron_genPartFlav[k] == 0){
                       pt_vs_EMID_FLAV0.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
                    }
@@ -2375,16 +2392,6 @@ void TTJETS::Random()
                    if (LowPtElectron_genPartFlav[k] == 1){
                       pt_vs_EMID_FLAV1.Fill(LowPtElectron_pt[k],LowPtElectron_embeddedID[k]);
                    }
-                   
-                    
-               } 
-               
-               if( LowPtElectron_pt[k]>=5.0 && LowPtElectron_pt[k]<10.0){
-                   pt_vs_Flav_Mid.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
-               }
-               
-               if( LowPtElectron_pt[k]>=10.0 && LowPtElectron_pt[k]<20.0){
-                   pt_vs_Flav_High.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
                }
         
 
