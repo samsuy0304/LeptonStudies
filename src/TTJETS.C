@@ -244,7 +244,7 @@ void TTJETS::Loop()
     
     // Only Flavors
     // NO Flav
-    TH1F EMID = TH1F("EMID", "EMID",60,0.0,12.0);
+    TH1F EMID = TH1F("EMID", "EMID",22,4.0,12.0);
     TH1F Pt = TH1F("pt", "pt",80,Lower_pt,Higher_pt);
     TH1F Eta = TH1F("eta", "eta",30,-2.4,2.4);
     TH1F Dxy = TH1F("dxy", "dxy",100,0.05,-0.05); 
@@ -261,7 +261,7 @@ void TTJETS::Loop()
     TH1F CONV = TH1F("CONV", "CONV",2,0.0,2.0);
     TH1F ISO = TH1F("ISO","ISO",50,0.0,20.0);
     // Flav 0                                               
-    TH1F Flav0_EMID = TH1F("Flav0_EMID", "Flav0_EMID",60,0.0,12.0);
+    TH1F Flav0_EMID = TH1F("Flav0_EMID", "Flav0_EMID",22,4.0,12.0);
     TH1F Flav0_pt = TH1F("Flav0_pt", "Flav0_pt",80,Lower_pt,Higher_pt)   ;
     TH1F Flav0_eta = TH1F("Flav0_eta", "Flav0_eta",30,-2.4,2.4)    ;
     TH1F Flav0_dxy = TH1F("Flav0_dxy", "Flav0_dxy",100,0.05,-0.05)  ;
@@ -278,7 +278,7 @@ void TTJETS::Loop()
     TH1F Flav0_CONV = TH1F("Flav0_CONV","Flav0_CONV",2,0.0,2.0);
     TH1F Flav0_ISO = TH1F("Flav0_ISO","Flav0_ISO",50, 0.0, 20.0);   
     //Flav1
-    TH1F Flav1_EMID = TH1F("Flav1_EMID", "Flav1_EMID",60,0.0,12.0);
+    TH1F Flav1_EMID = TH1F("Flav1_EMID", "Flav1_EMID",22,4.0,12.0);
     TH1F Flav1_pt = TH1F("Flav1_pt", "Flav1_pt",80,Lower_pt,Higher_pt);
     TH1F Flav1_eta = TH1F("Flav1_eta", "Flav1_eta",30,-2.4,2.4);
     TH1F Flav1_dxy = TH1F("Flav1_dxy", "Flav1_dxy",100,0.05,-0.05) ; 
@@ -295,7 +295,7 @@ void TTJETS::Loop()
     TH1F Flav1_CONV = TH1F("Flav1_CONV","Flav1_CONV",2,0.0,2.0);
     TH1F Flav1_ISO = TH1F("Flav1_ISO","Flav1_ISO",50, 0.0, 20.0);   
     //Flav5
-    TH1F Flav5_EMID = TH1F("Flav5_EMID", "Flav5_EMID",60,0.0,12.0);
+    TH1F Flav5_EMID = TH1F("Flav5_EMID", "Flav5_EMID",22,4.0,12.0);
     TH1F Flav5_pt = TH1F("Flav5_pt", "Flav5_pt",80,Lower_pt,Higher_pt);
     TH1F Flav5_eta = TH1F("Flav5_eta", "Flav5_eta",30,-2.4,2.4);
     TH1F Flav5_dxy = TH1F("Flav5_dxy", "Flav5_dxy",100,0.05,-0.05) ; 
@@ -313,7 +313,7 @@ void TTJETS::Loop()
     TH1F Flav5_ISO = TH1F("Flav5_ISO","Flav5_ISO",50, 0.0, 20.0);
         
     /// IRON1 No Flav
-    TH1F IRON1_EMID = TH1F("IRON1_EMID", "IRON1_EMID",60,0.0,12.0);
+    TH1F IRON1_EMID = TH1F("IRON1_EMID", "IRON1_EMID",22,4.0,12.0);
     TH1F IRON1_pt = TH1F("IRON1_pt", "IRON1_pt",80,Lower_pt,Higher_pt);
     TH1F IRON1_eta = TH1F("IRON1_eta", "IRON1_eta",30,-2.4,2.4);
     TH1F IRON1_dxy = TH1F("IRON1_dxy", "IRON1_dxy",100,0.05,-0.05) ; 
@@ -333,7 +333,7 @@ void TTJETS::Loop()
     
      
     //IRON2 No Flav
-    TH1F IRON2_EMID = TH1F("IRON2_EMID", "IRON2_EMID",60,0.0,12.0);
+    TH1F IRON2_EMID = TH1F("IRON2_EMID", "IRON2_EMID",22,4.0,12.0);
     TH1F IRON2_pt = TH1F("IRON2_pt", "IRON2_pt",80,Lower_pt,Higher_pt);
     TH1F IRON2_eta = TH1F("IRON2_eta", "IRON2_eta",30,-2.4,2.4);
     TH1F IRON2_dxy = TH1F("IRON2_dxy", "IRON2_dxy",100,0.05,-0.05);  
@@ -352,7 +352,7 @@ void TTJETS::Loop()
     
     
     //Long 1 No Flav
-    TH1F IRONLONG1_EMID = TH1F("IRONLONG1_EMID", "IRONLONG1_EMID",60,0.0,12.0);
+    TH1F IRONLONG1_EMID = TH1F("IRONLONG1_EMID", "IRONLONG1_EMID",22,4.0,12.0);
     TH1F IRONLONG1_pt = TH1F("IRONLONG1_pt", "IRONLONG1_pt",80,Lower_pt,Higher_pt);
     TH1F IRONLONG1_eta = TH1F("IRONLONG1_eta", "IRONLONG1_eta",30,-2.4,2.4);
     TH1F IRONLONG1_dxy = TH1F("IRONLONG1_dxy", "IRONLONG1_dxy",100,0.05,-0.05);  
@@ -370,7 +370,7 @@ void TTJETS::Loop()
     TH1F IRONLONG1_ISO = TH1F("IRONLONG1_ISO","IRONLONG1_ISO",50, 0.0, 20.0);
     
     //Long 2 No Flav
-    TH1F IRONLONG2_EMID = TH1F("IRONLONG2_EMID", "IRONLONG2_EMID",60,0.0,12.0);
+    TH1F IRONLONG2_EMID = TH1F("IRONLONG2_EMID", "IRONLONG2_EMID",22,4.0,12.0);
     TH1F IRONLONG2_pt = TH1F("IRONLONG2_pt", "IRONLONG2_pt",80,Lower_pt,Higher_pt);
     TH1F IRONLONG2_eta = TH1F("IRONLONG2_eta", "IRONLONG2_eta",30,-2.4,2.4);
     TH1F IRONLONG2_dxy = TH1F("IRONLONG2_dxy", "IRONLONG2_dxy",100,0.05,-0.05);  
@@ -388,7 +388,7 @@ void TTJETS::Loop()
     TH1F IRONLONG2_ISO = TH1F("IRONLONG2_ISO","IRONLONG2_ISO",50, 0.0, 20.0);
     
     //IRON Fake no flav
-    TH1F FAKE_EMID = TH1F("FAKE_EMID", "FAKE_EMID",60,0.0,12.0);
+    TH1F FAKE_EMID = TH1F("FAKE_EMID", "FAKE_EMID",22,4.0,12.0);
     TH1F FAKE_pt = TH1F("FAKE_pt", "IRONFAKE_pt",80,Lower_pt,Higher_pt);
     TH1F FAKE_eta = TH1F("IRONFAKE_eta", "IRONFAKE_eta",30,-2.4,2.4);
     TH1F FAKE_dxy = TH1F("IRONFAKE_dxy", "IRONFAKE_dxy",100,0.05,-0.05);  
@@ -778,7 +778,7 @@ void TTJETS::Loop()
     
     
     
-    TH2F pt_vs_EMID = TH2F("pt_vs_EMID", "pt_vs_EMID",20,Lower_pt,Higher_pt, 60,4.0, 12.0);
+    TH2F pt_vs_EMID = TH2F("pt_vs_EMID", "pt_vs_EMID",20,Lower_pt,Higher_pt, 22,4.0, 12.0);
     TH2F pt_vs_eta = TH2F("pt_vs_eta", "pt_vs_eta",20,Lower_pt,Higher_pt,30,-2.4,2.4);
     TH2F pt_vs_dxy = TH2F("pt_vs_dxy", "pt_vs_dxy",20,Lower_pt,Higher_pt,50,-0.05,0.05);
     TH2F pt_vs_dxyErr = TH2F("pt_vs_dxyErr", "pt_vs_dxyErr",20,Lower_pt,Higher_pt,50,0.0,0.02);
@@ -2147,7 +2147,7 @@ void TTJETS::Loop2()
           
            
            //Starting Partameters 
-           if (LowPtElectron_convVeto[k]==1 && LowPtElectron_pt[k]>=Lower_pt && LowPtElectron_pt[k]<Higher_pt && abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=1.5){
+           if (LowPtElectron_convVeto[k]==1 && LowPtElectron_pt[k]>=Lower_pt && LowPtElectron_pt[k]<Higher_pt && abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=4.0){
                
                if (LowPtElectron_genPartFlav[k] == 0)
                { 
@@ -2278,8 +2278,8 @@ void TTJETS::Random()
     TH2F pt_vs_Flav_High = TH2F("pt_vs_Flav_High", "pt_vs_Flav_High",20,10.0,20.0,1,1.0,2.0);
     TH2F pt_vs_Flav_NoPt = TH2F("pt_vs_Flav_NoPt", "pt_vs_Flav_NoPt",20,0.0,20.0,1,1.0,2.0);
     
-    TH2F pt_vs_EMID_FLAV0 = TH2F("pt_vs_EMID_Flav0", "pt_vs_EMID_Flav0",20,1.0,5.0,22,1.5,12.5);
-    TH2F pt_vs_EMID_FLAV1 = TH2F("pt_vs_EMID_Flav1", "pt_vs_EMID_Flav1",20,1.0,5.0,22,1.5,12.5);
+    TH2F pt_vs_EMID_FLAV0 = TH2F("pt_vs_EMID_Flav0", "pt_vs_EMID_Flav0",20,1.0,5.0,22,4,12.5);
+    TH2F pt_vs_EMID_FLAV1 = TH2F("pt_vs_EMID_Flav1", "pt_vs_EMID_Flav1",20,1.0,5.0,22,4,12.5);
     
     gROOT->SetBatch(kTRUE);
     
@@ -2361,7 +2361,7 @@ void TTJETS::Random()
             float IPdiff = IPSig1 - IPSig2;
            
            //Starting Partameters 
-           if (LowPtElectron_convVeto[k]==1  && abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=1.5 &&LowPtElectron_miniPFRelIso_all[k] <4 && abs(LowPtElectron_dxy[k])<0.05 && abs(LowPtElectron_dz[k])<0.1 && IPSig1<2){
+           if (LowPtElectron_convVeto[k]==1  && abs(LowPtElectron_eta[k]) <2.4 && LowPtElectron_embeddedID[k]>=4 &&LowPtElectron_miniPFRelIso_all[k] <4 && abs(LowPtElectron_dxy[k])<0.05 && abs(LowPtElectron_dz[k])<0.1 && IPSig1<2){
                
                pt_vs_Flav_NoPt.Fill(LowPtElectron_pt[k],LowPtElectron_genPartFlav[k]);
                
