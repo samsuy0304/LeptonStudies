@@ -882,7 +882,7 @@ void TTJETS::NoPt(std::string sample_name)
                
             
             // No Flav
-            if (&& LowPtElectron_pt[k]>=Lower_pt && LowPtElectron_pt[k]<Higher_pt)
+            if (LowPtElectron_pt[k]>=Lower_pt && LowPtElectron_pt[k]<Higher_pt)
             {    
                 
 
@@ -7828,27 +7828,27 @@ void TTJETS::Random()
          
         }//End of loop
     }    
-    PlotHist2(pt_vs_Flav0_Low,sample,plot_dir,"NoCut","pt_vs_Flav0_Iron1Low","pt","Flav0");
-    PlotHist2(pt_vs_Flav0_Mid,sample,plot_dir,"NoCut","pt_vs_Flav0_Iron1Mid","pt","Flav0");
-    PlotHist2(pt_vs_Flav0_High,sample,plot_dir,"NoCut","pt_vs_Flav0_Iron1High","pt","Flav0");
-    PlotHist2(pt_vs_Flav0_NoPt,sample,plot_dir,"NoCut","pt_vs_Flav0_Iron1NoPt","pt","Flav0");
+    PlotHist2(pt_vs_Flav0_Low,sample,plot_dir,"pt_vs_Flav0_Iron1Low","pt","Flav0");
+    PlotHist2(pt_vs_Flav0_Mid,sample,plot_dir,"pt_vs_Flav0_Iron1Mid","pt","Flav0");
+    PlotHist2(pt_vs_Flav0_High,sample,plot_dir,"pt_vs_Flav0_Iron1High","pt","Flav0");
+    PlotHist2(pt_vs_Flav0_NoPt,sample,plot_dir,"pt_vs_Flav0_Iron1NoPt","pt","Flav0");
     
-    PlotHist2(pt_vs_Flav1_Low,sample,plot_dir,"NoCut","pt_vs_Flav1_Iron1Low","pt","Flav1");
-    PlotHist2(pt_vs_Flav1_Mid,sample,plot_dir,"NoCut","pt_vs_Flav1_Iron1Mid","pt","Flav1");
-    PlotHist2(pt_vs_Flav1_High,sample,plot_dir,"NoCut","pt_vs_Flav1_Iron1High","pt","Flav1");
-    PlotHist2(pt_vs_Flav1_NoPt,sample,plot_dir,"NoCut","pt_vs_Flav1_Iron1NoPt","pt","Flav1");
+    PlotHist2(pt_vs_Flav1_Low,sample,plot_dir,"pt_vs_Flav1_Iron1Low","pt","Flav1");
+    PlotHist2(pt_vs_Flav1_Mid,sample,plot_dir,"pt_vs_Flav1_Iron1Mid","pt","Flav1");
+    PlotHist2(pt_vs_Flav1_High,sample,plot_dir,"pt_vs_Flav1_Iron1High","pt","Flav1");
+    PlotHist2(pt_vs_Flav1_NoPt,sample,plot_dir,"pt_vs_Flav1_Iron1NoPt","pt","Flav1");
     
-    PlotHist2( pt_vs_EMID_FLAV0_Low,sample,plot_dir,"NoCut"," pt_vs_EMID_Iron1FLAV0_Low","pt","EMID");
-    PlotHist2( pt_vs_EMID_FLAV1_Low,sample,plot_dir,"NoCut"," pt_vs_EMID_Iron1FLAV1_Low","pt","EMID");
+    PlotHist2( pt_vs_EMID_FLAV0_Low,sample,plot_dir," pt_vs_EMID_Iron1FLAV0_Low","pt","EMID");
+    PlotHist2( pt_vs_EMID_FLAV1_Low,sample,plot_dir," pt_vs_EMID_Iron1FLAV1_Low","pt","EMID");
     
-    PlotHist2( pt_vs_EMID_FLAV0_Mid,sample,plot_dir,"NoCut"," pt_vs_EMID_Iron1FLAV0_Mid","pt","EMID");
-    PlotHist2( pt_vs_EMID_FLAV1_Mid,sample,plot_dir,"NoCut"," pt_vs_EMID_Iron1FLAV1_Mid","pt","EMID");
+    PlotHist2( pt_vs_EMID_FLAV0_Mid,sample,plot_dir," pt_vs_EMID_Iron1FLAV0_Mid","pt","EMID");
+    PlotHist2( pt_vs_EMID_FLAV1_Mid,sample,plot_dir," pt_vs_EMID_Iron1FLAV1_Mid","pt","EMID");
     
-    PlotHist2( pt_vs_EMID_FLAV0_High,sample,plot_dir,"NoCut"," pt_vs_EMID_Iron1FLAV0_High","pt","EMID");
-    PlotHist2( pt_vs_EMID_FLAV1_High,sample,plot_dir,"NoCut"," pt_vs_EMID_Iron1FLAV1_High","pt","EMID");
+    PlotHist2( pt_vs_EMID_FLAV0_High,sample,plot_dir,"pt_vs_EMID_Iron1FLAV0_High","pt","EMID");
+    PlotHist2( pt_vs_EMID_FLAV1_High,sample,plot_dir," pt_vs_EMID_Iron1FLAV1_High","pt","EMID");
     
-    PlotHist2( pt_vs_EMID_FLAV0_NoPt,sample,plot_dir,"NoCut"," pt_vs_EMID_Iron1FLAV0_NoPt","pt","EMID");
-    PlotHist2( pt_vs_EMID_FLAV1_NoPt,sample,plot_dir,"NoCut"," pt_vs_EMID_Iron1FLAV1_NoPt","pt","EMID");
+    PlotHist2( pt_vs_EMID_FLAV0_NoPt,sample,plot_dir," pt_vs_EMID_Iron1FLAV0_NoPt","pt","EMID");
+    PlotHist2( pt_vs_EMID_FLAV1_NoPt,sample,plot_dir," pt_vs_EMID_Iron1FLAV1_NoPt","pt","EMID");
         
 }        
 
