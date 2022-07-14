@@ -85,8 +85,8 @@ void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,
     hist.SetStats(kTRUE);
     int lepnum = hist.GetEntries();
     std::string s = std::to_string(lepnum);
-    std::string entry = plot_name +","+ s;
-    std::string storefile = plot_dir + sample_name + "/" + pt_cut + "/" + specific+"/Store.csv";
+    std::string entry = pt_cut +"_"+plot_name +","+ s;
+    std::string storefile = plot_dir +"Input.csv";//+ sample_name + "/" + pt_cut + "/" + specific+"/Store.csv";
 
     ofstream fw(storefile, std::ofstream::app);
       //check if file was successfully opened for writing
