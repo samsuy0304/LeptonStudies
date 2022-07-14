@@ -7857,7 +7857,7 @@ void TTJETS::Random()
 void TTJETS::RunAll()
 {
     NoPt("EMID1p5_Eta2p4");
-    MidCut("EMID1p5_Eta2p4);
+    MidCut("EMID1p5_Eta2p4");
     LowCut("EMID1p5_Eta2p4");
     HighCut("EMID1p5_Eta2p4");
 }
