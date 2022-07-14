@@ -3369,7 +3369,8 @@ public :
    virtual void         HighCut(std::string sample_name);
    virtual void         RunAll();
    virtual void         Random();
-   virtual void         PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,std::string specific, std::string plot_name, std::string variable);
+   virtual void         Loop2();
+   virtual void         PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,std::string pt_cut, std::string specific, std::string plot_name, std::string variable);
    virtual void         SetupHist(TH1F &hist, std::string title, std::string x_title, std::string y_title, int color, int line_width);
    virtual void         PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable, std::string variable2);
    virtual void         SetupHist2(TH2F &hist, std::string title, std::string x_title, std::string y_title, int color, int line_width);
