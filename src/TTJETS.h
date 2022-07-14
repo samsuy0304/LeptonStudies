@@ -3363,8 +3363,11 @@ public :
    virtual Int_t        GetEntry(Long64_t entry);
    virtual Long64_t     LoadTree(Long64_t entry);
    virtual void         Init(TTree *tree);
-   virtual void         Loop();
-   virtual void         Loop2();
+   virtual void         NoPt(std::string sample_name);
+   virtual void         LowCut(std::string sample_name);
+   virtual void         MidCut(std::string sample_name);
+   virtual void         HighCut(std::string sample_name);
+   virtual void         RunAll();
    virtual void         Random();
    virtual void         PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,std::string specific, std::string plot_name, std::string variable);
    virtual void         SetupHist(TH1F &hist, std::string title, std::string x_title, std::string y_title, int color, int line_width);
