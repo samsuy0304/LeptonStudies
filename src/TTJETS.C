@@ -64,7 +64,7 @@ void TTJETS::SetupHist(TH1F &hist, std::string title, std::string x_title, std::
     hist.SetLineWidth(line_width);
 }
 
-void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,"NoCut", std::string pt_cut, std::string specific, std::string plot_name, std::string variable)
+void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,std::string pt_cut, std::string specific, std::string plot_name, std::string variable)
 {
     printf("Plotting %s\n", plot_name.c_str());
 
@@ -86,8 +86,9 @@ void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,
     int lepnum = hist.GetEntries();
     std::string s = std::to_string(lepnum);
     std::string entry = plot_name +","+ s;
-    
-    ofstream fw("/eos/user/s/ssakhare/Store.csv", std::ofstream::app);
+    std::string storefile = plot_dir + sample_name + "/" + pt_cut + "/" + specific+"/Store.csv";
+
+    ofstream fw(storefile, std::ofstream::app);
       //check if file was successfully opened for writing
       if (fw.is_open())
       {
@@ -101,7 +102,7 @@ void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,
     
     
     // save plot
-    std::string output_name = plot_dir +sample_name+"/"+ specific+ "/"+pt_cut+"_" + plot_name; 
+    std::string output_name = plot_dir +sample_name+"/"+pt_cut+ "/" + specific + "/"+pt_cut+"_" + plot_name; 
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());;
@@ -122,7 +123,7 @@ void TTJETS::SetupHist2(TH2F &hist, std::string title, std::string x_title, std:
     hist.SetLineWidth(line_width);
 }
 
-void TTJETS::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir,"NoCut", std::string plot_name, std::string variable, std::string variable2)
+void TTJETS::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable, std::string variable2)
 {
     printf("Plotting %s\n", plot_name.c_str());
 
@@ -231,7 +232,7 @@ void TTJETS::NoPt(std::string sample_name)
     }
 
     std::string plot_dir = "/eos/user/s/ssakhare/ttbar/";
-    std::string sample = "TTbar";
+    std::string sample = "TTbar"+sample_name;
     printf("Running over %s\n", sample.c_str());
 
      Long64_t nentries = fChain->GetEntriesFast();
@@ -2032,7 +2033,7 @@ void TTJETS::LowCut(std::string sample_name)
     }
 
     std::string plot_dir = "/eos/user/s/ssakhare/ttbar/";
-    std::string sample = "TTbar";
+    std::string sample = "TTbar" + sample_name; 
     printf("Running over %s\n", sample.c_str());
 
     Long64_t nentries = fChain->GetEntriesFast();
@@ -3831,7 +3832,7 @@ void TTJETS::MidCut(std::string sample_name)
     }
 
     std::string plot_dir = "/eos/user/s/ssakhare/ttbar/";
-    std::string sample = "TTbar";
+    std::string sample = "TTbar" + sample_name;
     printf("Running over %s\n", sample.c_str());
 
     Long64_t nentries = fChain->GetEntriesFast();
