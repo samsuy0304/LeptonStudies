@@ -411,21 +411,21 @@ void TTJETS::NoPt(std::string sample_name)
     
     
     // LowPtElectron_genPartFlav == 0
-    TH1F IRON2_FLAV0_EMID       = TH1F("Iron2_Flav0_EMID","Iron2_Flav0_EMID",22,EMID_cut,12.0));
+    TH1F IRON2_FLAV0_EMID       = TH1F("Iron2_Flav0_EMID","Iron2_Flav0_EMID",22,EMID_cut,12.0);
     TH1F LONG2_FLAV0_EMID    = TH1F("Long2_Flav0_EMID","Long2_Flav0_EMID",  22,EMID_cut,12.0);
-    TH1F IRON1_FLAV0_EMID       = TH1F("Iron1_Flav0_EMID","Iron1_Flav0_EMID",22,EMID_cut,12.0));
+    TH1F IRON1_FLAV0_EMID       = TH1F("Iron1_Flav0_EMID","Iron1_Flav0_EMID",22,EMID_cut,12.0);
     TH1F LONG1_FLAV0_EMID    = TH1F("Long1_Flav0_EMID","Long1_Flav0_EMID",  22,EMID_cut,12.0);
     TH1F FAKE_FLAV0_EMID    = TH1F("IronFake_Flav0_EMID","IronFake_Flav0_EMID",  22,EMID_cut,12.0);
     // LowPtElectron_genPartFlav == 1
-    TH1F IRON1_FLAV1_EMID       = TH1F("Iron1_Flav1_EMID","Iron1_Flav1_EMID",22,EMID_cut,12.0));
+    TH1F IRON1_FLAV1_EMID       = TH1F("Iron1_Flav1_EMID","Iron1_Flav1_EMID",22,EMID_cut,12.0);
     TH1F LONG1_FLAV1_EMID    = TH1F("Long1_Flav1_EMID","Long1_Flav1_EMID",  22,EMID_cut,12.0);
-    TH1F IRON2_FLAV1_EMID       = TH1F("Iron2_Flav1_EMID","Iron2_Flav1_EMID",22,EMID_cut,12.0));
+    TH1F IRON2_FLAV1_EMID       = TH1F("Iron2_Flav1_EMID","Iron2_Flav1_EMID",22,EMID_cut,12.0);
     TH1F LONG2_FLAV1_EMID    = TH1F("Long2_Flav1_EMID","Long2_Flav1_EMID",  22,EMID_cut,12.0);
     TH1F FAKE_FLAV1_EMID    = TH1F("IronFake_Flav1_EMID","IronFake_Flav1_EMID",  22,EMID_cut,12.0);
     // LowPtElectron_genPartFlav == 5
-    TH1F IRON1_FLAV5_EMID      = TH1F("Iron1_Flav5_EMID","Iron1_Flav5_EMID",22,EMID_cut,12.0));
+    TH1F IRON1_FLAV5_EMID      = TH1F("Iron1_Flav5_EMID","Iron1_Flav5_EMID",22,EMID_cut,12.0);
     TH1F LONG1_FLAV5_EMID    = TH1F("Long1_Flav5_EMID","Long1_Flav5_EMID",  22,EMID_cut,12.0);
-    TH1F IRON2_FLAV5_EMID      = TH1F("Iron2_Flav5_EMID","Iron2_Flav5_EMID",22,EMID_cut,12.0));
+    TH1F IRON2_FLAV5_EMID      = TH1F("Iron2_Flav5_EMID","Iron2_Flav5_EMID",22,EMID_cut,12.0);
     TH1F LONG2_FLAV5_EMID    = TH1F("Long2_Flav5_EMID","Long2_Flav5_EMID",  22,EMID_cut,12.0);
     TH1F FAKE_FLAV5_EMID    = TH1F("IronFake_Flav5_EMID","IronFake_Flav5_EMID",  22,EMID_cut,12.0);
     
