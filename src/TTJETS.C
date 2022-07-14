@@ -232,7 +232,7 @@ void TTJETS::NoPt(std::string sample_name)
     }
 
     std::string plot_dir = "/eos/user/s/ssakhare/ttbar/";
-    std::string sample = "TTbar"+sample_name;
+    std::string sample = "TTbar_"+sample_name;
     printf("Running over %s\n", sample.c_str());
 
      Long64_t nentries = fChain->GetEntriesFast();
@@ -2033,7 +2033,7 @@ void TTJETS::LowCut(std::string sample_name)
     }
 
     std::string plot_dir = "/eos/user/s/ssakhare/ttbar/";
-    std::string sample = "TTbar" + sample_name; 
+    std::string sample = "TTbar_" + sample_name; 
     printf("Running over %s\n", sample.c_str());
 
     Long64_t nentries = fChain->GetEntriesFast();
@@ -3832,7 +3832,7 @@ void TTJETS::MidCut(std::string sample_name)
     }
 
     std::string plot_dir = "/eos/user/s/ssakhare/ttbar/";
-    std::string sample = "TTbar" + sample_name;
+    std::string sample = "TTbar_" + sample_name;
     printf("Running over %s\n", sample.c_str());
 
     Long64_t nentries = fChain->GetEntriesFast();
@@ -7859,7 +7859,7 @@ void TTJETS::RunAll()
     NoPt("EMID1p5_Eta2p4");
     MidCut("EMID1p5_Eta2p4");
     LowCut("EMID1p5_Eta2p4");
-    HighCut("EMID1p5_Eta2p4");
+    
 }
 
 
