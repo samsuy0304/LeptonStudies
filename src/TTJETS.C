@@ -218,7 +218,7 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
     Long64_t nbytes = 0, nb = 0;
     float EMID_cut = 4.0;
 
-    int chch = 1
+    int chch = 1;
 
     // Int_t           LowPtElectron_genPartIdx[5];   //[nLowPtElectron]
     // UChar_t         LowPtElectron_genPartFlav[5];   //[nLowPtElectron]
