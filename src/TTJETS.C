@@ -226,7 +226,7 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
     // Only Flavors
     // NO Flav
 
-    if (chch==1){
+    if (true){
 
     
         TH1F EMID = TH1F("EMID", "EMID", 22, EMID_cut, 12.0);
@@ -1422,7 +1422,7 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
 
     //EMID
 
-    if (chch == 1) {
+    if (true) {
         PlotHist(IRON1_FLAV0_EMID, sample, plot_dir, nam, "EMID", "EMID_IRON1_Flav0", "EMID");
         PlotHist(IRON2_FLAV0_EMID, sample, plot_dir, nam, "EMID", "EMID_IRON2_Flav0", "EMID");
         PlotHist(LONG1_FLAV0_EMID, sample, plot_dir, nam, "EMID", "EMID_Long1_Flav0", "EMID");
