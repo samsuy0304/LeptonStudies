@@ -3363,10 +3363,7 @@ public :
    virtual Int_t        GetEntry(Long64_t entry);
    virtual Long64_t     LoadTree(Long64_t entry);
    virtual void         Init(TTree *tree);
-   virtual void         NoPt(std::string sample_name);
-   virtual void         LowCut(std::string sample_name);
-   virtual void         MidCut(std::string sample_name);
-   virtual void         HighCut(std::string sample_name);
+   virtual void         Graph(std::string sample_name, float Lower_pt, float Higher_pt, std::string nam);
    virtual void         RunAll();
    virtual void         Random();
    virtual void         Loop2();
