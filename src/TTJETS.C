@@ -1420,7 +1420,7 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
 
     //EMID
 
-    /EMID
+    //EMID
 
     
     PlotHist(IRON1_FLAV0_EMID, sample, plot_dir, nam, "EMID", "EMID_IRON1_Flav0", "EMID");
@@ -1965,7 +1965,7 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
     //PlotHist(Long2_IP,      sample, plot_dir,"NoCut","IP", "IP_Long2","IP");
     PlotHist(IP_graph, sample, plot_dir, nam, "IP", "IP_", "IP");
     
-    }
+    
 
 
 
