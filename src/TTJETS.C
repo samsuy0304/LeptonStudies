@@ -2047,7 +2047,7 @@ void TTJETS::Loop2()
     Long64_t nbytes = 0, nb = 0;
     float Lower_pt = 10.0;
     float Higher_pt = 20.0;
-
+    std::string nam ="BetterCHangeit";
 
     TH1F Flav0_EMID_R = TH1F("Flav0_EMID", "Flav0_EMID", 22, 4.0, 12.5);
     TH1F Flav1_EMID_R = TH1F("Flav1_EMID", "Flav1_EMID", 22, 4.0, 12.5);
@@ -2291,7 +2291,7 @@ void TTJETS::Random()
     std::string plot_dir = "/eos/user/s/ssakhare/ROCPlots";
     std::string sample = "TTJETS";
     printf("Running over %s\n", sample.c_str());
-
+    std::string nam ="BetterCHangeit";
     Long64_t nentries = fChain->GetEntriesFast();
     Long64_t nbytes = 0, nb = 0;
 
