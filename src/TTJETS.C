@@ -854,7 +854,7 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
 
 
             // No Flav
-            if (LowPtElectron_pt[k] >= Lower_pt && LowPtElectron_pt[k] < Higher_pt && LowPtElectron_embeddedID[k] >= EMID_cut && abs(LowPtElectron_eta[k]) < 2.4)
+            if (LowPtElectron_pt[k] >= Lower_pt && LowPtElectron_pt[k] < Higher_pt && LowPtElectron_embeddedID[k] >= 1.5 && abs(LowPtElectron_eta[k]) < 2.4)
             {
                 EMID.Fill(LowPtElectron_embeddedID[k]);
                 Eta.Fill(LowPtElectron_eta[k]);
@@ -944,7 +944,7 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
                     //////////////////////////////////////////////////////////////////////////////////////////////////////
                     ///////////////////////////////////////////////////////////////////////////////////////////////////////
                     //GENERAL_PARAMETERS
-                if (abs(LowPtElectron_eta[k]) < 2.4 && LowPtElectron_embeddedID[k] >= EMID_cut && LowPtElectron_convVeto[k])
+                if (abs(LowPtElectron_eta[k]) < 2.4 && LowPtElectron_embeddedID[k] >= EMID_cut && LowPtElectron_convVeto[k]==1)
                 {
 
                     
