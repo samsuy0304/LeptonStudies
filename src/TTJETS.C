@@ -217,6 +217,7 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
     Long64_t nentries = fChain->GetEntriesFast();
     Long64_t nbytes = 0, nb = 0;
     float EMID_cut = 4.0;
+    Long64_t max_event = 20000;
 
     int chch = 1;
 
@@ -791,6 +792,10 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
 
     for (Long64_t jentry = 0; jentry < nentries; jentry++)
     {
+        if (max_event > 0 && jentry >= max_event)
+        {
+            break;
+        }
         Long64_t ientry = LoadTree(jentry);
         if (ientry < 0) break;
         nb = fChain->GetEntry(jentry);
