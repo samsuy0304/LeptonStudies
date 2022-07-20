@@ -1982,29 +1982,29 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
 
 void TTJETS::RunAll()
 {
-    Graph("Basic_EMID1p5_CONVIRON", 1.0,2.0, "1_2");
-    Graph("Basic_EMID1p5_CONVIRON", 2.0, 3.0, "2_3");
-    Graph("Basic_EMID1p5_CONVIRON", 3.0, 4.0, "3_4");
-    Graph("Basic_EMID1p5_CONVIRON", 4.0, 5.0, "4_5");
-    Graph("Basic_EMID1p5_CONVIRON", 5.0, 6.0, "5_6");
-    Graph("Basic_EMID1p5_CONVIRON", 6.0, 7.0, "6_7");
-    Graph("Basic_EMID1p5_CONVIRON", 7.0, 8.0, "7_8");
-    Graph("Basic_EMID1p5_CONVIRON", 8.0, 9.0, "8_9");
-    Graph("Basic_EMID1p5_CONVIRON", 9.0, 10.0, "9_10");
-    Graph("Basic_EMID1p5_CONVIRON", 10.0, 11.0, "10_11");
-    Graph("Basic_EMID1p5_CONVIRON", 11.0, 12.0, "11_12");
-    Graph("Basic_EMID1p5_CONVIRON", 12.0, 13.0, "12_3");
-    Graph("Basic_EMID1p5_CONVIRON", 13.0, 14.0, "13_14");
-    Graph("Basic_EMID1p5_CONVIRON", 14.0, 15.0, "14_15");
-    Graph("Basic_EMID1p5_CONVIRON", 15.0, 16.0, "15_16");
-    Graph("Basic_EMID1p5_CONVIRON", 16.0, 17.0, "16_17");
-    Graph("Basic_EMID1p5_CONVIRON", 17.0, 18.0, "17_18");
-    Graph("Basic_EMID1p5_CONVIRON", 18.0, 19.0, "18_19");
-    Graph("Basic_EMID1p5_CONVIRON", 19.0, 20.0, "19_20");
-    Graph("Basic_EMID1p5_CONVIRON", 1.0, 5.0, "LowCut");
-    Graph("Basic_EMID1p5_CONVIRON", 5.0, 10.0, "MidCut");
-    Graph("Basic_EMID1p5_CONVIRON", 10.0, 20.0, "HighCut");
-    Graph("Basic_EMID1p5_CONVIRON", 1.0, 20.0, "General");
+    Graph("Test", 1.0,2.0, "1_2");
+    Graph("Test", 2.0, 3.0, "2_3");
+    Graph("Test", 3.0, 4.0, "3_4");
+    Graph("Test", 4.0, 5.0, "4_5");
+    Graph("Test", 5.0, 6.0, "5_6");
+    Graph("Test", 6.0, 7.0, "6_7");
+    Graph("Test", 7.0, 8.0, "7_8");
+    Graph("Test", 8.0, 9.0, "8_9");
+    Graph("Test", 9.0, 10.0, "9_10");
+    Graph("Test", 10.0, 11.0, "10_11");
+    Graph("Test", 11.0, 12.0, "11_12");
+    Graph("Test", 12.0, 13.0, "12_3");
+    Graph("Test", 13.0, 14.0, "13_14");
+    Graph("Test", 14.0, 15.0, "14_15");
+    Graph("Test", 15.0, 16.0, "15_16");
+    Graph("Test", 16.0, 17.0, "16_17");
+    Graph("Test", 17.0, 18.0, "17_18");
+    Graph("Test", 18.0, 19.0, "18_19");
+    Graph("Test", 19.0, 20.0, "19_20");
+    Graph("Test", 1.0, 5.0, "LowCut");
+    Graph("Test", 5.0, 10.0, "MidCut");
+    Graph("Test", 10.0, 20.0, "HighCut");
+    Graph("Test", 1.0, 20.0, "General");
     
 
 
