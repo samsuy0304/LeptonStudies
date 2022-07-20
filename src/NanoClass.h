@@ -16,6 +16,7 @@
 
 class NanoClass {
 public :
+   TChain         *myChain;
    TTree          *fChain;   //!pointer to the analyzed TTree or TChain
    Int_t           fCurrent; //!current Tree number in a TChain
 
@@ -3286,6 +3287,8 @@ public :
    virtual Int_t        Cut(Long64_t entry);
    virtual Int_t        GetEntry(Long64_t entry);
    virtual Long64_t     LoadTree(Long64_t entry);
+   virtual void         LoadSignal(TChain *chain);
+   virtual void         LoadBackground(TChain *chain);
    virtual void         Init(TTree *tree);
    virtual void         Loop();
    virtual void         PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir, std::string plot_name, std::string variable);
@@ -3297,26 +3300,59 @@ public :
 
 #endif
 
+// TODO
+// - Test TChain on multiple files
+// - Create functions for adding signal and background files to TChain
+
 #ifdef NanoClass_cxx
 NanoClass::NanoClass(TTree *tree) : fChain(0) 
 {
 // if parameter tree is not specified (or zero), connect the file
 // used to generate this class and read the Tree.
    if (tree == 0) {
-      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("4153AE9C-1215-A847-8E0A-DEBE98140664.root");
+      // T2-4bd
+      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("SMS-T2-4bd_genMET-80_mStop-500_mLSP-490_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/4153AE9C-1215-A847-8E0A-DEBE98140664.root");
+      // TTJets_DiLept
+      //TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/5457F199-A129-2A40-8127-733D51A9A3E6.root");
       if (!f || !f->IsOpen()) {
-         f = new TFile("4153AE9C-1215-A847-8E0A-DEBE98140664.root");
+         // T2-4bd
+         f = new TFile("SMS-T2-4bd_genMET-80_mStop-500_mLSP-490_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/4153AE9C-1215-A847-8E0A-DEBE98140664.root");
+         // TTJets_DiLept
+         //f = new TFile("TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/5457F199-A129-2A40-8127-733D51A9A3E6.root");
       }
-      f->GetObject("Events",tree);
+      // original
+      //f->GetObject("Events",tree);
+      
+      // new 
+      //TChain chain = TChain("chain", "chain");
+      //chain.Add("SMS-T2-4bd_genMET-80_mStop-500_mLSP-490_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/4153AE9C-1215-A847-8E0A-DEBE98140664.root");
+      //tree = chain.GetTree();
 
+      //myChain = new TChain("Events");
+      //myChain->Add("SMS-T2-4bd_genMET-80_mStop-500_mLSP-490_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/4153AE9C-1215-A847-8E0A-DEBE98140664.root");
+      //printf("myChain entries: %lld\n", myChain->GetEntries());
+      
+      //tree = myChain->GetTree();
+      //if (tree == 0) {
+      //    printf("ERROR: tree is 0\n");
+      //}
+      //printf("tree entries: %lld\n", tree->GetEntries());
    }
-   Init(tree);
+   myChain = new TChain("Events");
+   //LoadSignal(myChain);
+   LoadBackground(myChain);
+   printf("myChain entries: %lld\n", myChain->GetEntries());
+   
+   //Init(tree);
+   Init(myChain);
+   printf("Loaded ROOT file and tree.\n");
 }
 
 NanoClass::~NanoClass()
 {
    if (!fChain) return;
    delete fChain->GetCurrentFile();
+   delete myChain;
 }
 
 Int_t NanoClass::GetEntry(Long64_t entry)
@@ -3336,6 +3372,16 @@ Long64_t NanoClass::LoadTree(Long64_t entry)
       Notify();
    }
    return centry;
+}
+
+void NanoClass::LoadSignal(TChain *chain)
+{
+    chain->Add("SMS-T2-4bd_genMET-80_mStop-500_mLSP-490_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/4153AE9C-1215-A847-8E0A-DEBE98140664.root");
+}
+
+void NanoClass::LoadBackground(TChain *chain)
+{
+    chain->Add("TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/5457F199-A129-2A40-8127-733D51A9A3E6.root");
 }
 
 void NanoClass::Init(TTree *tree)
