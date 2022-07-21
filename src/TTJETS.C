@@ -86,7 +86,7 @@ void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,
     int lepnum = hist.GetEntries();
     std::string s = std::to_string(lepnum);
     std::string entry = pt_cut + "_" + plot_name + "," + s;
-    std::string storefile = plot_dir + "Test.csv";//+ sample_name + "/" + pt_cut + "/" + specific+"/Store.csv";
+    std::string storefile = plot_dir + "Test1.csv";//+ sample_name + "/" + pt_cut + "/" + specific+"/Store.csv";
 
     ofstream fw(storefile, std::ofstream::app);
     //check if file was successfully opened for writing
@@ -217,7 +217,7 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
     Long64_t nentries = fChain->GetEntriesFast();
     Long64_t nbytes = 0, nb = 0;
     float EMID_cut = 4.0;
-    Long64_t max_event = 1000000;
+    Long64_t max_event = 30000;
 
     int chch = 1;
 
