@@ -217,7 +217,7 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
     Long64_t nentries = fChain->GetEntriesFast();
     Long64_t nbytes = 0, nb = 0;
     float EMID_cut = 4.0;
-    Long64_t max_event = 20000;
+    Long64_t max_event = 1000000;
 
     int chch = 1;
 
