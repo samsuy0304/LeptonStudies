@@ -2275,17 +2275,21 @@ void TTJETS::Random()
     TH2F pt_vs_Flav0_High = TH2F("pt_vs_Flav0_High", "pt_vs_Flav0_High", 20, 10.0, 20.0, 1, 0.0, 1.0);
     TH2F pt_vs_Flav0_NoPt = TH2F("pt_vs_Flav0_NoPt", "pt_vs_Flav0_NoPt", 20, 1.0, 20.0, 1, 0.0, 1.0);
 
-    TH2F pt_vs_EMID_FLAV0_Low = TH2F("pt_vs_EMID_Flav0_Low", "pt_vs_EMID_Flav0_Low", 20, 1.0, 5.0, 22, 4, 12.5);
-    TH2F pt_vs_EMID_FLAV1_Low = TH2F("pt_vs_EMID_Flav1_Low", "pt_vs_EMID_Flav1_Low", 20, 1.0, 5.0, 22, 4, 12.5);
+    TH2F pt_vs_EMID_FLAV0_Low = TH2F("pt_vs_EMID_Flav0_Low", "pt_vs_EMID_Flav0_Low", 20, 1.0, 5.0, 56, 4, 12.5);
+    TH2F pt_vs_EMID_FLAV1_Low = TH2F("pt_vs_EMID_Flav1_Low", "pt_vs_EMID_Flav1_Low", 20, 1.0, 5.0, 56, 4, 12.5);
+    TH2F pt_vs_EMID_FLAV5_Low = TH2F("pt_vs_EMID_Flav5_Low", "pt_vs_EMID_Flav5_Low", 20, 1.0, 5.0, 56, 4, 12.5);
 
-    TH2F pt_vs_EMID_FLAV0_Mid = TH2F("pt_vs_EMID_Flav0_Mid", "pt_vs_EMID_Flav0_Mid", 20, 5.0, 10.0, 22, 4, 12.5);
-    TH2F pt_vs_EMID_FLAV1_Mid = TH2F("pt_vs_EMID_Flav1_Mid", "pt_vs_EMID_Flav1_Mid", 20, 5.0, 10.0, 22, 4, 12.5);
+    TH2F pt_vs_EMID_FLAV0_Mid = TH2F("pt_vs_EMID_Flav0_Mid", "pt_vs_EMID_Flav0_Mid", 20, 5.0, 10.0, 56, 4, 12.5);
+    TH2F pt_vs_EMID_FLAV1_Mid = TH2F("pt_vs_EMID_Flav1_Mid", "pt_vs_EMID_Flav1_Mid", 20, 5.0, 10.0, 56, 4, 12.5);
+    TH2F pt_vs_EMID_FLAV5_Mid = TH2F("pt_vs_EMID_Flav5_Mid", "pt_vs_EMID_Flav5_Mid", 20, 5.0, 10.0, 56, 4, 12.5);
 
-    TH2F pt_vs_EMID_FLAV0_High = TH2F("pt_vs_EMID_Flav0_High", "pt_vs_EMID_Flav0_High", 20, 10.0, 20.0, 22, 4, 12.5);
-    TH2F pt_vs_EMID_FLAV1_High = TH2F("pt_vs_EMID_Flav1_High", "pt_vs_EMID_Flav1_High", 20, 10.0, 20.0, 22, 4, 12.5);
+    TH2F pt_vs_EMID_FLAV0_High = TH2F("pt_vs_EMID_Flav0_High", "pt_vs_EMID_Flav0_High", 40, 10.0, 20.0, 56, 4, 12.5);
+    TH2F pt_vs_EMID_FLAV1_High = TH2F("pt_vs_EMID_Flav1_High", "pt_vs_EMID_Flav1_High", 40, 10.0, 20.0, 56, 4, 12.5);
+    TH2F pt_vs_EMID_FLAV5_High = TH2F("pt_vs_EMID_Flav5_High", "pt_vs_EMID_Flav5_High", 40, 10.0, 20.0, 56, 4, 12.5);
 
-    TH2F pt_vs_EMID_FLAV0_NoPt = TH2F("pt_vs_EMID_Flav0_NoPt", "pt_vs_EMID_Flav0_NoPt", 20, 1.0, 20.0, 22, 4, 12.5);
-    TH2F pt_vs_EMID_FLAV1_NoPt = TH2F("pt_vs_EMID_Flav1_NoPt", "pt_vs_EMID_Flav1_NoPt", 20, 1.0, 20.0, 22, 4, 12.5);
+    TH2F pt_vs_EMID_FLAV0_NoPt = TH2F("pt_vs_EMID_Flav0_NoPt", "pt_vs_EMID_Flav0_NoPt", 80, 1.0, 20.0, 56, 4, 12.5);
+    TH2F pt_vs_EMID_FLAV1_NoPt = TH2F("pt_vs_EMID_Flav1_NoPt", "pt_vs_EMID_Flav1_NoPt", 80, 1.0, 20.0, 56, 4, 12.5);
+    TH2F pt_vs_EMID_FLAV5_NoPt = TH2F("pt_vs_EMID_Flav5_NoPt", "pt_vs_EMID_Flav5_NoPt", 80, 1.0, 20.0, 56, 4, 12.5);
 
     gROOT->SetBatch(kTRUE);
 
@@ -2294,7 +2298,7 @@ void TTJETS::Random()
         return;
     }
 
-    std::string plot_dir = "/eos/user/s/ssakhare/ROCPlots";
+    std::string plot_dir = "/eos/user/s/ssakhare/ROCPlots/2D";
     std::string sample = "TTJETS";
     printf("Running over %s\n", sample.c_str());
     std::string nam ="BetterCHangeit";
@@ -2377,10 +2381,17 @@ void TTJETS::Random()
                     pt_vs_EMID_FLAV0_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
                 }
 
-                if (LowPtElectron_genPartFlav[k] == 0)
+                if (LowPtElectron_genPartFlav[k] == 1)
                 {
                     pt_vs_Flav1_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_genPartFlav[k]);
                     pt_vs_EMID_FLAV1_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                }
+                
+                
+                if (LowPtElectron_genPartFlav[k] == 5)
+                {
+                    
+                    pt_vs_EMID_FLAV5_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
                 }
 
 
@@ -2399,6 +2410,12 @@ void TTJETS::Random()
                         pt_vs_Flav1_Low.Fill(LowPtElectron_pt[k], LowPtElectron_genPartFlav[k]);
                         pt_vs_EMID_FLAV1_Low.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
                     }
+                    
+                    if (LowPtElectron_genPartFlav[k] == 5)
+                    {
+                        
+                        pt_vs_EMID_FLAV5_Low.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
 
                 }
 
@@ -2415,6 +2432,12 @@ void TTJETS::Random()
                     {
                         pt_vs_Flav1_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_genPartFlav[k]);
                         pt_vs_EMID_FLAV1_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+                    
+                    if (LowPtElectron_genPartFlav[k] == 5)
+                    {
+                        
+                        pt_vs_EMID_FLAV5_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
                     }
 
 
@@ -2437,6 +2460,12 @@ void TTJETS::Random()
                         pt_vs_Flav1_High.Fill(LowPtElectron_pt[k], LowPtElectron_genPartFlav[k]);
                         pt_vs_EMID_FLAV1_High.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
                     }
+                    
+                    if (LowPtElectron_genPartFlav[k] == 5)
+                    {
+                        
+                        pt_vs_EMID_FLAV5_High.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
 
                 }
 
@@ -2457,15 +2486,19 @@ void TTJETS::Random()
 
     PlotHist2(pt_vs_EMID_FLAV0_Low, sample, plot_dir, " pt_vs_EMID_Iron1FLAV0_Low", "pt", "EMID");
     PlotHist2(pt_vs_EMID_FLAV1_Low, sample, plot_dir, " pt_vs_EMID_Iron1FLAV1_Low", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FLAV5_Low, sample, plot_dir, " pt_vs_EMID_Iron1FLAV5_Low", "pt", "EMID");
 
     PlotHist2(pt_vs_EMID_FLAV0_Mid, sample, plot_dir, " pt_vs_EMID_Iron1FLAV0_Mid", "pt", "EMID");
     PlotHist2(pt_vs_EMID_FLAV1_Mid, sample, plot_dir, " pt_vs_EMID_Iron1FLAV1_Mid", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FLAV5_Mid, sample, plot_dir, " pt_vs_EMID_Iron1FLAV5_Mid", "pt", "EMID");
 
     PlotHist2(pt_vs_EMID_FLAV0_High, sample, plot_dir, "pt_vs_EMID_Iron1FLAV0_High", "pt", "EMID");
     PlotHist2(pt_vs_EMID_FLAV1_High, sample, plot_dir, " pt_vs_EMID_Iron1FLAV1_High", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FLAV5_High, sample, plot_dir, " pt_vs_EMID_Iron1FLAV5_High", "pt", "EMID");
 
     PlotHist2(pt_vs_EMID_FLAV0_NoPt, sample, plot_dir, " pt_vs_EMID_Iron1FLAV0_NoPt", "pt", "EMID");
     PlotHist2(pt_vs_EMID_FLAV1_NoPt, sample, plot_dir, " pt_vs_EMID_Iron1FLAV1_NoPt", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FLAV5_NoPt, sample, plot_dir, " pt_vs_EMID_Iron1FLAV5_NoPt", "pt", "EMID");
 
 }
 
