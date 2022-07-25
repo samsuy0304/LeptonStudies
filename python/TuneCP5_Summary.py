@@ -174,6 +174,6 @@ def SumFind(input):
     f.write(",".join(l))
     f.close()
 
+ii= input("Sample name?")
 
-
-SumFind("BG")
+SumFind(ii)
