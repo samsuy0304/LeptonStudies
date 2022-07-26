@@ -80,6 +80,10 @@ void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,
     int line_width = 1;
     SetupHist(hist, title, x_title, y_title, color, line_width);
     gStyle->SetOptStat(111111);
+    // Set stat options
+    gStyle->SetStatY(0.9);                
+    // Set y-position (fraction of pad size)
+    gStyle->SetStatX(0.9);
     // draw
     hist.Draw("hist error same");
     hist.SetStats(kTRUE);
@@ -139,12 +143,16 @@ void TTJETS::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir
     int line_width = 1;
     SetupHist2(hist, title, x_title, y_title, color, line_width);
     gStyle->SetOptStat(111111);
+    // Set stat options
+    gStyle->SetStatY(0.9);                
+    // Set y-position (fraction of pad size)
+    gStyle->SetStatX(0.9);
     // draw
     hist.Draw("colz");
     hist.SetStats(kTRUE);
 
     // save plot
-    std::string output_name = plot_dir + "/" + "MidCut_" + plot_name;
+    std::string output_name = plot_dir+"2DPlots/" + plot_name;
     std::string output_name_pdf = output_name + ".pdf";
     c.Update();
     c.SaveAs(output_name_pdf.c_str());
@@ -2055,22 +2063,22 @@ void TTJETS::Loop2()
     float Higher_pt = 20.0;
     std::string nam ="BetterCHangeit";
 
-    TH1F Flav0_EMID_R = TH1F("Flav0_EMID", "Flav0_EMID", 22, 4.0, 12.5);
-    TH1F Flav1_EMID_R = TH1F("Flav1_EMID", "Flav1_EMID", 22, 4.0, 12.5);
+    TH1F Flav0_EMID_R = TH1F("Flav0_EMID", "Flav0_EMID", 22, 4.0, 12.0);
+    TH1F Flav1_EMID_R = TH1F("Flav1_EMID", "Flav1_EMID", 22, 4.0, 12.0);
 
-    TH1F Iron1_Flav0_EMID_R = TH1F("Iron1_Flav0_EMID", "Iron1_Flav0_EMID", 22, 4.0, 12.5);
-    TH1F Iron1_Flav1_EMID_R = TH1F("Iron1_Flav1_EMID", "Iron1_Flav1_EMID", 22, 4.0, 12.5);
+    TH1F Iron1_Flav0_EMID_R = TH1F("Iron1_Flav0_EMID", "Iron1_Flav0_EMID", 22, 4.0, 12.0);
+    TH1F Iron1_Flav1_EMID_R = TH1F("Iron1_Flav1_EMID", "Iron1_Flav1_EMID", 22, 4.0, 12.0);
 
-    TH1F Iron2_Flav0_EMID_R = TH1F("Iron2_Flav0_EMID", "Iron2_Flav0_EMID", 22, 4.0, 12.5);
-    TH1F Iron2_Flav1_EMID_R = TH1F("Iron2_Flav1_EMID", "Iron2_Flav1_EMID", 22, 4.0, 12.5);
+    TH1F Iron2_Flav0_EMID_R = TH1F("Iron2_Flav0_EMID", "Iron2_Flav0_EMID", 22, 4.0, 12.0);
+    TH1F Iron2_Flav1_EMID_R = TH1F("Iron2_Flav1_EMID", "Iron2_Flav1_EMID", 22, 4.0, 12.0);
 
-    TH1F Long1_Flav0_EMID_R = TH1F("Long1_Flav0_EMID", "Long1_Flav0_EMID", 22, 4.0, 12.5);
-    TH1F Long1_Flav1_EMID_R = TH1F("Long1_Flav1_EMID", "Long1_Flav1_EMID", 22, 4.0, 12.5);
-    TH1F Long2_Flav0_EMID_R = TH1F("Long2_Flav0_EMID", "Long2_Flav0_EMID", 22, 4.0, 12.5);
-    TH1F Long2_Flav1_EMID_R = TH1F("Long2_Flav1_EMID", "Long2_Flav1_EMID", 22, 4.0, 12.5);
+    TH1F Long1_Flav0_EMID_R = TH1F("Long1_Flav0_EMID", "Long1_Flav0_EMID", 22, 4.0, 12.0);
+    TH1F Long1_Flav1_EMID_R = TH1F("Long1_Flav1_EMID", "Long1_Flav1_EMID", 22, 4.0, 12.0);
+    TH1F Long2_Flav0_EMID_R = TH1F("Long2_Flav0_EMID", "Long2_Flav0_EMID", 22, 4.0, 12.0);
+    TH1F Long2_Flav1_EMID_R = TH1F("Long2_Flav1_EMID", "Long2_Flav1_EMID", 22, 4.0, 12.0);
 
-    TH1F IronFake_Flav0_EMID_R = TH1F("IronFake_Flav0_EMID", "IronFake_Flav0_EMID", 22, 4.0, 12.5);
-    TH1F IronFake_Flav1_EMID_R = TH1F("IronFake_Flav1_EMID", "IronFake_Flav1_EMID", 22, 4.0, 12.5);
+    TH1F IronFake_Flav0_EMID_R = TH1F("IronFake_Flav0_EMID", "IronFake_Flav0_EMID", 22, 4.0, 12.0);
+    TH1F IronFake_Flav1_EMID_R = TH1F("IronFake_Flav1_EMID", "IronFake_Flav1_EMID", 22, 4.0, 12.0);
 
     for (Long64_t jentry = 0; jentry < nentries; jentry++)
     {
@@ -2265,31 +2273,108 @@ void TTJETS::Loop2()
 void TTJETS::Random()
 {
 
-    TH2F pt_vs_Flav1_Low = TH2F("pt_vs_Flav1_Low", "pt_vs_Flav1_Low", 20, 1.0, 5.0, 1, 1.0, 2.0);
+    TH2F pt_vs_Flav1_Low = TH2F("pt_vs_Flav1_Low", "pt_vs_Flav1_Low", 20, 0.0, 5.0, 1, 1.0, 2.0);
     TH2F pt_vs_Flav1_Mid = TH2F("pt_vs_Flav1_Mid", "pt_vs_Flav1_Mid", 20, 5.0, 10.0, 1, 1.0, 2.0);
-    TH2F pt_vs_Flav1_High = TH2F("pt_vs_Flav1_High", "pt_vs_Flav1_High", 20, 10.0, 20.0, 1, 1.0, 2.0);
-    TH2F pt_vs_Flav1_NoPt = TH2F("pt_vs_Flav1_NoPt", "pt_vs_Flav1_NoPt", 20, 1.0, 20.0, 1, 1.0, 2.0);
+    TH2F pt_vs_Flav1_High = TH2F("pt_vs_Flav1_High", "pt_vs_Flav1_High", 40, 10.0, 20.0, 1, 1.0, 2.0);
+    TH2F pt_vs_Flav1_NoPt = TH2F("pt_vs_Flav1_NoPt", "pt_vs_Flav1_NoPt", 80, 0.0, 20.0, 1, 1.0, 2.0);
 
-    TH2F pt_vs_Flav0_Low = TH2F("pt_vs_Flav0_Low", "pt_vs_Flav0_Low", 20, 1.0, 5.0, 1, 0.0, 1.0);
+    TH2F pt_vs_Flav0_Low = TH2F("pt_vs_Flav0_Low", "pt_vs_Flav0_Low", 20, 0.0, 5.0, 1, 0.0, 1.0);
     TH2F pt_vs_Flav0_Mid = TH2F("pt_vs_Flav0_Mid", "pt_vs_Flav0_Mid", 20, 5.0, 10.0, 1, 0.0, 1.0);
-    TH2F pt_vs_Flav0_High = TH2F("pt_vs_Flav0_High", "pt_vs_Flav0_High", 20, 10.0, 20.0, 1, 0.0, 1.0);
-    TH2F pt_vs_Flav0_NoPt = TH2F("pt_vs_Flav0_NoPt", "pt_vs_Flav0_NoPt", 20, 1.0, 20.0, 1, 0.0, 1.0);
+    TH2F pt_vs_Flav0_High = TH2F("pt_vs_Flav0_High", "pt_vs_Flav0_High", 40, 10.0, 20.0, 1, 0.0, 1.0);
+    TH2F pt_vs_Flav0_NoPt = TH2F("pt_vs_Flav0_NoPt", "pt_vs_Flav0_NoPt", 80, 0.0, 20.0, 1, 0.0, 1.0);
 
-    TH2F pt_vs_EMID_FLAV0_Low = TH2F("pt_vs_EMID_Flav0_Low", "pt_vs_EMID_Flav0_Low", 20, 1.0, 5.0, 56, 4, 12.5);
-    TH2F pt_vs_EMID_FLAV1_Low = TH2F("pt_vs_EMID_Flav1_Low", "pt_vs_EMID_Flav1_Low", 20, 1.0, 5.0, 56, 4, 12.5);
-    TH2F pt_vs_EMID_FLAV5_Low = TH2F("pt_vs_EMID_Flav5_Low", "pt_vs_EMID_Flav5_Low", 20, 1.0, 5.0, 56, 4, 12.5);
+    TH2F pt_vs_EMID_FLAV0_Low = TH2F("pt_vs_EMID_Flav0_Low", "pt_vs_EMID_Flav0_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FLAV1_Low = TH2F("pt_vs_EMID_Flav1_Low", "pt_vs_EMID_Flav1_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FLAV5_Low = TH2F("pt_vs_EMID_Flav5_Low", "pt_vs_EMID_Flav5_Low", 20, 0.0, 5.0, 56, 4, 12.0);
 
-    TH2F pt_vs_EMID_FLAV0_Mid = TH2F("pt_vs_EMID_Flav0_Mid", "pt_vs_EMID_Flav0_Mid", 20, 5.0, 10.0, 56, 4, 12.5);
-    TH2F pt_vs_EMID_FLAV1_Mid = TH2F("pt_vs_EMID_Flav1_Mid", "pt_vs_EMID_Flav1_Mid", 20, 5.0, 10.0, 56, 4, 12.5);
-    TH2F pt_vs_EMID_FLAV5_Mid = TH2F("pt_vs_EMID_Flav5_Mid", "pt_vs_EMID_Flav5_Mid", 20, 5.0, 10.0, 56, 4, 12.5);
+    TH2F pt_vs_EMID_FLAV0_Mid = TH2F("pt_vs_EMID_Flav0_Mid", "pt_vs_EMID_Flav0_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FLAV1_Mid = TH2F("pt_vs_EMID_Flav1_Mid", "pt_vs_EMID_Flav1_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FLAV5_Mid = TH2F("pt_vs_EMID_Flav5_Mid", "pt_vs_EMID_Flav5_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
 
-    TH2F pt_vs_EMID_FLAV0_High = TH2F("pt_vs_EMID_Flav0_High", "pt_vs_EMID_Flav0_High", 40, 10.0, 20.0, 56, 4, 12.5);
-    TH2F pt_vs_EMID_FLAV1_High = TH2F("pt_vs_EMID_Flav1_High", "pt_vs_EMID_Flav1_High", 40, 10.0, 20.0, 56, 4, 12.5);
-    TH2F pt_vs_EMID_FLAV5_High = TH2F("pt_vs_EMID_Flav5_High", "pt_vs_EMID_Flav5_High", 40, 10.0, 20.0, 56, 4, 12.5);
+    TH2F pt_vs_EMID_FLAV0_High = TH2F("pt_vs_EMID_Flav0_High", "pt_vs_EMID_Flav0_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FLAV1_High = TH2F("pt_vs_EMID_Flav1_High", "pt_vs_EMID_Flav1_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FLAV5_High = TH2F("pt_vs_EMID_Flav5_High", "pt_vs_EMID_Flav5_High", 40, 10.0, 20.0, 56, 4, 12.0);
 
-    TH2F pt_vs_EMID_FLAV0_NoPt = TH2F("pt_vs_EMID_Flav0_NoPt", "pt_vs_EMID_Flav0_NoPt", 80, 1.0, 20.0, 56, 4, 12.5);
-    TH2F pt_vs_EMID_FLAV1_NoPt = TH2F("pt_vs_EMID_Flav1_NoPt", "pt_vs_EMID_Flav1_NoPt", 80, 1.0, 20.0, 56, 4, 12.5);
-    TH2F pt_vs_EMID_FLAV5_NoPt = TH2F("pt_vs_EMID_Flav5_NoPt", "pt_vs_EMID_Flav5_NoPt", 80, 1.0, 20.0, 56, 4, 12.5);
+    TH2F pt_vs_EMID_FLAV0_NoPt = TH2F("pt_vs_EMID_Flav0_NoPt", "pt_vs_EMID_Flav0_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
+    TH2F pt_vs_EMID_FLAV1_NoPt = TH2F("pt_vs_EMID_Flav1_NoPt", "pt_vs_EMID_Flav1_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
+    TH2F pt_vs_EMID_FLAV5_NoPt = TH2F("pt_vs_EMID_Flav5_NoPt", "pt_vs_EMID_Flav5_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
+
+
+
+    ///Iron 1
+
+    TH2F pt_vs_EMID_IRON1_Flav0_Low = TH2F("pt_vs_EMID_IRON1_Flav0_Low", "pt_vs_EMID_IRON1_Flav0_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_Flav1_Low = TH2F("pt_vs_EMID_IRON1_Flav1_Low", "pt_vs_EMID_IRON1_Flav1_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_Flav5_Low = TH2F("pt_vs_EMID_IRON1_Flav5_Low", "pt_vs_EMID_IRON1_Flav5_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+
+    TH2F pt_vs_EMID_IRON1_Flav0_Mid = TH2F("pt_vs_EMID_IRON1_Flav0_Mid", "pt_vs_EMID_IRON1_Flav0_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_Flav1_Mid = TH2F("pt_vs_EMID_IRON1_Flav1_Mid", "pt_vs_EMID_IRON1_Flav1_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_Flav5_Mid = TH2F("pt_vs_EMID_IRON1_Flav5_Mid", "pt_vs_EMID_IRON1_Flav5_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+
+    TH2F pt_vs_EMID_IRON1_Flav0_High = TH2F("pt_vs_EMID_IRON1_Flav0_High", "pt_vs_EMID_IRON1_Flav0_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_Flav1_High = TH2F("pt_vs_EMID_IRON1_Flav1_High", "pt_vs_EMID_IRON1_Flav1_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_Flav5_High = TH2F("pt_vs_EMID_IRON1_Flav5_High", "pt_vs_EMID_IRON1_Flav5_High", 40, 10.0, 20.0, 56, 4, 12.0);
+
+    TH2F pt_vs_EMID_IRON1_Flav0_NoPt = TH2F("pt_vs_EMID_IRON1_Flav0_NoPt", "pt_vs_EMID_IRON1_Flav0_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_Flav1_NoPt = TH2F("pt_vs_EMID_IRON1_Flav1_NoPt", "pt_vs_EMID_IRON1_Flav1_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_Flav5_NoPt = TH2F("pt_vs_EMID_IRON1_Flav5_NoPt", "pt_vs_EMID_IRON1_Flav5_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+
+    //Long1
+
+    TH2F pt_vs_EMID_LONG1_Flav0_Low = TH2F("pt_vs_EMID_LONG1_Flav0_Low", "pt_vs_EMID_LONG1_Flav0_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_Flav1_Low = TH2F("pt_vs_EMID_LONG1_Flav1_Low", "pt_vs_EMID_LONG1_Flav1_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_Flav5_Low = TH2F("pt_vs_EMID_LONG1_Flav5_Low", "pt_vs_EMID_LONG1_Flav5_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+
+    TH2F pt_vs_EMID_LONG1_Flav0_Mid = TH2F("pt_vs_EMID_LONG1_Flav0_Mid", "pt_vs_EMID_LONG1_Flav0_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_Flav1_Mid = TH2F("pt_vs_EMID_LONG1_Flav1_Mid", "pt_vs_EMID_LONG1_Flav1_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_Flav5_Mid = TH2F("pt_vs_EMID_LONG1_Flav5_Mid", "pt_vs_EMID_LONG1_Flav5_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+
+    TH2F pt_vs_EMID_LONG1_Flav0_High = TH2F("pt_vs_EMID_LONG1_Flav0_High", "pt_vs_EMID_LONG1_Flav0_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_Flav1_High = TH2F("pt_vs_EMID_LONG1_Flav1_High", "pt_vs_EMID_LONG1_Flav1_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_Flav5_High = TH2F("pt_vs_EMID_LONG1_Flav5_High", "pt_vs_EMID_LONG1_Flav5_High", 40, 10.0, 20.0, 56, 4, 12.0);
+
+    TH2F pt_vs_EMID_LONG1_Flav0_NoPt = TH2F("pt_vs_EMID_LONG1_Flav0_NoPt", "pt_vs_EMID_LONG1_Flav0_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_Flav1_NoPt = TH2F("pt_vs_EMID_LONG1_Flav1_NoPt", "pt_vs_EMID_LONG1_Flav1_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_Flav5_NoPt = TH2F("pt_vs_EMID_LONG1_Flav5_NoPt", "pt_vs_EMID_LONG1_Flav5_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+
+
+    //FAKE
+
+    TH2F pt_vs_EMID_FAKE_Flav0_Low = TH2F("pt_vs_EMID_FAKE_Flav0_Low", "pt_vs_EMID_FAKE_Flav0_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_Flav1_Low = TH2F("pt_vs_EMID_FAKE_Flav1_Low", "pt_vs_EMID_FAKE_Flav1_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_Flav5_Low = TH2F("pt_vs_EMID_FAKE_Flav5_Low", "pt_vs_EMID_FAKE_Flav5_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+
+    TH2F pt_vs_EMID_FAKE_Flav0_Mid = TH2F("pt_vs_EMID_FAKE_Flav0_Mid", "pt_vs_EMID_FAKE_Flav0_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_Flav1_Mid = TH2F("pt_vs_EMID_FAKE_Flav1_Mid", "pt_vs_EMID_FAKE_Flav1_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_Flav5_Mid = TH2F("pt_vs_EMID_FAKE_Flav5_Mid", "pt_vs_EMID_FAKE_Flav5_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+
+    TH2F pt_vs_EMID_FAKE_Flav0_High = TH2F("pt_vs_EMID_FAKE_Flav0_High", "pt_vs_EMID_FAKE_Flav0_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_Flav1_High = TH2F("pt_vs_EMID_FAKE_Flav1_High", "pt_vs_EMID_FAKE_Flav1_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_Flav5_High = TH2F("pt_vs_EMID_FAKE_Flav5_High", "pt_vs_EMID_FAKE_Flav5_High", 40, 10.0, 20.0, 56, 4, 12.0);
+
+    TH2F pt_vs_EMID_FAKE_Flav0_NoPt = TH2F("pt_vs_EMID_FAKE_Flav0_NoPt", "pt_vs_EMID_FAKE_Flav0_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_Flav1_NoPt = TH2F("pt_vs_EMID_FAKE_Flav1_NoPt", "pt_vs_EMID_FAKE_Flav1_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_Flav5_NoPt = TH2F("pt_vs_EMID_FAKE_Flav5_NoPt", "pt_vs_EMID_FAKE_Flav5_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+
+
+    //Iron Without the EMID Cut
+
+    TH2F Pt_vs_EMID_IRON_Flav0_Low = TH2F("Pt_vs_EMID_IRON_Flav0_Low", "Pt_vs_EMID_IRON_Flav0_Low", 20, 0.0, 5.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_Flav1_Low = TH2F("Pt_vs_EMID_IRON_Flav1_Low", "Pt_vs_EMID_IRON_Flav1_Low", 20, 0.0, 5.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_Flav5_Low = TH2F("Pt_vs_EMID_IRON_Flav5_Low", "Pt_vs_EMID_IRON_Flav5_Low", 20, 0.0, 5.0, 88, 0.0, 12.0);
+
+    TH2F Pt_vs_EMID_IRON_Flav0_Mid = TH2F("Pt_vs_EMID_IRON_Flav0_Mid", "Pt_vs_EMID_IRON_Flav0_Mid", 20, 5.0, 10.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_Flav1_Mid = TH2F("Pt_vs_EMID_IRON_Flav1_Mid", "Pt_vs_EMID_IRON_Flav1_Mid", 20, 5.0, 10.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_Flav5_Mid = TH2F("Pt_vs_EMID_IRON_Flav5_Mid", "Pt_vs_EMID_IRON_Flav5_Mid", 20, 5.0, 10.0, 88, 0.0, 12.0);
+
+    TH2F Pt_vs_EMID_IRON_Flav0_High = TH2F("Pt_vs_EMID_IRON_Flav0_High", "Pt_vs_EMID_IRON_Flav0_High", 40, 10.0, 20.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_Flav1_High = TH2F("Pt_vs_EMID_IRON_Flav1_High", "Pt_vs_EMID_IRON_Flav1_High", 40, 10.0, 20.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_Flav5_High = TH2F("Pt_vs_EMID_IRON_Flav5_High", "Pt_vs_EMID_IRON_Flav5_High", 40, 10.0, 20.0, 88, 0.0, 12.0);
+
+    TH2F Pt_vs_EMID_IRON_Flav0_NoPt = TH2F("Pt_vs_EMID_IRON_Flav0_NoPt", "Pt_vs_EMID_IRON_Flav0_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_Flav1_NoPt = TH2F("Pt_vs_EMID_IRON_Flav1_NoPt", "Pt_vs_EMID_IRON_Flav1_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_Flav5_NoPt = TH2F("Pt_vs_EMID_IRON_Flav5_NoPt", "Pt_vs_EMID_IRON_Flav5_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
+
 
     gROOT->SetBatch(kTRUE);
 
@@ -2298,10 +2383,10 @@ void TTJETS::Random()
         return;
     }
 
-    std::string plot_dir = "/eos/user/s/ssakhare/ROCPlots/2D";
+    std::string plot_dir = "/eos/user/s/ssakhare/";
     std::string sample = "TTJETS";
     printf("Running over %s\n", sample.c_str());
-    std::string nam ="BetterCHangeit";
+    std::string nam = "BetterCHangeit";
     Long64_t nentries = fChain->GetEntriesFast();
     Long64_t nbytes = 0, nb = 0;
 
@@ -2371,27 +2456,29 @@ void TTJETS::Random()
             float IPdiff = IPSig1 - IPSig2;
 
             //Starting Partameters 
+
+            //IRON1
             if (LowPtElectron_convVeto[k] == 1 && abs(LowPtElectron_eta[k]) < 2.4 && LowPtElectron_embeddedID[k] >= 4 && LowPtElectron_miniPFRelIso_all[k] < 4 && abs(LowPtElectron_dxy[k]) < 0.05 && abs(LowPtElectron_dz[k]) < 0.1 && IPSig1 < 2)
             {
 
                 //FlavCut
                 if (LowPtElectron_genPartFlav[k] == 0)
                 {
-                    pt_vs_Flav0_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_genPartFlav[k]);
-                    pt_vs_EMID_FLAV0_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    
+                    pt_vs_EMID_IRON1_FLAV0_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
                 }
 
                 if (LowPtElectron_genPartFlav[k] == 1)
                 {
-                    pt_vs_Flav1_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_genPartFlav[k]);
-                    pt_vs_EMID_FLAV1_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    
+                    pt_vs_EMID_IRON1_FLAV1_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
                 }
-                
-                
+
+
                 if (LowPtElectron_genPartFlav[k] == 5)
                 {
-                    
-                    pt_vs_EMID_FLAV5_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+
+                    pt_vs_EMID_IRON1_FLAV5_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
                 }
 
 
@@ -2401,20 +2488,20 @@ void TTJETS::Random()
                  //FlavCut
                     if (LowPtElectron_genPartFlav[k] == 0)
                     {
-                        pt_vs_Flav0_Low.Fill(LowPtElectron_pt[k], LowPtElectron_genPartFlav[k]);
-                        pt_vs_EMID_FLAV0_Low.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                        
+                        pt_vs_EMID_IRON1_FLAV0_Low.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
                     }
 
                     if (LowPtElectron_genPartFlav[k] == 1)
                     {
-                        pt_vs_Flav1_Low.Fill(LowPtElectron_pt[k], LowPtElectron_genPartFlav[k]);
-                        pt_vs_EMID_FLAV1_Low.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                        
+                        pt_vs_EMID_IRON1_FLAV1_Low.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
                     }
-                    
+
                     if (LowPtElectron_genPartFlav[k] == 5)
                     {
-                        
-                        pt_vs_EMID_FLAV5_Low.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+
+                        pt_vs_EMID_IRON1_FLAV5_Low.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
                     }
 
                 }
@@ -2424,20 +2511,20 @@ void TTJETS::Random()
                     //FlavCut
                     if (LowPtElectron_genPartFlav[k] == 0)
                     {
-                        pt_vs_Flav0_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_genPartFlav[k]);
-                        pt_vs_EMID_FLAV0_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                        
+                        pt_vs_EMID_IRON1_FLAV0_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
                     }
 
                     if (LowPtElectron_genPartFlav[k] == 1)
                     {
-                        pt_vs_Flav1_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_genPartFlav[k]);
-                        pt_vs_EMID_FLAV1_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                        
+                        pt_vs_EMID_IRON1_FLAV1_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
                     }
-                    
+
                     if (LowPtElectron_genPartFlav[k] == 5)
                     {
-                        
-                        pt_vs_EMID_FLAV5_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+
+                        pt_vs_EMID_IRON1_FLAV5_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
                     }
 
 
@@ -2451,26 +2538,335 @@ void TTJETS::Random()
                     //FlavCut
                     if (LowPtElectron_genPartFlav[k] == 0)
                     {
-                        pt_vs_Flav0_High.Fill(LowPtElectron_pt[k], LowPtElectron_genPartFlav[k]);
-                        pt_vs_EMID_FLAV0_High.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                        
+                        pt_vs_EMID_IRON1_FLAV0_High.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
                     }
 
                     if (LowPtElectron_genPartFlav[k] == 1)
                     {
-                        pt_vs_Flav1_High.Fill(LowPtElectron_pt[k], LowPtElectron_genPartFlav[k]);
-                        pt_vs_EMID_FLAV1_High.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                        
+                        pt_vs_EMID_IRON1_FLAV1_High.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
                     }
-                    
+
                     if (LowPtElectron_genPartFlav[k] == 5)
                     {
-                        
-                        pt_vs_EMID_FLAV5_High.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+
+                        pt_vs_EMID_IRON1_FLAV5_High.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
                     }
 
                 }
 
 
             }
+
+
+
+            //LONG1
+            if (LowPtElectron_convVeto[k] == 1 && abs(LowPtElectron_eta[k]) < 2.4 && LowPtElectron_embeddedID[k] >= 4 && LowPtElectron_miniPFRelIso_all[k] < 4 && IPSig1 >= 2)
+            {
+
+                //FlavCut
+                if (LowPtElectron_genPartFlav[k] == 0)
+                {
+
+                    pt_vs_EMID_LONG1_FLAV0_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                }
+
+                if (LowPtElectron_genPartFlav[k] == 1)
+                {
+
+                    pt_vs_EMID_LONG1_FLAV1_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                }
+
+
+                if (LowPtElectron_genPartFlav[k] == 5)
+                {
+
+                    pt_vs_EMID_LONG1_FLAV5_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                }
+
+
+
+                if (LowPtElectron_pt[k] >= 1.0 && LowPtElectron_pt[k] < 5.0)
+                {// PT CUts
+                 //FlavCut
+                    if (LowPtElectron_genPartFlav[k] == 0)
+                    {
+
+                        pt_vs_EMID_LONG1_FLAV0_Low.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 1)
+                    {
+
+                        pt_vs_EMID_LONG1_FLAV1_Low.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 5)
+                    {
+
+                        pt_vs_EMID_LONG1_FLAV5_Low.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                }
+
+                if (LowPtElectron_pt[k] >= 5.0 && LowPtElectron_pt[k] < 10.0)
+                {
+                    //FlavCut
+                    if (LowPtElectron_genPartFlav[k] == 0)
+                    {
+
+                        pt_vs_EMID_LONG1_FLAV0_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 1)
+                    {
+
+                        pt_vs_EMID_LONG1_FLAV1_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 5)
+                    {
+
+                        pt_vs_EMID_LONG1_FLAV5_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+
+
+
+
+                }
+
+                if (LowPtElectron_pt[k] >= 10.0 && LowPtElectron_pt[k] < 20.0)
+                {
+                    //FlavCut
+                    if (LowPtElectron_genPartFlav[k] == 0)
+                    {
+
+                        pt_vs_EMID_LONG1_FLAV0_High.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 1)
+                    {
+
+                        pt_vs_EMID_LONG1_FLAV1_High.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 5)
+                    {
+
+                        pt_vs_EMID_LONG1_FLAV5_High.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                }
+
+
+            }
+
+
+            //FAKE
+            if (LowPtElectron_convVeto[k] == 1 && abs(LowPtElectron_eta[k]) < 2.4 && LowPtElectron_embeddedID[k] >= 4 && LowPtElectron_miniPFRelIso_all[k] >= 4 && abs(LowPtElectron_dxy[k]) < 0.05 && abs(LowPtElectron_dz[k]) < 0.1 && IPSig1 < 2)
+            {
+
+                //FlavCut
+                if (LowPtElectron_genPartFlav[k] == 0)
+                {
+
+                    pt_vs_EMID_FAKE_FLAV0_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                }
+
+                if (LowPtElectron_genPartFlav[k] == 1)
+                {
+
+                    pt_vs_EMID_FAKE_FLAV1_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                }
+
+
+                if (LowPtElectron_genPartFlav[k] == 5)
+                {
+
+                    pt_vs_EMID_FAKE_FLAV5_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                }
+
+
+
+                if (LowPtElectron_pt[k] >= 1.0 && LowPtElectron_pt[k] < 5.0)
+                {// PT CUts
+                 //FlavCut
+                    if (LowPtElectron_genPartFlav[k] == 0)
+                    {
+
+                        pt_vs_EMID_FAKE_FLAV0_Low.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 1)
+                    {
+
+                        pt_vs_EMID_FAKE_FLAV1_Low.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 5)
+                    {
+
+                        pt_vs_EMID_FAKE_FLAV5_Low.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                }
+
+                if (LowPtElectron_pt[k] >= 5.0 && LowPtElectron_pt[k] < 10.0)
+                {
+                    //FlavCut
+                    if (LowPtElectron_genPartFlav[k] == 0)
+                    {
+
+                        pt_vs_EMID_FAKE_FLAV0_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 1)
+                    {
+
+                        pt_vs_EMID_FAKE_FLAV1_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 5)
+                    {
+
+                        pt_vs_EMID_FAKE_FLAV5_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+
+
+
+
+                }
+
+                if (LowPtElectron_pt[k] >= 10.0 && LowPtElectron_pt[k] < 20.0)
+                {
+                    //FlavCut
+                    if (LowPtElectron_genPartFlav[k] == 0)
+                    {
+
+                        pt_vs_EMID_FAKE_FLAV0_High.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 1)
+                    {
+
+                        pt_vs_EMID_FAKE_FLAV1_High.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 5)
+                    {
+
+                        pt_vs_EMID_FAKE_FLAV5_High.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                }
+
+
+            }
+
+            if (LowPtElectron_convVeto[k] == 1 && abs(LowPtElectron_eta[k]) < 2.4 && LowPtElectron_miniPFRelIso_all[k] < 4 && abs(LowPtElectron_dxy[k]) < 0.05 && abs(LowPtElectron_dz[k]) < 0.1 && IPSig1 < 2)
+            {
+
+                //FlavCut
+                if (LowPtElectron_genPartFlav[k] == 0)
+                {
+
+                    Pt_vs_EMID_IRON1_FLAV0_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                }
+
+                if (LowPtElectron_genPartFlav[k] == 1)
+                {
+
+                    Pt_vs_EMID_IRON1_FLAV1_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                }
+
+
+                if (LowPtElectron_genPartFlav[k] == 5)
+                {
+
+                    Pt_vs_EMID_IRON1_FLAV5_NoPt.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                }
+
+
+
+                if (LowPtElectron_pt[k] >= 1.0 && LowPtElectron_pt[k] < 5.0)
+                {// PT CUts
+                 //FlavCut
+                    if (LowPtElectron_genPartFlav[k] == 0)
+                    {
+
+                        Pt_vs_EMID_IRON1_FLAV0_Low.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 1)
+                    {
+
+                        Pt_vs_EMID_IRON1_FLAV1_Low.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 5)
+                    {
+
+                        Pt_vs_EMID_IRON1_FLAV5_Low.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                }
+
+                if (LowPtElectron_pt[k] >= 5.0 && LowPtElectron_pt[k] < 10.0)
+                {
+                    //FlavCut
+                    if (LowPtElectron_genPartFlav[k] == 0)
+                    {
+
+                        Pt_vs_EMID_IRON1_FLAV0_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 1)
+                    {
+
+                        Pt_vs_EMID_IRON1_FLAV1_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 5)
+                    {
+
+                        Pt_vs_EMID_IRON1_FLAV5_Mid.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+
+
+
+
+                }
+
+                if (LowPtElectron_pt[k] >= 10.0 && LowPtElectron_pt[k] < 20.0)
+                {
+                    //FlavCut
+                    if (LowPtElectron_genPartFlav[k] == 0)
+                    {
+
+                        Pt_vs_EMID_IRON1_FLAV0_High.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 1)
+                    {
+
+                        Pt_vs_EMID_IRON1_FLAV1_High.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                    if (LowPtElectron_genPartFlav[k] == 5)
+                    {
+
+                        Pt_vs_EMID_IRON1_FLAV5_High.Fill(LowPtElectron_pt[k], LowPtElectron_embeddedID[k]);
+                    }
+
+                }
+
+
+            }
+
 
         }//End of loop
     }
@@ -2484,21 +2880,87 @@ void TTJETS::Random()
     PlotHist2(pt_vs_Flav1_High, sample, plot_dir, "pt_vs_Flav1_Iron1High", "pt", "Flav1");
     PlotHist2(pt_vs_Flav1_NoPt, sample, plot_dir, "pt_vs_Flav1_Iron1NoPt", "pt", "Flav1");
 
-    PlotHist2(pt_vs_EMID_FLAV0_Low, sample, plot_dir, " pt_vs_EMID_Iron1FLAV0_Low", "pt", "EMID");
-    PlotHist2(pt_vs_EMID_FLAV1_Low, sample, plot_dir, " pt_vs_EMID_Iron1FLAV1_Low", "pt", "EMID");
-    PlotHist2(pt_vs_EMID_FLAV5_Low, sample, plot_dir, " pt_vs_EMID_Iron1FLAV5_Low", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FLAV0_Low, sample, plot_dir, " pt_vs_EMID_FLAV0_Low", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FLAV1_Low, sample, plot_dir, " pt_vs_EMID_FLAV1_Low", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FLAV5_Low, sample, plot_dir, " pt_vs_EMID_FLAV5_Low", "pt", "EMID");
 
-    PlotHist2(pt_vs_EMID_FLAV0_Mid, sample, plot_dir, " pt_vs_EMID_Iron1FLAV0_Mid", "pt", "EMID");
-    PlotHist2(pt_vs_EMID_FLAV1_Mid, sample, plot_dir, " pt_vs_EMID_Iron1FLAV1_Mid", "pt", "EMID");
-    PlotHist2(pt_vs_EMID_FLAV5_Mid, sample, plot_dir, " pt_vs_EMID_Iron1FLAV5_Mid", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FLAV0_Mid, sample, plot_dir, " pt_vs_EMID_FLAV0_Mid", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FLAV1_Mid, sample, plot_dir, " pt_vs_EMID_FLAV1_Mid", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FLAV5_Mid, sample, plot_dir, " pt_vs_EMID_FLAV5_Mid", "pt", "EMID");
 
-    PlotHist2(pt_vs_EMID_FLAV0_High, sample, plot_dir, "pt_vs_EMID_Iron1FLAV0_High", "pt", "EMID");
-    PlotHist2(pt_vs_EMID_FLAV1_High, sample, plot_dir, " pt_vs_EMID_Iron1FLAV1_High", "pt", "EMID");
-    PlotHist2(pt_vs_EMID_FLAV5_High, sample, plot_dir, " pt_vs_EMID_Iron1FLAV5_High", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FLAV0_High, sample, plot_dir, "pt_vs_EMID_FLAV0_High", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FLAV1_High, sample, plot_dir, " pt_vs_EMID_FLAV1_High", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FLAV5_High, sample, plot_dir, " pt_vs_EMID_FLAV5_High", "pt", "EMID");
 
-    PlotHist2(pt_vs_EMID_FLAV0_NoPt, sample, plot_dir, " pt_vs_EMID_Iron1FLAV0_NoPt", "pt", "EMID");
-    PlotHist2(pt_vs_EMID_FLAV1_NoPt, sample, plot_dir, " pt_vs_EMID_Iron1FLAV1_NoPt", "pt", "EMID");
-    PlotHist2(pt_vs_EMID_FLAV5_NoPt, sample, plot_dir, " pt_vs_EMID_Iron1FLAV5_NoPt", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FLAV0_NoPt, sample, plot_dir, " pt_vs_EMID_FLAV0_NoPt", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FLAV1_NoPt, sample, plot_dir, " pt_vs_EMID_FLAV1_NoPt", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FLAV5_NoPt, sample, plot_dir, " pt_vs_EMID_FLAV5_NoPt", "pt", "EMID");
+
+
+    PlotHist2(pt_vs_EMID_IRON1_Flav0_Low, sample, plot_dir, " pt_vs_EMID_IRON1_Flav0_Low", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_IRON1_Flav1_Low, sample, plot_dir, " pt_vs_EMID_IRON1_Flav1_Low", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_IRON1_Flav5_Low, sample, plot_dir, " pt_vs_EMID_IRON1_Flav5_Low", "pt", "EMID");
+
+    PlotHist2(pt_vs_EMID_IRON1_Flav0_Mid, sample, plot_dir, " pt_vs_EMID_IRON1_Flav0_Mid", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_IRON1_Flav1_Mid, sample, plot_dir, " pt_vs_EMID_IRON1_Flav1_Mid", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_IRON1_Flav5_Mid, sample, plot_dir, " pt_vs_EMID_IRON1_Flav5_Mid", "pt", "EMID");
+
+    PlotHist2(pt_vs_EMID_IRON1_Flav0_High, sample, plot_dir, "pt_vs_EMID_IRON1_Flav0_High", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_IRON1_Flav1_High, sample, plot_dir, " pt_vs_EMID_IRON1_Flav1_High", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_IRON1_Flav5_High, sample, plot_dir, " pt_vs_EMID_IRON1_Flav5_High", "pt", "EMID");
+
+    PlotHist2(pt_vs_EMID_IRON1_Flav0_NoPt, sample, plot_dir, " pt_vs_EMID_IRON1_Flav0_NoPt", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_IRON1_Flav1_NoPt, sample, plot_dir, " pt_vs_EMID_IRON1_Flav1_NoPt", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_IRON1_Flav5_NoPt, sample, plot_dir, " pt_vs_EMID_IRON1_Flav5_NoPt", "pt", "EMID");
+
+    PlotHist2(pt_vs_EMID_LONG1_Flav0_Low, sample, plot_dir, " pt_vs_EMID_LONG1_Flav0_Low", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_LONG1_Flav1_Low, sample, plot_dir, " pt_vs_EMID_LONG1_Flav1_Low", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_LONG1_Flav5_Low, sample, plot_dir, " pt_vs_EMID_LONG1_Flav5_Low", "pt", "EMID");
+
+    PlotHist2(pt_vs_EMID_LONG1_Flav0_Mid, sample, plot_dir, " pt_vs_EMID_LONG1_Flav0_Mid", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_LONG1_Flav1_Mid, sample, plot_dir, " pt_vs_EMID_LONG1_Flav1_Mid", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_LONG1_Flav5_Mid, sample, plot_dir, " pt_vs_EMID_LONG1_Flav5_Mid", "pt", "EMID");
+
+    PlotHist2(pt_vs_EMID_LONG1_Flav0_High, sample, plot_dir, "pt_vs_EMID_LONG1_Flav0_High", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_LONG1_Flav1_High, sample, plot_dir, " pt_vs_EMID_LONG1_Flav1_High", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_LONG1_Flav5_High, sample, plot_dir, " pt_vs_EMID_LONG1_Flav5_High", "pt", "EMID");
+
+    PlotHist2(pt_vs_EMID_LONG1_Flav0_NoPt, sample, plot_dir, " pt_vs_EMID_LONG1_Flav0_NoPt", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_LONG1_Flav1_NoPt, sample, plot_dir, " pt_vs_EMID_LONG1_Flav1_NoPt", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_LONG1_Flav5_NoPt, sample, plot_dir, " pt_vs_EMID_LONG1_Flav5_NoPt", "pt", "EMID");
+
+    PlotHist2(pt_vs_EMID_FAKE_Flav0_Low, sample, plot_dir, " pt_vs_EMID_FAKE_Flav0_Low", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FAKE_Flav1_Low, sample, plot_dir, " pt_vs_EMID_FAKE_Flav1_Low", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FAKE_Flav5_Low, sample, plot_dir, " pt_vs_EMID_FAKE_Flav5_Low", "pt", "EMID");
+
+    PlotHist2(pt_vs_EMID_FAKE_Flav0_Mid, sample, plot_dir, " pt_vs_EMID_FAKE_Flav0_Mid", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FAKE_Flav1_Mid, sample, plot_dir, " pt_vs_EMID_FAKE_Flav1_Mid", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FAKE_Flav5_Mid, sample, plot_dir, " pt_vs_EMID_FAKE_Flav5_Mid", "pt", "EMID");
+
+    PlotHist2(pt_vs_EMID_FAKE_Flav0_High, sample, plot_dir, "pt_vs_EMID_FAKE_Flav0_High", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FAKE_Flav1_High, sample, plot_dir, " pt_vs_EMID_FAKE_Flav1_High", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FAKE_Flav5_High, sample, plot_dir, " pt_vs_EMID_FAKE_Flav5_High", "pt", "EMID");
+
+    PlotHist2(pt_vs_EMID_FAKE_Flav0_NoPt, sample, plot_dir, " pt_vs_EMID_FAKE_Flav0_NoPt", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FAKE_Flav1_NoPt, sample, plot_dir, " pt_vs_EMID_FAKE_Flav1_NoPt", "pt", "EMID");
+    PlotHist2(pt_vs_EMID_FAKE_Flav5_NoPt, sample, plot_dir, " pt_vs_EMID_FAKE_Flav5_NoPt", "pt", "EMID");
+
+    PlotHist2(Pt_vs_EMID_IRON1_Flav0_Low, sample, plot_dir, " Pt_vs_EMID_IRON1_Flav0_Low", "pt", "EMID");
+    PlotHist2(Pt_vs_EMID_IRON1_Flav1_Low, sample, plot_dir, " Pt_vs_EMID_IRON1_Flav1_Low", "pt", "EMID");
+    PlotHist2(Pt_vs_EMID_IRON1_Flav5_Low, sample, plot_dir, " Pt_vs_EMID_IRON1_Flav5_Low", "pt", "EMID");
+
+    PlotHist2(Pt_vs_EMID_IRON1_Flav0_Mid, sample, plot_dir, " Pt_vs_EMID_IRON1_Flav0_Mid", "pt", "EMID");
+    PlotHist2(Pt_vs_EMID_IRON1_Flav1_Mid, sample, plot_dir, " Pt_vs_EMID_IRON1_Flav1_Mid", "pt", "EMID");
+    PlotHist2(Pt_vs_EMID_IRON1_Flav5_Mid, sample, plot_dir, " Pt_vs_EMID_IRON1_Flav5_Mid", "pt", "EMID");
+
+    PlotHist2(Pt_vs_EMID_IRON1_Flav0_High, sample, plot_dir, "Pt_vs_EMID_IRON1_Flav0_High", "pt", "EMID");
+    PlotHist2(Pt_vs_EMID_IRON1_Flav1_High, sample, plot_dir, " Pt_vs_EMID_IRON1_Flav1_High", "pt", "EMID");
+    PlotHist2(Pt_vs_EMID_IRON1_Flav5_High, sample, plot_dir, " Pt_vs_EMID_IRON1_Flav5_High", "pt", "EMID");
+
+    PlotHist2(Pt_vs_EMID_IRON1_Flav0_NoPt, sample, plot_dir, " Pt_vs_EMID_IRON1_Flav0_NoPt", "pt", "EMID");
+    PlotHist2(Pt_vs_EMID_IRON1_Flav1_NoPt, sample, plot_dir, " Pt_vs_EMID_IRON1_Flav1_NoPt", "pt", "EMID");
+    PlotHist2(Pt_vs_EMID_IRON1_Flav5_NoPt, sample, plot_dir, " Pt_vs_EMID_IRON1_Flav5_NoPt", "pt", "EMID");
+
 
 }
 
