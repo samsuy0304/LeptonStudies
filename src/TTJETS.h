@@ -3389,17 +3389,17 @@ TTJETS::TTJETS(TTree *tree) : fChain(0)
 // used to generate this class and read the Tree.
    if (tree == 0) {
       // T2-4bd
-      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("SMS-T2-4bd_genMET-80_mStop-500_mLSP-490_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/4153AE9C-1215-A847-8E0A-DEBE98140664.root");
+      //TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("SMS-T2-4bd_genMET-80_mStop-500_mLSP-490_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/4153AE9C-1215-A847-8E0A-DEBE98140664.root");
       // TTJets_DiLept
-      //TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/5457F199-A129-2A40-8127-733D51A9A3E6.root");
+      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("5457F199-A129-2A40-8127-733D51A9A3E6.root");
       if (!f || !f->IsOpen()) {
          // T2-4bd
-         f = new TFile("SMS-T2-4bd_genMET-80_mStop-500_mLSP-490_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/4153AE9C-1215-A847-8E0A-DEBE98140664.root");
+         //f = new TFile("SMS-T2-4bd_genMET-80_mStop-500_mLSP-490_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/4153AE9C-1215-A847-8E0A-DEBE98140664.root");
          // TTJets_DiLept
-         //f = new TFile("TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8_NanoAODv9/5457F199-A129-2A40-8127-733D51A9A3E6.root");
+         f = new TFile("5457F199-A129-2A40-8127-733D51A9A3E6.root");
       }
       // original
-      //f->GetObject("Events",tree);
+      f->GetObject("Events",tree);
       
       // new 
       //TChain chain = TChain("chain", "chain");
@@ -3416,13 +3416,13 @@ TTJETS::TTJETS(TTree *tree) : fChain(0)
       //}
       //printf("tree entries: %lld\n", tree->GetEntries());
    }
-   myChain = new TChain("Events");
-   LoadSignal(myChain);
+   //myChain = new TChain("Events");
+   //LoadSignal(myChain);
    //LoadBackground(myChain);
-   printf("myChain entries: %lld\n", myChain->GetEntries());
+   //printf("myChain entries: %lld\n", myChain->GetEntries());
    
-   //Init(tree);
-   Init(myChain);
+   Init(tree);
+   //Init(myChain);
    printf("Loaded ROOT file and tree.\n");
 }
 
