@@ -2273,15 +2273,15 @@ void TTJETS::Loop2()
 void TTJETS::Random()
 {
 
-    TH2F pt_vs_Flav1_Low = TH2F("pt_vs_Flav1_Low", "pt_vs_Flav1_Low", 20, 0.0, 5.0, 1, 1.0, 2.0);
-    TH2F pt_vs_Flav1_Mid = TH2F("pt_vs_Flav1_Mid", "pt_vs_Flav1_Mid", 20, 5.0, 10.0, 1, 1.0, 2.0);
-    TH2F pt_vs_Flav1_High = TH2F("pt_vs_Flav1_High", "pt_vs_Flav1_High", 40, 10.0, 20.0, 1, 1.0, 2.0);
-    TH2F pt_vs_Flav1_NoPt = TH2F("pt_vs_Flav1_NoPt", "pt_vs_Flav1_NoPt", 80, 0.0, 20.0, 1, 1.0, 2.0);
+    TH2F pt_vs_FLAV1_Low = TH2F("pt_vs_FLAV1_Low", "pt_vs_FLAV1_Low", 20, 0.0, 5.0, 1, 1.0, 2.0);
+    TH2F pt_vs_FLAV1_Mid = TH2F("pt_vs_FLAV1_Mid", "pt_vs_FLAV1_Mid", 20, 5.0, 10.0, 1, 1.0, 2.0);
+    TH2F pt_vs_FLAV1_High = TH2F("pt_vs_FLAV1_High", "pt_vs_FLAV1_High", 40, 10.0, 20.0, 1, 1.0, 2.0);
+    TH2F pt_vs_FLAV1_NoPt = TH2F("pt_vs_FLAV1_NoPt", "pt_vs_FLAV1_NoPt", 80, 0.0, 20.0, 1, 1.0, 2.0);
 
-    TH2F pt_vs_Flav0_Low = TH2F("pt_vs_Flav0_Low", "pt_vs_Flav0_Low", 20, 0.0, 5.0, 1, 0.0, 1.0);
-    TH2F pt_vs_Flav0_Mid = TH2F("pt_vs_Flav0_Mid", "pt_vs_Flav0_Mid", 20, 5.0, 10.0, 1, 0.0, 1.0);
-    TH2F pt_vs_Flav0_High = TH2F("pt_vs_Flav0_High", "pt_vs_Flav0_High", 40, 10.0, 20.0, 1, 0.0, 1.0);
-    TH2F pt_vs_Flav0_NoPt = TH2F("pt_vs_Flav0_NoPt", "pt_vs_Flav0_NoPt", 80, 0.0, 20.0, 1, 0.0, 1.0);
+    TH2F pt_vs_FLAV0_Low = TH2F("pt_vs_FLAV0_Low", "pt_vs_FLAV0_Low", 20, 0.0, 5.0, 1, 0.0, 1.0);
+    TH2F pt_vs_FLAV0_Mid = TH2F("pt_vs_FLAV0_Mid", "pt_vs_FLAV0_Mid", 20, 5.0, 10.0, 1, 0.0, 1.0);
+    TH2F pt_vs_FLAV0_High = TH2F("pt_vs_FLAV0_High", "pt_vs_FLAV0_High", 40, 10.0, 20.0, 1, 0.0, 1.0);
+    TH2F pt_vs_FLAV0_NoPt = TH2F("pt_vs_FLAV0_NoPt", "pt_vs_FLAV0_NoPt", 80, 0.0, 20.0, 1, 0.0, 1.0);
 
     TH2F pt_vs_EMID_FLAV0_Low = TH2F("pt_vs_EMID_FLAV0_Low", "pt_vs_EMID_FLAV0_Low", 20, 0.0, 5.0, 56, 4, 12.0);
     TH2F pt_vs_EMID_FLAV1_Low = TH2F("pt_vs_EMID_FLAV1_Low", "pt_vs_EMID_FLAV1_Low", 20, 0.0, 5.0, 56, 4, 12.0);
