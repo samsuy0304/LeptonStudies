@@ -225,7 +225,7 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
     Long64_t nentries = fChain->GetEntriesFast();
     Long64_t nbytes = 0, nb = 0;
     float EMID_cut = 4.0;
-    Long64_t max_event = 30000;
+    Long64_t max_event = 150000;
 
     int chch = 1;
 
@@ -238,9 +238,9 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
     TH1F EMID = TH1F("EMID", "EMID", 22, EMID_cut, 12.0);
     TH1F Pt = TH1F("pt", "pt", 80, Lower_pt, Higher_pt);
     TH1F Eta = TH1F("eta", "eta", 30, -2.4, 2.4);
-    TH1F Dxy = TH1F("dxy", "dxy", 100, 0.05, -0.05);
+    TH1F Dxy = TH1F("dxy", "dxy", 25, 0.05, -0.05);
     TH1F DxyErr = TH1F("dxyErr", "dxyErr", 50, 0, 0.02);
-    TH1F Dz = TH1F("dz", "dz", 100, -0.05, 0.05);
+    TH1F Dz = TH1F("dz", "dz", 25, 0.05, -0.05);
     TH1F DzErr = TH1F("dzErr", "dzErr", 50, 0, 0.06);
     TH1F DxySig = TH1F("dxySig", "dxySig", 100, -3.0, 3.0);
     TH1F DzSig = TH1F("dzSig", "dzSig", 50, -3.0, 3.0);
@@ -255,9 +255,9 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
     TH1F Flav0_EMID = TH1F("Flav0_EMID", "Flav0_EMID", 22, EMID_cut, 12.0);
     TH1F Flav0_pt = TH1F("Flav0_pt", "Flav0_pt", 80, Lower_pt, Higher_pt);
     TH1F Flav0_eta = TH1F("Flav0_eta", "Flav0_eta", 30, -2.4, 2.4);
-    TH1F Flav0_dxy = TH1F("Flav0_dxy", "Flav0_dxy", 100, 0.05, -0.05);
+    TH1F Flav0_dxy = TH1F("Flav0_dxy", "Flav0_dxy", 25, 0.05, -0.05);
     TH1F Flav0_dxyErr = TH1F("Flav0_dxyErr", "Flav0_dxyErr", 50, 0, 0.02);
-    TH1F Flav0_dz = TH1F("Flav0_dz", "Flav0_dz", 100, -0.05, 0.05);
+    TH1F Flav0_dz = TH1F("Flav0_dz", "Flav0_dz", 25, 0.05, -0.05);
     TH1F Flav0_dzErr = TH1F("Flav0_dzErr", "Flav0_dzErr", 50, 0, 0.06);
     TH1F Flav0_dxySig = TH1F("Flav0_dxySig", "Flav0_dxySig", 100, -3.0, 3.0);
     TH1F Flav0_dzSig = TH1F("Flav0_dzSig", "Flav0_dzSig", 100, -3.0, 3.0);
@@ -272,9 +272,9 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
     TH1F Flav1_EMID = TH1F("Flav1_EMID", "Flav1_EMID", 22, EMID_cut, 12.0);
     TH1F Flav1_pt = TH1F("Flav1_pt", "Flav1_pt", 80, Lower_pt, Higher_pt);
     TH1F Flav1_eta = TH1F("Flav1_eta", "Flav1_eta", 30, -2.4, 2.4);
-    TH1F Flav1_dxy = TH1F("Flav1_dxy", "Flav1_dxy", 100, 0.05, -0.05);
+    TH1F Flav1_dxy = TH1F("Flav1_dxy", "Flav1_dxy", 25, 0.05, -0.05);
     TH1F Flav1_dxyErr = TH1F("Flav1_dxyErr", "Flav1_dxyErr", 50, 0, 0.02);
-    TH1F Flav1_dz = TH1F("Flav1_dz", "Flav1_dz", 100, -0.05, 0.05);
+    TH1F Flav1_dz = TH1F("Flav1_dz", "Flav1_dz", 25, 0.05, -0.05);
     TH1F Flav1_dzErr = TH1F("Flav1_dzErr", "Flav1_dzErr", 50, 0.0, 0.06);
     TH1F Flav1_dxySig = TH1F("Flav1_dxySig", "Flav1_dxySig", 100, -3.0, 3.0);
     TH1F Flav1_dzSig = TH1F("Flav1_dzSig", "Flav1_dzSig", 50, 0.0, 20.0);
@@ -289,9 +289,9 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
     TH1F Flav5_EMID = TH1F("Flav5_EMID", "Flav5_EMID", 22, EMID_cut, 12.0);
     TH1F Flav5_pt = TH1F("Flav5_pt", "Flav5_pt", 80, Lower_pt, Higher_pt);
     TH1F Flav5_eta = TH1F("Flav5_eta", "Flav5_eta", 30, -2.4, 2.4);
-    TH1F Flav5_dxy = TH1F("Flav5_dxy", "Flav5_dxy", 100, 0.05, -0.05);
+    TH1F Flav5_dxy = TH1F("Flav5_dxy", "Flav5_dxy", 25, 0.05, -0.05);
     TH1F Flav5_dxyErr = TH1F("Flav5_dxyErr", "Flav5_dxyErr", 50, 0, 0.02);
-    TH1F Flav5_dz = TH1F("Flav5_dz", "Flav5_dz", 100, -0.05, 0.05);
+    TH1F Flav5_dz = TH1F("Flav5_dz", "Flav5_dz", 25, 0.05, -0.05);
     TH1F Flav5_dzErr = TH1F("Flav5_dzErr", "Flav5_dzErr", 50, 0.0, 0.06);
     TH1F Flav5_dxySig = TH1F("Flav5_dxySig", "Flav5_dxySig", 100, -3.0, 3.0);
     TH1F Flav5_dzSig = TH1F("Flav5_dzSig", "Flav5_dzSig", 50, 0.0, 20.0);
@@ -307,9 +307,9 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
     TH1F IRON1_EMID = TH1F("IRON1_EMID", "IRON1_EMID", 22, EMID_cut, 12.0);
     TH1F IRON1_pt = TH1F("IRON1_pt", "IRON1_pt", 80, Lower_pt, Higher_pt);
     TH1F IRON1_eta = TH1F("IRON1_eta", "IRON1_eta", 30, -2.4, 2.4);
-    TH1F IRON1_dxy = TH1F("IRON1_dxy", "IRON1_dxy", 100, 0.05, -0.05);
+    TH1F IRON1_dxy = TH1F("IRON1_dxy", "IRON1_dxy", 25, 0.05, -0.05);
     TH1F IRON1_dxyErr = TH1F("IRON1_dxyErr", "IRON1_dxyErr", 50, 0, 0.02);
-    TH1F IRON1_dz = TH1F("IRON1_dz", "IRON1_dz", 100, -0.05, 0.05);
+    TH1F IRON1_dz = TH1F("IRON1_dz", "IRON1_dz", 25, 0.05, -0.05);
     TH1F IRON1_dzErr = TH1F("IRON1_dzErr", "IRON1_dzErr", 50, 0.0, 0.06);
     TH1F IRON1_dxySig = TH1F("IRON1_dxySig", "IRON1_dxySig", 100, -3.0, 3.0);
     TH1F IRON1_dzSig = TH1F("IRON1_dzSig", "IRON1_dzSig", 50, 0.0, 20.0);
@@ -327,9 +327,9 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
     TH1F IRON2_EMID = TH1F("IRON2_EMID", "IRON2_EMID", 22, EMID_cut, 12.0);
     TH1F IRON2_pt = TH1F("IRON2_pt", "IRON2_pt", 80, Lower_pt, Higher_pt);
     TH1F IRON2_eta = TH1F("IRON2_eta", "IRON2_eta", 30, -2.4, 2.4);
-    TH1F IRON2_dxy = TH1F("IRON2_dxy", "IRON2_dxy", 100, 0.05, -0.05);
+    TH1F IRON2_dxy = TH1F("IRON2_dxy", "IRON2_dxy", 25, 0.05, -0.05);
     TH1F IRON2_dxyErr = TH1F("IRON2_dxyErr", "IRON2_dxyErr", 50, 0, 0.02);
-    TH1F IRON2_dz = TH1F("IRON2_dz", "IRON2_dz", 100, -0.05, 0.05);
+    TH1F IRON2_dz = TH1F("IRON2_dz", "IRON2_dz", 25, 0.05, -0.05);
     TH1F IRON2_dzErr = TH1F("IRON2_dzErr", "IRON2_dzErr", 50, 0.0, 0.06);
     TH1F IRON2_dxySig = TH1F("IRON2_dxySig", "IRON2_dxySig", 100, -3.0, 3.0);
     TH1F IRON2_dzSig = TH1F("IRON2_dzSig", "IRON2_dzSig", 50, 0.0, 20.0);
@@ -346,9 +346,9 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
     TH1F Long1_EMID = TH1F("Long1_EMID", "Long1_EMID", 22, EMID_cut, 12.0);
     TH1F Long1_pt = TH1F("Long1_pt", "Long1_pt", 80, Lower_pt, Higher_pt);
     TH1F Long1_eta = TH1F("Long1_eta", "Long1_eta", 30, -2.4, 2.4);
-    TH1F Long1_dxy = TH1F("Long1_dxy", "Long1_dxy", 100, 0.05, -0.05);
+    TH1F Long1_dxy = TH1F("Long1_dxy", "Long1_dxy", 25, 0.05, -0.05);
     TH1F Long1_dxyErr = TH1F("Long1_dxyErr", "Long1_dxyErr", 50, 0, 0.02);
-    TH1F Long1_dz = TH1F("Long1_dz", "Long1_dz", 100, -0.05, 0.05);
+    TH1F Long1_dz = TH1F("Long1_dz", "Long1_dz", 25, 0.05, -0.05);
     TH1F Long1_dzErr = TH1F("Long1_dzErr", "Long1_dzErr", 50, 0.0, 0.06);
     TH1F Long1_dxySig = TH1F("Long1_dxySig", "Long1_dxySig", 100, -3.0, 3.0);
     TH1F Long1_dzSig = TH1F("Long1_dzSig", "Long1_dzSig", 50, 0.0, 20.0);
@@ -364,9 +364,9 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
     TH1F Long2_EMID = TH1F("Long2_EMID", "Long2_EMID", 22, EMID_cut, 12.0);
     TH1F Long2_pt = TH1F("Long2_pt", "Long2_pt", 80, Lower_pt, Higher_pt);
     TH1F Long2_eta = TH1F("Long2_eta", "Long2_eta", 30, -2.4, 2.4);
-    TH1F Long2_dxy = TH1F("Long2_dxy", "Long2_dxy", 100, 0.05, -0.05);
+    TH1F Long2_dxy = TH1F("Long2_dxy", "Long2_dxy", 25, 0.05, -0.05);
     TH1F Long2_dxyErr = TH1F("Long2_dxyErr", "Long2_dxyErr", 50, 0, 0.02);
-    TH1F Long2_dz = TH1F("Long2_dz", "Long2_dz", 100, -0.05, 0.05);
+    TH1F Long2_dz = TH1F("Long2_dz", "Long2_dz", 25, 0.05, -0.05);
     TH1F Long2_dzErr = TH1F("Long2_dzErr", "Long2_dzErr", 50, 0.0, 0.06);
     TH1F Long2_dxySig = TH1F("Long2_dxySig", "Long2_dxySig", 100, -3.0, 3.0);
     TH1F Long2_dzSig = TH1F("Long2_dzSig", "Long2_dzSig", 50, 0.0, 20.0);
@@ -382,9 +382,9 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
     TH1F FAKE_EMID = TH1F("FAKE_EMID", "FAKE_EMID", 22, EMID_cut, 12.0);
     TH1F FAKE_pt = TH1F("FAKE_pt", "IRONFAKE_pt", 80, Lower_pt, Higher_pt);
     TH1F FAKE_eta = TH1F("IRONFAKE_eta", "IRONFAKE_eta", 30, -2.4, 2.4);
-    TH1F FAKE_dxy = TH1F("IRONFAKE_dxy", "IRONFAKE_dxy", 100, 0.05, -0.05);
+    TH1F FAKE_dxy = TH1F("IRONFAKE_dxy", "IRONFAKE_dxy", 25, 0.05, -0.05);
     TH1F FAKE_dxyErr = TH1F("IRONFAKE_dxyErr", "IRONFAKE_dxyErr", 50, 0, 0.02);
-    TH1F FAKE_dz = TH1F("IRONFAKE_dz", "IRONFAKE_dz", 100, -0.05, 0.05);
+    TH1F FAKE_dz = TH1F("IRONFAKE_dz", "IRONFAKE_dz", 25, 0.05, -0.05);
     TH1F FAKE_dzErr = TH1F("IRONFAKE_dzErr", "IRONFAKE_dzErr", 50, 0.0, 0.06);
     TH1F FAKE_dxySig = TH1F("IRONFAKE_dxySig", "IRONFAKE_dxySig", 100, -3.0, 3.0);
     TH1F FAKE_dzSig = TH1F("IRONFAKE_dzSig", "IRONFAKE_dzSig", 50, 0.0, 20.0);
@@ -470,46 +470,46 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
 
 
     // LowdxyElectron_genPartFlav == 0
-    TH1F IRON1_FLAV0_dxy = TH1F("Iron1_Flav0_dxy", "Iron1_Flav0_dxy", 100, 0.05, -0.05);
-    TH1F LONG1_FLAV0_dxy = TH1F("Long1_Flav0_dxy", "Long1_Flav0_dxy", 100, 0.05, -0.05);
-    TH1F IRON2_FLAV0_dxy = TH1F("Iron2_Flav0_dxy", "Iron2_Flav0_dxy", 100, 0.05, -0.05);
-    TH1F LONG2_FLAV0_dxy = TH1F("Long2_Flav0_dxy", "Long2_Flav0_dxy", 100, 0.05, -0.05);
-    TH1F FAKE_FLAV0_dxy = TH1F("IronFake_Flav0_dxy", "IronFake_Flav0_dxy", 100, 0.05, -0.05);
+    TH1F IRON1_FLAV0_dxy = TH1F("Iron1_Flav0_dxy", "Iron1_Flav0_dxy", 25, 0.05, -0.05);
+    TH1F LONG1_FLAV0_dxy = TH1F("Long1_Flav0_dxy", "Long1_Flav0_dxy", 25, 0.05, -0.05);
+    TH1F IRON2_FLAV0_dxy = TH1F("Iron2_Flav0_dxy", "Iron2_Flav0_dxy", 25, 0.05, -0.05);
+    TH1F LONG2_FLAV0_dxy = TH1F("Long2_Flav0_dxy", "Long2_Flav0_dxy", 25, 0.05, -0.05);
+    TH1F FAKE_FLAV0_dxy = TH1F("IronFake_Flav0_dxy", "IronFake_Flav0_dxy", 25, 0.05, -0.05);
     // LowdxyElectron_genPartFlav == 1
-    TH1F IRON1_FLAV1_dxy = TH1F("Iron1_Flav1_dxy", "Iron1_Flav1_dxy", 100, 0.05, -0.05);
-    TH1F LONG1_FLAV1_dxy = TH1F("Long1_Flav1_dxy", "Long1_Flav1_dxy", 100, 0.05, -0.05);
-    TH1F IRON2_FLAV1_dxy = TH1F("Iron2_Flav1_dxy", "Iron2_Flav1_dxy", 100, 0.05, -0.05);
-    TH1F LONG2_FLAV1_dxy = TH1F("Long2_Flav1_dxy", "Long2_Flav1_dxy", 100, 0.05, -0.05);
-    TH1F FAKE_FLAV1_dxy = TH1F("IronFake_Flav1_dxy", "IronFake_Flav1_dxy", 100, 0.05, -0.05);
+    TH1F IRON1_FLAV1_dxy = TH1F("Iron1_Flav1_dxy", "Iron1_Flav1_dxy", 25, 0.05, -0.05);
+    TH1F LONG1_FLAV1_dxy = TH1F("Long1_Flav1_dxy", "Long1_Flav1_dxy", 25, 0.05, -0.05);
+    TH1F IRON2_FLAV1_dxy = TH1F("Iron2_Flav1_dxy", "Iron2_Flav1_dxy", 25, 0.05, -0.05);
+    TH1F LONG2_FLAV1_dxy = TH1F("Long2_Flav1_dxy", "Long2_Flav1_dxy", 25, 0.05, -0.05);
+    TH1F FAKE_FLAV1_dxy = TH1F("IronFake_Flav1_dxy", "IronFake_Flav1_dxy", 25, 0.05, -0.05);
     // LowdxyElectron_genPartFlav == 5
-    TH1F IRON1_FLAV5_dxy = TH1F("Iron1_Flav5_dxy", "Iron1_Flav5_dxy", 100, 0.05, -0.05);
-    TH1F LONG1_FLAV5_dxy = TH1F("Long1_Flav5_dxy", "Long1_Flav5_dxy", 100, 0.05, -0.05);
-    TH1F IRON2_FLAV5_dxy = TH1F("Iron2_Flav5_dxy", "Iron2_Flav5_dxy", 100, 0.05, -0.05);
-    TH1F LONG2_FLAV5_dxy = TH1F("Long2_Flav5_dxy", "Long2_Flav5_dxy", 100, 0.05, -0.05);
-    TH1F FAKE_FLAV5_dxy = TH1F("IronFake_Flav5_dxy", "IronFake_Flav5_dxy", 100, 0.05, -0.05);
+    TH1F IRON1_FLAV5_dxy = TH1F("Iron1_Flav5_dxy", "Iron1_Flav5_dxy", 25, 0.05, -0.05);
+    TH1F LONG1_FLAV5_dxy = TH1F("Long1_Flav5_dxy", "Long1_Flav5_dxy", 25, 0.05, -0.05);
+    TH1F IRON2_FLAV5_dxy = TH1F("Iron2_Flav5_dxy", "Iron2_Flav5_dxy", 25, 0.05, -0.05);
+    TH1F LONG2_FLAV5_dxy = TH1F("Long2_Flav5_dxy", "Long2_Flav5_dxy", 25, 0.05, -0.05);
+    TH1F FAKE_FLAV5_dxy = TH1F("IronFake_Flav5_dxy", "IronFake_Flav5_dxy", 25, 0.05, -0.05);
 
 
     // Dz
 
 
     // LowdzElectron_genPartFlav == 0
-    TH1F IRON1_FLAV0_dz = TH1F("Iron1_Flav0_dz", "Iron1_Flav0_dz", 100, -0.05, 0.05);
-    TH1F LONG1_FLAV0_dz = TH1F("Long1_Flav0_dz", "Long1_Flav0_dz", 100, -0.05, 0.05);
-    TH1F IRON2_FLAV0_dz = TH1F("Iron2_Flav0_dz", "Iron2_Flav0_dz", 100, -0.05, 0.05);
-    TH1F LONG2_FLAV0_dz = TH1F("Long2_Flav0_dz", "Long2_Flav0_dz", 100, -0.05, 0.05);
-    TH1F FAKE_FLAV0_dz = TH1F("IronFake_Flav0_dz", "IronFake_Flav0_dz", 100, -0.05, 0.05);
+    TH1F IRON1_FLAV0_dz = TH1F("Iron1_Flav0_dz", "Iron1_Flav0_dz", 25, 0.05, -0.05);
+    TH1F LONG1_FLAV0_dz = TH1F("Long1_Flav0_dz", "Long1_Flav0_dz", 25, 0.05, -0.05);
+    TH1F IRON2_FLAV0_dz = TH1F("Iron2_Flav0_dz", "Iron2_Flav0_dz", 25, 0.05, -0.05);
+    TH1F LONG2_FLAV0_dz = TH1F("Long2_Flav0_dz", "Long2_Flav0_dz", 25, 0.05, -0.05);
+    TH1F FAKE_FLAV0_dz = TH1F("IronFake_Flav0_dz", "IronFake_Flav0_dz", 25, 0.05, -0.05);
     // LowdzElectron_genPartFlav == 1
-    TH1F IRON1_FLAV1_dz = TH1F("Iron1_Flav1_dz", "Iron1_Flav1_dz", 100, -0.05, 0.05);
-    TH1F LONG1_FLAV1_dz = TH1F("Long1_Flav1_dz", "Long1_Flav1_dz", 100, -0.05, 0.05);
-    TH1F IRON2_FLAV1_dz = TH1F("Iron2_Flav1_dz", "Iron2_Flav1_dz", 100, -0.05, 0.05);
-    TH1F LONG2_FLAV1_dz = TH1F("Long2_Flav1_dz", "Long2_Flav1_dz", 100, -0.05, 0.05);
-    TH1F FAKE_FLAV1_dz = TH1F("IronFake_Flav1_dz", "IronFake_Flav1_dz", 100, -0.05, 0.05);
+    TH1F IRON1_FLAV1_dz = TH1F("Iron1_Flav1_dz", "Iron1_Flav1_dz", 25, 0.05, -0.05);
+    TH1F LONG1_FLAV1_dz = TH1F("Long1_Flav1_dz", "Long1_Flav1_dz", 25, 0.05, -0.05);
+    TH1F IRON2_FLAV1_dz = TH1F("Iron2_Flav1_dz", "Iron2_Flav1_dz", 25, 0.05, -0.05);
+    TH1F LONG2_FLAV1_dz = TH1F("Long2_Flav1_dz", "Long2_Flav1_dz", 25, 0.05, -0.05);
+    TH1F FAKE_FLAV1_dz = TH1F("IronFake_Flav1_dz", "IronFake_Flav1_dz", 25, 0.05, -0.05);
     // LowdzElectron_genPartFlav == 5
-    TH1F IRON1_FLAV5_dz = TH1F("Iron1_Flav5_dz", "Iron1_Flav5_dz", 100, -0.05, 0.05);
-    TH1F LONG1_FLAV5_dz = TH1F("Long1_Flav5_dz", "Long1_Flav5_dz", 100, -0.05, 0.05);
-    TH1F IRON2_FLAV5_dz = TH1F("Iron2_Flav5_dz", "Iron2_Flav5_dz", 100, -0.05, 0.05);
-    TH1F LONG2_FLAV5_dz = TH1F("Long2_Flav5_dz", "Long2_Flav5_dz", 100, -0.05, 0.05);
-    TH1F FAKE_FLAV5_dz = TH1F("IronFake_Flav5_dz", "IronFake_Flav5_dz", 100, -0.05, 0.05);
+    TH1F IRON1_FLAV5_dz = TH1F("Iron1_Flav5_dz", "Iron1_Flav5_dz", 25, 0.05, -0.05);
+    TH1F LONG1_FLAV5_dz = TH1F("Long1_Flav5_dz", "Long1_Flav5_dz", 25, 0.05, -0.05);
+    TH1F IRON2_FLAV5_dz = TH1F("Iron2_Flav5_dz", "Iron2_Flav5_dz", 25, 0.05, -0.05);
+    TH1F LONG2_FLAV5_dz = TH1F("Long2_Flav5_dz", "Long2_Flav5_dz", 25, 0.05, -0.05);
+    TH1F FAKE_FLAV5_dz = TH1F("IronFake_Flav5_dz", "IronFake_Flav5_dz", 25, 0.05, -0.05);
 
 
 
