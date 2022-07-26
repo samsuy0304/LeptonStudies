@@ -2283,98 +2283,97 @@ void TTJETS::Random()
     TH2F pt_vs_Flav0_High = TH2F("pt_vs_Flav0_High", "pt_vs_Flav0_High", 40, 10.0, 20.0, 1, 0.0, 1.0);
     TH2F pt_vs_Flav0_NoPt = TH2F("pt_vs_Flav0_NoPt", "pt_vs_Flav0_NoPt", 80, 0.0, 20.0, 1, 0.0, 1.0);
 
-    TH2F pt_vs_EMID_FLAV0_Low = TH2F("pt_vs_EMID_Flav0_Low", "pt_vs_EMID_Flav0_Low", 20, 0.0, 5.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_FLAV1_Low = TH2F("pt_vs_EMID_Flav1_Low", "pt_vs_EMID_Flav1_Low", 20, 0.0, 5.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_FLAV5_Low = TH2F("pt_vs_EMID_Flav5_Low", "pt_vs_EMID_Flav5_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FLAV0_Low = TH2F("pt_vs_EMID_FLAV0_Low", "pt_vs_EMID_FLAV0_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FLAV1_Low = TH2F("pt_vs_EMID_FLAV1_Low", "pt_vs_EMID_FLAV1_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FLAV5_Low = TH2F("pt_vs_EMID_FLAV5_Low", "pt_vs_EMID_FLAV5_Low", 20, 0.0, 5.0, 56, 4, 12.0);
 
-    TH2F pt_vs_EMID_FLAV0_Mid = TH2F("pt_vs_EMID_Flav0_Mid", "pt_vs_EMID_Flav0_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_FLAV1_Mid = TH2F("pt_vs_EMID_Flav1_Mid", "pt_vs_EMID_Flav1_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_FLAV5_Mid = TH2F("pt_vs_EMID_Flav5_Mid", "pt_vs_EMID_Flav5_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FLAV0_Mid = TH2F("pt_vs_EMID_FLAV0_Mid", "pt_vs_EMID_FLAV0_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FLAV1_Mid = TH2F("pt_vs_EMID_FLAV1_Mid", "pt_vs_EMID_FLAV1_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FLAV5_Mid = TH2F("pt_vs_EMID_FLAV5_Mid", "pt_vs_EMID_FLAV5_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
 
-    TH2F pt_vs_EMID_FLAV0_High = TH2F("pt_vs_EMID_Flav0_High", "pt_vs_EMID_Flav0_High", 40, 10.0, 20.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_FLAV1_High = TH2F("pt_vs_EMID_Flav1_High", "pt_vs_EMID_Flav1_High", 40, 10.0, 20.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_FLAV5_High = TH2F("pt_vs_EMID_Flav5_High", "pt_vs_EMID_Flav5_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FLAV0_High = TH2F("pt_vs_EMID_FLAV0_High", "pt_vs_EMID_FLAV0_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FLAV1_High = TH2F("pt_vs_EMID_FLAV1_High", "pt_vs_EMID_FLAV1_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FLAV5_High = TH2F("pt_vs_EMID_FLAV5_High", "pt_vs_EMID_FLAV5_High", 40, 10.0, 20.0, 56, 4, 12.0);
 
-    TH2F pt_vs_EMID_FLAV0_NoPt = TH2F("pt_vs_EMID_Flav0_NoPt", "pt_vs_EMID_Flav0_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
-    TH2F pt_vs_EMID_FLAV1_NoPt = TH2F("pt_vs_EMID_Flav1_NoPt", "pt_vs_EMID_Flav1_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
-    TH2F pt_vs_EMID_FLAV5_NoPt = TH2F("pt_vs_EMID_Flav5_NoPt", "pt_vs_EMID_Flav5_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
+    TH2F pt_vs_EMID_FLAV0_NoPt = TH2F("pt_vs_EMID_FLAV0_NoPt", "pt_vs_EMID_FLAV0_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
+    TH2F pt_vs_EMID_FLAV1_NoPt = TH2F("pt_vs_EMID_FLAV1_NoPt", "pt_vs_EMID_FLAV1_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
+    TH2F pt_vs_EMID_FLAV5_NoPt = TH2F("pt_vs_EMID_FLAV5_NoPt", "pt_vs_EMID_FLAV5_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
 
 
 
     ///Iron 1
 
-    TH2F pt_vs_EMID_IRON1_Flav0_Low = TH2F("pt_vs_EMID_IRON1_Flav0_Low", "pt_vs_EMID_IRON1_Flav0_Low", 20, 0.0, 5.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_IRON1_Flav1_Low = TH2F("pt_vs_EMID_IRON1_Flav1_Low", "pt_vs_EMID_IRON1_Flav1_Low", 20, 0.0, 5.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_IRON1_Flav5_Low = TH2F("pt_vs_EMID_IRON1_Flav5_Low", "pt_vs_EMID_IRON1_Flav5_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_FLAV0_Low = TH2F("pt_vs_EMID_IRON1_FLAV0_Low", "pt_vs_EMID_IRON1_FLAV0_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_FLAV1_Low = TH2F("pt_vs_EMID_IRON1_FLAV1_Low", "pt_vs_EMID_IRON1_FLAV1_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_FLAV5_Low = TH2F("pt_vs_EMID_IRON1_FLAV5_Low", "pt_vs_EMID_IRON1_FLAV5_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+         
+    TH2F pt_vs_EMID_IRON1_FLAV0_Mid = TH2F("pt_vs_EMID_IRON1_FLAV0_Mid", "pt_vs_EMID_IRON1_FLAV0_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_FLAV1_Mid = TH2F("pt_vs_EMID_IRON1_FLAV1_Mid", "pt_vs_EMID_IRON1_FLAV1_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_FLAV5_Mid = TH2F("pt_vs_EMID_IRON1_FLAV5_Mid", "pt_vs_EMID_IRON1_FLAV5_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
 
-    TH2F pt_vs_EMID_IRON1_Flav0_Mid = TH2F("pt_vs_EMID_IRON1_Flav0_Mid", "pt_vs_EMID_IRON1_Flav0_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_IRON1_Flav1_Mid = TH2F("pt_vs_EMID_IRON1_Flav1_Mid", "pt_vs_EMID_IRON1_Flav1_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_IRON1_Flav5_Mid = TH2F("pt_vs_EMID_IRON1_Flav5_Mid", "pt_vs_EMID_IRON1_Flav5_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_FLAV0_High = TH2F("pt_vs_EMID_IRON1_FLAV0_High", "pt_vs_EMID_IRON1_FLAV0_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_FLAV1_High = TH2F("pt_vs_EMID_IRON1_FLAV1_High", "pt_vs_EMID_IRON1_FLAV1_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_FLAV5_High = TH2F("pt_vs_EMID_IRON1_FLAV5_High", "pt_vs_EMID_IRON1_FLAV5_High", 40, 10.0, 20.0, 56, 4, 12.0);
 
-    TH2F pt_vs_EMID_IRON1_Flav0_High = TH2F("pt_vs_EMID_IRON1_Flav0_High", "pt_vs_EMID_IRON1_Flav0_High", 40, 10.0, 20.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_IRON1_Flav1_High = TH2F("pt_vs_EMID_IRON1_Flav1_High", "pt_vs_EMID_IRON1_Flav1_High", 40, 10.0, 20.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_IRON1_Flav5_High = TH2F("pt_vs_EMID_IRON1_Flav5_High", "pt_vs_EMID_IRON1_Flav5_High", 40, 10.0, 20.0, 56, 4, 12.0);
-
-    TH2F pt_vs_EMID_IRON1_Flav0_NoPt = TH2F("pt_vs_EMID_IRON1_Flav0_NoPt", "pt_vs_EMID_IRON1_Flav0_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_IRON1_Flav1_NoPt = TH2F("pt_vs_EMID_IRON1_Flav1_NoPt", "pt_vs_EMID_IRON1_Flav1_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_IRON1_Flav5_NoPt = TH2F("pt_vs_EMID_IRON1_Flav5_NoPt", "pt_vs_EMID_IRON1_Flav5_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_FLAV0_NoPt = TH2F("pt_vs_EMID_IRON1_FLAV0_NoPt", "pt_vs_EMID_IRON1_FLAV0_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_FLAV1_NoPt = TH2F("pt_vs_EMID_IRON1_FLAV1_NoPt", "pt_vs_EMID_IRON1_FLAV1_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_IRON1_FLAV5_NoPt = TH2F("pt_vs_EMID_IRON1_FLAV5_NoPt", "pt_vs_EMID_IRON1_FLAV5_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
 
     //Long1
 
-    TH2F pt_vs_EMID_LONG1_Flav0_Low = TH2F("pt_vs_EMID_LONG1_Flav0_Low", "pt_vs_EMID_LONG1_Flav0_Low", 20, 0.0, 5.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_LONG1_Flav1_Low = TH2F("pt_vs_EMID_LONG1_Flav1_Low", "pt_vs_EMID_LONG1_Flav1_Low", 20, 0.0, 5.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_LONG1_Flav5_Low = TH2F("pt_vs_EMID_LONG1_Flav5_Low", "pt_vs_EMID_LONG1_Flav5_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_FLAV0_Low = TH2F("pt_vs_EMID_LONG1_FLAV0_Low", "pt_vs_EMID_LONG1_FLAV0_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_FLAV1_Low = TH2F("pt_vs_EMID_LONG1_FLAV1_Low", "pt_vs_EMID_LONG1_FLAV1_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_FLAV5_Low = TH2F("pt_vs_EMID_LONG1_FLAV5_Low", "pt_vs_EMID_LONG1_FLAV5_Low", 20, 0.0, 5.0, 56, 4, 12.0);
 
-    TH2F pt_vs_EMID_LONG1_Flav0_Mid = TH2F("pt_vs_EMID_LONG1_Flav0_Mid", "pt_vs_EMID_LONG1_Flav0_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_LONG1_Flav1_Mid = TH2F("pt_vs_EMID_LONG1_Flav1_Mid", "pt_vs_EMID_LONG1_Flav1_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_LONG1_Flav5_Mid = TH2F("pt_vs_EMID_LONG1_Flav5_Mid", "pt_vs_EMID_LONG1_Flav5_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_FLAV0_Mid = TH2F("pt_vs_EMID_LONG1_FLAV0_Mid", "pt_vs_EMID_LONG1_FLAV0_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_FLAV1_Mid = TH2F("pt_vs_EMID_LONG1_FLAV1_Mid", "pt_vs_EMID_LONG1_FLAV1_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_FLAV5_Mid = TH2F("pt_vs_EMID_LONG1_FLAV5_Mid", "pt_vs_EMID_LONG1_FLAV5_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
 
-    TH2F pt_vs_EMID_LONG1_Flav0_High = TH2F("pt_vs_EMID_LONG1_Flav0_High", "pt_vs_EMID_LONG1_Flav0_High", 40, 10.0, 20.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_LONG1_Flav1_High = TH2F("pt_vs_EMID_LONG1_Flav1_High", "pt_vs_EMID_LONG1_Flav1_High", 40, 10.0, 20.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_LONG1_Flav5_High = TH2F("pt_vs_EMID_LONG1_Flav5_High", "pt_vs_EMID_LONG1_Flav5_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_FLAV0_High = TH2F("pt_vs_EMID_LONG1_FLAV0_High", "pt_vs_EMID_LONG1_FLAV0_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_FLAV1_High = TH2F("pt_vs_EMID_LONG1_FLAV1_High", "pt_vs_EMID_LONG1_FLAV1_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_FLAV5_High = TH2F("pt_vs_EMID_LONG1_FLAV5_High", "pt_vs_EMID_LONG1_FLAV5_High", 40, 10.0, 20.0, 56, 4, 12.0);
 
-    TH2F pt_vs_EMID_LONG1_Flav0_NoPt = TH2F("pt_vs_EMID_LONG1_Flav0_NoPt", "pt_vs_EMID_LONG1_Flav0_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_LONG1_Flav1_NoPt = TH2F("pt_vs_EMID_LONG1_Flav1_NoPt", "pt_vs_EMID_LONG1_Flav1_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_LONG1_Flav5_NoPt = TH2F("pt_vs_EMID_LONG1_Flav5_NoPt", "pt_vs_EMID_LONG1_Flav5_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_FLAV0_NoPt = TH2F("pt_vs_EMID_LONG1_FLAV0_NoPt", "pt_vs_EMID_LONG1_FLAV0_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_FLAV1_NoPt = TH2F("pt_vs_EMID_LONG1_FLAV1_NoPt", "pt_vs_EMID_LONG1_FLAV1_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_LONG1_FLAV5_NoPt = TH2F("pt_vs_EMID_LONG1_FLAV5_NoPt", "pt_vs_EMID_LONG1_FLAV5_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
 
 
     //FAKE
 
-    TH2F pt_vs_EMID_FAKE_Flav0_Low = TH2F("pt_vs_EMID_FAKE_Flav0_Low", "pt_vs_EMID_FAKE_Flav0_Low", 20, 0.0, 5.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_FAKE_Flav1_Low = TH2F("pt_vs_EMID_FAKE_Flav1_Low", "pt_vs_EMID_FAKE_Flav1_Low", 20, 0.0, 5.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_FAKE_Flav5_Low = TH2F("pt_vs_EMID_FAKE_Flav5_Low", "pt_vs_EMID_FAKE_Flav5_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_FLAV0_Low = TH2F("pt_vs_EMID_FAKE_FLAV0_Low", "pt_vs_EMID_FAKE_FLAV0_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_FLAV1_Low = TH2F("pt_vs_EMID_FAKE_FLAV1_Low", "pt_vs_EMID_FAKE_FLAV1_Low", 20, 0.0, 5.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_FLAV5_Low = TH2F("pt_vs_EMID_FAKE_FLAV5_Low", "pt_vs_EMID_FAKE_FLAV5_Low", 20, 0.0, 5.0, 56, 4, 12.0);
 
-    TH2F pt_vs_EMID_FAKE_Flav0_Mid = TH2F("pt_vs_EMID_FAKE_Flav0_Mid", "pt_vs_EMID_FAKE_Flav0_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_FAKE_Flav1_Mid = TH2F("pt_vs_EMID_FAKE_Flav1_Mid", "pt_vs_EMID_FAKE_Flav1_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_FAKE_Flav5_Mid = TH2F("pt_vs_EMID_FAKE_Flav5_Mid", "pt_vs_EMID_FAKE_Flav5_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_FLAV0_Mid = TH2F("pt_vs_EMID_FAKE_FLAV0_Mid", "pt_vs_EMID_FAKE_FLAV0_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_FLAV1_Mid = TH2F("pt_vs_EMID_FAKE_FLAV1_Mid", "pt_vs_EMID_FAKE_FLAV1_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_FLAV5_Mid = TH2F("pt_vs_EMID_FAKE_FLAV5_Mid", "pt_vs_EMID_FAKE_FLAV5_Mid", 20, 5.0, 10.0, 56, 4, 12.0);
 
-    TH2F pt_vs_EMID_FAKE_Flav0_High = TH2F("pt_vs_EMID_FAKE_Flav0_High", "pt_vs_EMID_FAKE_Flav0_High", 40, 10.0, 20.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_FAKE_Flav1_High = TH2F("pt_vs_EMID_FAKE_Flav1_High", "pt_vs_EMID_FAKE_Flav1_High", 40, 10.0, 20.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_FAKE_Flav5_High = TH2F("pt_vs_EMID_FAKE_Flav5_High", "pt_vs_EMID_FAKE_Flav5_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_FLAV0_High = TH2F("pt_vs_EMID_FAKE_FLAV0_High", "pt_vs_EMID_FAKE_FLAV0_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_FLAV1_High = TH2F("pt_vs_EMID_FAKE_FLAV1_High", "pt_vs_EMID_FAKE_FLAV1_High", 40, 10.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_FLAV5_High = TH2F("pt_vs_EMID_FAKE_FLAV5_High", "pt_vs_EMID_FAKE_FLAV5_High", 40, 10.0, 20.0, 56, 4, 12.0);
 
-    TH2F pt_vs_EMID_FAKE_Flav0_NoPt = TH2F("pt_vs_EMID_FAKE_Flav0_NoPt", "pt_vs_EMID_FAKE_Flav0_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_FAKE_Flav1_NoPt = TH2F("pt_vs_EMID_FAKE_Flav1_NoPt", "pt_vs_EMID_FAKE_Flav1_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
-    TH2F pt_vs_EMID_FAKE_Flav5_NoPt = TH2F("pt_vs_EMID_FAKE_Flav5_NoPt", "pt_vs_EMID_FAKE_Flav5_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_FLAV0_NoPt = TH2F("pt_vs_EMID_FAKE_FLAV0_NoPt", "pt_vs_EMID_FAKE_FLAV0_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_FLAV1_NoPt = TH2F("pt_vs_EMID_FAKE_FLAV1_NoPt", "pt_vs_EMID_FAKE_FLAV1_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
+    TH2F pt_vs_EMID_FAKE_FLAV5_NoPt = TH2F("pt_vs_EMID_FAKE_FLAV5_NoPt", "pt_vs_EMID_FAKE_FLAV5_NoPt", 80, 0.0, 20.0, 56, 4, 12.0);
 
 
     //Iron Without the EMID Cut
 
-    TH2F Pt_vs_EMID_IRON_Flav0_Low = TH2F("Pt_vs_EMID_IRON_Flav0_Low", "Pt_vs_EMID_IRON_Flav0_Low", 20, 0.0, 5.0, 88, 0.0, 12.0);
-    TH2F Pt_vs_EMID_IRON_Flav1_Low = TH2F("Pt_vs_EMID_IRON_Flav1_Low", "Pt_vs_EMID_IRON_Flav1_Low", 20, 0.0, 5.0, 88, 0.0, 12.0);
-    TH2F Pt_vs_EMID_IRON_Flav5_Low = TH2F("Pt_vs_EMID_IRON_Flav5_Low", "Pt_vs_EMID_IRON_Flav5_Low", 20, 0.0, 5.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_FLAV0_Low = TH2F("Pt_vs_EMID_IRON_FLAV0_Low", "Pt_vs_EMID_IRON_FLAV0_Low", 20, 0.0, 5.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_FLAV1_Low = TH2F("Pt_vs_EMID_IRON_FLAV1_Low", "Pt_vs_EMID_IRON_FLAV1_Low", 20, 0.0, 5.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_FLAV5_Low = TH2F("Pt_vs_EMID_IRON_FLAV5_Low", "Pt_vs_EMID_IRON_FLAV5_Low", 20, 0.0, 5.0, 88, 0.0, 12.0);
 
-    TH2F Pt_vs_EMID_IRON_Flav0_Mid = TH2F("Pt_vs_EMID_IRON_Flav0_Mid", "Pt_vs_EMID_IRON_Flav0_Mid", 20, 5.0, 10.0, 88, 0.0, 12.0);
-    TH2F Pt_vs_EMID_IRON_Flav1_Mid = TH2F("Pt_vs_EMID_IRON_Flav1_Mid", "Pt_vs_EMID_IRON_Flav1_Mid", 20, 5.0, 10.0, 88, 0.0, 12.0);
-    TH2F Pt_vs_EMID_IRON_Flav5_Mid = TH2F("Pt_vs_EMID_IRON_Flav5_Mid", "Pt_vs_EMID_IRON_Flav5_Mid", 20, 5.0, 10.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_FLAV0_Mid = TH2F("Pt_vs_EMID_IRON_FLAV0_Mid", "Pt_vs_EMID_IRON_FLAV0_Mid", 20, 5.0, 10.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_FLAV1_Mid = TH2F("Pt_vs_EMID_IRON_FLAV1_Mid", "Pt_vs_EMID_IRON_FLAV1_Mid", 20, 5.0, 10.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_FLAV5_Mid = TH2F("Pt_vs_EMID_IRON_FLAV5_Mid", "Pt_vs_EMID_IRON_FLAV5_Mid", 20, 5.0, 10.0, 88, 0.0, 12.0);
 
-    TH2F Pt_vs_EMID_IRON_Flav0_High = TH2F("Pt_vs_EMID_IRON_Flav0_High", "Pt_vs_EMID_IRON_Flav0_High", 40, 10.0, 20.0, 88, 0.0, 12.0);
-    TH2F Pt_vs_EMID_IRON_Flav1_High = TH2F("Pt_vs_EMID_IRON_Flav1_High", "Pt_vs_EMID_IRON_Flav1_High", 40, 10.0, 20.0, 88, 0.0, 12.0);
-    TH2F Pt_vs_EMID_IRON_Flav5_High = TH2F("Pt_vs_EMID_IRON_Flav5_High", "Pt_vs_EMID_IRON_Flav5_High", 40, 10.0, 20.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_FLAV0_High = TH2F("Pt_vs_EMID_IRON_FLAV0_High", "Pt_vs_EMID_IRON_FLAV0_High", 40, 10.0, 20.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_FLAV1_High = TH2F("Pt_vs_EMID_IRON_FLAV1_High", "Pt_vs_EMID_IRON_FLAV1_High", 40, 10.0, 20.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_FLAV5_High = TH2F("Pt_vs_EMID_IRON_FLAV5_High", "Pt_vs_EMID_IRON_FLAV5_High", 40, 10.0, 20.0, 88, 0.0, 12.0);
 
-    TH2F Pt_vs_EMID_IRON_Flav0_NoPt = TH2F("Pt_vs_EMID_IRON_Flav0_NoPt", "Pt_vs_EMID_IRON_Flav0_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
-    TH2F Pt_vs_EMID_IRON_Flav1_NoPt = TH2F("Pt_vs_EMID_IRON_Flav1_NoPt", "Pt_vs_EMID_IRON_Flav1_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
-    TH2F Pt_vs_EMID_IRON_Flav5_NoPt = TH2F("Pt_vs_EMID_IRON_Flav5_NoPt", "Pt_vs_EMID_IRON_Flav5_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
-
+    TH2F Pt_vs_EMID_IRON_FLAV0_NoPt = TH2F("Pt_vs_EMID_IRON_FLAV0_NoPt", "Pt_vs_EMID_IRON_FLAV0_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_FLAV1_NoPt = TH2F("Pt_vs_EMID_IRON_FLAV1_NoPt", "Pt_vs_EMID_IRON_FLAV1_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON_FLAV5_NoPt = TH2F("Pt_vs_EMID_IRON_FLAV5_NoPt", "Pt_vs_EMID_IRON_FLAV5_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
 
     gROOT->SetBatch(kTRUE);
 
