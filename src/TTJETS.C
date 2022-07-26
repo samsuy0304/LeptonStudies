@@ -90,7 +90,7 @@ void TTJETS::PlotHist(TH1F &hist, std::string sample_name, std::string plot_dir,
     int lepnum = hist.GetEntries();
     std::string s = std::to_string(lepnum);
     std::string entry = pt_cut + "_" + plot_name + "," + s;
-    std::string storefile = plot_dir + "Test1.csv";//+ sample_name + "/" + pt_cut + "/" + specific+"/Store.csv";
+    std::string storefile = plot_dir + "Present.csv";//+ sample_name + "/" + pt_cut + "/" + specific+"/Store.csv";
 
     ofstream fw(storefile, std::ofstream::app);
     //check if file was successfully opened for writing
@@ -1990,29 +1990,29 @@ void TTJETS::Graph(std::string sample_name, float Lower_pt, float Higher_pt, std
 
 void TTJETS::RunAll()
 {
-    Graph("Test", 1.0,2.0, "1_2");
-    Graph("Test", 2.0, 3.0, "2_3");
-    Graph("Test", 3.0, 4.0, "3_4");
-    Graph("Test", 4.0, 5.0, "4_5");
-    Graph("Test", 5.0, 6.0, "5_6");
-    Graph("Test", 6.0, 7.0, "6_7");
-    Graph("Test", 7.0, 8.0, "7_8");
-    Graph("Test", 8.0, 9.0, "8_9");
-    Graph("Test", 9.0, 10.0, "9_10");
-    Graph("Test", 10.0, 11.0, "10_11");
-    Graph("Test", 11.0, 12.0, "11_12");
-    Graph("Test", 12.0, 13.0, "12_3");
-    Graph("Test", 13.0, 14.0, "13_14");
-    Graph("Test", 14.0, 15.0, "14_15");
-    Graph("Test", 15.0, 16.0, "15_16");
-    Graph("Test", 16.0, 17.0, "16_17");
-    Graph("Test", 17.0, 18.0, "17_18");
-    Graph("Test", 18.0, 19.0, "18_19");
-    Graph("Test", 19.0, 20.0, "19_20");
-    Graph("Test", 1.0, 5.0, "LowCut");
-    Graph("Test", 5.0, 10.0, "MidCut");
-    Graph("Test", 10.0, 20.0, "HighCut");
-    Graph("Test", 1.0, 20.0, "General");
+    Graph("Final", 1.0,2.0, "1_2");
+    Graph("Final", 2.0, 3.0, "2_3");
+    Graph("Final", 3.0, 4.0, "3_4");
+    Graph("Final", 4.0, 5.0, "4_5");
+    Graph("Final", 5.0, 6.0, "5_6");
+    Graph("Final", 6.0, 7.0, "6_7");
+    Graph("Final", 7.0, 8.0, "7_8");
+    Graph("Final", 8.0, 9.0, "8_9");
+    Graph("Final", 9.0, 10.0, "9_10");
+    Graph("Final", 10.0, 11.0, "10_11");
+    Graph("Final", 11.0, 12.0, "11_12");
+    Graph("Final", 12.0, 13.0, "12_3");
+    Graph("Final", 13.0, 14.0, "13_14");
+    Graph("Final", 14.0, 15.0, "14_15");
+    Graph("Final", 15.0, 16.0, "15_16");
+    Graph("Final", 16.0, 17.0, "16_17");
+    Graph("Final", 17.0, 18.0, "17_18");
+    Graph("Final", 18.0, 19.0, "18_19");
+    Graph("Final", 19.0, 20.0, "19_20");
+    Graph("Final", 1.0, 5.0, "LowCut");
+    Graph("Final", 5.0, 10.0, "MidCut");
+    Graph("Final", 10.0, 20.0, "HighCut");
+    Graph("Final", 1.0, 20.0, "General");
     
 
 
