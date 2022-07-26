@@ -2295,9 +2295,9 @@ void TTJETS::Random()
     TH2F pt_vs_EMID_FLAV1_High = TH2F("pt_vs_EMID_FLAV1_High", "pt_vs_EMID_FLAV1_High", 40, 10.0, 20.0, 56, 4, 12.0);
     TH2F pt_vs_EMID_FLAV5_High = TH2F("pt_vs_EMID_FLAV5_High", "pt_vs_EMID_FLAV5_High", 40, 10.0, 20.0, 56, 4, 12.0);
 
-    TH2F pt_vs_EMID_FLAV0_NoPt = TH2F("pt_vs_EMID_FLAV0_NoPt", "pt_vs_EMID_FLAV0_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
-    TH2F pt_vs_EMID_FLAV1_NoPt = TH2F("pt_vs_EMID_FLAV1_NoPt", "pt_vs_EMID_FLAV1_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
-    TH2F pt_vs_EMID_FLAV5_NoPt = TH2F("pt_vs_EMID_FLAV5_NoPt", "pt_vs_EMID_FLAV5_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
+    TH2F pt_vs_EMID_FLAV0_NoPt = TH2F("pt_vs_EMID_FLAV0_NoPt", "pt_vs_EMID_FLAV0_NoPt", 80, 0.0, 20.0, 88, 1.5, 12.0);
+    TH2F pt_vs_EMID_FLAV1_NoPt = TH2F("pt_vs_EMID_FLAV1_NoPt", "pt_vs_EMID_FLAV1_NoPt", 80, 0.0, 20.0, 88, 1.5, 12.0);
+    TH2F pt_vs_EMID_FLAV5_NoPt = TH2F("pt_vs_EMID_FLAV5_NoPt", "pt_vs_EMID_FLAV5_NoPt", 80, 0.0, 20.0, 88, 1.5, 12.0);
 
 
 
@@ -2359,21 +2359,21 @@ void TTJETS::Random()
 
     //Iron Without the EMID Cut
 
-    TH2F Pt_vs_EMID_IRON1_FLAV0_Low = TH2F("Pt_vs_EMID_IRON_FLAV0_Low", "Pt_vs_EMID_IRON_FLAV0_Low", 20, 0.0, 5.0, 88, 0.0, 12.0);
-    TH2F Pt_vs_EMID_IRON1_FLAV1_Low = TH2F("Pt_vs_EMID_IRON_FLAV1_Low", "Pt_vs_EMID_IRON_FLAV1_Low", 20, 0.0, 5.0, 88, 0.0, 12.0);
-    TH2F Pt_vs_EMID_IRON1_FLAV5_Low = TH2F("Pt_vs_EMID_IRON_FLAV5_Low", "Pt_vs_EMID_IRON_FLAV5_Low", 20, 0.0, 5.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON1_FLAV0_Low = TH2F("Pt_vs_EMID_IRON_FLAV0_Low", "Pt_vs_EMID_IRON_FLAV0_Low", 20, 0.0, 5.0, 88, 1.5, 12.0);
+    TH2F Pt_vs_EMID_IRON1_FLAV1_Low = TH2F("Pt_vs_EMID_IRON_FLAV1_Low", "Pt_vs_EMID_IRON_FLAV1_Low", 20, 0.0, 5.0, 88, 1.5, 12.0);
+    TH2F Pt_vs_EMID_IRON1_FLAV5_Low = TH2F("Pt_vs_EMID_IRON_FLAV5_Low", "Pt_vs_EMID_IRON_FLAV5_Low", 20, 0.0, 5.0, 88, 1.5, 12.0);
          
-    TH2F Pt_vs_EMID_IRON1_FLAV0_Mid = TH2F("Pt_vs_EMID_IRON_FLAV0_Mid", "Pt_vs_EMID_IRON_FLAV0_Mid", 20, 5.0, 10.0, 88, 0.0, 12.0);
-    TH2F Pt_vs_EMID_IRON1_FLAV1_Mid = TH2F("Pt_vs_EMID_IRON_FLAV1_Mid", "Pt_vs_EMID_IRON_FLAV1_Mid", 20, 5.0, 10.0, 88, 0.0, 12.0);
-    TH2F Pt_vs_EMID_IRON1_FLAV5_Mid = TH2F("Pt_vs_EMID_IRON_FLAV5_Mid", "Pt_vs_EMID_IRON_FLAV5_Mid", 20, 5.0, 10.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON1_FLAV0_Mid = TH2F("Pt_vs_EMID_IRON_FLAV0_Mid", "Pt_vs_EMID_IRON_FLAV0_Mid", 20, 5.0, 10.0, 88, 1.5, 12.0);
+    TH2F Pt_vs_EMID_IRON1_FLAV1_Mid = TH2F("Pt_vs_EMID_IRON_FLAV1_Mid", "Pt_vs_EMID_IRON_FLAV1_Mid", 20, 5.0, 10.0, 88, 1.5, 12.0);
+    TH2F Pt_vs_EMID_IRON1_FLAV5_Mid = TH2F("Pt_vs_EMID_IRON_FLAV5_Mid", "Pt_vs_EMID_IRON_FLAV5_Mid", 20, 5.0, 10.0, 88, 1.5, 12.0);
 
-    TH2F Pt_vs_EMID_IRON1_FLAV0_High = TH2F("Pt_vs_EMID_IRON_FLAV0_High", "Pt_vs_EMID_IRON_FLAV0_High", 40, 10.0, 20.0, 88, 0.0, 12.0);
-    TH2F Pt_vs_EMID_IRON1_FLAV1_High = TH2F("Pt_vs_EMID_IRON_FLAV1_High", "Pt_vs_EMID_IRON_FLAV1_High", 40, 10.0, 20.0, 88, 0.0, 12.0);
-    TH2F Pt_vs_EMID_IRON1_FLAV5_High = TH2F("Pt_vs_EMID_IRON_FLAV5_High", "Pt_vs_EMID_IRON_FLAV5_High", 40, 10.0, 20.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON1_FLAV0_High = TH2F("Pt_vs_EMID_IRON_FLAV0_High", "Pt_vs_EMID_IRON_FLAV0_High", 40, 10.0, 20.0, 88, 1.5, 12.0);
+    TH2F Pt_vs_EMID_IRON1_FLAV1_High = TH2F("Pt_vs_EMID_IRON_FLAV1_High", "Pt_vs_EMID_IRON_FLAV1_High", 40, 10.0, 20.0, 88, 1.5, 12.0);
+    TH2F Pt_vs_EMID_IRON1_FLAV5_High = TH2F("Pt_vs_EMID_IRON_FLAV5_High", "Pt_vs_EMID_IRON_FLAV5_High", 40, 10.0, 20.0, 88, 1.5, 12.0);
 
-    TH2F Pt_vs_EMID_IRON1_FLAV0_NoPt = TH2F("Pt_vs_EMID_IRON_FLAV0_NoPt", "Pt_vs_EMID_IRON_FLAV0_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
-    TH2F Pt_vs_EMID_IRON1_FLAV1_NoPt = TH2F("Pt_vs_EMID_IRON_FLAV1_NoPt", "Pt_vs_EMID_IRON_FLAV1_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
-    TH2F Pt_vs_EMID_IRON1_FLAV5_NoPt = TH2F("Pt_vs_EMID_IRON_FLAV5_NoPt", "Pt_vs_EMID_IRON_FLAV5_NoPt", 80, 0.0, 20.0, 88, 0.0, 12.0);
+    TH2F Pt_vs_EMID_IRON1_FLAV0_NoPt = TH2F("Pt_vs_EMID_IRON_FLAV0_NoPt", "Pt_vs_EMID_IRON_FLAV0_NoPt", 80, 0.0, 20.0, 88, 1.5, 12.0);
+    TH2F Pt_vs_EMID_IRON1_FLAV1_NoPt = TH2F("Pt_vs_EMID_IRON_FLAV1_NoPt", "Pt_vs_EMID_IRON_FLAV1_NoPt", 80, 0.0, 20.0, 88, 1.5, 12.0);
+    TH2F Pt_vs_EMID_IRON1_FLAV5_NoPt = TH2F("Pt_vs_EMID_IRON_FLAV5_NoPt", "Pt_vs_EMID_IRON_FLAV5_NoPt", 80, 0.0, 20.0, 88, 1.5, 12.0);
          
     gROOT->SetBatch(kTRUE);
 
