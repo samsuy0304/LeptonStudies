@@ -144,7 +144,7 @@ void TTJETS::PlotHist2(TH2F &hist, std::string sample_name, std::string plot_dir
     SetupHist2(hist, title, x_title, y_title, color, line_width);
     gStyle->SetOptStat(111111);
     // Set stat options
-    gStyle->SetStatY(0.1);                
+    gStyle->SetStatY(0.9);                
     // Set y-position (fraction of pad size)
     gStyle->SetStatX(0.1);
     // draw
