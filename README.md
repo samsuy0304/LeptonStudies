@@ -1,17 +1,15 @@
-# LeptonStudies
+# Mysteries of Dark Matter: Search for Low Momentum Electrons
 
-In order to search for beyond standard model compressed supersymmetric decay channels, low
- momentumobjects must be identifiable in the CMS detector. We have adapted electron identification
- criteria to observe low momentum (pT <5 GeV) prompt electrons. We have studied the electron
- identification and misidentification efficiencies using Monte Carlo simulations, where the generator
- information is kept. We find an identification efficiency for electrons with 1 GeV≤ pT <5 GeV to be
- in the range from 20-70%, and the misidentification efficiency to be less than 8%. A framework was
- developed to measure the signal from a specific compressed super symmetric stop sample as well as
- the background from a t¯ tdilepton sample. The signal and background from the KUCMS recursive
- jigsaw reconstruction analysis were used to study the sensitivity of the analysis to low momentum
- (pT <5) leptons. Currently, the analysis only includes muons with momentum from 3-5 GeV. The
- sensitivity in this range was dominated by these low momentum muons. Thus, this study predicts
- that the addition of low momentum electrons to future searches would be efficient and beneficial.
+## Overview
+This project focuses on the search for compressed supersymmetric decay channels using data from the CMS detector at CERN. The primary objective is to build algorithm to identify electrons with momentum < 5 pT. Low momentum electrons are produced as a result of interaction between two top squarks, a process that also produces the dark matter candidate - neutralino.
+
+
+## Methodology
+- Electron and muon identification efficiencies studied using Monte Carlo simulations with preserved generator information.
+- Framework developed for signal and background analysis using specific CMS data samples.
+- Sensitivity analysis conducted focusing on muons with 3-5 GeV momentum range.
+- Prediction made regarding the efficiency and benefits of including low momentum electrons in future searches.
+
 
 ## Setup
 
